@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ele_dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ele_dao/src/main/resources/cn" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_interface" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ele_pojo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/entity" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/entity/PageResult.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/good/Brand.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/good/BrandQuery.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/good/Goods.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/good/GoodsDesc.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/good/GoodsDescQuery.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/good/GoodsEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/good/GoodsQuery.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/specification/Specification.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/specification/SpecificationEntity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/specification/SpecificationOption.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/specification/SpecificationOptionQuery.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/specification/SpecificationQuery.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_pojo/src/main/java/cn/ele/core/pojo/user" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_service_main" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ele_web_main" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ele_web_main/src/main/resources/config" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_web_main/src/main/resources/spring/spring-security.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_web_main/src/main/resources/spring/springmvc-servlet.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_web_main/src/main/webapp/css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_web_main/src/main/webapp/fonts" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_web_main/src/main/webapp/images" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_web_main/src/main/webapp/index.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_web_main/src/main/webapp/js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_web_main/src/main/webapp/login.html" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_web_main/src/main/webapp/sass" charset="GBK" />
+  </component>
+</project>

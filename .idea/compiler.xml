@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="ele_dao" />
+        <module name="ele_interface" />
+        <module name="ele_pojo" />
+        <module name="ele_service_main" />
+        <module name="ele_web_main" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>
