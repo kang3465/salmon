@@ -1,4 +1,4 @@
-package cn.ele.user.controller;
+package cn.ele.core.controller.user;
 
 import cn.ele.core.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ public class UserContraller {
     UserService userservice;
     @RequestMapping("Login")
     public String Login(){
-        return "";
+        return "success";
     }
 
 }

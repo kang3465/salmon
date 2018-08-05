@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ele_common" />
         <module name="ele_dao" />
         <module name="ele_interface" />
         <module name="ele_pojo" />
