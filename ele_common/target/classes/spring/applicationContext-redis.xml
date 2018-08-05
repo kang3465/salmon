@@ -14,12 +14,12 @@
             http://www.springframework.org/schema/cache/spring-cache.xsd">  
   
    
-  <context:property-placeholder location="classpath*:properties/redis-config.properties" ignore-unresolvable="true" />
+  <context:property-placeholder location="classpath*:properties/redis-config.properties"  />
    <!-- redis 相关配置 --> 
    <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">  
      <property name="maxIdle" value="${redis.maxIdle}" />   
      <property name="maxWaitMillis" value="${redis.maxWait}" />  
-     <property name="testOnBorrow" value="${redis.testOnBorrow}" />  
+     <property name="testOnBorrow" value="${redis.testOnBorrow}" />
    </bean>  
   
    <bean id="JedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" 
