@@ -36,7 +36,7 @@
         </dependency>
         <dependency>
             <groupId>cn.more</groupId>
-            <artifactId>ele_interface</artifactId>
+            <artifactId>ele_pojo</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
