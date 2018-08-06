@@ -14,7 +14,8 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
  
-   	<!--<import resource="classpath*:spring/applicationContext-*.xml"/>-->
+   	<import resource="classpath*:spring/applicationContext-dubbox.xml"/>
+   	<import resource="classpath*:spring/applicationContext-tx.xml"/>
 	<dubbo:protocol name="dubbo" port="30881"/>
 	<dubbo:application name="ele_service_main"/>
     <dubbo:annotation package="cn.ele.core.service" />
