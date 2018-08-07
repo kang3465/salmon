@@ -10,7 +10,7 @@
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<context:property-placeholder location="classpath:config/application.properties" ignore-unresolvable="true"/>
+	<context:property-placeholder location="classpath:config/application.properties" ignore-unresolvable="true" />
 
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
@@ -26,11 +26,10 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
-
 	<!-- 引用dubbo 服务 -->
-	<dubbo:application name="pinyougou-user-web" />
+	<!--<dubbo:application name="ele-main-web" />-->
 	<dubbo:registry address="zookeeper://101.200.56.109:2181"/>
-	<dubbo:reference id="sellerService"  interface="cn.ele.core.service.user.UserService" />
+	<dubbo:reference id="userService" interface="cn.ele.core.service.user.UserService" />
 	<dubbo:annotation package="cn.ele.core.controller.user" />
 	<!-- 超时全局设置   10分钟   check=false不检查服务提供方-->
 	<dubbo:consumer timeout="600000" check="false"/>
