@@ -163,7 +163,7 @@
       <dependency>
         <groupId>org.csource.fastdfs</groupId>
         <artifactId>fastdfs</artifactId>
-        <version>1.2</version>
+        <version>1.2.5</version>
       </dependency>
       <!-- 文件上传组件 -->
       <dependency>
@@ -192,11 +192,11 @@
         <artifactId>freemarker</artifactId>
         <version>${freemarker.version}</version>
       </dependency>
-      <dependency>
+      <!--<dependency>
         <groupId>org.apache.activemq</groupId>
         <artifactId>activemq-all</artifactId>
         <version>${activemq.version}</version>
-      </dependency>
+      </dependency>-->
       <dependency>
         <groupId>org.apache.activemq</groupId>
         <artifactId>activemq-client</artifactId>
@@ -286,10 +286,10 @@
           <artifactId>maven-site-plugin</artifactId>
           <version>3.7</version>
         </plugin>
-        <plugin>
+<!--        <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>2.9</version>
-        </plugin>
+        </plugin>-->
       </plugins>
     </pluginManagement>
     <plugins>
@@ -303,11 +303,11 @@
     </plugins>
   </build>
 
-  <reporting>
+<!--  <reporting>
     <plugins>
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
       </plugin>
     </plugins>
-  </reporting>
+  </reporting>-->
 </project>

@@ -28,6 +28,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         cn.ele.core.pojo.user.User user = null;
+        username = username.trim();
         try {
             user = userService.findOneByUserName(username);
         } catch (Exception e) {

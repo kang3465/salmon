@@ -5,6 +5,9 @@
     <file type="web" url="file://$PROJECT_DIR$/ele_service_main" />
     <file type="web" url="file://$PROJECT_DIR$/ele_web_main" />
   </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -20,7 +23,15 @@
       <map>
         <entry key="$PROJECT_DIR$">
           <value>
-            <SvnBranchConfiguration />
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="svn://101.200.56.109/element_parent/branches" />
+                  <option value="svn://101.200.56.109/element_parent/tags" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="svn://101.200.56.109/element_parent/trunk" />
+            </SvnBranchConfiguration>
           </value>
         </entry>
       </map>
