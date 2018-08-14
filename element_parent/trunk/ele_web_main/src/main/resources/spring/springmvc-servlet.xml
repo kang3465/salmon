@@ -33,4 +33,5 @@
 	<dubbo:annotation package="cn.ele.core.controller.user" />
 	<!-- 超时全局设置   10分钟   check=false不检查服务提供方-->
 	<dubbo:consumer timeout="600000" check="false"/>
+	<dubbo:provider delay="-1" timeout="6000" retries="0"/>
 </beans>

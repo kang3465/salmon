@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         UserQuery userQuery = new UserQuery();
         UserQuery.Criteria criteria = userQuery.createCriteria();
         criteria.andUsernameEqualTo(userName);
-        userQuery.or(criteria);
+//        userQuery.or(criteria);
         List<User> users = userDao.selectByExample(userQuery);
         if (users.size() <= 0) return null;
         else if (users.size()>1) throw new Exception("请联系数据库管理员：数据出错，用户数据重复需要管理员维护数据");
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
         UserRoleLinkQuery userRoleLinkQuery = new UserRoleLinkQuery();
         UserRoleLinkQuery.Criteria userRoleLinkQueryCriteria = userRoleLinkQuery.createCriteria();
         userRoleLinkQueryCriteria.andUserIdEqualTo(Math.toIntExact(userId));
-        userRoleLinkQuery.or(userRoleLinkQueryCriteria);
+//        userRoleLinkQuery.or(userRoleLinkQueryCriteria);
         List<UserRoleLinkKey> userRoleLinkKeys = userRoleLinkDao.selectByExample(userRoleLinkQuery);
 
         RoleQuery roleQuery = new RoleQuery();
@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
         UserRoleLinkQuery userRoleLinkQuery = new UserRoleLinkQuery();
         UserRoleLinkQuery.Criteria userRoleLinkQueryCriteria = userRoleLinkQuery.createCriteria();
         userRoleLinkQueryCriteria.andUserIdEqualTo(Math.toIntExact(userId));
-        userRoleLinkQuery.or(userRoleLinkQueryCriteria);
+//        userRoleLinkQuery.or(userRoleLinkQueryCriteria);
         List<UserRoleLinkKey> userRoleLinkKeys = userRoleLinkDao.selectByExample(userRoleLinkQuery);
         return roleDao.selectByPrimaryKey(userRoleLinkKeys.get(0).getRoleId());
     }
@@ -72,7 +72,7 @@ public class UserServiceImpl implements UserService {
         RolePermissionLinkQuery rolePermissionLinkQuery = new RolePermissionLinkQuery();
         RolePermissionLinkQuery.Criteria rolePermissionLinkQueryCriteria = rolePermissionLinkQuery.createCriteria();
         rolePermissionLinkQueryCriteria.andRoleIdEqualTo(roleByUserId.getId());
-        rolePermissionLinkQuery.or(rolePermissionLinkQueryCriteria);
+//        rolePermissionLinkQuery.or(rolePermissionLinkQueryCriteria);
         List<RolePermissionLink> rolePermissionLinks = rolePermissionLinkDao.selectByExample(rolePermissionLinkQuery);
 
         PermissionQuery permissionQuery = new PermissionQuery();
