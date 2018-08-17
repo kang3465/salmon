@@ -12,7 +12,11 @@
         <module name="ele_pojo" />
         <module name="ele_service_main" />
         <module name="ele_web_main" />
+        <module name="ele_web_manager" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ele_web_manager" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

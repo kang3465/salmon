@@ -11,7 +11,7 @@ import java.util.List;
 public class WeChatUtilTest {
 
     @Test
-    public void getAccessToken() {
+    public void getAccessToken() {;
         WechatAccount wechatAccount = new WechatAccount();
 
         String accessToken = WeChatUtil.getAccessToken(wechatAccount.getAppid(), wechatAccount.getAppkey());
@@ -53,7 +53,7 @@ public class WeChatUtilTest {
         WechatInfo wechatInfo = new WechatInfo();
         wechatInfo.setAuthor("kang");
         wechatInfo.setCover("D:\\尚善吉祥\\593277516412350740.png");
-        wechatInfo.setContent("123");
+        wechatInfo.setContent("测试详情");
         wechatInfo.setOriginallink("123");
         wechatInfo.setShowcover("1");
         wechatInfo.setTitle("123");
