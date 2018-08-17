@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@Transactional
+@Transactional(rollbackFor = {})
 public class UserServiceImpl implements UserService {
 
     @Autowired
