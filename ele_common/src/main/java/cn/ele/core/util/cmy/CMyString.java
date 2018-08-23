@@ -998,7 +998,7 @@ public class CMyString {
     }
 
     public static boolean isValidCharOfXML(char var0) {
-        return var0 == '\t' || var0 == '\n' || var0 == '\r' || ' ' <= var0 && var0 <= '\ud7ff' || '\ue000' <= var0 && var0 <= '�' || 65536 <= var0 && var0 <= 1114111;
+        return var0 == '\t' || var0 == '\n' || var0 == '\r' || ' ' <= var0 && var0 <= '\ud7ff' || '\ue000' <= var0 && var0 <= '\ue000' || 65536 <= var0 && var0 <= 1114111;
     }
 
     public static int getBytesLength(String var0) {
