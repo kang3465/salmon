@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * JSONå·¥å…·ç±»
+ * JSON¹¤¾ßÀà
  * @author Administrator
  *
  */
 public class JsonUtil {
 
 	/**
-	 * å°†jsonä¸­çš„æŸä¸ªkeyæå‡ºæ¥ï¼Œ
+	 * ½«jsonÖĞµÄÄ³¸ökeyÌá³öÀ´£¬
 	 * @param jsonString
 	 * @param key
 	 * @return

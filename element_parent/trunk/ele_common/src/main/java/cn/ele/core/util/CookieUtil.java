@@ -10,13 +10,13 @@ import java.net.URLEncoder;
 
 /**
  * 
- * Cookie å·¥å…·ç±»
+ * Cookie ¹¤¾ßÀà
  *
  */
 public final class CookieUtil {
 
     /**
-     * å¾—åˆ°Cookieçš„å€¼, ä¸ç¼–ç 
+     * µÃµ½CookieµÄÖµ, ²»±àÂë
      * 
      * @param request
      * @param cookieName
@@ -27,7 +27,7 @@ public final class CookieUtil {
     }
 
     /**
-     * å¾—åˆ°Cookieçš„å€¼,
+     * µÃµ½CookieµÄÖµ,
      * 
      * @param request
      * @param cookieName
@@ -57,7 +57,7 @@ public final class CookieUtil {
     }
 
     /**
-     * å¾—åˆ°Cookieçš„å€¼,
+     * µÃµ½CookieµÄÖµ,
      * 
      * @param request
      * @param cookieName
@@ -83,7 +83,7 @@ public final class CookieUtil {
     }
 
     /**
-     * è®¾ç½®Cookieçš„å€¼ ä¸è®¾ç½®ç”Ÿæ•ˆæ—¶é—´é»˜è®¤æµè§ˆå™¨å…³é—­å³å¤±æ•ˆ,ä¹Ÿä¸ç¼–ç 
+     * ÉèÖÃCookieµÄÖµ ²»ÉèÖÃÉúĞ§Ê±¼äÄ¬ÈÏä¯ÀÀÆ÷¹Ø±Õ¼´Ê§Ğ§,Ò²²»±àÂë
      */
     public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
             String cookieValue) {
@@ -91,7 +91,7 @@ public final class CookieUtil {
     }
 
     /**
-     * è®¾ç½®Cookieçš„å€¼ åœ¨æŒ‡å®šæ—¶é—´å†…ç”Ÿæ•ˆ,ä½†ä¸ç¼–ç 
+     * ÉèÖÃCookieµÄÖµ ÔÚÖ¸¶¨Ê±¼äÄÚÉúĞ§,µ«²»±àÂë
      */
     public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
             String cookieValue, int cookieMaxage) {
@@ -99,7 +99,7 @@ public final class CookieUtil {
     }
 
     /**
-     * è®¾ç½®Cookieçš„å€¼ ä¸è®¾ç½®ç”Ÿæ•ˆæ—¶é—´,ä½†ç¼–ç 
+     * ÉèÖÃCookieµÄÖµ ²»ÉèÖÃÉúĞ§Ê±¼ä,µ«±àÂë
      */
     public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
             String cookieValue, boolean isEncode) {
@@ -107,7 +107,7 @@ public final class CookieUtil {
     }
 
     /**
-     * è®¾ç½®Cookieçš„å€¼ åœ¨æŒ‡å®šæ—¶é—´å†…ç”Ÿæ•ˆ, ç¼–ç å‚æ•°
+     * ÉèÖÃCookieµÄÖµ ÔÚÖ¸¶¨Ê±¼äÄÚÉúĞ§, ±àÂë²ÎÊı
      */
     public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
             String cookieValue, int cookieMaxage, boolean isEncode) {
@@ -115,7 +115,7 @@ public final class CookieUtil {
     }
 
     /**
-     * è®¾ç½®Cookieçš„å€¼ åœ¨æŒ‡å®šæ—¶é—´å†…ç”Ÿæ•ˆ, ç¼–ç å‚æ•°(æŒ‡å®šç¼–ç )
+     * ÉèÖÃCookieµÄÖµ ÔÚÖ¸¶¨Ê±¼äÄÚÉúĞ§, ±àÂë²ÎÊı(Ö¸¶¨±àÂë)
      */
     public static void setCookie(HttpServletRequest request, HttpServletResponse response, String cookieName,
             String cookieValue, int cookieMaxage, String encodeString) {
@@ -123,7 +123,7 @@ public final class CookieUtil {
     }
 
     /**
-     * åˆ é™¤Cookieå¸¦cookieåŸŸå
+     * É¾³ıCookie´øcookieÓòÃû
      */
     public static void deleteCookie(HttpServletRequest request, HttpServletResponse response,
             String cookieName) {
@@ -131,9 +131,9 @@ public final class CookieUtil {
     }
 
     /**
-     * è®¾ç½®Cookieçš„å€¼ï¼Œå¹¶ä½¿å…¶åœ¨æŒ‡å®šæ—¶é—´å†…ç”Ÿæ•ˆ
+     * ÉèÖÃCookieµÄÖµ£¬²¢Ê¹ÆäÔÚÖ¸¶¨Ê±¼äÄÚÉúĞ§
      * 
-     * @param cookieMaxage cookieç”Ÿæ•ˆçš„æœ€å¤§ç§’æ•°
+     * @param cookieMaxage cookieÉúĞ§µÄ×î´óÃëÊı
      */
     private static final void doSetCookie(HttpServletRequest request, HttpServletResponse response,
             String cookieName, String cookieValue, int cookieMaxage, boolean isEncode) {
@@ -146,7 +146,7 @@ public final class CookieUtil {
             Cookie cookie = new Cookie(cookieName, cookieValue);
             if (cookieMaxage > 0)
                 cookie.setMaxAge(cookieMaxage);
-            if (null != request) {// è®¾ç½®åŸŸåçš„cookie
+            if (null != request) {// ÉèÖÃÓòÃûµÄcookie
             	String domainName = getDomainName(request);
             	System.out.println(domainName);
                 if (!"localhost".equals(domainName)) {
@@ -161,9 +161,9 @@ public final class CookieUtil {
     }
 
     /**
-     * è®¾ç½®Cookieçš„å€¼ï¼Œå¹¶ä½¿å…¶åœ¨æŒ‡å®šæ—¶é—´å†…ç”Ÿæ•ˆ
+     * ÉèÖÃCookieµÄÖµ£¬²¢Ê¹ÆäÔÚÖ¸¶¨Ê±¼äÄÚÉúĞ§
      * 
-     * @param cookieMaxage cookieç”Ÿæ•ˆçš„æœ€å¤§ç§’æ•°
+     * @param cookieMaxage cookieÉúĞ§µÄ×î´óÃëÊı
      */
     private static final void doSetCookie(HttpServletRequest request, HttpServletResponse response,
             String cookieName, String cookieValue, int cookieMaxage, String encodeString) {
@@ -176,7 +176,7 @@ public final class CookieUtil {
             Cookie cookie = new Cookie(cookieName, cookieValue);
             if (cookieMaxage > 0)
                 cookie.setMaxAge(cookieMaxage);
-            if (null != request) {// è®¾ç½®åŸŸåçš„cookie
+            if (null != request) {// ÉèÖÃÓòÃûµÄcookie
             	String domainName = getDomainName(request);
             	System.out.println(domainName);
                 if (!"localhost".equals(domainName)) {
@@ -191,7 +191,7 @@ public final class CookieUtil {
     }
 
     /**
-     * å¾—åˆ°cookieçš„åŸŸå
+     * µÃµ½cookieµÄÓòÃû
      */
     private static final String getDomainName(HttpServletRequest request) {
         String domainName = null;

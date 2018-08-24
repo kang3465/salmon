@@ -23,12 +23,12 @@ public class FastDFSClient {
 	}
 	
 	/**
-	 * ä¸Šä¼ æ–‡ä»¶æ–¹æ³•
+	 * ÉÏ´«ÎÄ¼ş·½·¨
 	 * <p>Title: uploadFile</p>
 	 * <p>Description: </p>
-	 * @param fileName æ–‡ä»¶å…¨è·¯å¾„
-	 * @param extName æ–‡ä»¶æ‰©å±•åï¼Œä¸åŒ…å«ï¼ˆ.ï¼‰
-	 * @param metas æ–‡ä»¶æ‰©å±•ä¿¡æ¯
+	 * @param fileName ÎÄ¼şÈ«Â·¾¶
+	 * @param extName ÎÄ¼şÀ©Õ¹Ãû£¬²»°üº¬£¨.£©
+	 * @param metas ÎÄ¼şÀ©Õ¹ĞÅÏ¢
 	 * @return
 	 * @throws Exception
 	 */
@@ -55,12 +55,12 @@ public class FastDFSClient {
 	}
 	
 	/**
-	 * ä¸Šä¼ æ–‡ä»¶æ–¹æ³•
+	 * ÉÏ´«ÎÄ¼ş·½·¨
 	 * <p>Title: uploadFile</p>
 	 * <p>Description: </p>
-	 * @param fileContent æ–‡ä»¶çš„å†…å®¹ï¼Œå­—èŠ‚æ•°ç»„
-	 * @param extName æ–‡ä»¶æ‰©å±•å
-	 * @param metas æ–‡ä»¶æ‰©å±•ä¿¡æ¯
+	 * @param fileContent ÎÄ¼şµÄÄÚÈİ£¬×Ö½ÚÊı×é
+	 * @param extName ÎÄ¼şÀ©Õ¹Ãû
+	 * @param metas ÎÄ¼şÀ©Õ¹ĞÅÏ¢
 	 * @return
 	 * @throws Exception
 	 */

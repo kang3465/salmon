@@ -260,6 +260,10 @@
             <artifactId>jsoup</artifactId>
             <version>1.10.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.weibo4j</groupId>
+            <artifactId>weibo4j-oauth2</artifactId>
+        </dependency>
 
     </dependencies>
 

@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/CacheUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/CookieUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/FastDFSClient.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/HttpClient.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/HttpsUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/IdWorker.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/IkUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/JmsUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/JsonUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/MD5Util.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/PhoneFormatCheckUtils.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/RedisCache.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/TenpayUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/WeChatApiUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/WeChatUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/XmlUtil.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/cmy/CMyDateTime.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/cmy/CMyFile.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/cmy/CMyString.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/cmy/FilesMan.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/cmy/photo/ImageMagickCmd.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/weibo/AutoOAuth4Code.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/ele_common/src/main/java/cn/ele/core/util/weibo/WeiboLogin.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/ele_dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ele_interface" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ele_pojo" charset="UTF-8" />
