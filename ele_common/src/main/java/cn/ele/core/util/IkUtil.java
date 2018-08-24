@@ -13,17 +13,17 @@ public class IkUtil {
 		Set<String> set = new HashSet<String>();
 		TokenStream stream;
 		try {
-			// åˆ›å»ºåˆ†è¯çš„ioæµ,å°†titleè¿›è¡Œåˆ†è¯
+			// ´´½¨·Ö´ÊµÄioÁ÷,½«title½øĞĞ·Ö´Ê
 			stream = new IKAnalyzer(true).tokenStream("myfield", analyzerString);
 			stream.reset();
-			// åˆ›å»ºç»“æœé›†å°è£…ç±»
+			// ´´½¨½á¹û¼¯·â×°Àà
 			CharTermAttribute offsetAtt = stream.getAttribute(CharTermAttribute.class);
-			// åˆ¤æ–­æ˜¯å¦æœ‰ä¸‹ä¸€ä¸ªåˆ†è¯
+			// ÅĞ¶ÏÊÇ·ñÓĞÏÂÒ»¸ö·Ö´Ê
 
 			while (stream.incrementToken()) {
 				set.add(offsetAtt.toString());
 			}
-			// å…³é—­æµ
+			// ¹Ø±ÕÁ÷
 			stream.end();
 			stream.close();
 		} catch (IOException e) {

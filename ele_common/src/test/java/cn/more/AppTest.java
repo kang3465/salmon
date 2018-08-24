@@ -18,4 +18,10 @@ public class AppTest
 
         assertTrue( true );
     }
+    @Test
+    public void md5()
+    {
+//        MD5Util.MD5Encode()
+        assertTrue( true );
+    }
 }
