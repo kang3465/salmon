@@ -1124,9 +1124,9 @@ public class CMyString {
                 }
             }
         } catch (FileNotFoundException var15) {
-            throw new CMyException(55, I18NMessage.get(CMyString.class, "CMyString.label2", "Òª¶ÁÈ¡µÄÆ´ÒôÅäÖÃÎÄ¼şÃ»ÓĞÕÒµ½(CMyString.getFirstLetter)"), var15);
+            throw new CMyException(55, I18NMessage.get(CMyString.class, "CMyString.label2", "è¦è¯»å–çš„æ‹¼éŸ³é…ç½®æ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°(CMyString.getFirstLetter)"), var15);
         } catch (IOException var16) {
-            throw new CMyException(53, I18NMessage.get(CMyString.class, "CMyString.label3", "¶ÁÆ´ÒôÅäÖÃÎÄ¼ş¼şÊ±´íÎó(CMyString.getFirstLetter)"), var16);
+            throw new CMyException(53, I18NMessage.get(CMyString.class, "CMyString.label3", "è¯»æ‹¼éŸ³é…ç½®æ–‡ä»¶ä»¶æ—¶é”™è¯¯(CMyString.getFirstLetter)"), var16);
         } finally {
             if (var3 != null) {
                 var3.close();
@@ -1298,7 +1298,7 @@ public class CMyString {
                     return var4.toString();
                 }
             } catch (Exception var15) {
-                throw new WCMException(1100, I18NMessage.get(CMyString.class, "CMyString.label4", "½âÎöÄÚÈİÖĞµÄ±äÁ¿Ê§°Ü!"), var15);
+                throw new WCMException(1100, I18NMessage.get(CMyString.class, "CMyString.label4", "è§£æå†…å®¹ä¸­çš„å˜é‡å¤±è´¥!"), var15);
             }
         }
     }
@@ -1478,11 +1478,11 @@ public class CMyString {
             return "";
         } else {
             String var1 = var0.replaceAll("(?is)<style[^>]*>.*</style>", "");
-            var1 = var1.replaceAll("(?is)<br[^>]*>([\\n\\s]*(&nbsp;| |¡¡)*)*", "\n¡¡¡¡");
-            var1 = var1.replaceAll("(?is)<p[^>]*>([\\n\\s]*(&nbsp;| |¡¡)*)*", "\n¡¡¡¡");
+            var1 = var1.replaceAll("(?is)<br[^>]*>([\\n\\s]*(&nbsp;| |ã€€)*)*", "\nã€€ã€€");
+            var1 = var1.replaceAll("(?is)<p[^>]*>([\\n\\s]*(&nbsp;| |ã€€)*)*", "\nã€€ã€€");
             var1 = var1.replaceAll("(?is)</p[^>]*>", "");
             var1 = var1.replaceAll("<[^>]+>", "");
-            var1 = var1.replaceAll("(?is)([ ¡¡]*\n+[ ¡¡]*)+", "\n¡¡¡¡");
+            var1 = var1.replaceAll("(?is)([ ã€€]*\n+[ ã€€]*)+", "\nã€€ã€€");
             return var1.replaceAll("&nbsp;", " ").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&quot;", "\"").replaceAll("&apos;", "'").replaceAll("&amp;", "&");
         }
     }
@@ -1538,14 +1538,14 @@ public class CMyString {
     }
 
     public static void main(String[] var0) {
-        String var1 = I18NMessage.get(CMyString.class, "CMyString.label5", " \na aa \n bbb\nÖĞ ¹ú\n\r´ó¹¤Òµ ac bd \n \rÈ«²¿bcc ");
+        String var1 = I18NMessage.get(CMyString.class, "CMyString.label5", " \na aa \n bbb\nä¸­ å›½\n\rå¤§å·¥ä¸š ac bd \n \rå…¨éƒ¨bcc ");
         var1 = replaceParasStartEndSpaces(var1);
         System.out.println(var1);
         String var2 = "action=post.do target = \"_bla nk\" onclick='alert(\"abc\"); return false;'";
         System.out.println(split2AttrMap(var2));
         String var3 = "~!@#$%^&*()_+|}{:?><,./;'[]\\=-`";
         System.out.println("~!@#$%^&*()_+|}{:?><,./;'[]\\=-`".matches(encodeForRegExp(var3)));
-        String var4 = "&lt;div align='center'&gt;&nbsp;2010 ±±¾©ÍØ¶ûË¼ĞÅÏ¢¼¼Êõ¹É·İÓĞÏŞ¹«Ë¾&lt;/div&gt;&lt;div align='center'&gt;°æÈ¨ËùÓĞ.±£ÁôËùÓĞÈ¨&lt;/div&gt;";
+        String var4 = "&lt;div align='center'&gt;&nbsp;2010 åŒ—äº¬æ‹“å°”æ€ä¿¡æ¯æŠ€æœ¯è‚¡ä»½æœ‰é™å…¬å¸&lt;/div&gt;&lt;div align='center'&gt;ç‰ˆæƒæ‰€æœ‰.ä¿ç•™æ‰€æœ‰æƒ&lt;/div&gt;";
         System.out.println(unfilterForHTMLValue(var4));
     }
 }

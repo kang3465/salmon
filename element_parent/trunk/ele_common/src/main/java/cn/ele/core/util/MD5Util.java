@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.SortedMap;
 
 /**
- * md5¼ÓÃÜ¹¤¾ßÀà
+ * md5åŠ å¯†å·¥å…·ç±»
  * 
  * @author Administrator
  * 
@@ -15,7 +15,7 @@ import java.util.SortedMap;
 public class MD5Util {
 
 	/**
-	 * ´´½¨md5ÕªÒª,¹æÔòÊÇ:°´²ÎÊıÃû³Æa-zÅÅĞò,Óöµ½¿ÕÖµµÄ²ÎÊı²»²Î¼ÓÇ©Ãû¡£
+	 * åˆ›å»ºmd5æ‘˜è¦,è§„åˆ™æ˜¯:æŒ‰å‚æ•°åç§°a-zæ’åº,é‡åˆ°ç©ºå€¼çš„å‚æ•°ä¸å‚åŠ ç­¾åã€‚
 	 */
 	public static String createSign(SortedMap<String, String> packageParams,
 			String appid, String key) {

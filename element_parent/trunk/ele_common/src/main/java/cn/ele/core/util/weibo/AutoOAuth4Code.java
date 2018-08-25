@@ -12,10 +12,10 @@ import weibo4j.http.AccessToken;
 import weibo4j.util.WeiboConfig;
 
 /**
- * Title: TRS ÄÚÈİĞ­×÷Æ½Ì¨£¨TRS WCM£© <BR>
- * Description: ×Ô¶¯ÑÓĞøĞÂÀËÕËºÅÊÚÈ¨<BR>
+ * Title: TRS å†…å®¹åä½œå¹³å°ï¼ˆTRS WCMï¼‰ <BR>
+ * Description: è‡ªåŠ¨å»¶ç»­æ–°æµªè´¦å·æˆæƒ<BR>
  * <BR>
- * Copyright: Copyright (c) 2004-2013 ±±¾©ÍØ¶ûË¼ĞÅÏ¢¼¼Êõ¹É·İÓĞÏŞ¹«Ë¾ <BR>
+ * Copyright: Copyright (c) 2004-2013 åŒ—äº¬æ‹“å°”æ€ä¿¡æ¯æŠ€æœ¯è‚¡ä»½æœ‰é™å…¬å¸ <BR>
  * Company: www.trs.com.cn <BR>
  * 
  * @author lky
@@ -23,16 +23,16 @@ import weibo4j.util.WeiboConfig;
  */
 public class AutoOAuth4Code {
 
-    // ÈÕÖ¾¼ÇÂ¼Àà
+    // æ—¥å¿—è®°å½•ç±»
     private static org.apache.log4j.Logger logger = org.apache.log4j.Logger
             .getLogger(AutoOAuth4Code.class);
 
     /**
-     * ´ÓÌø×ªµØÖ·ÖĞ»ñÈ¡codeµÄÖµ
+     * ä»è·³è½¬åœ°å€ä¸­è·å–codeçš„å€¼
      * 
      * @param location
-     *            Ìø×ªurl
-     * @return codeµÄÖµ
+     *            è·³è½¬url
+     * @return codeçš„å€¼
      */
     private static String getCodeFromLocation(String location) {
         int begin = location.indexOf("code=");
@@ -42,10 +42,10 @@ public class AutoOAuth4Code {
     /**
      * 
      * @param username
-     *            ÓÃ»§Ãû
+     *            ç”¨æˆ·å
      * @param password
-     *            ÃÜÂë
-     * @return token¶ÔÏó
+     *            å¯†ç 
+     * @return tokenå¯¹è±¡
      */
     public static AccessToken AccessTokenRefresh(String username, String password) {
         AccessToken access_token = null;
@@ -58,96 +58,96 @@ public class AutoOAuth4Code {
         wl.setPassword(password);
         String url = null;
         try {
-            // »ñµÃÊÚÈ¨url
+            // è·å¾—æˆæƒurl
             url = oauth.authorize("code","");
 
-            // Ä£ÄâµÇÂ¼µÄ´úÂë£¨ÅĞ¶ÏÎ¢²©ÕËºÅ×Ô¶¯µÇÂ¼ÊÇ·ñµÇÂ¼³É¹¦£©
+            // æ¨¡æ‹Ÿç™»å½•çš„ä»£ç ï¼ˆåˆ¤æ–­å¾®åšè´¦å·è‡ªåŠ¨ç™»å½•æ˜¯å¦ç™»å½•æˆåŠŸï¼‰
             boolean isLogined = wl.login();
             if (!isLogined) {
-                logger.error("ÓÃ»§Ãû¡¢ÃÜÂë´íÎó£¡");
+                logger.error("ç”¨æˆ·åã€å¯†ç é”™è¯¯ï¼");
                 return null;
             }
 
-            // »ñÈ¡µÇÂ¼cookie
+            // è·å–ç™»å½•cookie
             String cookie = wl.getCookie();
            
-            // ×Ô¶¯½øÈëÊÚÈ¨Ò³Ãæ
+            // è‡ªåŠ¨è¿›å…¥æˆæƒé¡µé¢
             HttpMethod method = new PostMethod(url);
             method.addRequestHeader("Cookie", cookie);
             int statusCode = client.executeMethod(method);
            
-            // ÒÑÊÚÈ¨¹ıµÄ£¬Ë¢ĞÂÔö¼Ótoken¹ıÆÚÊ±¼ä
+            // å·²æˆæƒè¿‡çš„ï¼Œåˆ·æ–°å¢åŠ tokenè¿‡æœŸæ—¶é—´
             if (302 == statusCode) {
 
-                // »ñÈ¡Ìø×ªurl
-                logger.debug("ÒÑÊÚÈ¨¹ıµÄÕËºÅ£¬Ë¢ĞÂÔö¼Ótoken¹ıÆÚÊ±¼ä");
+                // è·å–è·³è½¬url
+                logger.debug("å·²æˆæƒè¿‡çš„è´¦å·ï¼Œåˆ·æ–°å¢åŠ tokenè¿‡æœŸæ—¶é—´");
                 location = method.getResponseHeader("Location").getValue();
 
-                // ´ÓÌø×ªurlÖĞ×¥³öcode
+                // ä»è·³è½¬urlä¸­æŠ“å‡ºcode
                 code = getCodeFromLocation(location);
 
-                // Ê¹ÓÃcode»»È¡access token
+                // ä½¿ç”¨codeæ¢å–access token
                 access_token = oauth.getAccessTokenByCode(code);
             }
-            else if(200 == statusCode){        // Î´ÊÚÈ¨£¬ĞèÒªÄ£ÄâÊÚÈ¨²Ù×÷
-                logger.debug("Î´ÊÚÈ¨¹ıµÄÕËºÅ£¬ĞèÒªÄ£ÄâÊÚÈ¨²Ù×÷");
+            else if(200 == statusCode){        // æœªæˆæƒï¼Œéœ€è¦æ¨¡æ‹Ÿæˆæƒæ“ä½œ
+                logger.debug("æœªæˆæƒè¿‡çš„è´¦å·ï¼Œéœ€è¦æ¨¡æ‹Ÿæˆæƒæ“ä½œ");
 
-                // ×Ô¶¯×é×°Ìá½»ÇëÇóÒ³Ãæ
+                // è‡ªåŠ¨ç»„è£…æäº¤è¯·æ±‚é¡µé¢
                 Document html = Jsoup.parse(method.getResponseBodyAsString());
                 Elements params = html.select("form[name=authZForm] > input[type=hidden]");
                 PostMethod post = new PostMethod("https://api.weibo.com/oauth2/authorize");
                
-                // ÉèÖÃÇëÇó±¨Í·
+                // è®¾ç½®è¯·æ±‚æŠ¥å¤´
                 post.addRequestHeader("Cookie", cookie);
                 post.addRequestHeader("Referer", "https://api.weibo.com/oauth2/authorize?client_id=" +
                                             WeiboConfig.getValue("client_ID").trim() +
                                             "&redirect_uri=" +
                                             WeiboConfig.getValue("redirect_URI").trim() +
                                             "&response_type=code");
-                // Ìî³äpostÇëÇóµÄ¸÷¸ö²ÎÊı
+                // å¡«å……postè¯·æ±‚çš„å„ä¸ªå‚æ•°
                 for(Element param : params) {
                     post.addParameter(param.attr("name"), param.attr("value"));
                 }
 
-                // Ìá½»ÇëÇó»ñÈ¡ÇëÇó×´Ì¬
+                // æäº¤è¯·æ±‚è·å–è¯·æ±‚çŠ¶æ€
                 statusCode = client.executeMethod(post);
                
-                // 302 Ìø×ªÔò±íÊ¾post³É¹¦
+                // 302 è·³è½¬åˆ™è¡¨ç¤ºpostæˆåŠŸ
                 if(302 == statusCode) {
-                    // »ñÈ¡Ìø×ªurl
+                    // è·å–è·³è½¬url
                     location = post.getResponseHeader("Location").getValue();
                    
-                    // »ñÈ¡code»»È¡access_token
+                    // è·å–codeæ¢å–access_token
                     code = getCodeFromLocation(location);
                     access_token = oauth.getAccessTokenByCode(code);
                 } else {
-                    logger.debug("Î´»ñÈ¡µ½Ìø×ª×´Ì¬£¬ÊÚÈ¨Ê§°Ü£¡");
+                    logger.debug("æœªè·å–åˆ°è·³è½¬çŠ¶æ€ï¼Œæˆæƒå¤±è´¥ï¼");
                     return null;
                 }
             } else {
-                logger.debug("Î´»ñÈ¡µ½ÕıÈ·Ìø×ª×´Ì¬£¬ÊÚÈ¨Ê§°Ü£¡");
+                logger.debug("æœªè·å–åˆ°æ­£ç¡®è·³è½¬çŠ¶æ€ï¼Œæˆæƒå¤±è´¥ï¼");
                 return null;
             }
         } catch (Exception e) {
-            logger.error("Î´»ñÈ¡µ½ÕıÈ·Ìø×ª×´Ì¬£¬ÊÚÈ¨Ê§°Ü£¡");
+            logger.error("æœªè·å–åˆ°æ­£ç¡®è·³è½¬çŠ¶æ€ï¼Œæˆæƒå¤±è´¥ï¼");
         }
         return access_token;
     }
 
     /**
-     * ²âÊÔ»ñÈ¡AccessTokenÊÇ·ñÕıÈ·
+     * æµ‹è¯•è·å–AccessTokenæ˜¯å¦æ­£ç¡®
      * 
      * @param args
      */
     public static void main(String[] args) {
 
-        // ĞèÒªÕıÈ·µÄĞÂÀËÕËºÅµÄÓÃ»§ÃûºÍÃÜÂë
+        // éœ€è¦æ­£ç¡®çš„æ–°æµªè´¦å·çš„ç”¨æˆ·åå’Œå¯†ç 
         String username = "18710058144";
         String password = "gyw19870919";
         try {
             AccessToken oAccessToken = AutoOAuth4Code.AccessTokenRefresh(username, password);
 
-            System.out.println("»ñÈ¡µ½µÄ£º"+oAccessToken.toString());
+            System.out.println("è·å–åˆ°çš„ï¼š"+oAccessToken.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

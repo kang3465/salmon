@@ -15,20 +15,20 @@ import java.util.Map.Entry;
 
 
 /**
- * https ÇëÇó Î¢ĞÅÎªhttpsµÄÇëÇó
+ * https è¯·æ±‚ å¾®ä¿¡ä¸ºhttpsçš„è¯·æ±‚
  * @author stone
  *
  */
 public class HttpsUtil {
 
     /**
-     * Ä¬ÈÏ±àÂë
+     * é»˜è®¤ç¼–ç 
      */
     private static final String DEFAULT_CHARSET = "UTF-8";
 
 
     /**
-     * HTTPS µÄget ÇëÇó
+     * HTTPS çš„get è¯·æ±‚
      * @param url
      * @return
      */
@@ -38,14 +38,14 @@ public class HttpsUtil {
             TrustManager[] tm = { new MyX509TrustManager() };
             SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
             sslContext.init(null, tm, new java.security.SecureRandom());
-            // ´ÓÉÏÊöSSLContext¶ÔÏóÖĞµÃµ½SSLSocketFactory¶ÔÏó
+            // ä»ä¸Šè¿°SSLContextå¯¹è±¡ä¸­å¾—åˆ°SSLSocketFactoryå¯¹è±¡
             SSLSocketFactory ssf = sslContext.getSocketFactory();
 
             URL urlGet = new URL(url);
             HttpsURLConnection http = (HttpsURLConnection) urlGet.openConnection();
-            // Á¬½Ó³¬Ê±
+            // è¿æ¥è¶…æ—¶
             http.setConnectTimeout(25000);
-            // ¶ÁÈ¡³¬Ê± --·şÎñÆ÷ÏìÓ¦±È½ÏÂı£¬Ôö´óÊ±¼ä
+            // è¯»å–è¶…æ—¶ --æœåŠ¡å™¨å“åº”æ¯”è¾ƒæ…¢ï¼Œå¢å¤§æ—¶é—´
             http.setReadTimeout(25000);
             http.setRequestMethod("GET");
             http.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
@@ -63,7 +63,7 @@ public class HttpsUtil {
             }
             in.close();
             if (http != null) {
-                // ¹Ø±ÕÁ¬½Ó
+                // å…³é—­è¿æ¥
                 http.disconnect();
             }
             return bufferRes.toString();
@@ -74,7 +74,7 @@ public class HttpsUtil {
     }
 
     /**
-     * getÇëÇóhttps
+     * getè¯·æ±‚https
      * @param url
      * @param params
      * @return
@@ -84,7 +84,7 @@ public class HttpsUtil {
     }
 
     /**
-     * HTTPS µÄPOST ÇëÇó
+     * HTTPS çš„POST è¯·æ±‚
      * @param url
      * @param params
      * @return
@@ -95,15 +95,15 @@ public class HttpsUtil {
             TrustManager[] tm = { new MyX509TrustManager() };
             SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
             sslContext.init(null, tm, new java.security.SecureRandom());
-            // ´ÓÉÏÊöSSLContext¶ÔÏóÖĞµÃµ½SSLSocketFactory¶ÔÏó
+            // ä»ä¸Šè¿°SSLContextå¯¹è±¡ä¸­å¾—åˆ°SSLSocketFactoryå¯¹è±¡
             SSLSocketFactory ssf = sslContext.getSocketFactory();
 
 
             URL urlGet = new URL(url);
             HttpsURLConnection http = (HttpsURLConnection) urlGet.openConnection();
-            // Á¬½Ó³¬Ê±
+            // è¿æ¥è¶…æ—¶
             http.setConnectTimeout(25000);
-            // ¶ÁÈ¡³¬Ê± --·şÎñÆ÷ÏìÓ¦±È½ÏÂı£¬Ôö´óÊ±¼ä
+            // è¯»å–è¶…æ—¶ --æœåŠ¡å™¨å“åº”æ¯”è¾ƒæ…¢ï¼Œå¢å¤§æ—¶é—´
             http.setReadTimeout(25000);
             http.setRequestMethod("POST");
             http.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
@@ -128,7 +128,7 @@ public class HttpsUtil {
             }
             in.close();
             if (http != null) {
-                // ¹Ø±ÕÁ¬½Ó
+                // å…³é—­è¿æ¥
                 http.disconnect();
             }
             return bufferRes.toString();
@@ -140,7 +140,7 @@ public class HttpsUtil {
 
 
     /**
-     * ¹¹ÔìÇëÇó²ÎÊı
+     * æ„é€ è¯·æ±‚å‚æ•°
      * @param url
      * @param params
      * @return

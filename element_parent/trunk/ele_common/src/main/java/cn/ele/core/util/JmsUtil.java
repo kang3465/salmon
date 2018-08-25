@@ -9,7 +9,7 @@ import javax.jms.*;
 import java.util.Map;
 
 /**
- * JMS¹¤¾ßÀà
+ * JMSå·¥å…·ç±»
  * @author Administrator
  *
  */
@@ -20,12 +20,12 @@ public class JmsUtil {
 	private JmsTemplate jmsTemplate;
 	
 	/**
-	 * ·¢ËÍÏûÏ¢
+	 * å‘é€æ¶ˆæ¯
 	 * @param destination
 	 * @param map
 	 */
 	public void send(Destination destination, final Map<String ,String> map){
-		System.out.println("---------------Éú²úÕß·¢ËÍÏûÏ¢-----------------");   
+		System.out.println("---------------ç”Ÿäº§è€…å‘é€æ¶ˆæ¯-----------------");   
 		jmsTemplate.send(destination, new MessageCreator() {			
 			public Message createMessage(Session session) throws JMSException {
 				
@@ -42,12 +42,12 @@ public class JmsUtil {
 	
 	
 	/**
-	 * ·¢ËÍÏûÏ¢£¨ÎÄ±¾£©
+	 * å‘é€æ¶ˆæ¯ï¼ˆæ–‡æœ¬ï¼‰
 	 * @param destination
 	 * @param text
 	 */
 	public void send(Destination destination, final String text){
-		System.out.println("---------------Éú²úÕß·¢ËÍÏûÏ¢(Text)-----------------");   
+		System.out.println("---------------ç”Ÿäº§è€…å‘é€æ¶ˆæ¯(Text)-----------------");   
 		jmsTemplate.send(destination, new MessageCreator() {			
 			public Message createMessage(Session session) throws JMSException {
 				return session.createTextMessage(text);

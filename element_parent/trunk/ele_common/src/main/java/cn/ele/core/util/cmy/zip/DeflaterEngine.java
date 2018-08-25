@@ -37,8 +37,8 @@ class DeflaterEngine implements DeflaterConstants {
         this.huffman = new DeflaterHuffman(var1);
         this.adler = new Adler32();
         this.window = new byte[65536];
-        this.head = new short['耀'];
-        this.prev = new short['耀'];
+        this.head = new short['ҫ'];
+        this.prev = new short['ҫ'];
         this.blockStart = this.strstart = 1;
     }
 
@@ -143,7 +143,7 @@ class DeflaterEngine implements DeflaterConstants {
 
                 for(int var2 = 0; var2 < 32768; ++var2) {
                     short var3 = this.head[var2];
-                    this.head[var2] = var3 >= '耀' ? (short)(var3 - '耀') : 0;
+                    this.head[var2] = var3 >= 'ҫ' ? (short)(var3 - 'ҫ') : 0;
                 }
 
                 var1 += 32768;

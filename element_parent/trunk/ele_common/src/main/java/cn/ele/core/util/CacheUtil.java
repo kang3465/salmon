@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * »º´æ¹¤¾ßÀà
+ * ç¼“å­˜å·¥å…·ç±»
  * @author Administrator
  *
  */
@@ -18,53 +18,53 @@ public class CacheUtil {
 		this.redisTemplate = redisTemplate;
 	}  
 	
-	//Ìí¼Ó¶ÔÏó
+	//æ·»åŠ å¯¹è±¡
 	public void addValue(String key,Object value){
 		redisTemplate.boundValueOps(key).set(value);
 	}
 	
-	//»ñÈ¡¶ÔÏó
+	//è·å–å¯¹è±¡
 	public Object getValue(String key){
 		return redisTemplate.boundValueOps(key).get();
 	}
 	
-	//É¾³ı¶ÔÏó
+	//åˆ é™¤å¯¹è±¡
 	public void removeValue(String key){
 		redisTemplate.delete(key);
 	}
 	
-	//ÏòSet¼¯ºÏÌí¼ÓÖµ
+	//å‘Seté›†åˆæ·»åŠ å€¼
 	public void addSetValue(String key,Object value){
 		redisTemplate.boundSetOps(key).add(value);
 	}
 	
-	//»ñÈ¡Set¼¯ºÏµÄÖµ
+	//è·å–Seté›†åˆçš„å€¼
 	public Set getSetValue(String key){
 		return redisTemplate.boundSetOps(key).members();
 	}
 	
-	//É¾³ıSet¼¯ºÏÖĞµÄÄ³¸öÖµ
+	//åˆ é™¤Seté›†åˆä¸­çš„æŸä¸ªå€¼
 	public void removeSetValue(String key,Object value){
 		redisTemplate.boundSetOps(key).remove(value);
 	}
 	
 	
-	//ÏòList¼¯ºÏÌí¼ÓÖµ
+	//å‘Listé›†åˆæ·»åŠ å€¼
 	public void addListValue(String key,Object value){
 		redisTemplate.boundListOps(key).leftPush(value);
 	}
 	
-	//»ñÈ¡List¼¯ºÏ
+	//è·å–Listé›†åˆ
 	public List getListValues(String key){
-		return redisTemplate.boundListOps(key).range(0, -1);//-1´ú±íËùÓĞ
+		return redisTemplate.boundListOps(key).range(0, -1);//-1ä»£è¡¨æ‰€æœ‰
 	}
 	
-	//»ñÈ¡List¼¯ºÏ
+	//è·å–Listé›†åˆ
 	public Object getListValueByIndex(String key,long  index){
 		return redisTemplate.boundListOps(key).index(index);
 	}
 	
-	//É¾³ıList¼¯ºÏÖĞµÄÄ³¸öÖµ
+	//åˆ é™¤Listé›†åˆä¸­çš„æŸä¸ªå€¼
 	public void removeListValue(String key,long index){
 		redisTemplate.boundListOps(key).remove(index,null);
 	}
