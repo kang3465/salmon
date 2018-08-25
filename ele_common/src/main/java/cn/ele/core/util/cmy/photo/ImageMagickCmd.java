@@ -22,11 +22,11 @@ import java.util.ArrayList;
 import java.util.Map;
 
 /**
- * Title: TRS ÄÚÈİĞ­×÷Æ½Ì¨£¨TRS WCM£©<BR>
+ * Title: TRS å†…å®¹åä½œå¹³å°ï¼ˆTRS WCMï¼‰<BR>
  * Description: <BR>
  * TODO <BR>
- * Copyright: Copyright (c) 2004-2009 ±±¾©ÍØ¶ûË¼ĞÅÏ¢¼¼Êõ¹É·İÓĞÏŞ¹«Ë¾<BR>
- * Company: ±±¾©ÍØ¶ûË¼ĞÅÏ¢¼¼Êõ¹É·İÓĞÏŞ¹«Ë¾(www.trs.com.cn)<BR>
+ * Copyright: Copyright (c) 2004-2009 åŒ—äº¬æ‹“å°”æ€ä¿¡æ¯æŠ€æœ¯è‚¡ä»½æœ‰é™å…¬å¸<BR>
+ * Company: åŒ—äº¬æ‹“å°”æ€ä¿¡æ¯æŠ€æœ¯è‚¡ä»½æœ‰é™å…¬å¸(www.trs.com.cn)<BR>
  * 
  * @author wenyh
  * @version 1.0
@@ -98,7 +98,7 @@ public final class ImageMagickCmd {
 		cmd[5] = _originalImage.filename;
 		cmd[6] = _dstImage.filename;
 
-		// µ±ÅäÖÃÎÄ¼şÖĞÅäÖÃÁËCONVERT_STRIP=-strip²ÎÊıºó£¬ĞèÒª¶ÔÖ¸ÁîÊı×écmd[]½øĞĞÖØ×é,ÔÚµÚ6Î»²åÈë-strip
+		// å½“é…ç½®æ–‡ä»¶ä¸­é…ç½®äº†CONVERT_STRIP=-stripå‚æ•°åï¼Œéœ€è¦å¯¹æŒ‡ä»¤æ•°ç»„cmd[]è¿›è¡Œé‡ç»„,åœ¨ç¬¬6ä½æ’å…¥-strip
 		if (!CMyString.isEmpty(CONVERT_STRIP)) {
 			String[] newCmd = new String[8];
 			System.arraycopy(cmd, 0, newCmd, 0, 5);
@@ -127,7 +127,7 @@ public final class ImageMagickCmd {
 
 	private static void addWaterMarkInDefindePosition(String watermarkfile,
                                                       String filename, int[] gravity) throws Exception {
-		// Ö§³Ö×Ô¶¨ÒåË®Ó¡Î»ÖÃ
+		// æ”¯æŒè‡ªå®šä¹‰æ°´å°ä½ç½®
 		ImageMagickCmd.ImageObj img = new ImageObj(filename);
 		img.setFilename(filename);
 		Float temp = new Float(((float) gravity[2] / (float) gravity[3])
@@ -282,7 +282,7 @@ public final class ImageMagickCmd {
 			for (int i = 0; i < cmd.length; i++) {
 				sb.append(" " + cmd[i]);
 			}
-			logger.debug("CMDÃüÁî£º " + sb.toString());
+			logger.debug("CMDå‘½ä»¤ï¼š " + sb.toString());
 		}
 		return exec(cmd, null);
 	}
@@ -360,17 +360,17 @@ public final class ImageMagickCmd {
 	}
 
 	/**
-	 * ×ª»»Í¼Æ¬
+	 * è½¬æ¢å›¾ç‰‡
 	 * 
 	 * @param _sSrcFile
-	 *            Òª×ª»»µÄÍ¼Æ¬.·ûºÏWCMDataÎÄ¼şÃû¹æÔò(»òÈ«Â·¾¶).
+	 *            è¦è½¬æ¢çš„å›¾ç‰‡.ç¬¦åˆWCMDataæ–‡ä»¶åè§„åˆ™(æˆ–å…¨è·¯å¾„).
 	 * @param scaleLen
-	 *            ×ª»»µÄÄ¿±ê³ß´ç.
+	 *            è½¬æ¢çš„ç›®æ ‡å°ºå¯¸.
 	 * @param scaleWidth
-	 *            ÊÇ·ñ¹Ì¶¨ÒÔÍ¼Æ¬µÄ¿íÎª×¼ÔòµÈ±ÈÀı´¦Àí.
-	 * @return ´¦Àí³É¹¦,Ôò·µ»ØĞÂÎÄ¼şÃû.·ñÔò·µ»ØÔ­ÎÄ¼şÃû.
+	 *            æ˜¯å¦å›ºå®šä»¥å›¾ç‰‡çš„å®½ä¸ºå‡†åˆ™ç­‰æ¯”ä¾‹å¤„ç†.
+	 * @return å¤„ç†æˆåŠŸ,åˆ™è¿”å›æ–°æ–‡ä»¶å.å¦åˆ™è¿”å›åŸæ–‡ä»¶å.
 	 * @throws Exception
-	 *             ´¦Àí¹ı³ÌÖĞ³öÏÖ´íÎó.
+	 *             å¤„ç†è¿‡ç¨‹ä¸­å‡ºç°é”™è¯¯.
 	 */
 	public static String scale(String _sSrcFile, String _sDstFile,
                                int scaleLen, boolean scaleWidth) throws Exception {
@@ -391,7 +391,7 @@ public final class ImageMagickCmd {
 			enlargePic = (scaleLen >= originalImage.height);
 			buff.append('x').append(scaleLen);
 		}
-		// Ô­Ê¼³ß´çĞ¡ÓÚ×ª»»³ß´ç
+		// åŸå§‹å°ºå¯¸å°äºè½¬æ¢å°ºå¯¸
 		if (enlargePic) {
 			return _sSrcFile;
 		}
@@ -405,7 +405,7 @@ public final class ImageMagickCmd {
 		// String result = makeFileName(originalImage.filename, scaleLen);
 		cmd[6] = _sDstFile;
 
-		// µ±ÅäÖÃÎÄ¼şÖĞÅäÖÃÁËCONVERT_STRIP=-strip²ÎÊıºó£¬ĞèÒª¶ÔÖ¸ÁîÊı×écmd[]½øĞĞÖØ×é,ÔÚµÚ6Î»²åÈë-strip
+		// å½“é…ç½®æ–‡ä»¶ä¸­é…ç½®äº†CONVERT_STRIP=-stripå‚æ•°åï¼Œéœ€è¦å¯¹æŒ‡ä»¤æ•°ç»„cmd[]è¿›è¡Œé‡ç»„,åœ¨ç¬¬6ä½æ’å…¥-strip
 		if (!CMyString.isEmpty(CONVERT_STRIP)) {
 			String[] newCmd = new String[8];
 			System.arraycopy(cmd, 0, newCmd, 0, 5);
@@ -433,19 +433,19 @@ public final class ImageMagickCmd {
 	}
 
 	/**
-	 * ×ª»»Í¼Æ¬
+	 * è½¬æ¢å›¾ç‰‡
 	 * 
 	 * @param _sSrcFile
-	 *            Òª×ª»»µÄÍ¼Æ¬.·ûºÏWCMDataÎÄ¼şÃû¹æÔò(»òÈ«Â·¾¶).
+	 *            è¦è½¬æ¢çš„å›¾ç‰‡.ç¬¦åˆWCMDataæ–‡ä»¶åè§„åˆ™(æˆ–å…¨è·¯å¾„).
 	 * @param _sDstFile
-	 *            Éú³ÉĞÂÍ¼Æ¬µÄÃû³Æ£¬ÒªÇóÈ«Â·¾¶
+	 *            ç”Ÿæˆæ–°å›¾ç‰‡çš„åç§°ï¼Œè¦æ±‚å…¨è·¯å¾„
 //	 * @param nQuality
-	 *            ×ª»»µÄÖÊÁ¿±È.
+	 *            è½¬æ¢çš„è´¨é‡æ¯”.
 //	 * @param scaleSizeWidth
-	 *            ×ª»»µÄÄ¿±ê³ß´ç¿í¶È.
-	 * @return ´¦Àí³É¹¦,Ôò·µ»ØĞÂÎÄ¼şÃû.·ñÔò·µ»ØÔ­ÎÄ¼şÃû.
+	 *            è½¬æ¢çš„ç›®æ ‡å°ºå¯¸å®½åº¦.
+	 * @return å¤„ç†æˆåŠŸ,åˆ™è¿”å›æ–°æ–‡ä»¶å.å¦åˆ™è¿”å›åŸæ–‡ä»¶å.
 	 * @throws Exception
-	 *             ´¦Àí¹ı³ÌÖĞ³öÏÖ´íÎó.
+	 *             å¤„ç†è¿‡ç¨‹ä¸­å‡ºç°é”™è¯¯.
 	 */
 	public static String convert(String _sSrcFile, String _sDstFile,
                                  int _nQuality, int _nScaleSizeWidth) throws Exception {
@@ -462,7 +462,7 @@ public final class ImageMagickCmd {
 		ImageObj originalImage = new ImageObj();
 		originalImage.setFilename(_sSrcFile);
 
-		// Èç¹û¿í¶È<=100ĞèÒª×öÌØÊâ´¦Àí£¬ÒÔ±ãÌáÉıÑ¹Ëõ±ÈÂÊ
+		// å¦‚æœå®½åº¦<=100éœ€è¦åšç‰¹æ®Šå¤„ç†ï¼Œä»¥ä¾¿æå‡å‹ç¼©æ¯”ç‡
 		// +profile "*", -colors 100,-quality 80
 		if (_nScaleSizeWidth <= 100) {
 			int nColors = 100;
@@ -472,7 +472,7 @@ public final class ImageMagickCmd {
 					bRemoveExIF, nColors);
 		}
 
-		// 1.Èç¹ûĞèÒªÍ¼Æ¬ÖÊÁ¿µÄÑ¹Ëõ
+		// 1.å¦‚æœéœ€è¦å›¾ç‰‡è´¨é‡çš„å‹ç¼©
 		String[] cmd = new String[5];
 		if (_nQuality > 0 && _nQuality < 100) {
 			cmd[0] = CMD_CONVERT;
@@ -480,7 +480,7 @@ public final class ImageMagickCmd {
 			cmd[2] = String.valueOf(_nQuality);
 			cmd[3] = originalImage.filename;
 			cmd[4] = _sDstFile;
-			// 1.1 Í¬Ê±»¹ĞèÒªÍ¼Æ¬³ß´çµÄÑ¹Ëõ
+			// 1.1 åŒæ—¶è¿˜éœ€è¦å›¾ç‰‡å°ºå¯¸çš„å‹ç¼©
 			if (_nScaleSizeWidth > 0 && originalImage.width > _nScaleSizeWidth) {
 				String[] newCmd = new String[7];
 				System.arraycopy(cmd, 0, newCmd, 0, 1);
@@ -490,7 +490,7 @@ public final class ImageMagickCmd {
 				cmd = newCmd;
 			}
 		} else {
-			// 2.Èç¹û½öĞèÒª³ß´çµÄÑ¹Ëõ
+			// 2.å¦‚æœä»…éœ€è¦å°ºå¯¸çš„å‹ç¼©
 			if (_nScaleSizeWidth > 0 && originalImage.width > _nScaleSizeWidth) {
 				cmd = new String[5];
 				cmd[0] = CMD_CONVERT;
@@ -502,7 +502,7 @@ public final class ImageMagickCmd {
 				return _sSrcFile;
 			}
 		}
-		// 3.Ö´ĞĞ
+		// 3.æ‰§è¡Œ
 		if (exec(cmd) == SUCCESS) {
 			return _sDstFile;
 		}
@@ -512,22 +512,22 @@ public final class ImageMagickCmd {
 	public static String convert(String _sSrcFile, String _sDstFile,
                                  int _nQuality, int _nScaleSizeWidth, int _nDensity)
 			throws Exception {
-		// 1 ¹¹ÔìÍ¼Æ¬´¦ÀíÃüÁî
-		// 1.1 ×ª»»ÃüÁî
+		// 1 æ„é€ å›¾ç‰‡å¤„ç†å‘½ä»¤
+		// 1.1 è½¬æ¢å‘½ä»¤
 		ArrayList<String> arCMD = new ArrayList<String>(5);
 		arCMD.add(CMD_CONVERT);
 
-		// 1.2 Í¼Æ¬¿í¶È
-		// 1.2.1 »ñÈ¡Ô­Ê¼Í¼Æ¬µÄ¿í¶ÈºÍ¸ß¶È
+		// 1.2 å›¾ç‰‡å®½åº¦
+		// 1.2.1 è·å–åŸå§‹å›¾ç‰‡çš„å®½åº¦å’Œé«˜åº¦
 		ImageObj originalImage = new ImageObj();
 		originalImage.setFilename(_sSrcFile);
-		// 1.2.2 ·ûºÏÑ¹ËõÌõ¼ş£¬Ìí¼ÓÃüÁî
+		// 1.2.2 ç¬¦åˆå‹ç¼©æ¡ä»¶ï¼Œæ·»åŠ å‘½ä»¤
 		if (_nScaleSizeWidth > 0 && originalImage.width > _nScaleSizeWidth) {
 			arCMD.add("-scale");
 			arCMD.add(_nScaleSizeWidth + "x");
 		}
 
-		// 1.3 Í¼Æ¬ÖÊÁ¿
+		// 1.3 å›¾ç‰‡è´¨é‡
 		if (_nQuality > 0 && _nQuality < 100) {
 			arCMD.add("-quality");
 			arCMD.add(String.valueOf(_nQuality));
@@ -539,13 +539,13 @@ public final class ImageMagickCmd {
 			arCMD.add(String.valueOf(_nDensity));
 		}
 
-		// 2 ÅĞ¶ÏÊÇ·ñÒª´¦Àí
+		// 2 åˆ¤æ–­æ˜¯å¦è¦å¤„ç†
 		if (arCMD.size() <= 1) {
 			CMyFile.copyFile(_sSrcFile, _sDstFile);
 			return _sDstFile;
 		}
 
-		// 3 ×ª»»
+		// 3 è½¬æ¢
 		arCMD.add(_sSrcFile);
 		arCMD.add(_sDstFile);
 		String[] pCMD = new String[0];
@@ -558,48 +558,48 @@ public final class ImageMagickCmd {
 	public static String convert(String _sSrcFile, String _sDstFile,
                                  int _nQuality, int _nScaleSizeWidth, boolean _bRemoveExIF,
                                  int _nColor) throws Exception {
-		// 1 ¹¹ÔìÍ¼Æ¬´¦ÀíÃüÁî
-		// 1.1 ×ª»»ÃüÁî
+		// 1 æ„é€ å›¾ç‰‡å¤„ç†å‘½ä»¤
+		// 1.1 è½¬æ¢å‘½ä»¤
 		ArrayList<String> arCMD = new ArrayList<String>(5);
 		arCMD.add(CMD_CONVERT);
 		
 		logger.info("CMD_CONVERT:" + CMD_CONVERT);
 
-		// 1.2 Í¼Æ¬¿í¶È
-		// 1.2.1 »ñÈ¡Ô­Ê¼Í¼Æ¬µÄ¿í¶ÈºÍ¸ß¶È
+		// 1.2 å›¾ç‰‡å®½åº¦
+		// 1.2.1 è·å–åŸå§‹å›¾ç‰‡çš„å®½åº¦å’Œé«˜åº¦
 		ImageObj originalImage = new ImageObj();
 		originalImage.setFilename(_sSrcFile);
-		// 1.2.2 ·ûºÏÑ¹ËõÌõ¼ş£¬Ìí¼ÓÃüÁî
+		// 1.2.2 ç¬¦åˆå‹ç¼©æ¡ä»¶ï¼Œæ·»åŠ å‘½ä»¤
 		if (_nScaleSizeWidth > 0 && originalImage.width > _nScaleSizeWidth) {
 			arCMD.add("-scale");
 			arCMD.add(_nScaleSizeWidth + "x");
 		}
 
-		// 1.3 Í¼Æ¬ÖÊÁ¿
+		// 1.3 å›¾ç‰‡è´¨é‡
 		if (_nQuality > 0 && _nQuality < 100) {
 			arCMD.add("-quality");
 			arCMD.add(String.valueOf(_nQuality));
 		}
 
-		// 1.4 ÑÕÉ«
+		// 1.4 é¢œè‰²
 		if (_nColor > 0) {
 			arCMD.add("-colors");
 			arCMD.add(String.valueOf(_nColor));
 		}
 
-		// 1.5 È¥µôEXIFĞÅÏ¢
+		// 1.5 å»æ‰EXIFä¿¡æ¯
 		if (_bRemoveExIF) {
 			arCMD.add("+profile");
 			arCMD.add("'*'");
 		}
 
-		// 2 ÅĞ¶ÏÊÇ·ñÒª´¦Àí
+		// 2 åˆ¤æ–­æ˜¯å¦è¦å¤„ç†
 		if (arCMD.size() <= 1) {
 			CMyFile.copyFile(_sSrcFile, _sDstFile);
 			return _sDstFile;
 		}
 
-		// 3 ×ª»»
+		// 3 è½¬æ¢
 		arCMD.add(_sSrcFile);
 		arCMD.add(_sDstFile);
 		String[] pCMD = new String[0];
@@ -609,14 +609,14 @@ public final class ImageMagickCmd {
 		return _sSrcFile;
 	}
 
-	// ¸Ä±äÍ¼Æ¬ºó×º
+	// æ”¹å˜å›¾ç‰‡åç¼€
 	public static String convert(String _sSrcFile, String _sDstFile)
 			throws Exception {
 		return convert(_sSrcFile, _sDstFile, Integer.parseInt(CONVERT_QUALITY),
 				NOT_SCALESIZE);
 	}
 
-	// ¸Ä±äÍ¼Æ¬ºó×ººÍÖÊÁ¿Ñ¹Ëõ±È
+	// æ”¹å˜å›¾ç‰‡åç¼€å’Œè´¨é‡å‹ç¼©æ¯”
 	public static String convertQuality(String _sSrcFile, String _sDstFile,
                                         int _nQuality) throws Exception {
 		return convert(_sSrcFile, _sDstFile, _nQuality, NOT_SCALESIZE);
@@ -669,7 +669,7 @@ public final class ImageMagickCmd {
 				this.width = wh[0];
 				this.height = wh[1];
 			} catch (Exception ex) {
-				logger.debug("³¢ÊÔÊ¹ÓÃÍ¼Æ¬¿â»ñÈ¡Í¼Æ¬³ß´ç³öÏÖÒì³£", ex);
+				logger.debug("å°è¯•ä½¿ç”¨å›¾ç‰‡åº“è·å–å›¾ç‰‡å°ºå¯¸å‡ºç°å¼‚å¸¸", ex);
 				// second try: ImageIO
 				try {
 					BufferedImage img = ImageIO.read(file);
@@ -677,7 +677,7 @@ public final class ImageMagickCmd {
 					this.height = img.getHeight();
 					// return;
 				} catch (Throwable ex2) {
-					logger.debug("³¢ÊÔÊ¹ÓÃjdk½Ó¿Ú»ñÈ¡Í¼Æ¬³ß´ç³öÏÖÒì³£", ex2);
+					logger.debug("å°è¯•ä½¿ç”¨jdkæ¥å£è·å–å›¾ç‰‡å°ºå¯¸å‡ºç°å¼‚å¸¸", ex2);
 					// last try.
 					try {
 						Image img = Toolkit.getDefaultToolkit().getImage(
@@ -690,9 +690,9 @@ public final class ImageMagickCmd {
 						this.width = img.getWidth(null);
 						this.height = img.getHeight(null);
 					} catch (Throwable ex3) {
-						logger.debug("³¢ÊÔÊ¹ÓÃMediaTracker½Ó¿Ú´¦Àí³öÏÖÒì³£", ex3);
-						throw new Exception("´¦ÀíÍ¼Æ¬Ê§°Ü£¬ÇëÈ·ÈÏÍ¼Æ¬¿âÊÇ·ñÉèÖÃÕıÈ·£¬»òÕßµ±Ç°jdkÅäÖÃÓĞÎÊÌâ"
-								+ "  Çë½øÒ»²½Í¨¹ı²é¿´debugÈÕÖ¾À´·ÖÎö´íÎó");
+						logger.debug("å°è¯•ä½¿ç”¨MediaTrackeræ¥å£å¤„ç†å‡ºç°å¼‚å¸¸", ex3);
+						throw new Exception("å¤„ç†å›¾ç‰‡å¤±è´¥ï¼Œè¯·ç¡®è®¤å›¾ç‰‡åº“æ˜¯å¦è®¾ç½®æ­£ç¡®ï¼Œæˆ–è€…å½“å‰jdké…ç½®æœ‰é—®é¢˜"
+								+ "  è¯·è¿›ä¸€æ­¥é€šè¿‡æŸ¥çœ‹debugæ—¥å¿—æ¥åˆ†æé”™è¯¯");
 					}
 				}
 			}

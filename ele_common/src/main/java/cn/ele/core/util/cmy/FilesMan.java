@@ -10,75 +10,75 @@ package cn.ele.core.util.cmy;
 
 /**
  * <p>
- * Title: TRS ÄÚÈİĞ­×÷Æ½Ì¨£¨TRS WCM£©
+ * Title: TRS å†…å®¹åä½œå¹³å°ï¼ˆTRS WCMï¼‰
  * </p>
  * <p>
  * Description:
  * </p>
  * <p>
- * class FilesMan ¨D¨D WCMÎÄ¼ş¹ÜÀí¶ÔÏóµÄ¶¨ÒåºÍÊµÏÖ
+ * class FilesMan â€•â€• WCMæ–‡ä»¶ç®¡ç†å¯¹è±¡çš„å®šä¹‰å’Œå®ç°
  * <p>
- * ÎÄ¼şÃüÃû¹æÔò£º
+ * æ–‡ä»¶å‘½åè§„åˆ™ï¼š
  * <p>
- * ¸ñÊ½£º ff+yyyy,mm,dd+tt,ttt,ttt+rrrr.ext
+ * æ ¼å¼ï¼š ff+yyyy,mm,dd+tt,ttt,ttt+rrrr.ext
  * <p>
  * index: 01 2345 67 89 01 234 567 8901
  * <p>
- * ÆäÖĞ£º
+ * å…¶ä¸­ï¼š
  * <p>
- * <0>ff:ÎÄ¼şÄ¿Â¼µÄ±êÊ¶£¬2Î»
+ * <0>ff:æ–‡ä»¶ç›®å½•çš„æ ‡è¯†ï¼Œ2ä½
  * <p>
- * <1>yyyymmnn--´´½¨ÈÕÆÚ, 8Î»£¬ÆäÖĞ
+ * <1>yyyymmnn--åˆ›å»ºæ—¥æœŸ, 8ä½ï¼Œå…¶ä¸­
  * <p>
- * yyyy--4Î»±íÊ¾µÄÄê,mm--2Î»±íÊ¾µÄÔÂ£¬dd--2Î»±íÊ¾µÄÈÕ£»
+ * yyyy--4ä½è¡¨ç¤ºçš„å¹´,mm--2ä½è¡¨ç¤ºçš„æœˆï¼Œdd--2ä½è¡¨ç¤ºçš„æ—¥ï¼›
  * <p>
- * Èç£º011009 ±íÊ¾ 2001-10-09¡£
+ * å¦‚ï¼š011009 è¡¨ç¤º 2001-10-09ã€‚
  * <p>
- * <2>tt,ttt,ttt Îª8Î»Ê±¼äÖµ(µ¥Î»ºÁÃë)¡£Èç£º1992849 ±íÊ¾ 08:33:12
+ * <2>tt,ttt,ttt ä¸º8ä½æ—¶é—´å€¼(å•ä½æ¯«ç§’)ã€‚å¦‚ï¼š1992849 è¡¨ç¤º 08:33:12
  * <p>
- * <3>rrrr -- 4Î»Ëæ»úÊı¡£
+ * <3>rrrr -- 4ä½éšæœºæ•°ã€‚
  * <p>
- * <4>.ext -- À©Õ¹Ãû¡£
+ * <4>.ext -- æ‰©å±•åã€‚
  * <p>
- * ÎÄ¼ş´æ´¢Ä¿Â¼×éÖ¯¹æÔò£ºDir1+Dir2+Dir3
+ * æ–‡ä»¶å­˜å‚¨ç›®å½•ç»„ç»‡è§„åˆ™ï¼šDir1+Dir2+Dir3
  * <p>
- * Èç£º[UploadTempPath]\N200110\N20011015\
+ * å¦‚ï¼š[UploadTempPath]\N200110\N20011015\
  * <p>
- * [1]Ò»¼¶Ä¿Â¼(Dir1)
+ * [1]ä¸€çº§ç›®å½•(Dir1)
  * <p>
- * <1>ÉÏ´«ÎÄ¼şÁÙÊ±Ä¿Â¼ £¨±êÊ¶£ºU0£©
+ * <1>ä¸Šä¼ æ–‡ä»¶ä¸´æ—¶ç›®å½• ï¼ˆæ ‡è¯†ï¼šU0ï¼‰
  * <p>
- * <2>ÆÕÍ¨ÎÄ¼şÊı¾İÄ¿Â¼ £¨±êÊ¶£ºN0£©
+ * <2>æ™®é€šæ–‡ä»¶æ•°æ®ç›®å½• ï¼ˆæ ‡è¯†ï¼šN0ï¼‰
  * <p>
- * <3>ÊÜ±£»¤ÎÄ¼şÊı¾İÄ¿Â¼ £¨±êÊ¶£ºP0£©
+ * <3>å—ä¿æŠ¤æ–‡ä»¶æ•°æ®ç›®å½• ï¼ˆæ ‡è¯†ï¼šP0ï¼‰
  * <p>
- * <4>ÏµÍ³ÓÃÁÙÊ±Ä¿Â¼ £¨±êÊ¶£ºST£©
+ * <4>ç³»ç»Ÿç”¨ä¸´æ—¶ç›®å½• ï¼ˆæ ‡è¯†ï¼šSTï¼‰
  * <p>
- * <5>ÓÃ»§ÓÃÁÙÊ±Ä¿Â¼ £¨±êÊ¶£ºUT£©
+ * <5>ç”¨æˆ·ç”¨ä¸´æ—¶ç›®å½• ï¼ˆæ ‡è¯†ï¼šUTï¼‰
  * <p>
- * <6>ÊÜ±£»¤ÎÄ¼şÊı¾İÄ¿Â¼ £¨±êÊ¶£ºP0£©
+ * <6>å—ä¿æŠ¤æ–‡ä»¶æ•°æ®ç›®å½• ï¼ˆæ ‡è¯†ï¼šP0ï¼‰
  * <p>
- * <7>·¢²¼Â·¾¶ (±êÊ¶£ºB0)
+ * <7>å‘å¸ƒè·¯å¾„ (æ ‡è¯†ï¼šB0)
  * <p>
- * <8>¿ÉÍ¨¹ıHTTPĞ­Òé·ÃÎÊµÄÂ·¾¶(±êÊ¶£ºW0)
+ * <8>å¯é€šè¿‡HTTPåè®®è®¿é—®çš„è·¯å¾„(æ ‡è¯†ï¼šW0)
  * <p>
- * <9>ÆäËû£ºÓÃ»§¿ÉÀ©Õ¹ (±êÊ¶£º2Î»)
+ * <9>å…¶ä»–ï¼šç”¨æˆ·å¯æ‰©å±• (æ ‡è¯†ï¼š2ä½)
  * <p>
- * [2]¶ş¼¶Ä¿Â¼(Dir2)
+ * [2]äºŒçº§ç›®å½•(Dir2)
  * <p>
- * Ò»¼¶Ä¿Â¼±êÊ¶+ÄêÔÂ£¬ÎÄ¼şÃûµÄÇ°8¸ö×Ö·û£¬Èç£º"N0200110\"
+ * ä¸€çº§ç›®å½•æ ‡è¯†+å¹´æœˆï¼Œæ–‡ä»¶åçš„å‰8ä¸ªå­—ç¬¦ï¼Œå¦‚ï¼š"N0200110\"
  * <p>
- * [3]Èı¼¶Ä¿Â¼(Dir3)
+ * [3]ä¸‰çº§ç›®å½•(Dir3)
  * <p>
- * ¶ş¼¶Ä¿Â¼+ÈÕ±êÊ¶£¬ÎÄ¼şÃûµÄÇ°10¸ö×Ö·û£¬Èç£º"N020011015\"*
+ * äºŒçº§ç›®å½•+æ—¥æ ‡è¯†ï¼Œæ–‡ä»¶åçš„å‰10ä¸ªå­—ç¬¦ï¼Œå¦‚ï¼š"N020011015\"*
  * <p>
- * Copyright: Copyright (c) 2001-2002 TRSĞÅÏ¢¼¼ÊõÓĞÏŞ¹«Ë¾
+ * Copyright: Copyright (c) 2001-2002 TRSä¿¡æ¯æŠ€æœ¯æœ‰é™å…¬å¸
  * </p>
  * <p>
- * Company: TRSĞÅÏ¢¼¼ÊõÓĞÏŞ¹«Ë¾(www.trs.com.cn)
+ * Company: TRSä¿¡æ¯æŠ€æœ¯æœ‰é™å…¬å¸(www.trs.com.cn)
  * </p>
  *
- * @author TRSĞÅÏ¢¼¼ÊõÓĞÏŞ¹«Ë¾
+ * @author TRSä¿¡æ¯æŠ€æœ¯æœ‰é™å…¬å¸
  * @version 1.0
  */
 
@@ -100,90 +100,90 @@ public class FilesMan extends Object {
 
     private static FilesMan m_filesMan = new FilesMan();
 
-    // ³£Á¿¶¨Òå£º¹ØÓÚÎÄ¼şÃû³Æ
-    /** ÎÄ¼şÃû³Æ×îĞ¡Öµ */
+    // å¸¸é‡å®šä¹‰ï¼šå…³äºæ–‡ä»¶åç§°
+    /** æ–‡ä»¶åç§°æœ€å°å€¼ */
     public final static int FILENAME_MIN_LENGTH = 22; //
 
-    /** Ä¿Â¼±êÊ¶³¤¶È */
+    /** ç›®å½•æ ‡è¯†é•¿åº¦ */
     public final static int FILENAME_FLAG_LENGTH = 2; //
 
-    /** ÈÕÆÚ³¤¶È */
+    /** æ—¥æœŸé•¿åº¦ */
     public final static int FILENAME_DATE_LENGTH = 8; //
 
-    /** Ê±¼äÖµ³¤¶È */
+    /** æ—¶é—´å€¼é•¿åº¦ */
     public final static int FILENAME_TIME_LENGTH = 8; //
 
-    /** Ëæ»úÊı³¤¶È */
+    /** éšæœºæ•°é•¿åº¦ */
     public final static int FILENAME_RANDOM_LENGTH = 4; //
 
-    /** µ±Ç°Ê±ÇøÊ±¼ä²î */
+    /** å½“å‰æ—¶åŒºæ—¶é—´å·® */
     private final static int TIMEZONE_RAWOFFSET = TimeZone.getDefault()
             .getRawOffset();
 
-    // ³£Á¿¶¨Òå£ºÎÄ¼ş±êÊ¶ÀàĞÍ£¬¶ÔÓ¦Ò»¼¶Ä¿Â¼·ÖÀà
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£ºÆÕÍ¨ÎÄ¼şÄ¿Â¼ */
+    // å¸¸é‡å®šä¹‰ï¼šæ–‡ä»¶æ ‡è¯†ç±»å‹ï¼Œå¯¹åº”ä¸€çº§ç›®å½•åˆ†ç±»
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šæ™®é€šæ–‡ä»¶ç›®å½• */
     public final static String FLAG_NORMAL = "N0"; //
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£ºÊÜ±£»¤ÎÄ¼şÄ¿Â¼ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šå—ä¿æŠ¤æ–‡ä»¶ç›®å½• */
     public final static String FLAG_PROTECTED = "P0"; //
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£ºÉÏ´«µÄÁÙÊ±ÎÄ¼şÄ¿Â¼ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šä¸Šä¼ çš„ä¸´æ—¶æ–‡ä»¶ç›®å½• */
     public final static String FLAG_UPLOAD = "U0"; //
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£ºÏµÍ³ÓÃÁÙÊ±ÎÄ¼şÄ¿Â¼ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šç³»ç»Ÿç”¨ä¸´æ—¶æ–‡ä»¶ç›®å½• */
     public final static String FLAG_SYSTEMTEMP = "ST"; //
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£ºÓÃ»§ÓÃÁÙÊ±ÎÄ¼şÄ¿Â¼ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šç”¨æˆ·ç”¨ä¸´æ—¶æ–‡ä»¶ç›®å½• */
     public final static String FLAG_USERTEMP = "UT"; //
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£ºÄ£°åÎÄ¼şÄ¿Â¼ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šæ¨¡æ¿æ–‡ä»¶ç›®å½• */
     public final static String FLAG_TEMPLATE = "TM"; //
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£º±¾µØ´æ·Å·¢²¼ÎÄ¼şµÄÂ·¾¶ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šæœ¬åœ°å­˜æ”¾å‘å¸ƒæ–‡ä»¶çš„è·¯å¾„ */
     public final static String FLAG_LOCALPUB = "LP"; //
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£º±¾µØ´æ·ÅÔ¤ÀÀÎÄ¼şµÄÂ·¾¶ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šæœ¬åœ°å­˜æ”¾é¢„è§ˆæ–‡ä»¶çš„è·¯å¾„ */
     public final static String FLAG_LOCALPREVIEW = "LV"; //
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£º¿ÉÍ¨¹ıhttpĞ­Òé·ÃÎÊµÄÎÄ¼şµÄÂ·¾¶ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šå¯é€šè¿‡httpåè®®è®¿é—®çš„æ–‡ä»¶çš„è·¯å¾„ */
     public final static String FLAG_WEBFILE = "W0"; //
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£ºÎÄµµµ¼³öµ¼ÈëÏà¹Ø×ÊÔ´ÎÄ¼şµÄ´æ·ÅÂ·¾¶ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šæ–‡æ¡£å¯¼å‡ºå¯¼å…¥ç›¸å…³èµ„æºæ–‡ä»¶çš„å­˜æ”¾è·¯å¾„ */
     public final static String FLAG_DOCUMENTSOURCE = "DS";
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£ºÖÇÄÜ½¨Õ¾Ô¤ÉèÂ·¾¶ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šæ™ºèƒ½å»ºç«™é¢„è®¾è·¯å¾„ */
     public final static String FLAG_SITEFROM = "SF";
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£ºBigTable£¨Ï¡ÊèÊı¾İ£©µÄ´æ´¢Â·¾¶ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šBigTableï¼ˆç¨€ç–æ•°æ®ï¼‰çš„å­˜å‚¨è·¯å¾„ */
     public final static String FLAG_BIGTABLE = "BT";
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£ºInfoView£¨×Ô¶¨Òå±íµ¥£¬½èÖúMS InfoPathÊµÏÖ£©µÄ´æ´¢Â·¾¶ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šInfoViewï¼ˆè‡ªå®šä¹‰è¡¨å•ï¼Œå€ŸåŠ©MS InfoPathå®ç°ï¼‰çš„å­˜å‚¨è·¯å¾„ */
     public final static String FLAG_INFOVIEW = "IV";
 
-    /** ÏµÍ³ÖĞXSLÎÄ¼şµÄ´æ·ÅÂ·¾¶ */
+    /** ç³»ç»Ÿä¸­XSLæ–‡ä»¶çš„å­˜æ”¾è·¯å¾„ */
     public final static String FLAG_TRANSFORMER = "TF";
 
-    /** ÎÄ¼ş±êÊ¶ÀàĞÍ£ºHelpSearchIndex£¨°ïÖúÎÄ¼şË÷Òı£©µÄ´æ´¢Â·¾¶ */
+    /** æ–‡ä»¶æ ‡è¯†ç±»å‹ï¼šHelpSearchIndexï¼ˆå¸®åŠ©æ–‡ä»¶ç´¢å¼•ï¼‰çš„å­˜å‚¨è·¯å¾„ */
     public final static String FLAG_HELPSEARCH = "HS";
 
-    // ³£Á¿¶¨Òå£ºÄ¿Â¼ÀàĞÍ 3Àà
-    /** Ä¿Â¼ÀàĞÍ£º±¾µØÄ¿Â¼£¬ÓÃÓÚServer( for Server ) */
+    // å¸¸é‡å®šä¹‰ï¼šç›®å½•ç±»å‹ 3ç±»
+    /** ç›®å½•ç±»å‹ï¼šæœ¬åœ°ç›®å½•ï¼Œç”¨äºServer( for Server ) */
     public final static int PATH_LOCAL = 0; //
 
-    /** Ä¿Â¼ÀàĞÍ£ºHttpÄ¿Â¼£¬ÓÃÓÚWeb( for Client ) */
+    /** ç›®å½•ç±»å‹ï¼šHttpç›®å½•ï¼Œç”¨äºWeb( for Client ) */
     public final static int PATH_HTTP = 1; //
 
-    /** Ä¿Â¼ÀàĞÍ£ºFtpÄ¿Â¼£¬ÓÃÓÚFtp( for Client ) */
+    /** ç›®å½•ç±»å‹ï¼šFtpç›®å½•ï¼Œç”¨äºFtp( for Client ) */
     public final static int PATH_FTP = 2; //
 
-    private final HashMap m_hPathConfig; // ÎÄ¼şÄ¿Â¼ÅäÖÃ±í
+    private final HashMap m_hPathConfig; // æ–‡ä»¶ç›®å½•é…ç½®è¡¨
 
-    // ¹¹Ôìº¯Êı
+    // æ„é€ å‡½æ•°
     /**
-     * ¹¹Ôìº¯Êı
+     * æ„é€ å‡½æ•°
      *
 //     * @param _app
-     *            ¹ØÁªµÄApplication
+     *            å…³è”çš„Application
      */
     private FilesMan() {
         m_hPathConfig = new HashMap(11);
@@ -200,13 +200,13 @@ public class FilesMan extends Object {
     }
 
     // =========================================================================
-    // ÎÄ¼şÄ¿Â¼¹ÜÀí
+    // æ–‡ä»¶ç›®å½•ç®¡ç†
 
     /**
-     * TODO ×°ÔØÏµÍ³ÓĞ¹ØÄ¿Â¼ÅäÖÃĞÅÏ¢
+     * TODO è£…è½½ç³»ç»Ÿæœ‰å…³ç›®å½•é…ç½®ä¿¡æ¯
      *
      * @param _bMakeDirIfNotExists
-     *            Ä¿Â¼²»´æÔÚÊ±ÊÇ·ñ×Ô¶¯´´½¨
+     *            ç›®å½•ä¸å­˜åœ¨æ—¶æ˜¯å¦è‡ªåŠ¨åˆ›å»º
      * @throws WCMException
      */
 /*    private synchronized void loadPathConfigs(boolean _bMakeDirIfNotExists)
@@ -217,7 +217,7 @@ public class FilesMan extends Object {
         Configs configs = null;
         Config aConfig = null;
 
-        // modified by hxj.ÎªÁË°²È«ĞĞ£¬´ÓÅäÖÃÎÄ¼ş¼ÓÔØÂ·¾¶ÅäÖÃ£¬¶ø²»´ÓÊı¾İ¿â¼ÓÔØ£¬·ÀÖ¹ÓÃ»§µÄĞŞ¸Ä
+        // modified by hxj.ä¸ºäº†å®‰å…¨è¡Œï¼Œä»é…ç½®æ–‡ä»¶åŠ è½½è·¯å¾„é…ç½®ï¼Œè€Œä¸ä»æ•°æ®åº“åŠ è½½ï¼Œé˜²æ­¢ç”¨æˆ·çš„ä¿®æ”¹
         ConfigServer server = ConfigServer.getServer();
 
         try {
@@ -243,28 +243,28 @@ public class FilesMan extends Object {
                 } catch (Exception ex) {
                     s_logger.error(
                             I18NMessage.get(FilesMan.class, "FilesMan.label1",
-                                    "--->ÅäÖÃ¼ÇÂ¼£ºWCMConfig Id=[")
+                                    "--->é…ç½®è®°å½•ï¼šWCMConfig Id=[")
                                     + aConfig.getId()
                                     + "] Key=["
                                     + aConfig.getConfigKey()
                                     + "]  Value=["
-                                    + aConfig.getValue() + "] £©", ex);
-                }// end try:´¦ÀíÍêÒ»¸öConfig¶ÔÏó
-            }// end for£º´¦ÀíÍêËùÓĞµÄÄ¿Â¼ÅäÖÃ
+                                    + aConfig.getValue() + "] ï¼‰", ex);
+                }// end try:å¤„ç†å®Œä¸€ä¸ªConfigå¯¹è±¡
+            }// end forï¼šå¤„ç†å®Œæ‰€æœ‰çš„ç›®å½•é…ç½®
             configs.clear();
         } catch (Exception ex) {
             throw new WCMException(ExceptionNumber.ERR_WCMEXCEPTION,
                     I18NMessage.get(FilesMan.class, "FilesMan.label2",
-                            "×°ÔØÎÄ¼şÄ¿Â¼ÅäÖÃĞÅÏ¢Ê±Ê§°Ü(FilesMan.loadPathConfigs)"), ex);
+                            "è£…è½½æ–‡ä»¶ç›®å½•é…ç½®ä¿¡æ¯æ—¶å¤±è´¥(FilesMan.loadPathConfigs)"), ex);
         }
     }*/// END: loadPathConfigs( )
 
     /**
-     * TODO ×°ÔØÖ¸¶¨Ä¿Â¼ÅäÖÃĞÅÏ¢
+     * TODO è£…è½½æŒ‡å®šç›®å½•é…ç½®ä¿¡æ¯
      *
      * @param _config
-     *            ÅäÖÃ¶ÔÏó
-     * @return Èô×°ÔÚ³É¹¦£¬Ôò·µ»Øtrue£»·ñÔò£¬·µ»Øfalse
+     *            é…ç½®å¯¹è±¡
+     * @return è‹¥è£…åœ¨æˆåŠŸï¼Œåˆ™è¿”å›trueï¼›å¦åˆ™ï¼Œè¿”å›false
      * @throws WBEException
      */
 /*
@@ -274,21 +274,21 @@ public class FilesMan extends Object {
             return false;
 
         try {
-            // È¡¹Ø¼ü×Ö£¨Òà¼´Â·¾¶±êÊ¶£©
+            // å–å…³é”®å­—ï¼ˆäº¦å³è·¯å¾„æ ‡è¯†ï¼‰
             String sKey = _config.getConfigKey().trim();
-            if (sKey.length() != 2) { // ¹Ø¼ü×Ö±ØĞëÊÇ2Î»£¬×÷ÎªÂ·¾¶±êÖ¾
+            if (sKey.length() != 2) { // å…³é”®å­—å¿…é¡»æ˜¯2ä½ï¼Œä½œä¸ºè·¯å¾„æ ‡å¿—
                 throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                         I18NMessage.get(FilesMan.class, "FilesMan.label3",
-                                "Ä¿Â¼ÅäÖÃÖĞ¹Ø¼ü×Ö±ØĞëÎª2Î»(FilesMan.loadPathConfig)"));
+                                "ç›®å½•é…ç½®ä¸­å…³é”®å­—å¿…é¡»ä¸º2ä½(FilesMan.loadPathConfig)"));
             }
 
-            // ·Ö½âÅäÖÃĞÅÏ¢
+            // åˆ†è§£é…ç½®ä¿¡æ¯
             PathConfig pathConfig = new PathConfig(_config.getValue());
             return this.putPathConfig(sKey, pathConfig, _bMakeDirIfNotExists);
         } catch (Exception ex) {
             throw new WCMException(ExceptionNumber.ERR_WCMEXCEPTION,
                     I18NMessage.get(FilesMan.class, "FilesMan.label4",
-                            "×°ÔØÅäÖÃĞÅÏ¢Ê§°Ü(FilesMan.putPathConfig)"), ex);
+                            "è£…è½½é…ç½®ä¿¡æ¯å¤±è´¥(FilesMan.putPathConfig)"), ex);
         }
     }
 
@@ -298,34 +298,34 @@ public class FilesMan extends Object {
             return false;
 
         try {
-            // È¡¹Ø¼ü×Ö£¨Òà¼´Â·¾¶±êÊ¶£©
+            // å–å…³é”®å­—ï¼ˆäº¦å³è·¯å¾„æ ‡è¯†ï¼‰
             sKey = sKey.trim();
-            if (sKey.length() != 2) { // ¹Ø¼ü×Ö±ØĞëÊÇ2Î»£¬×÷ÎªÂ·¾¶±êÖ¾
+            if (sKey.length() != 2) { // å…³é”®å­—å¿…é¡»æ˜¯2ä½ï¼Œä½œä¸ºè·¯å¾„æ ‡å¿—
                 throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                         I18NMessage.get(FilesMan.class, "FilesMan.label3",
-                                "Ä¿Â¼ÅäÖÃÖĞ¹Ø¼ü×Ö±ØĞëÎª2Î»(FilesMan.loadPathConfig)"));
+                                "ç›®å½•é…ç½®ä¸­å…³é”®å­—å¿…é¡»ä¸º2ä½(FilesMan.loadPathConfig)"));
             }
 
-            // ·Ö½âÅäÖÃĞÅÏ¢
+            // åˆ†è§£é…ç½®ä¿¡æ¯
             PathConfig pathConfig = new PathConfig(sPath);
             return this.putPathConfig(sKey, pathConfig, _bMakeDirIfNotExists);
         } catch (Exception ex) {
             throw new WCMException(ExceptionNumber.ERR_WCMEXCEPTION,
                     I18NMessage.get(FilesMan.class, "FilesMan.label4",
-                            "×°ÔØÅäÖÃĞÅÏ¢Ê§°Ü(FilesMan.putPathConfig)"), ex);
+                            "è£…è½½é…ç½®ä¿¡æ¯å¤±è´¥(FilesMan.putPathConfig)"), ex);
         }
     }
 */
 
     /**
-     * TODO ÔØÈëÖ¸¶¨Ä¿Â¼ÅäÖÃĞÅÏ¢
+     * TODO è½½å…¥æŒ‡å®šç›®å½•é…ç½®ä¿¡æ¯
      *
      * @param _sPathFlag
-     *            Ä¿Â¼±êÖ¾£¨ºÍÎÄ¼ş±êÖ¾ÎªÍ¬Ò»±êÖ¾£¬FLAG_NORMALµÈ³£Á¿£©
+     *            ç›®å½•æ ‡å¿—ï¼ˆå’Œæ–‡ä»¶æ ‡å¿—ä¸ºåŒä¸€æ ‡å¿—ï¼ŒFLAG_NORMALç­‰å¸¸é‡ï¼‰
      * @param _pathConfig
-     *            Ä¿Â¼ÅäÖÃ¶ÔÏó
+     *            ç›®å½•é…ç½®å¯¹è±¡
      * @param _bMakeDirIfNotExists
-     *            Ä¿Â¼²»´æÔÚÊÇ·ñ×Ô¶¯´´½¨
+     *            ç›®å½•ä¸å­˜åœ¨æ˜¯å¦è‡ªåŠ¨åˆ›å»º
      * @return
      * @throws Exception
      */
@@ -334,23 +334,23 @@ public class FilesMan extends Object {
         if (_pathConfig == null)
             return false;
 
-        // ¼ì²é±¾µØÂ·¾¶ÊÇ·ñ´æÔÚ
+        // æ£€æŸ¥æœ¬åœ°è·¯å¾„æ˜¯å¦å­˜åœ¨
         String sLocalPath = _pathConfig.getLocalPath();
-        if (!CMyFile.fileExists(sLocalPath)) { // Ä¿Â¼²»´æÔÚ
-            if (_bMakeDirIfNotExists) { // ´´½¨Ä¿Â¼
+        if (!CMyFile.fileExists(sLocalPath)) { // ç›®å½•ä¸å­˜åœ¨
+            if (_bMakeDirIfNotExists) { // åˆ›å»ºç›®å½•
                 CMyFile.makeDir(sLocalPath, true);
             } else {
                 throw new WCMException(ExceptionNumber.ERR_WCMEXCEPTION,
                         I18NMessage.get(FilesMan.class, "FilesMan.label5",
-                                "±¾µØÂ·¾¶")
+                                "æœ¬åœ°è·¯å¾„")
                                 + sLocalPath
                                 + I18NMessage.get(FilesMan.class,
                                 "FilesMan.label6",
-                                "²»´æÔÚ(FilesMan.loadPathConfig)"));
+                                "ä¸å­˜åœ¨(FilesMan.loadPathConfig)"));
             }
         }// end if
 
-        // ×°ÈëÅäÖÃ¹şÏ£±í
+        // è£…å…¥é…ç½®å“ˆå¸Œè¡¨
         synchronized (m_hPathConfig) {
             this.m_hPathConfig.put(_sPathFlag.toUpperCase(), _pathConfig);
         }
@@ -359,14 +359,14 @@ public class FilesMan extends Object {
     }*/
 
     /**
-     *  TODO ´ÓÄ¿Â¼ÅäÖÃÏîÖĞÉ¾³ıÖ¸¶¨ÅäÖÃÏî
+     *  TODO ä»ç›®å½•é…ç½®é¡¹ä¸­åˆ é™¤æŒ‡å®šé…ç½®é¡¹
      *
      * @param _sPathFlag
-     *            Ä¿Â¼±êÖ¾£¨ºÍÎÄ¼ş±êÖ¾ÎªÍ¬Ò»±êÖ¾£¬FLAG_NORMALµÈ³£Á¿£©
+     *            ç›®å½•æ ‡å¿—ï¼ˆå’Œæ–‡ä»¶æ ‡å¿—ä¸ºåŒä¸€æ ‡å¿—ï¼ŒFLAG_NORMALç­‰å¸¸é‡ï¼‰
      * @return
      */
 /*    public PathConfig removePathConfig(String _sPathFlag) {
-        if (true) {// ²»´ÓÊı¾İ¿â¼ÓÔØÅäÖÃ£¬¶øÊÇ´ÓÎÄ¼ş¼ÓÔØ
+        if (true) {// ä¸ä»æ•°æ®åº“åŠ è½½é…ç½®ï¼Œè€Œæ˜¯ä»æ–‡ä»¶åŠ è½½
             return null;
         }
         synchronized (m_hPathConfig) {
@@ -376,29 +376,29 @@ public class FilesMan extends Object {
     }*/
 
     /**
-     * TODO È¡Ö¸¶¨Ä¿Â¼±êÊ¶µÄÅäÖÃĞÅÏ¢
+     * TODO å–æŒ‡å®šç›®å½•æ ‡è¯†çš„é…ç½®ä¿¡æ¯
      *
      * @param _sPathFlag
-     *            Ä¿Â¼±êÖ¾£¨ºÍÎÄ¼ş±êÖ¾ÎªÍ¬Ò»±êÖ¾£¬FLAG_NORMALµÈ³£Á¿£©
-     * @return Ö¸¶¨Ä¿Â¼±êÊ¶µÄÅäÖÃĞÅÏ¢
+     *            ç›®å½•æ ‡å¿—ï¼ˆå’Œæ–‡ä»¶æ ‡å¿—ä¸ºåŒä¸€æ ‡å¿—ï¼ŒFLAG_NORMALç­‰å¸¸é‡ï¼‰
+     * @return æŒ‡å®šç›®å½•æ ‡è¯†çš„é…ç½®ä¿¡æ¯
      */
 //    public PathConfig getPathConfig(String _sPathFlag) {
 //        return (PathConfig) m_hPathConfig.get(_sPathFlag);
 //    }
 
     /**
-     * »ñÈ¡Ö¸¶¨Ä¿Â¼±êÊ¶µÄÅäÖÃĞÅÏ¢Öµ
+     * è·å–æŒ‡å®šç›®å½•æ ‡è¯†çš„é…ç½®ä¿¡æ¯å€¼
      *
      * @param _sPathFlag
-     *            Ä¿Â¼±êÖ¾£¨ºÍÎÄ¼ş±êÖ¾ÎªÍ¬Ò»±êÖ¾£¬FLAG_NORMALµÈ³£Á¿£©
+     *            ç›®å½•æ ‡å¿—ï¼ˆå’Œæ–‡ä»¶æ ‡å¿—ä¸ºåŒä¸€æ ‡å¿—ï¼ŒFLAG_NORMALç­‰å¸¸é‡ï¼‰
      * @param _nPathType
-     *            Ä¿Â¼ÀàĞÍ£¨¶¨ÒåÔÚFilesManÖĞ£¬PATH_LOCALµÈ³£Á¿£©
-     * @return Ö¸¶¨Ä¿Â¼±êÊ¶µÄÅäÖÃĞÅÏ¢Öµ
+     *            ç›®å½•ç±»å‹ï¼ˆå®šä¹‰åœ¨FilesManä¸­ï¼ŒPATH_LOCALç­‰å¸¸é‡ï¼‰
+     * @return æŒ‡å®šç›®å½•æ ‡è¯†çš„é…ç½®ä¿¡æ¯å€¼
      */
     public String getPathConfigValue(String _sPathFlag, int _nPathType) {
         String sPath=null;
-        //TODO ¼ÓÔØÅäÖÃ
-       /* PathConfig pathConfig = this.getPathConfig(_sPathFlag); // Ä¿Â¼ÅäÖÃĞÅÏ¢
+        //TODO åŠ è½½é…ç½®
+       /* PathConfig pathConfig = this.getPathConfig(_sPathFlag); // ç›®å½•é…ç½®ä¿¡æ¯
         if (pathConfig == null) {
             return null;
         }
@@ -406,7 +406,7 @@ public class FilesMan extends Object {
         switch (_nPathType) {
             case PATH_LOCAL: {
                 sPath = pathConfig.getLocalPath();
-                // ¶ÔÂ·¾¶½øĞĞ´¦Àí£¬Èç¹ûÓĞ¶à¸ö·Ö¸ô·û£¬ÕâÀïÒªÌá»¯³ÉÒ»¸ö£¨WindowsÏµÍ³ÏÂ½«4¸öÌæ»»³É2¸ö£©
+                // å¯¹è·¯å¾„è¿›è¡Œå¤„ç†ï¼Œå¦‚æœæœ‰å¤šä¸ªåˆ†éš”ç¬¦ï¼Œè¿™é‡Œè¦æåŒ–æˆä¸€ä¸ªï¼ˆWindowsç³»ç»Ÿä¸‹å°†4ä¸ªæ›¿æ¢æˆ2ä¸ªï¼‰
                 sPath = getLocalFormatPath(sPath);
                 break;
             }
@@ -425,15 +425,15 @@ public class FilesMan extends Object {
     }
 
     /**
-     * ¶ÔÂ·¾¶½øĞĞ´¦Àí£¬½«¶à¸öÂ·¾¶·Ö¸ô·ûÌæ»»ÎªÒ»¸öÂ·¾¶·Ö¸ô·û<BR>
-     * Èç¹ûÂ·¾¶·Ö¸ô·ûÎª¡°/¡±£¬Ôò½«ËùÓĞµÄ¡°//¡±Ìæ»»Îª¡°/¡±; Èç¹ûÂ·¾¶·Ö¸ô·ûÎª¡°\¡±£¬Ôò½«ËùÓĞµÄ¡°\\\\¡±Ìæ»»Îª¡°\\¡±.
+     * å¯¹è·¯å¾„è¿›è¡Œå¤„ç†ï¼Œå°†å¤šä¸ªè·¯å¾„åˆ†éš”ç¬¦æ›¿æ¢ä¸ºä¸€ä¸ªè·¯å¾„åˆ†éš”ç¬¦<BR>
+     * å¦‚æœè·¯å¾„åˆ†éš”ç¬¦ä¸ºâ€œ/â€ï¼Œåˆ™å°†æ‰€æœ‰çš„â€œ//â€æ›¿æ¢ä¸ºâ€œ/â€; å¦‚æœè·¯å¾„åˆ†éš”ç¬¦ä¸ºâ€œ\â€ï¼Œåˆ™å°†æ‰€æœ‰çš„â€œ\\\\â€æ›¿æ¢ä¸ºâ€œ\\â€.
      *
      * @param sPath
      * @return
      */
     private static String getLocalFormatPath(String sPath) {
-        // add by caohui@2012-11-26 ÏÂÎç3:01:42
-        // ²»¼æÈİ´íÎóĞ´·¨£¬»áÒı·¢²»Ö§³ÖÍøÂçÂ·¾¶
+        // add by caohui@2012-11-26 ä¸‹åˆ3:01:42
+        // ä¸å…¼å®¹é”™è¯¯å†™æ³•ï¼Œä¼šå¼•å‘ä¸æ”¯æŒç½‘ç»œè·¯å¾„
         if (true)
             return sPath;
 
@@ -452,17 +452,17 @@ public class FilesMan extends Object {
     }
 
     /**
-     * Ä¿Â¼Ó³Éä£º¸ù¾İÎÄ¼şÃûÓ³ÉäÎÄ¼şËùÔÚµÄÂ·¾¶
+     * ç›®å½•æ˜ å°„ï¼šæ ¹æ®æ–‡ä»¶åæ˜ å°„æ–‡ä»¶æ‰€åœ¨çš„è·¯å¾„
      * <p>
-     * ÎÄ¼şËùÔÚÂ·¾¶
+     * æ–‡ä»¶æ‰€åœ¨è·¯å¾„
      * <p>
-     * ËµÃ÷£º²»¼ì²éÎÄ¼şÂ·¾¶ÊÇ·ñÕæÕı´æÔÚ
+     * è¯´æ˜ï¼šä¸æ£€æŸ¥æ–‡ä»¶è·¯å¾„æ˜¯å¦çœŸæ­£å­˜åœ¨
      *
      * @param _sFileName
-     *            ÎÄ¼şÃû
+     *            æ–‡ä»¶å
      * @param _nPathType
-     *            Ä¿Â¼ÀàĞÍ
-     * @return ¸ù¾İÎÄ¼şÃûÓ³ÉäÎÄ¼şËùÔÚµÄÂ·¾¶
+     *            ç›®å½•ç±»å‹
+     * @return æ ¹æ®æ–‡ä»¶åæ˜ å°„æ–‡ä»¶æ‰€åœ¨çš„è·¯å¾„
      * @throws WCMException
      */
     public String mapFilePath(String _sFileName, int _nPathType)
@@ -470,18 +470,18 @@ public class FilesMan extends Object {
         if (_sFileName == null) {
             throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                     I18NMessage.get(FilesMan.class, "FilesMan.label7",
-                            "ÎÄ¼şÃûÎª¿Õ(FilesMan.mapFilePath)"));
+                            "æ–‡ä»¶åä¸ºç©º(FilesMan.mapFilePath)"));
         }
 
-        // ¼ì²éÎÄ¼şÃû³¤¶ÈÊÇ·ñ·ûºÏ×îĞ¡ÎÄ¼ş³¤¶È
+        // æ£€æŸ¥æ–‡ä»¶åé•¿åº¦æ˜¯å¦ç¬¦åˆæœ€å°æ–‡ä»¶é•¿åº¦
         _sFileName = _sFileName.trim();
 
-        // add by liuhm@20140114 °²È«ĞÔÎÊÌâ´¦Àí£¬ĞèÒªÏÈÅĞ¶ÏÔÙ»ñÈ¡ÎÄ¼şÃû
+        // add by liuhm@20140114 å®‰å…¨æ€§é—®é¢˜å¤„ç†ï¼Œéœ€è¦å…ˆåˆ¤æ–­å†è·å–æ–‡ä»¶å
         if (_sFileName.indexOf("..") >= 0) {
             throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID, "["
                     + _sFileName
                     + I18NMessage.get(FilesMan.class, "FilesMan.label8",
-                    "]ÎŞĞ§µÄÎÄ¼ş¸ñÊ½(FilesMan.mapFilePath)"));
+                    "]æ— æ•ˆçš„æ–‡ä»¶æ ¼å¼(FilesMan.mapFilePath)"));
         }
 
         _sFileName = CMyFile.extractFileName(_sFileName);
@@ -489,24 +489,24 @@ public class FilesMan extends Object {
             throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID, "["
                     + _sFileName
                     + I18NMessage.get(FilesMan.class, "FilesMan.label8",
-                    "]ÎŞĞ§µÄÎÄ¼ş¸ñÊ½(FilesMan.mapFilePath)"));
+                    "]æ— æ•ˆçš„æ–‡ä»¶æ ¼å¼(FilesMan.mapFilePath)"));
         }
 
-        // TODO È¡ÎÄ¼ş´æ´¢Ä¿Â¼ÅäÖÃĞÅÏ¢£¬²¢¼ì²éÀàĞÍ±êÊ¶£¨Ç°2Î»£©ÊÇ·ñÕıÈ·
-        /*PathConfig pathConfig = null; // Ä¿Â¼ÅäÖÃĞÅÏ¢
+        // TODO å–æ–‡ä»¶å­˜å‚¨ç›®å½•é…ç½®ä¿¡æ¯ï¼Œå¹¶æ£€æŸ¥ç±»å‹æ ‡è¯†ï¼ˆå‰2ä½ï¼‰æ˜¯å¦æ­£ç¡®
+        /*PathConfig pathConfig = null; // ç›®å½•é…ç½®ä¿¡æ¯
         pathConfig = this.getPathConfig(_sFileName.substring(0, 2));
         if (pathConfig == null) {
             throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                     I18NMessage.get(FilesMan.class, "FilesMan.label9",
                             "_sFileName:[" + _sFileName
-                                    + "]£¬ÎÄ¼ş¸ñÊ½²»Æ¥Åä£ºÀàĞÍ±êÊ¶ÎŞĞ§(FilesMan.mapFilePath)"));
+                                    + "]ï¼Œæ–‡ä»¶æ ¼å¼ä¸åŒ¹é…ï¼šç±»å‹æ ‡è¯†æ— æ•ˆ(FilesMan.mapFilePath)"));
         }*/
 
-        // TODO ¹¹ÔìÎÄ¼şÂ·¾¶
-        String sPath=null; // ÎÄ¼şÂ·¾¶
+        // TODO æ„é€ æ–‡ä»¶è·¯å¾„
+        String sPath=null; // æ–‡ä»¶è·¯å¾„
 /*
         char chrPathSeparator = (_nPathType == PATH_LOCAL ? File.separatorChar
-                : '/'); // Â·¾¶·Ö¸î·û
+                : '/'); // è·¯å¾„åˆ†å‰²ç¬¦
         switch (_nPathType) {
             case PATH_LOCAL: {
                 sPath = pathConfig.getLocalPath();
@@ -523,133 +523,133 @@ public class FilesMan extends Object {
             default:
                 throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                         I18NMessage.get(FilesMan.class, "FilesMan.label10",
-                                "ÎŞĞ§µÄÂ·¾¶Àà±ğ(FilesMan.mapFilePath)"));
+                                "æ— æ•ˆçš„è·¯å¾„ç±»åˆ«(FilesMan.mapFilePath)"));
         }// end case
         sPath += _sFileName.substring(0, 8) + chrPathSeparator
                 + _sFileName.substring(0, 10) + chrPathSeparator;
 */
 
-        return sPath; // ·µ»ØÂ·¾¶
+        return sPath; // è¿”å›è·¯å¾„
     }
 
     // =========================================================================
-    // TODO ¹¹ÔìÓĞĞ§ÎÄ¼şÃû
+    // TODO æ„é€ æœ‰æ•ˆæ–‡ä»¶å
     /**
-     * »ñÈ¡ÏÂÒ»¸ö¿ÉÓÃµÄÎÄ¼şÃû³Æ
+     * è·å–ä¸‹ä¸€ä¸ªå¯ç”¨çš„æ–‡ä»¶åç§°
      * <p>
-     * ¹¹ÔìËµÃ÷£º
+     * æ„é€ è¯´æ˜ï¼š
      * <p>
-     * [1]¹¹ÔìÎÄ¼şÃûÊ±£¬×Ô¶¯¼ì²âÎÄ¼şÃûÊÇ·ñÖØ¸´¡£
+     * [1]æ„é€ æ–‡ä»¶åæ—¶ï¼Œè‡ªåŠ¨æ£€æµ‹æ–‡ä»¶åæ˜¯å¦é‡å¤ã€‚
      * <p>
-     * [2]ÈôÖØ¸´£¬ÔòÔÚÖØ¸´µÄÎÄ¼şÃûºóÔÙ×·¼Ó2Î»Ëæ»úÊı¡£
+     * [2]è‹¥é‡å¤ï¼Œåˆ™åœ¨é‡å¤çš„æ–‡ä»¶ååå†è¿½åŠ 2ä½éšæœºæ•°ã€‚
      * <p>
-     * ËµÃ÷£ºÎª¼õÉÙÏµÍ³¸ºµ££¬Ò»µ©Á½´Î»ñÈ¡ÎÄ¼şÃûÊ§°Ü£¬·µ»Ønull.
+     * è¯´æ˜ï¼šä¸ºå‡å°‘ç³»ç»Ÿè´Ÿæ‹…ï¼Œä¸€æ—¦ä¸¤æ¬¡è·å–æ–‡ä»¶åå¤±è´¥ï¼Œè¿”å›null.
      *
      * @param _sPathFlag
-     *            ÎÄ¼şÀàĞÍ±êÊ¶£¨ÖµÓÉFLAG_NORMALµÈ³£Á¿¶¨Òå£©
+     *            æ–‡ä»¶ç±»å‹æ ‡è¯†ï¼ˆå€¼ç”±FLAG_NORMALç­‰å¸¸é‡å®šä¹‰ï¼‰
      * @param _sFileExt
-     *            ÎÄ¼şÀ©Õ¹Ãû£¨".ext"»ò"ext"ĞÎÊ½£©
+     *            æ–‡ä»¶æ‰©å±•åï¼ˆ".ext"æˆ–"ext"å½¢å¼ï¼‰
      * @param _crTime
-     *            ´´½¨Ê±¼ä£¨¿ÉÊ¡£¬Ä¬ÈÏÖµnull£¬±íÊ¾µ±Ç°Ê±¼ä£©
+     *            åˆ›å»ºæ—¶é—´ï¼ˆå¯çœï¼Œé»˜è®¤å€¼nullï¼Œè¡¨ç¤ºå½“å‰æ—¶é—´ï¼‰
      * @param _bIncludePath
-     *            ·µ»ØÖµÖĞÊÇ·ñ°üº¬Â·¾¶£¨¿ÉÊ¡£¬Ä¬ÈÏÖµ°üº¬£©
-     * @return Èô³É¹¦£¬·µ»ØµÃµ½µÄÎÄ¼şÃû£»·ñÔò£¬·µ»Ønull.
+     *            è¿”å›å€¼ä¸­æ˜¯å¦åŒ…å«è·¯å¾„ï¼ˆå¯çœï¼Œé»˜è®¤å€¼åŒ…å«ï¼‰
+     * @return è‹¥æˆåŠŸï¼Œè¿”å›å¾—åˆ°çš„æ–‡ä»¶åï¼›å¦åˆ™ï¼Œè¿”å›null.
      * @throws WCMException
      */
     public synchronized String getNextFileName(String _sPathFlag,
                                                String _sFileExt, CMyDateTime _crTime, boolean _bIncludePath)
             throws WCMException {
-        // °²È«ĞÔ¼ì²é£º_sFileExt²»ÄÜº¬ÓĞ..ĞÅÏ¢
+        // å®‰å…¨æ€§æ£€æŸ¥ï¼š_sFileExtä¸èƒ½å«æœ‰..ä¿¡æ¯
         // http://192.9.200.87:8989/browse/WCMVS-420
         /*if (_sFileExt.indexOf("..") >= 0) {
-            throw new WCMException("·Ç·¨ÎÄ¼şºó×ºĞÅÏ¢£¬²»ÄÜ»ñÈ¡ÏàÓ¦µÄÎÄ¼şÃû");
+            throw new WCMException("éæ³•æ–‡ä»¶åç¼€ä¿¡æ¯ï¼Œä¸èƒ½è·å–ç›¸åº”çš„æ–‡ä»¶å");
         }
         _sFileExt = _sFileExt.replace("?", "");
         if (_sFileExt.length() > 8) {
-            throw new WCMException("²»ÊÇ³£¹æºó×ºĞÅÏ¢£¬²»ÄÜ»ñÈ¡ÏàÓ¦µÄÎÄ¼şÃû");
+            throw new WCMException("ä¸æ˜¯å¸¸è§„åç¼€ä¿¡æ¯ï¼Œä¸èƒ½è·å–ç›¸åº”çš„æ–‡ä»¶å");
         }
 
-        PathConfig pathConfig = null; // Ä¿Â¼ÅäÖÃĞÅÏ¢
+        PathConfig pathConfig = null; // ç›®å½•é…ç½®ä¿¡æ¯
 
         String sDate, sTime, sRandom;
         long lTime;
-        String sFilePath, sFileName, sFileExt; // ¹¹ÔìµÄÎÄ¼şÃû£¨º¬À©Õ¹Ãû£©
+        String sFilePath, sFileName, sFileExt; // æ„é€ çš„æ–‡ä»¶åï¼ˆå«æ‰©å±•åï¼‰
         int i;
 
-        // È¡Ä¿Â¼ÅäÖÃĞÅÏ¢£¬²¢¼ì²é²ÎÊı_sPathFlagÊÇ·ñÓĞĞ§
+        // å–ç›®å½•é…ç½®ä¿¡æ¯ï¼Œå¹¶æ£€æŸ¥å‚æ•°_sPathFlagæ˜¯å¦æœ‰æ•ˆ
         if (_sPathFlag == null) {
             throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                     I18NMessage.get(FilesMan.class, "FilesMan.label11",
-                            "Â·¾¶±êÊ¶Îª¿Õ£¨FilesMan.getNextFileName£©"));
+                            "è·¯å¾„æ ‡è¯†ä¸ºç©ºï¼ˆFilesMan.getNextFileNameï¼‰"));
         }
         _sPathFlag = _sPathFlag.trim().toUpperCase();
         pathConfig = (PathConfig) m_hPathConfig.get(_sPathFlag);
         if (pathConfig == null) {
             throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                     I18NMessage.get(FilesMan.class, "FilesMan.label12",
-                            "ÎŞĞ§µÄÂ·¾¶±êÊ¶²ÎÊı(FilesMan.getNextFileName)"));
+                            "æ— æ•ˆçš„è·¯å¾„æ ‡è¯†å‚æ•°(FilesMan.getNextFileName)"));
         }
 
-        // ´¦ÀíÎÄ¼şµÄ´´½¨Ê±¼ä²ÎÊı
+        // å¤„ç†æ–‡ä»¶çš„åˆ›å»ºæ—¶é—´å‚æ•°
         if ((_crTime == null) || _crTime.isNull()) {
-            _crTime = CMyDateTime.now(); // È¡µ±Ç°Ê±¼ä
+            _crTime = CMyDateTime.now(); // å–å½“å‰æ—¶é—´
         }
-        // »ñÈ¡´´½¨ÈÕÆÚ£¨8Î»:yyyMMdd£©
+        // è·å–åˆ›å»ºæ—¥æœŸï¼ˆ8ä½:yyyMMddï¼‰
         sDate = _crTime.toString("yyyyMMdd");
 
-        // »ñÈ¡ÎÄ¼ş´æ·ÅÂ·¾¶£¨±¾µØÂ·¾¶£©
+        // è·å–æ–‡ä»¶å­˜æ”¾è·¯å¾„ï¼ˆæœ¬åœ°è·¯å¾„ï¼‰
         sFilePath = pathConfig.getLocalPath() + _sPathFlag
                 + sDate.substring(0, 6) + File.separatorChar + _sPathFlag
                 + sDate.substring(0, 8) + File.separatorChar;
-        // ¼ì²éÂ·¾¶ÊÇ·ñ´æÔÚ
-        if (!CMyFile.fileExists(sFilePath)) { // Â·¾¶²»´æÔÚ£¬Ôò´´½¨Ö®
+        // æ£€æŸ¥è·¯å¾„æ˜¯å¦å­˜åœ¨
+        if (!CMyFile.fileExists(sFilePath)) { // è·¯å¾„ä¸å­˜åœ¨ï¼Œåˆ™åˆ›å»ºä¹‹
             try {
-                CMyFile.makeDir(sFilePath, true); // ´´½¨Ä¿Â¼
+                CMyFile.makeDir(sFilePath, true); // åˆ›å»ºç›®å½•
             } catch (Exception ex) {
                 throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                         I18NMessage.get(FilesMan.class, "FilesMan.label13",
-                                "Ö¸¶¨Â·¾¶")
+                                "æŒ‡å®šè·¯å¾„")
                                 + sFilePath
                                 + I18NMessage.get(FilesMan.class,
                                 "FilesMan.label14",
-                                "ÎŞ·¨´´½¨(FilesMan.getNextFileName)"));
+                                "æ— æ³•åˆ›å»º(FilesMan.getNextFileName)"));
             }// end try
         }// end if
 
-        // È¡´´½¨Ê±¼ä£¨7Î»£©
-        // ×¢Òâ£º¼ÆËãÊ±¼äÖµÊ±£¬±ØĞë½«mydtNow.getTimeInMillis()Öµ¼ÓÉÏÊ±Çø²î¡£
+        // å–åˆ›å»ºæ—¶é—´ï¼ˆ7ä½ï¼‰
+        // æ³¨æ„ï¼šè®¡ç®—æ—¶é—´å€¼æ—¶ï¼Œå¿…é¡»å°†mydtNow.getTimeInMillis()å€¼åŠ ä¸Šæ—¶åŒºå·®ã€‚
         lTime = (_crTime.getTimeInMillis() + TIMEZONE_RAWOFFSET)
                 % CMyDateTime.ADAY_MILLIS;
         sTime = CMyString.numberToStr(lTime, 8, '0');
 
-        // È¡4Î»Ëæ»úÊı
+        // å–4ä½éšæœºæ•°
         sRandom = CMyString.numberToStr(Math.round(Math.random() * 10000), 4,
                 '0');
 
-        // ´¦ÀíÀ©Õ¹Ãû
+        // å¤„ç†æ‰©å±•å
         sFileExt = _sFileExt.trim();
-        // ¼ì²éµÚÒ»¸ö×Ö·ûÊÇ·ñÎª'.'
+        // æ£€æŸ¥ç¬¬ä¸€ä¸ªå­—ç¬¦æ˜¯å¦ä¸º'.'
         if ((sFileExt.length() > 0) && (sFileExt.charAt(0) != '.')) {
             sFileExt = "." + sFileExt;
         }
 
-        // ¹¹ÔìÎÄ¼şÃû³Æ
-        // ÔÚ¼ì²éÎÄ¼şÃûÖØ¸´Ê±£¬×î¶àÔÊĞí¹¹ÔìÁ½´Î¡£
+        // æ„é€ æ–‡ä»¶åç§°
+        // åœ¨æ£€æŸ¥æ–‡ä»¶åé‡å¤æ—¶ï¼Œæœ€å¤šå…è®¸æ„é€ ä¸¤æ¬¡ã€‚
         sFileName = _sPathFlag + sDate + sTime + sRandom;
         for (i = 0; i < 2; i++) {
-            if (i > 0) { // À©Õ¹Ëæ»úÊıÒÔ½â¾öÖØ¸´ÎÊÌâ£¬Ã¿´ÎÏòºóÀ©Õ¹Á½Î»
+            if (i > 0) { // æ‰©å±•éšæœºæ•°ä»¥è§£å†³é‡å¤é—®é¢˜ï¼Œæ¯æ¬¡å‘åæ‰©å±•ä¸¤ä½
                 sFileName += CMyString.numberToStr(
                         Math.round(Math.random() * 100), 2, '0');
             }
-            // ¼ì²éÎÄ¼şÃûÊÇ·ñÖØ¸´
+            // æ£€æŸ¥æ–‡ä»¶åæ˜¯å¦é‡å¤
             if (!CMyFile.fileExists(sFilePath + sFileName + sFileExt))
-                return (_bIncludePath ? sFilePath : "") + sFileName + sFileExt; // ÕÒµ½²»ÖØ¸´µÄÎÄ¼şÃû
+                return (_bIncludePath ? sFilePath : "") + sFileName + sFileExt; // æ‰¾åˆ°ä¸é‡å¤çš„æ–‡ä»¶å
         }*/// end for
-        return null; // Ã»ÓĞÕÒµ½²»ÖØ¸´µÄÎÄ¼şÃû
+        return null; // æ²¡æœ‰æ‰¾åˆ°ä¸é‡å¤çš„æ–‡ä»¶å
     }// END:getNextFileName
 
     /**
-     * »ñÈ¡ÏÂÒ»¸ö¿ÉÓÃµÄÎÄ¼şÃû³Æ
+     * è·å–ä¸‹ä¸€ä¸ªå¯ç”¨çš„æ–‡ä»¶åç§°
      *String _sPathFlag,String _sFileExt, CMyDateTime _crTime, boolean _bIncludePath
 //     * @see getNextFileName( String _sPathFlag, String _sFileExt, CMyDateTime
 //     *      _crTime, boolean _bIncludePath )
@@ -660,7 +660,7 @@ public class FilesMan extends Object {
     }
 
     /**
-     * »ñÈ¡ÏÂÒ»¸ö¿ÉÓÃµÄÎÄ¼şÃû³Æ
+     * è·å–ä¸‹ä¸€ä¸ªå¯ç”¨çš„æ–‡ä»¶åç§°
      *
 //     * @see getNextFileName( String _sPathFlag, String _sFileExt, CMyDateTime
 //     *      _crTime, boolean _bIncludePath )
@@ -671,7 +671,7 @@ public class FilesMan extends Object {
     }
 
     /**
-     * »ñÈ¡ÏÂÒ»¸ö¿ÉÓÃµÄÎÄ¼şÃû³Æ
+     * è·å–ä¸‹ä¸€ä¸ªå¯ç”¨çš„æ–‡ä»¶åç§°
      *
 //     * @see getNextFileName( String _sPathFlag, String _sFileExt, CMyDateTime
 //     *      _crTime, boolean _bIncludePath )
@@ -682,7 +682,7 @@ public class FilesMan extends Object {
     }
 
     /**
-     * »ñÈ¡ÏÂÒ»¸ö¿ÉÓÃµÄÎÄ¼şÃû³Æ
+     * è·å–ä¸‹ä¸€ä¸ªå¯ç”¨çš„æ–‡ä»¶åç§°
      *
 //     * @see getNextFileName( String _sPathFlag, String _sFileExt, CMyDateTime
 //     *      _crTime, boolean _bIncludePath )
@@ -693,25 +693,25 @@ public class FilesMan extends Object {
     }
 
     // ==========================================================================
-    // ´ÓÎÄ¼şÃûÖĞÌáÈ¡ÎÄ¼ş´´½¨Ê±¼ä
-    // ÎÄ¼ş¸ñÊ½£ºff+yyyy,mm,dd+tt,ttt,ttt+rrrr.ext
+    // ä»æ–‡ä»¶åä¸­æå–æ–‡ä»¶åˆ›å»ºæ—¶é—´
+    // æ–‡ä»¶æ ¼å¼ï¼šff+yyyy,mm,dd+tt,ttt,ttt+rrrr.ext
     // index: 01 2345 67 89 01 234 567 8901
 
     /**
-     * ÌáÈ¡ÈÕÆÚÖµ
+     * æå–æ—¥æœŸå€¼
      *
      * @param _sFileName
-     *            ÎÄ¼şÃû
-     * @return ×Ö·û´®£¬¸ñÊ½£ºyyyy-MM-dd
+     *            æ–‡ä»¶å
+     * @return å­—ç¬¦ä¸²ï¼Œæ ¼å¼ï¼šyyyy-MM-dd
      * @throws WCMException
-     *             ÈôÎÄ¼şÃû¸ñÊ½²»·û£¬Å×³öÒì³£
+     *             è‹¥æ–‡ä»¶åæ ¼å¼ä¸ç¬¦ï¼ŒæŠ›å‡ºå¼‚å¸¸
      */
     public static String extractFileCrDateValue(String _sFileName)
             throws WCMException {
         if (_sFileName.length() < FILENAME_MIN_LENGTH) {
             throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                     I18NMessage.get(FilesMan.class, "FilesMan.label15",
-                            "ÎŞĞ§µÄÎÄ¼ş¸ñÊ½(FilesMan.extractFileCrDateValue)"));
+                            "æ— æ•ˆçš„æ–‡ä»¶æ ¼å¼(FilesMan.extractFileCrDateValue)"));
         }
 
         String sDate;
@@ -721,20 +721,20 @@ public class FilesMan extends Object {
     }
 
     /**
-     * ´ÓÎÄ¼şÃûÖĞÌáÈ¡´´½¨Ê±¼äÖµ
+     * ä»æ–‡ä»¶åä¸­æå–åˆ›å»ºæ—¶é—´å€¼
      *
      * @param _sFileName
-     *            ÎÄ¼şÃû
-     * @return longĞÍ
+     *            æ–‡ä»¶å
+     * @return longå‹
      * @throws WCMException
-     *             ÈôÎÄ¼şÃû¸ñÊ½²»·û£¬Å×³öÒì³£
+     *             è‹¥æ–‡ä»¶åæ ¼å¼ä¸ç¬¦ï¼ŒæŠ›å‡ºå¼‚å¸¸
      */
     public static long extractFileCrTimeValue(String _sFileName)
             throws WCMException {
         if (_sFileName.length() < FILENAME_MIN_LENGTH) {
             throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                     I18NMessage.get(FilesMan.class, "FilesMan.label16",
-                            "ÎŞĞ§µÄÎÄ¼ş¸ñÊ½(FilesMan.extractFileCrTimeValue)"));
+                            "æ— æ•ˆçš„æ–‡ä»¶æ ¼å¼(FilesMan.extractFileCrTimeValue)"));
         }
 
         long lTime;
@@ -743,99 +743,99 @@ public class FilesMan extends Object {
         } catch (Exception ex) {
             throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                     I18NMessage.get(FilesMan.class, "FilesMan.label16",
-                            "ÎŞĞ§µÄÎÄ¼ş¸ñÊ½(FilesMan.extractFileCrTimeValue)"), ex);
+                            "æ— æ•ˆçš„æ–‡ä»¶æ ¼å¼(FilesMan.extractFileCrTimeValue)"), ex);
         }// end try
         return lTime;
     }
 
     /**
-     * ÌáÈ¡´´½¨ÈÕÆÚÖµ
+     * æå–åˆ›å»ºæ—¥æœŸå€¼
      *
      * @param _sFileName
-     * @return ·µ»ØÖµ£ºCMyDateTime
+     * @return è¿”å›å€¼ï¼šCMyDateTime
      * @throws WCMException
-     *             Òì³££ºÈôÎÄ¼şÃû¸ñÊ½²»·û£¬Å×³öÒì³£
+     *             å¼‚å¸¸ï¼šè‹¥æ–‡ä»¶åæ ¼å¼ä¸ç¬¦ï¼ŒæŠ›å‡ºå¼‚å¸¸
      */
     public static CMyDateTime extractFileCrDate(String _sFileName)
             throws WCMException {
         CMyDateTime mydtCrDate;
         String sDate;
 
-        // È¡ÈÕÆÚ×Ö·û´®Öµ
+        // å–æ—¥æœŸå­—ç¬¦ä¸²å€¼
         sDate = extractFileCrDateValue(_sFileName);
 
-        // ×ª»¯ÎªÈÕÆÚÖµ
+        // è½¬åŒ–ä¸ºæ—¥æœŸå€¼
         try {
             mydtCrDate = new CMyDateTime();
             mydtCrDate.setDateWithString(sDate, CMyDateTime.FORMAT_DEFAULT);
         } catch (CMyException ex) {
             throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                     I18NMessage.get(FilesMan.class, "FilesMan.label17",
-                            "ÎŞĞ§µÄÎÄ¼ş¸ñÊ½(FilesMan.extractFileCrDate)"), ex);
+                            "æ— æ•ˆçš„æ–‡ä»¶æ ¼å¼(FilesMan.extractFileCrDate)"), ex);
         }// end try
         return mydtCrDate;
     }
 
     /**
-     * ÌáÈ¡ÎÄ¼ş´´½¨µÄÈÕÆÚÊ±¼äÖµ
+     * æå–æ–‡ä»¶åˆ›å»ºçš„æ—¥æœŸæ—¶é—´å€¼
      *
      * @param _sFileName
-     *            ÎÄ¼şÃû
-     * @return CMyDateTime ÈÕÆÚÊ±¼äÖµ
+     *            æ–‡ä»¶å
+     * @return CMyDateTime æ—¥æœŸæ—¶é—´å€¼
      * @throws WCMException
-     *             Òì³££ºÈôÎÄ¼şÃû¸ñÊ½²»·û£¬Å×³öÒì³£
+     *             å¼‚å¸¸ï¼šè‹¥æ–‡ä»¶åæ ¼å¼ä¸ç¬¦ï¼ŒæŠ›å‡ºå¼‚å¸¸
      */
     public static CMyDateTime extractFileCrDateTime(String _sFileName)
             throws WCMException {
-        CMyDateTime mydtCrDate = null; // ´´½¨ÈÕÆÚ
-        long lTime; // Ê±¼äÖµ£¨ºÁÃëÊı£©
+        CMyDateTime mydtCrDate = null; // åˆ›å»ºæ—¥æœŸ
+        long lTime; // æ—¶é—´å€¼ï¼ˆæ¯«ç§’æ•°ï¼‰
 
-        mydtCrDate = extractFileCrDate(_sFileName); // È¡ÈÕÆÚÖµ
-        lTime = extractFileCrTimeValue(_sFileName); // È¡Ê±¼äÖµ
+        mydtCrDate = extractFileCrDate(_sFileName); // å–æ—¥æœŸå€¼
+        lTime = extractFileCrTimeValue(_sFileName); // å–æ—¶é—´å€¼
         return new CMyDateTime(mydtCrDate.getTimeInMillis() + lTime);
     }// END:extractFileCrTime
 
     // =======================================================================
-    // À©Õ¹Âß¼­½Ó¿Ú
+    // æ‰©å±•é€»è¾‘æ¥å£
 
     /**
-     * ½«Ö¸¶¨ÎÄ¼ş¸´ÖÆµ½Ö¸¶¨µÄÄ¿Â¼
+     * å°†æŒ‡å®šæ–‡ä»¶å¤åˆ¶åˆ°æŒ‡å®šçš„ç›®å½•
      *
      * @param _srcFilePathName
-     *            Ô­ÎÄ¼şÃû£¨°üº¬Â·¾¶£©
+     *            åŸæ–‡ä»¶åï¼ˆåŒ…å«è·¯å¾„ï¼‰
      * @param _dstPathFlag
-     *            Ä¿±êÄ¿Â¼±êÊ¶£¨±ØĞëÊÇÓĞĞ§µÄÄ¿Â¼±êÊ¶£©
+     *            ç›®æ ‡ç›®å½•æ ‡è¯†ï¼ˆå¿…é¡»æ˜¯æœ‰æ•ˆçš„ç›®å½•æ ‡è¯†ï¼‰
      * @param _bReturnPath
-     *            ÊÇ·ñ·µ»Ø±£´æºóµÄÎÄ¼şÃû
+     *            æ˜¯å¦è¿”å›ä¿å­˜åçš„æ–‡ä»¶å
      * @return
      * @throws WCMException
      */
     public String copyFile(String _srcFilePathName, String _dstPathFlag,
                            boolean _bReturnPath) throws WCMException {
         try {
-            String sFileExt = CMyFile.extractFileExt(_srcFilePathName); // È¡Ô­ÎÄ¼şÀ©Õ¹Ãû
+            String sFileExt = CMyFile.extractFileExt(_srcFilePathName); // å–åŸæ–‡ä»¶æ‰©å±•å
             String sSaveFilePathName = getNextFilePathName(_dstPathFlag,
                     sFileExt);
-            // »ñµÃÏÂÒ»¸ö¿ÉÓÃµÄÎÄ¼şÃû
-            CMyFile.copyFile(_srcFilePathName, sSaveFilePathName); // ¸´ÖÆÎÄ¼ş
+            // è·å¾—ä¸‹ä¸€ä¸ªå¯ç”¨çš„æ–‡ä»¶å
+            CMyFile.copyFile(_srcFilePathName, sSaveFilePathName); // å¤åˆ¶æ–‡ä»¶
             return (_bReturnPath ? sSaveFilePathName : CMyFile
                     .extractFileName(sSaveFilePathName));
         } catch (Exception ex) {
             throw new WCMException(ExceptionNumber.ERR_WCMEXCEPTION,
                     I18NMessage.get(FilesMan.class, "FilesMan.label18",
-                            "¸´ÖÆÎÄ¼şµ½Ö¸¶¨Ä¿Â¼Ê§°Ü£¨FilesMan.copyFile£©"), ex);
+                            "å¤åˆ¶æ–‡ä»¶åˆ°æŒ‡å®šç›®å½•å¤±è´¥ï¼ˆFilesMan.copyFileï¼‰"), ex);
         }
     }// END: copyFile()
 
     /**
-     * ½«Ö¸¶¨ÎÄ¼şÒÆ¶¯µ½Ö¸¶¨µÄÄ¿Â¼
+     * å°†æŒ‡å®šæ–‡ä»¶ç§»åŠ¨åˆ°æŒ‡å®šçš„ç›®å½•
      *
      * @param _srcFilePathName
-     *            Ô­ÎÄ¼şÃû£¨°üº¬Â·¾¶£©
+     *            åŸæ–‡ä»¶åï¼ˆåŒ…å«è·¯å¾„ï¼‰
      * @param _dstPathFlag
-     *            Ä¿±êÄ¿Â¼±êÊ¶£¨±ØĞëÊÇÓĞĞ§µÄÄ¿Â¼±êÊ¶£©
+     *            ç›®æ ‡ç›®å½•æ ‡è¯†ï¼ˆå¿…é¡»æ˜¯æœ‰æ•ˆçš„ç›®å½•æ ‡è¯†ï¼‰
      * @param _bReturnPath
-     *            ÊÇ·ñ·µ»Ø±£´æºóµÄÎÄ¼şÃû
+     *            æ˜¯å¦è¿”å›ä¿å­˜åçš„æ–‡ä»¶å
      * @return
      * @throws WCMException
      */
@@ -844,24 +844,24 @@ public class FilesMan extends Object {
         try {
             String sSaveFile = copyFile(_srcFilePathName, _dstPathFlag,
                     _bReturnPath);
-            // add by caohui@2016Äê3ÔÂ20ÈÕ ÏÂÎç1:20:20
-            // ¹æ±ÜÇ°¶Ë¶à´ÎÇëÇó£¬µ¼ÖÂÎÄ¼ş±»É¾³ı
+            // add by caohui@2016å¹´3æœˆ20æ—¥ ä¸‹åˆ1:20:20
+            // è§„é¿å‰ç«¯å¤šæ¬¡è¯·æ±‚ï¼Œå¯¼è‡´æ–‡ä»¶è¢«åˆ é™¤
             if (DELETE_FILE_ON_MOVE)
                 CMyFile.deleteFile(_srcFilePathName);
             return sSaveFile;
         } catch (Exception ex) {
             throw new WCMException(ExceptionNumber.ERR_WCMEXCEPTION,
                     I18NMessage.get(FilesMan.class, "FilesMan.label19",
-                            "ÒÆ¶¯ÎÄ¼şµ½Ö¸¶¨Ä¿Â¼Ê§°Ü£¨FilesMan.moveFile£©"), ex);
+                            "ç§»åŠ¨æ–‡ä»¶åˆ°æŒ‡å®šç›®å½•å¤±è´¥ï¼ˆFilesMan.moveFileï¼‰"), ex);
         }
     }// END: moveFile()
 
     /**
-     * É¾³ıÖ¸¶¨µÄÎÄ¼ş
+     * åˆ é™¤æŒ‡å®šçš„æ–‡ä»¶
      *
      * @param _sFileName
-     *            °´ÕÕWCMÎÄ¼şÃüÃû¹æÔò¹¹ÔìµÄÎÄ¼şÃû
-     * @return É¾³ı³É¹¦Ê±·µ»Øtrue£»·ñÔò·µ»Øfalse
+     *            æŒ‰ç…§WCMæ–‡ä»¶å‘½åè§„åˆ™æ„é€ çš„æ–‡ä»¶å
+     * @return åˆ é™¤æˆåŠŸæ—¶è¿”å›trueï¼›å¦åˆ™è¿”å›false
      * @throws WCMException
      */
     public boolean deleteFile(String _sFileName) throws WCMException {
@@ -877,30 +877,30 @@ public class FilesMan extends Object {
         } catch (Exception ex) {
             throw new WCMException(ExceptionNumber.ERR_WCMEXCEPTION,
                     I18NMessage.get(FilesMan.class, "FilesMan.label20",
-                            "É¾³ıÖ¸¶¨µÄÎÄ¼şÊ§°Ü£¨FilesMan.deleteFile£©"), ex);
+                            "åˆ é™¤æŒ‡å®šçš„æ–‡ä»¶å¤±è´¥ï¼ˆFilesMan.deleteFileï¼‰"), ex);
         }
     }// END: removeFile()
 
     // =======================================================================
-    // Ó¦ÓÃÏà¹Ø
+    // åº”ç”¨ç›¸å…³
 
     /**
      * <p>
-     * Ä£°å¸½¼şÎÄ¼şËùÔÚÄ¿Â¼Ó³Éä
+     * æ¨¡æ¿é™„ä»¶æ–‡ä»¶æ‰€åœ¨ç›®å½•æ˜ å°„
      * <p>
-     * Ä¿Â¼×éÖ¯£ºÎÄ¼ş±£´æÔÚTemplateÄ¿Â¼ÏÂ£¬²¢°´Õ¾µã»®·Ö×ÓÄ¿Â¼
+     * ç›®å½•ç»„ç»‡ï¼šæ–‡ä»¶ä¿å­˜åœ¨Templateç›®å½•ä¸‹ï¼Œå¹¶æŒ‰ç«™ç‚¹åˆ’åˆ†å­ç›®å½•
      * <p>
-     * ÃüÃû¹æÔò£º <Template Path>\site[Õ¾µãID]\
+     * å‘½åè§„åˆ™ï¼š <Template Path>\site[ç«™ç‚¹ID]\
      *
      * @param _nSiteId
-     *            Õ¾µãID
+     *            ç«™ç‚¹ID
      * @param _nPathType
-     *            Â·¾¶ÀàĞÍ£¨¶¨ÒåÔÚFilesManÖĞ£©
+     *            è·¯å¾„ç±»å‹ï¼ˆå®šä¹‰åœ¨FilesManä¸­ï¼‰
      * @param _bCreateWhenNotExists
-     *            Â·¾¶²»´æÔÚÊ±ÊÇ·ñ×Ô¶¯²úÉú
-     * @return Ä£°å¸½¼şÎÄ¼şËùÔÚÄ¿Â¼
+     *            è·¯å¾„ä¸å­˜åœ¨æ—¶æ˜¯å¦è‡ªåŠ¨äº§ç”Ÿ
+     * @return æ¨¡æ¿é™„ä»¶æ–‡ä»¶æ‰€åœ¨ç›®å½•
      * @throws WCMException
-     *             Â·¾¶ÀàĞÍ²ÎÊıÓĞÎó»ò²úÉúĞÂµÄÄ¿Â¼Ê±
+     *             è·¯å¾„ç±»å‹å‚æ•°æœ‰è¯¯æˆ–äº§ç”Ÿæ–°çš„ç›®å½•æ—¶
      * @deprecated to use getTemplateAppendixPath(WebSite.OBJ_TYPE, _nSiteId,
      *             _nPathType, _bCreateWhenNotExists) instead please.
      */
@@ -964,7 +964,7 @@ public class FilesMan extends Object {
     }
 
     /**
-     * ¸ù¾İÎÄ¼şÃû£¬·µ»ØÎÄ¼şËùÔÚÂ·¾¶µÄFlag±êÊ¶£¬ÈçFilesMan.Flag_Protected
+     * æ ¹æ®æ–‡ä»¶åï¼Œè¿”å›æ–‡ä»¶æ‰€åœ¨è·¯å¾„çš„Flagæ ‡è¯†ï¼Œå¦‚FilesMan.Flag_Protected
      *
      * @param sFileName
      * @return
@@ -975,11 +975,11 @@ public class FilesMan extends Object {
         String sFlag = "";
         String sFileHeader = "";
 
-        // Ğ£Ñé²ÎÊı
+        // æ ¡éªŒå‚æ•°
         if (sFileName == null)
             sFlag = "";
 
-        // ¸ù¾İÍ··µ»ØÀàĞÍ
+        // æ ¹æ®å¤´è¿”å›ç±»å‹
         sFileHeader = sFileName.substring(0, 2);
 
         if (sFileHeader.equals(FLAG_PROTECTED))
@@ -1010,31 +1010,31 @@ public class FilesMan extends Object {
     }
 
     // =======================================================================
-    // ¶ÔÏó½Ó¿Ú²âÊÔ
+    // å¯¹è±¡æ¥å£æµ‹è¯•
 
     /**
-     * ½«Ö¸¶¨ÎÄ¼şÒÆ¶¯µ½Ö¸¶¨µÄÄ¿Â¼
+     * å°†æŒ‡å®šæ–‡ä»¶ç§»åŠ¨åˆ°æŒ‡å®šçš„ç›®å½•
      *
      * @param _srcFileName
-     *            Ô­ÎÄ¼şÃû£¨²»°üº¬Â·¾¶£©£¬WCM±êÊ¶ÖĞÓĞµÄ
+     *            åŸæ–‡ä»¶åï¼ˆä¸åŒ…å«è·¯å¾„ï¼‰ï¼ŒWCMæ ‡è¯†ä¸­æœ‰çš„
      * @param _dstPathFlag
-     *            Ä¿±êÄ¿Â¼±êÊ¶£¨±ØĞëÊÇÓĞĞ§µÄÄ¿Â¼±êÊ¶£©
+     *            ç›®æ ‡ç›®å½•æ ‡è¯†ï¼ˆå¿…é¡»æ˜¯æœ‰æ•ˆçš„ç›®å½•æ ‡è¯†ï¼‰
      * @param _bReturnPath
-     *            ÊÇ·ñ·µ»Ø±£´æºóµÄÎÄ¼şÃû
+     *            æ˜¯å¦è¿”å›ä¿å­˜åçš„æ–‡ä»¶å
      * @return
      * @throws WCMException
      */
     public String moveWCMFile(String _srcFileName, String _dstPathFlag,
                               boolean _bReturnPath) throws WCMException {
 
-        // Ğ£Ñé²ÎÊı
+        // æ ¡éªŒå‚æ•°
         if (_srcFileName == null) {
             throw new WCMException(ExceptionNumber.ERR_PARAM_INVALID,
                     I18NMessage.get(FilesMan.class, "FilesMan.label21",
-                            "Ô´ÎÄ¼şÃûÎª¿Õ£¡"));
+                            "æºæ–‡ä»¶åä¸ºç©ºï¼"));
         }
 
-        // ¹¹ÔìÂ·¾¶Ãû£¬ÒÔ±ãµ÷ÓÃ½Ó¿ÚÒÆ¶¯
+        // æ„é€ è·¯å¾„åï¼Œä»¥ä¾¿è°ƒç”¨æ¥å£ç§»åŠ¨
         String sPathName = mapFilePath(_srcFileName, PATH_LOCAL);
 
         try {
@@ -1045,18 +1045,18 @@ public class FilesMan extends Object {
         catch (Exception ex) {
             throw new WCMException(ExceptionNumber.ERR_WCMEXCEPTION,
                     I18NMessage.get(FilesMan.class, "FilesMan.label19",
-                            "ÒÆ¶¯ÎÄ¼şµ½Ö¸¶¨Ä¿Â¼Ê§°Ü£¨FilesMan.moveFile£©"), ex);
+                            "ç§»åŠ¨æ–‡ä»¶åˆ°æŒ‡å®šç›®å½•å¤±è´¥ï¼ˆFilesMan.moveFileï¼‰"), ex);
         }
 
     }// END: moveWCMFile()
 
     /**
-     * ½«Ö¸¶¨WCMÎÄ¼ş¸´ÖÆµ½Ä¿±êÄ¿Â¼
+     * å°†æŒ‡å®šWCMæ–‡ä»¶å¤åˆ¶åˆ°ç›®æ ‡ç›®å½•
      *
      * @param _srcFileName
-     *            £ºWCMÔ­Ê¼ÎÄ¼ş£¬²»º¬Â·¾¶
+     *            ï¼šWCMåŸå§‹æ–‡ä»¶ï¼Œä¸å«è·¯å¾„
      * @param _dstPathFlag
-     * @return£º¸´ÖÆºóµÄWCMÎÄ¼şÃû
+     * @returnï¼šå¤åˆ¶åçš„WCMæ–‡ä»¶å
      * @throws WCMException
      */
     public String copyWCMFile(String _srcFileName, String _dstPathFlag)
@@ -1065,66 +1065,66 @@ public class FilesMan extends Object {
         try {
             String sFileName = mapFilePath(_srcFileName, FilesMan.PATH_LOCAL)
                     + _srcFileName;
-            // ¸´ÖÆÎÄ¼ş
+            // å¤åˆ¶æ–‡ä»¶
             return copyFile(sFileName, _dstPathFlag, false);
         } catch (Exception ex) {
             throw new WCMException(ExceptionNumber.ERR_WCMEXCEPTION,
                     I18NMessage.get(FilesMan.class, "FilesMan.label22",
-                            "¸´ÖÆWCMÎÄ¼şµ½Ö¸¶¨Ä¿Â¼Ê§°Ü"), ex);
+                            "å¤åˆ¶WCMæ–‡ä»¶åˆ°æŒ‡å®šç›®å½•å¤±è´¥"), ex);
         }
     }// END: copyFile()
 
     private static void loadFilesMan() {
         try {
-//            m_filesMan.loadPathConfigs(true); // TODO ×°ÔØÄ¿Â¼ÅäÖÃĞÅÏ¢
+//            m_filesMan.loadPathConfigs(true); // TODO è£…è½½ç›®å½•é…ç½®ä¿¡æ¯
             s_logger.info(I18NMessage.get(FilesMan.class, "FilesMan.label23",
-                    "×°ÔØÄ¿Â¼ÅäÖÃĞÅÏ¢Íê³É£¡"));
+                    "è£…è½½ç›®å½•é…ç½®ä¿¡æ¯å®Œæˆï¼"));
         } catch (Exception ex) {
             s_logger.error(I18NMessage.get(FilesMan.class, "FilesMan.label24",
-                    "×°ÔØÄ¿Â¼ÅäÖÃĞÅÏ¢Ê§°Ü"), ex);
+                    "è£…è½½ç›®å½•é…ç½®ä¿¡æ¯å¤±è´¥"), ex);
         }
     }
 
     public static boolean isValidFile(String _sFileName, String _sPathFlag) {
-        // HTTP²úÉúµÄÍ¼Æ¬
+        // HTTPäº§ç”Ÿçš„å›¾ç‰‡
         int nLastPos = _sFileName.lastIndexOf('/');
         if (nLastPos >= 0) {
             // 1.Extract File Name
             String sFileName = _sFileName.substring(nLastPos + 1);
 
-            // Èç¹ûÊÇWEBµØÖ·µÄÎÄ¼şĞèÒªĞ£ÑéÎÄ¼şÊÇ·ñ´æÔÚ
+            // å¦‚æœæ˜¯WEBåœ°å€çš„æ–‡ä»¶éœ€è¦æ ¡éªŒæ–‡ä»¶æ˜¯å¦å­˜åœ¨
             if (_sFileName.trim().toUpperCase().indexOf("HTTP") == 0) {
                 try {
                     if (!CMyFile.fileExists(FilesMan.getFilesMan().mapFilePath(
                             sFileName, FilesMan.PATH_LOCAL)
                             + sFileName)) {
                         s_logger.error(I18NMessage.get(FilesMan.class,
-                                "FilesMan.label25", "ÎÄ¼ş[")
+                                "FilesMan.label25", "æ–‡ä»¶[")
                                 + sFileName
                                 + I18NMessage.get(FilesMan.class,
-                                "FilesMan.label26", "]²»´æÔÚ£¡×Ô¶¯´Ó[")
+                                "FilesMan.label26", "]ä¸å­˜åœ¨ï¼è‡ªåŠ¨ä»[")
                                 + _sFileName
                                 + I18NMessage.get(FilesMan.class,
-                                "FilesMan.label27", "]ÏÂÔØ£¡"));
+                                "FilesMan.label27", "]ä¸‹è½½ï¼"));
                         return false;
                     }
-                    // ge modify by gfc @2008-2-20 ÉÏÎç10:24:52
-                    // ÆÁ±Î²»±ØÒªµÄÎÄ¼ş¸ñÊ½Ğ£ÑéµÄerrorĞÅÏ¢
+                    // ge modify by gfc @2008-2-20 ä¸Šåˆ10:24:52
+                    // å±è”½ä¸å¿…è¦çš„æ–‡ä»¶æ ¼å¼æ ¡éªŒçš„errorä¿¡æ¯
                     // }catch (Exception e) {
-                    // s_logger.error("ÎÄ¼ş["+sFileName+I18NMessage.get(FilesMan.
-                    // class, "FilesMan.label28", "]²»ÊÇÓĞĞ§µÄÎÄ¼ş!"));
+                    // s_logger.error("æ–‡ä»¶["+sFileName+I18NMessage.get(FilesMan.
+                    // class, "FilesMan.label28", "]ä¸æ˜¯æœ‰æ•ˆçš„æ–‡ä»¶!"));
                     // return false;
                     // //e.printStackTrace();
                     // }
                 } catch (WCMException e) {
-                    // ÒÑÖªµÄ¡¢´ÓFilesMan.mapFilePathÅ×³öµÄÒì³££¬Ö±½Ó·µ»Ø²»Êä³öĞÅÏ¢
+                    // å·²çŸ¥çš„ã€ä»FilesMan.mapFilePathæŠ›å‡ºçš„å¼‚å¸¸ï¼Œç›´æ¥è¿”å›ä¸è¾“å‡ºä¿¡æ¯
                     return false;
                 } catch (Exception e) {
                     s_logger.warn(I18NMessage.get(FilesMan.class,
-                            "FilesMan.label29", "Ğ£ÑéÎÄ¼ş[")
+                            "FilesMan.label29", "æ ¡éªŒæ–‡ä»¶[")
                             + sFileName
                             + I18NMessage.get(FilesMan.class,
-                            "FilesMan.label30", "]¸ñÊ½Ê±³öÏÖÎ´²¶»ñµÄÒì³££º")
+                            "FilesMan.label30", "]æ ¼å¼æ—¶å‡ºç°æœªæ•è·çš„å¼‚å¸¸ï¼š")
                             + e.getMessage());
                     return false;
                 }
@@ -1154,20 +1154,20 @@ public class FilesMan extends Object {
     }
 
     /**
-     * ¸ù¾İFilesManµÄ¹æÔò£¬ÅĞ¶ÏÎÄ¼ş¶ÔÓ¦µÄÊµ¼ÊÎÄ¼şÎïÀíÊÇ·ñ´æÔÚ <BR>
-     * ²»Å×³öÒì³££¬Ö»·µ»Øtrue/false <BR>
+     * æ ¹æ®FilesMançš„è§„åˆ™ï¼Œåˆ¤æ–­æ–‡ä»¶å¯¹åº”çš„å®é™…æ–‡ä»¶ç‰©ç†æ˜¯å¦å­˜åœ¨ <BR>
+     * ä¸æŠ›å‡ºå¼‚å¸¸ï¼Œåªè¿”å›true/false <BR>
      *
      * @param _sFileName
-     *            ²»º¬Â·¾¶Ãû£¬·ûºÏFilesMan¹æÔòµÄÎÄ¼şÃû
-     * @return true±íÊ¾ÎÄ¼ş´æÔÚ£¬false±íÊ¾²»´æÔÚ
+     *            ä¸å«è·¯å¾„åï¼Œç¬¦åˆFilesManè§„åˆ™çš„æ–‡ä»¶å
+     * @return trueè¡¨ç¤ºæ–‡ä»¶å­˜åœ¨ï¼Œfalseè¡¨ç¤ºä¸å­˜åœ¨
      */
     public boolean fileExists(String _sFileName) {
-        // 01. Ğ£Ñé²ÎÊı
+        // 01. æ ¡éªŒå‚æ•°
         if (_sFileName == null) {
             return false;
         }
 
-        // 02. ¹¹ÔìÎÄ¼şµÄÈ«ÎÄ¼şÃû£¨Â·¾¶+ÎÄ¼şÃû£©
+        // 02. æ„é€ æ–‡ä»¶çš„å…¨æ–‡ä»¶åï¼ˆè·¯å¾„+æ–‡ä»¶åï¼‰
         try {
             String sFullName = mapFilePath(_sFileName, FilesMan.PATH_LOCAL)
                     + _sFileName;
@@ -1175,7 +1175,7 @@ public class FilesMan extends Object {
                 return true;
         } catch (WCMException ex) {
             s_logger.warn(I18NMessage.get(FilesMan.class, "FilesMan.label31",
-                    "ÎŞ·¨Ó³ÉäÎÄ¼şµÄ±¾µØÂ·¾¶£¬¿ÉÄÜÊÇÕı³£Âß¼­£¬³ÌĞò¼ÌĞøÔËĞĞ¡£"));
+                    "æ— æ³•æ˜ å°„æ–‡ä»¶çš„æœ¬åœ°è·¯å¾„ï¼Œå¯èƒ½æ˜¯æ­£å¸¸é€»è¾‘ï¼Œç¨‹åºç»§ç»­è¿è¡Œã€‚"));
             return false;
         }
 
@@ -1183,21 +1183,21 @@ public class FilesMan extends Object {
     } // END of fileExists
 
     /**
-     * TODO Ë¢ĞÂÄ¿Â¼ÅäÖÃ»º³å
+     * TODO åˆ·æ–°ç›®å½•é…ç½®ç¼“å†²
      *
      * @param _config
-     *            Ö¸¶¨µÄÄ¿Â¼ÅäÖÃ
+     *            æŒ‡å®šçš„ç›®å½•é…ç½®
      * @return
      * @throws Exception
      */
 /*    public boolean refreshPathConfig(Config _config) throws Exception {
-        if (true) {// ²»´ÓÊı¾İ¿â¼ÓÔØÅäÖÃ£¬¶øÊÇ´ÓÎÄ¼ş¼ÓÔØ
+        if (true) {// ä¸ä»æ•°æ®åº“åŠ è½½é…ç½®ï¼Œè€Œæ˜¯ä»æ–‡ä»¶åŠ è½½
             return true;
         }
         String value = _config.getNewPropertyAsString("CVALUE");
         if (value == null) {
             return this.putPathConfig(_config, true);
-        }// ĞÂ½¨
+        }// æ–°å»º
 
         // else config value changed
         return this.putPathConfig(_config.getConfigKey(),

@@ -84,7 +84,7 @@ public class CMyDateTime implements Cloneable, Serializable {
 
     public long dateDiff(int var1, CMyDateTime var2) throws CMyException {
         if (var2 == null) {
-            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label1", "ÎŞĞ§µÄÈÕÆÚÊ±¼ä¶ÔÏó²ÎÊı(CMyDateTime.dateDiff(CMyDateTime))"));
+            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label1", "æ— æ•ˆçš„æ—¥æœŸæ—¶é—´å¯¹è±¡å‚æ•°(CMyDateTime.dateDiff(CMyDateTime))"));
         } else {
             return this.dateDiff(var1, var2.getDateTime());
         }
@@ -92,9 +92,9 @@ public class CMyDateTime implements Cloneable, Serializable {
 
     public long dateDiff(int var1, Date var2) throws CMyException {
         if (var2 == null) {
-            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label2", "ÎŞĞ§µÄÈÕÆÚÊ±¼ä²ÎÊı£¨CMyDateTime.dateDiff(int,java.util.Date)£©"));
+            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label2", "æ— æ•ˆçš„æ—¥æœŸæ—¶é—´å‚æ•°ï¼ˆCMyDateTime.dateDiff(int,java.util.Date)ï¼‰"));
         } else if (this.isNull()) {
-            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label3", "ÈÕÆÚÊ±¼äÎª¿Õ£¨CMyDateTime.dateDiff(int,java.util.Date)£©"));
+            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label3", "æ—¥æœŸæ—¶é—´ä¸ºç©ºï¼ˆCMyDateTime.dateDiff(int,java.util.Date)ï¼‰"));
         } else if (var1 == 1) {
             return this.dateDiff_year(var2);
         } else if (var1 == 2) {
@@ -117,7 +117,7 @@ public class CMyDateTime implements Cloneable, Serializable {
                 case 9:
                 case 10:
                 default:
-                    throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label4", "²ÎÊıÎŞĞ§(CMyDateTime.dateDiff(int,java.util.Date))"));
+                    throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label4", "å‚æ•°æ— æ•ˆ(CMyDateTime.dateDiff(int,java.util.Date))"));
                 case 11:
                     return var7 / 86400L / 91L;
                 case 12:
@@ -160,7 +160,7 @@ public class CMyDateTime implements Cloneable, Serializable {
 
     public int get(int var1) throws CMyException {
         if (this.m_dtDate == null) {
-            throw new CMyException(20, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label5", "ÈÕÆÚÊ±¼äÎª¿Õ£¨CMyDateTime.get£©"));
+            throw new CMyException(20, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label5", "æ—¥æœŸæ—¶é—´ä¸ºç©ºï¼ˆCMyDateTime.getï¼‰"));
         } else {
             GregorianCalendar var2 = new GregorianCalendar();
             var2.setTimeZone(TimeZone.getDefault());
@@ -184,7 +184,7 @@ public class CMyDateTime implements Cloneable, Serializable {
                 case 10:
                 case 11:
                 default:
-                    throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label6", "ÎŞĞ§µÄÈÕÆÚÊ±¼äÓò²ÎÊı£¨CMyDateTime.get£©"));
+                    throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label6", "æ— æ•ˆçš„æ—¥æœŸæ—¶é—´åŸŸå‚æ•°ï¼ˆCMyDateTime.getï¼‰"));
                 case 12:
                     return var2.get(7);
                 case 13:
@@ -229,7 +229,7 @@ public class CMyDateTime implements Cloneable, Serializable {
 
     public CMyDateTime dateAdd(int var1, int var2) throws CMyException {
         if (this.m_dtDate == null) {
-            throw new CMyException(20, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label7", "ÈÕÆÚÊ±¼äÎª¿Õ£¨CMyDateTime.dateAdd£©"));
+            throw new CMyException(20, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label7", "æ—¥æœŸæ—¶é—´ä¸ºç©ºï¼ˆCMyDateTime.dateAddï¼‰"));
         } else {
             boolean var3 = false;
             byte var5;
@@ -258,7 +258,7 @@ public class CMyDateTime implements Cloneable, Serializable {
                 case 10:
                 case 11:
                 default:
-                    throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label8", "ÎŞĞ§µÄÈÕÆÚÊ±¼äÓò²ÎÊı£¨CMyDateTime.dateAdd£©"));
+                    throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label8", "æ— æ•ˆçš„æ—¥æœŸæ—¶é—´åŸŸå‚æ•°ï¼ˆCMyDateTime.dateAddï¼‰"));
                 case 12:
                     var5 = 5;
                     var2 *= 7;
@@ -345,7 +345,7 @@ public class CMyDateTime implements Cloneable, Serializable {
             this.m_dtDate = var3.parse(var1);
             return true;
         } catch (Exception var4) {
-            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label9", "ÈÕÆÚÊ±¼ä×Ö·û´®ÖµºÍ¸ñÊ½ÎŞĞ§£¨CMyDateTime.setDateTimeWithString£©"), var4);
+            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label9", "æ—¥æœŸæ—¶é—´å­—ç¬¦ä¸²å€¼å’Œæ ¼å¼æ— æ•ˆï¼ˆCMyDateTime.setDateTimeWithStringï¼‰"), var4);
         }
     }
 
@@ -371,7 +371,7 @@ public class CMyDateTime implements Cloneable, Serializable {
             }
 
         } catch (Exception var3) {
-            throw new CMyException(0, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label10", "Ê¹ÓÃTimestamp¶ÔÏóÉèÖÃÈÕÆÚºÍÊ±¼ä³ö´í£ºCMyDateTime.setDateTimeWithTimestamp()"), var3);
+            throw new CMyException(0, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label10", "ä½¿ç”¨Timestampå¯¹è±¡è®¾ç½®æ—¥æœŸå’Œæ—¶é—´å‡ºé”™ï¼šCMyDateTime.setDateTimeWithTimestamp()"), var3);
         }
     }
 
@@ -380,7 +380,7 @@ public class CMyDateTime implements Cloneable, Serializable {
             Timestamp var3 = var1.getTimestamp(var2);
             this.setDateTimeWithTimestamp(var3);
         } catch (SQLException var4) {
-            throw new CMyException(40, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label11", "´Ó¼ÇÂ¼¼¯ÖĞ¶ÁÈ¡Ê±¼ä×Ö¶ÎÊ±³ö´í£ºCMyDateTime.setDateTimeWithRs()"), var4);
+            throw new CMyException(40, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label11", "ä»è®°å½•é›†ä¸­è¯»å–æ—¶é—´å­—æ®µæ—¶å‡ºé”™ï¼šCMyDateTime.setDateTimeWithRs()"), var4);
         }
     }
 
@@ -389,7 +389,7 @@ public class CMyDateTime implements Cloneable, Serializable {
             Timestamp var3 = var1.getTimestamp(var2);
             this.setDateTimeWithTimestamp(var3);
         } catch (SQLException var4) {
-            throw new CMyException(40, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label11", "´Ó¼ÇÂ¼¼¯ÖĞ¶ÁÈ¡Ê±¼ä×Ö¶ÎÊ±³ö´í£ºCMyDateTime.setDateTimeWithRs()"), var4);
+            throw new CMyException(40, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label11", "ä»è®°å½•é›†ä¸­è¯»å–æ—¶é—´å­—æ®µæ—¶å‡ºé”™ï¼šCMyDateTime.setDateTimeWithRs()"), var4);
         }
     }
 
@@ -405,7 +405,7 @@ public class CMyDateTime implements Cloneable, Serializable {
         boolean var5 = false;
         int var6 = var1.length();
         if (var6 < 6) {
-            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label12", "ÈÕÆÚ×Ö·û´®ÎŞĞ§£¨CMyDateTime.setDateWithString£©"));
+            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label12", "æ—¥æœŸå­—ç¬¦ä¸²æ— æ•ˆï¼ˆCMyDateTime.setDateWithStringï¼‰"));
         } else {
             try {
                 String var3;
@@ -430,7 +430,7 @@ public class CMyDateTime implements Cloneable, Serializable {
                     return this.setDateTimeWithString(var3 + " " + var4, "yyyy-MM-dd HH:mm:ss");
                 }
             } catch (Exception var8) {
-                throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label13", "ÎŞĞ§µÄÈÕÆÚ×Ö·û´®£¨CMyException.setDateWithString£©"), var8);
+                throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label13", "æ— æ•ˆçš„æ—¥æœŸå­—ç¬¦ä¸²ï¼ˆCMyException.setDateWithStringï¼‰"), var8);
             }
         }
     }
@@ -439,7 +439,7 @@ public class CMyDateTime implements Cloneable, Serializable {
         boolean var5 = false;
         int var6 = var1.length();
         if (var6 < 4) {
-            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label14", "Ê±¼ä×Ö·û´®¸ñÊ½ÎŞĞ§£¨£©"));
+            throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label14", "æ—¶é—´å­—ç¬¦ä¸²æ ¼å¼æ— æ•ˆï¼ˆï¼‰"));
         } else {
             try {
                 String var4;
@@ -463,7 +463,7 @@ public class CMyDateTime implements Cloneable, Serializable {
                     return this.setDateTimeWithString(var3 + " " + var4, "yyyy-MM-dd HH:mm:ss");
                 }
             } catch (Exception var8) {
-                throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label15", "ÎŞĞ§µÄÊ±¼ä×Ö·û´®£¨CMyException.setTimeWithString£©"), var8);
+                throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label15", "æ— æ•ˆçš„æ—¶é—´å­—ç¬¦ä¸²ï¼ˆCMyException.setTimeWithStringï¼‰"), var8);
             }
         }
     }
@@ -485,7 +485,7 @@ public class CMyDateTime implements Cloneable, Serializable {
                 this.setDateTimeFormat(var1);
                 return this.m_dtFormater.format(this.m_dtDate);
             } catch (Exception var3) {
-                throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label16", "Ö¸¶¨µÄÈÕÆÚÊ±¼ä¸ñÊ½ÓĞ´í£¨CMyDateTime.getDateTimeAsString£©"), var3);
+                throw new CMyException(10, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label16", "æŒ‡å®šçš„æ—¥æœŸæ—¶é—´æ ¼å¼æœ‰é”™ï¼ˆCMyDateTime.getDateTimeAsStringï¼‰"), var3);
             }
         }
     }
@@ -495,7 +495,7 @@ public class CMyDateTime implements Cloneable, Serializable {
             try {
                 return this.m_dtFormater.format(this.m_dtDate);
             } catch (Exception var2) {
-                throw new CMyException(0, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label17", "¸ñÊ½»¯ÈÕÆÚÊ±¼ä×Ö·û´®³ö´í£¨CMyDateTime.getDateTimeAsString()£©"), var2);
+                throw new CMyException(0, I18NMessage.get(CMyDateTime.class, "CMyDateTime.label17", "æ ¼å¼åŒ–æ—¥æœŸæ—¶é—´å­—ç¬¦ä¸²å‡ºé”™ï¼ˆCMyDateTime.getDateTimeAsString()ï¼‰"), var2);
             }
         } else {
             return null;
@@ -568,9 +568,9 @@ public class CMyDateTime implements Cloneable, Serializable {
 
             if (var3 > 0) {
                 if (var3 > 1) {
-                    var4.append(var3).append(I18NMessage.get(CMyDateTime.class, "CMyDateTime.label18", "·Ö"));
+                    var4.append(var3).append(I18NMessage.get(CMyDateTime.class, "CMyDateTime.label18", "åˆ†"));
                 } else {
-                    var4.append(var3).append(I18NMessage.get(CMyDateTime.class, "CMyDateTime.label20", "·Ö"));
+                    var4.append(var3).append(I18NMessage.get(CMyDateTime.class, "CMyDateTime.label20", "åˆ†"));
                 }
 
                 if (var5 < 10) {
@@ -590,9 +590,9 @@ public class CMyDateTime implements Cloneable, Serializable {
             }
 
             if (var0 > 1L) {
-                var4.append(I18NMessage.get(CMyDateTime.class, "CMyDateTime.label19", "Ãë"));
+                var4.append(I18NMessage.get(CMyDateTime.class, "CMyDateTime.label19", "ç§’"));
             } else {
-                var4.append(I18NMessage.get(CMyDateTime.class, "CMyDateTime.label21", "Ãë"));
+                var4.append(I18NMessage.get(CMyDateTime.class, "CMyDateTime.label21", "ç§’"));
             }
 
             return var4.toString();

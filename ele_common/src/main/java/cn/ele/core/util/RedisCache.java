@@ -10,7 +10,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import java.io.*;
 
 /**
- * Redis»º´æ¹ÜÀíÀà
+ * Redisç¼“å­˜ç®¡ç†ç±»
  * @author Administrator
  *
  */

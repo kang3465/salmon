@@ -7,19 +7,19 @@ import java.util.regex.PatternSyntaxException;
 public class PhoneFormatCheckUtils {
 
     /** 
-     * ´óÂ½ºÅÂë»òÏã¸ÛºÅÂë¾ù¿É 
+     * å¤§é™†å·ç æˆ–é¦™æ¸¯å·ç å‡å¯ 
      */  
     public static boolean isPhoneLegal(String str)throws PatternSyntaxException {  
         return isChinaPhoneLegal(str) || isHKPhoneLegal(str);  
     }  
   
     /** 
-     * ´óÂ½ÊÖ»úºÅÂë11Î»Êı£¬Æ¥Åä¸ñÊ½£ºÇ°ÈıÎ»¹Ì¶¨¸ñÊ½+ºó8Î»ÈÎÒâÊı 
-     * ´Ë·½·¨ÖĞÇ°ÈıÎ»¸ñÊ½ÓĞ£º 
-     * 13+ÈÎÒâÊı 
-     * 15+³ı4µÄÈÎÒâÊı 
-     * 18+³ı1ºÍ4µÄÈÎÒâÊı 
-     * 17+³ı9µÄÈÎÒâÊı 
+     * å¤§é™†æ‰‹æœºå·ç 11ä½æ•°ï¼ŒåŒ¹é…æ ¼å¼ï¼šå‰ä¸‰ä½å›ºå®šæ ¼å¼+å8ä½ä»»æ„æ•° 
+     * æ­¤æ–¹æ³•ä¸­å‰ä¸‰ä½æ ¼å¼æœ‰ï¼š 
+     * 13+ä»»æ„æ•° 
+     * 15+é™¤4çš„ä»»æ„æ•° 
+     * 18+é™¤1å’Œ4çš„ä»»æ„æ•° 
+     * 17+é™¤9çš„ä»»æ„æ•° 
      * 147 
      */  
     public static boolean isChinaPhoneLegal(String str) throws PatternSyntaxException {  
@@ -30,7 +30,7 @@ public class PhoneFormatCheckUtils {
     }  
   
     /** 
-     * Ïã¸ÛÊÖ»úºÅÂë8Î»Êı£¬5|6|8|9¿ªÍ·+7Î»ÈÎÒâÊı 
+     * é¦™æ¸¯æ‰‹æœºå·ç 8ä½æ•°ï¼Œ5|6|8|9å¼€å¤´+7ä½ä»»æ„æ•° 
      */  
     public static boolean isHKPhoneLegal(String str)throws PatternSyntaxException {  
         String regExp = "^(5|6|8|9)\\d{7}$";  

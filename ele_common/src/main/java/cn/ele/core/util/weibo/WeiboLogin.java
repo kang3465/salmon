@@ -24,10 +24,10 @@ import java.util.regex.Pattern;
 
 
 /**
- * Title: TRS ÄÚÈİĞ­×÷Æ½Ì¨£¨TRS WCM£© <BR>
- * Description: Ä£ÄâĞÂÀËÎ¢²©ÕËºÅµÇÂ½<BR>
+ * Title: TRS å†…å®¹åä½œå¹³å°ï¼ˆTRS WCMï¼‰ <BR>
+ * Description: æ¨¡æ‹Ÿæ–°æµªå¾®åšè´¦å·ç™»é™†<BR>
  * <BR>
- * Copyright: Copyright (c) 2004-2013 ±±¾©ÍØ¶ûË¼ĞÅÏ¢¼¼Êõ¹É·İÓĞÏŞ¹«Ë¾ <BR>
+ * Copyright: Copyright (c) 2004-2013 åŒ—äº¬æ‹“å°”æ€ä¿¡æ¯æŠ€æœ¯è‚¡ä»½æœ‰é™å…¬å¸ <BR>
  * Company: www.trs.com.cn <BR>
  *
  * @author lky
@@ -40,14 +40,14 @@ public class WeiboLogin {
     private String password = "";
     private String cookie = "";
 
-    // ÈÕÖ¾¼ÇÂ¼Àà
+    // æ—¥å¿—è®°å½•ç±»
     private static org.apache.log4j.Logger logger = org.apache.log4j.Logger
             .getLogger(WeiboLogin.class);
 
     /**
-     * »ñÈ¡µÄĞÂÀËÕËºÅÃÜÂëµÄ¼ÓÃÜjavascript
+     * è·å–çš„æ–°æµªè´¦å·å¯†ç çš„åŠ å¯†javascript
      *
-     * @return javascriptÄÚÈİ
+     * @return javascriptå†…å®¹
      */
     private static String getJs() {
         String js = "var sinaSSOEncoder=sinaSSOEncoder||{};(function(){var hexcase=0;var chrsz=8;this.hex_sha1=function(s){return binb2hex(core_sha1(str2binb(s),s.length*chrsz));};var core_sha1=function(x,len){x[len>>5]|=0x80<<(24-len%32);x[((len+64>>9)<<4)+15]=len;var w=Array(80);var a=1732584193;var b=-271733879;var c=-1732584194;var d=271733878;var e=-1009589776;for(var i=0;i<x.length;i+=16){var olda=a;var oldb=b;var oldc=c;var oldd=d;var olde=e;for(var j=0;j<80;j++){if(j<16)w[j]=x[i+j];else w[j]=rol(w[j-3]^w[j-8]^w[j-14]^w[j-16],1);var t=safe_add(safe_add(rol(a,5),sha1_ft(j,b,c,d)),safe_add(safe_add(e,w[j]),sha1_kt(j)));e=d;d=c;c=rol(b,30);b=a;a=t;}a=safe_add(a,olda);b=safe_add(b,oldb);c=safe_add(c,oldc);d=safe_add(d,oldd);e=safe_add(e,olde);}return Array(a,b,c,d,e);};var sha1_ft=function(t,b,c,d){if(t<20)return(b&c)|((~b)&d);if(t<40)return b^c^d;if(t<60)return(b&c)|(b&d)|(c&d);return b^c^d;};var sha1_kt=function(t){return(t<20)?1518500249:(t<40)?1859775393:(t<60)?-1894007588:-899497514;};var safe_add=function(x,y){var lsw=(x&0xFFFF)+(y&0xFFFF);var msw=(x>>16)+(y>>16)+(lsw>>16);return(msw<<16)|(lsw&0xFFFF);};var rol=function(num,cnt){return(num<<cnt)|(num>>>(32-cnt));};var str2binb=function(str){var bin=Array();var mask=(1<<chrsz)-1;for(var i=0;i<str.length*chrsz;i+=chrsz)bin[i>>5]|=(str.charCodeAt(i/chrsz)&mask)<<(24-i%32);return bin;};var binb2hex=function(binarray){var hex_tab=hexcase?'0123456789ABCDEF':'0123456789abcdef';var str='';for(var i=0;i<binarray.length*4;i++){str+=hex_tab.charAt((binarray[i>>2]>>((3-i%4)*8+4))&0xF)+hex_tab.charAt((binarray[i>>2]>>((3-i%4)*8))&0xF);}return str;};this.base64={encode:function(input){input=''+input;if(input=='')return '';var output='';var chr1,chr2,chr3='';var enc1,enc2,enc3,enc4='';var i=0;do{chr1=input.charCodeAt(i++);chr2=input.charCodeAt(i++);chr3=input.charCodeAt(i++);enc1=chr1>>2;enc2=((chr1&3)<<4)|(chr2>>4);enc3=((chr2&15)<<2)|(chr3>>6);enc4=chr3&63;if(isNaN(chr2)){enc3=enc4=64;}else if(isNaN(chr3)){enc4=64;}output=output+this._keys.charAt(enc1)+this._keys.charAt(enc2)+this._keys.charAt(enc3)+this._keys.charAt(enc4);chr1=chr2=chr3='';enc1=enc2=enc3=enc4='';}while(i<input.length);return output;},_keys:'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='};}).call(sinaSSOEncoder);;(function(){var dbits;var canary=0xdeadbeefcafe;var j_lm=((canary&0xffffff)==0xefcafe);function BigInteger(a,b,c){if(a!=null)if('number'==typeof a)this.fromNumber(a,b,c);else if(b==null && 'string' !=typeof a)this.fromString(a,256);else this.fromString(a,b);}function nbi(){return new BigInteger(null);}function am1(i,x,w,j,c,n){while(--n>=0){var v=x*this[i++]+w[j]+c;c=Math.floor(v/0x4000000);w[j++]=v&0x3ffffff;}return c;}function am2(i,x,w,j,c,n){var xl=x&0x7fff,xh=x>>15;while(--n>=0){var l=this[i]&0x7fff;var h=this[i++]>>15;var m=xh*l+h*xl;l=xl*l+((m&0x7fff)<<15)+w[j]+(c&0x3fffffff);c=(l>>>30)+(m>>>15)+xh*h+(c>>>30);w[j++]=l&0x3fffffff;}return c;}function am3(i,x,w,j,c,n){var xl=x&0x3fff,xh=x>>14;while(--n>=0){var l=this[i]&0x3fff;var h=this[i++]>>14;var m=xh*l+h*xl;l=xl*l+((m&0x3fff)<<14)+w[j]+c;c=(l>>28)+(m>>14)+xh*h;w[j++]=l&0xfffffff;}return c;}BigInteger.prototype.am=am3;dbits=28;BigInteger.prototype.DB=dbits;BigInteger.prototype.DM=((1<<dbits)-1);BigInteger.prototype.DV=(1<<dbits);var BI_FP=52;BigInteger.prototype.FV=Math.pow(2,BI_FP);BigInteger.prototype.F1=BI_FP-dbits;BigInteger.prototype.F2=2*dbits-BI_FP;var BI_RM='0123456789abcdefghijklmnopqrstuvwxyz';var BI_RC=new Array();var rr,vv;rr='0'.charCodeAt(0);for(vv=0;vv<=9;++vv)BI_RC[rr++]=vv;rr='a'.charCodeAt(0);for(vv=10;vv<36;++vv)BI_RC[rr++]=vv;rr='A'.charCodeAt(0);for(vv=10;vv<36;++vv)BI_RC[rr++]=vv;function int2char(n){return BI_RM.charAt(n);}function intAt(s,i){var c=BI_RC[s.charCodeAt(i)];return(c==null)?-1:c;}function bnpCopyTo(r){for(var i=this.t-1;i>=0;--i)r[i]=this[i];r.t=this.t;r.s=this.s;}function bnpFromInt(x){this.t=1;this.s=(x<0)?-1:0;if(x>0)this[0]=x;else if(x<-1)this[0]=x+DV;else this.t=0;}function nbv(i){var r=nbi();r.fromInt(i);return r;}function bnpFromString(s,b){var k;if(b==16)k=4;else if(b==8)k=3;else if(b==256)k=8;else if(b==2)k=1;else if(b==32)k=5;else if(b==4)k=2;else{this.fromRadix(s,b);return;}this.t=0;this.s=0;var i=s.length,mi=false,sh=0;while(--i>=0){var x=(k==8)?s[i]&0xff:intAt(s,i);if(x<0){if(s.charAt(i)=='-')mi=true;continue;}mi=false;if(sh==0)this[this.t++]=x;else if(sh+k>this.DB){this[this.t-1]|=(x&((1<<(this.DB-sh))-1))<<sh;this[this.t++]=(x>>(this.DB-sh));}else "
@@ -59,10 +59,10 @@ public class WeiboLogin {
     }
 
     /**
-     * ¶ÔÕËºÅ½øĞĞ¼ÓÃÜ
+     * å¯¹è´¦å·è¿›è¡ŒåŠ å¯†
      *
-     * @param account ÓÃ»§Ãû
-     * @return ¼ÓÃÜºóµÄÓÃ»§Ãû
+     * @param account ç”¨æˆ·å
+     * @return åŠ å¯†åçš„ç”¨æˆ·å
      */
     @SuppressWarnings("restriction")
     public static String Base64Encode(String account) {
@@ -72,13 +72,13 @@ public class WeiboLogin {
         try {
             userName = Arrays.toString(encoder.encode(URLEncoder.encode(account, "UTF-8").getBytes()));
         } catch (UnsupportedEncodingException e) {
-            logger.error("ÓÃ»§Ãû¼ÓÃÜÊ§°Ü£¡");
+            logger.error("ç”¨æˆ·ååŠ å¯†å¤±è´¥ï¼");
         }
         return userName;
     }
 
     /**
-     * »ñÈ¡JSON¶ÔÏó
+     * è·å–JSONå¯¹è±¡
      *
      * @return
      * @throws HttpException
@@ -106,7 +106,7 @@ public class WeiboLogin {
     }
 
     /**
-     * ¶ÔÃÜÂë½øĞĞRSA¼ÓÃÜ
+     * å¯¹å¯†ç è¿›è¡ŒRSAåŠ å¯†
      *
      * @param pubkey
      * @param password
@@ -130,7 +130,7 @@ public class WeiboLogin {
     }
 
     /**
-     * Ä£ÄâµÇÂ½
+     * æ¨¡æ‹Ÿç™»é™†
      *
      * @return
      * @throws Exception
@@ -139,7 +139,7 @@ public class WeiboLogin {
         JSONObject params = this.prelogin();
         PostMethod post = new PostMethod(POST_URI);
 
-        // Ìî³ä±¨Í·²ÎÊı
+        // å¡«å……æŠ¥å¤´å‚æ•°
         post.addParameter("encoding", "utf-8");
         post.addParameter("entry", "weibo");
         post.addParameter("from", "");
@@ -163,7 +163,7 @@ public class WeiboLogin {
         post.addParameter("vsnf", "1");
         client.executeMethod(post);
 
-        // »ñÈ¡ÖØ¶¨ÏòµÄurl
+        // è·å–é‡å®šå‘çš„url
         String response = post.getResponseBodyAsString();
         response = response.replaceAll("\'", "\"");
         Pattern p = Pattern.compile("location.replace\\(\"(.*?)\"\\)");
@@ -172,7 +172,7 @@ public class WeiboLogin {
         if (m.find())
             redirect_uri = m.group(1);
 
-        // retcode=0 ËµÃ÷Õı³££¬¼ÌĞø·ÃÎÊÖØ¶¨Ïòurl
+        // retcode=0 è¯´æ˜æ­£å¸¸ï¼Œç»§ç»­è®¿é—®é‡å®šå‘url
         if (!CMyString.isEmpty(redirect_uri)
                 && redirect_uri.indexOf("retcode=0") > -1) {
             GetMethod get = new GetMethod(redirect_uri);
@@ -186,13 +186,13 @@ public class WeiboLogin {
             cookie = sb.toString();
             return true;
         } else {
-            logger.error("»ñÈ¡ÖØ¶¨ÏòurlÊ§°Ü£¬Ä£ÄâµÇÂ¼Ê§°Ü£¡");
+            logger.error("è·å–é‡å®šå‘urlå¤±è´¥ï¼Œæ¨¡æ‹Ÿç™»å½•å¤±è´¥ï¼");
             return false;
         }
     }
 
     /**
-     * »ñÈ¡cookie
+     * è·å–cookie
      *
      * @return
      */
@@ -201,7 +201,7 @@ public class WeiboLogin {
     }
 
     /**
-     * ÉèÖÃÓÃ»§Ãû
+     * è®¾ç½®ç”¨æˆ·å
      *
      * @param username
      */
@@ -210,7 +210,7 @@ public class WeiboLogin {
     }
 
     /**
-     * ÉèÖÃÃÜÂë
+     * è®¾ç½®å¯†ç 
      *
      * @param password
      */
@@ -219,7 +219,7 @@ public class WeiboLogin {
     }
 
     /**
-     * ²âÊÔÄ£ÄâµÇÂ½ÊÇ·ñÕıÈ·
+     * æµ‹è¯•æ¨¡æ‹Ÿç™»é™†æ˜¯å¦æ­£ç¡®
      *
      * @param args
      * @throws HttpException
@@ -228,7 +228,7 @@ public class WeiboLogin {
     public static void main(String[] args) throws HttpException, IOException {
         WeiboLogin wl = new WeiboLogin();
 
-        // ĞèÒªÕıÈ·µÄÓÃ»§ÃûºÍÃÜÂë
+        // éœ€è¦æ­£ç¡®çš„ç”¨æˆ·åå’Œå¯†ç 
         String username = "18710058144";
         String password = "gyw19870919";
         wl.setUsername(username);

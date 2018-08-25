@@ -12,7 +12,7 @@ import java.util.Map;
 public class XmlUtil {
 	
 	 /**
-	 * @description ½«xml×Ö·û´®×ª»»³Émap
+	 * @description å°†xmlå­—ç¬¦ä¸²è½¬æ¢æˆmap
 	 * @param xml
 	 * @return Map
 	 */
@@ -21,11 +21,11 @@ public class XmlUtil {
 	         Document doc = null;
 	          
              try {
-				// ½«×Ö·û´®×ªÎªXML
+				// å°†å­—ç¬¦ä¸²è½¬ä¸ºXML
 				 doc = DocumentHelper.parseText(xml); 
-				 // »ñÈ¡¸ù½Úµã
+				 // è·å–æ ¹èŠ‚ç‚¹
 				 Element rootElt = doc.getRootElement(); 				 
-				 // »ñÈ¡¸ù½ÚµãÏÂµÄ×Ó½Úµãhead
+				 // è·å–æ ¹èŠ‚ç‚¹ä¸‹çš„å­èŠ‚ç‚¹head
 				 List<Element> elements = rootElt.elements();
 				 for(Element element:elements){
 					 map.put(element.getName(), element.getStringValue());	            	 
@@ -38,7 +38,7 @@ public class XmlUtil {
 	 }
 	 
 	 /**
-	  * ½«Map¼¯ºÏ×ª»»Îªxml×Ö·û´®
+	  * å°†Mapé›†åˆè½¬æ¢ä¸ºxmlå­—ç¬¦ä¸²
 	  * @param map
 	  * @return
 	  */

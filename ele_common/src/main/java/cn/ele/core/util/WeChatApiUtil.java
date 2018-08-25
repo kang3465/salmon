@@ -18,11 +18,11 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
 public class WeChatApiUtil {
-    // token ½Ó¿Ú(GET)
+    // token æ¥å£(GET)
     private static final String ACCESS_TOKEN = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s";
-    // ËØ²ÄÉÏ´«(POST)
+    // ç´ æä¸Šä¼ (POST)
     private static final String UPLOAD_MEDIA = "http://file.api.weixin.qq.com/cgi-bin/media/upload";
-    // ËØ²ÄÏÂÔØ:²»Ö§³ÖÊÓÆµÎÄ¼şµÄÏÂÔØ(GET)
+    // ç´ æä¸‹è½½:ä¸æ”¯æŒè§†é¢‘æ–‡ä»¶çš„ä¸‹è½½(GET)
     private static final String DOWNLOAD_MEDIA = "http://file.api.weixin.qq.com/cgi-bin/media/get?access_token=%s&media_id=%s";
 
     public static String getTokenUrl(String appId, String appSecret) {
@@ -35,7 +35,7 @@ public class WeChatApiUtil {
 
     */
 /**
-     * Í¨ÓÃ½Ó¿Ú»ñÈ¡TokenÆ¾Ö¤
+     * é€šç”¨æ¥å£è·å–Tokenå‡­è¯
      * @param appId
      * @param appSecret
      * @return
@@ -54,7 +54,7 @@ public class WeChatApiUtil {
             try {
                 token =jsonObject.getString("access_token");
             } catch (JSONException e) {
-                token = null;// »ñÈ¡tokenÊ§°Ü
+                token = null;// è·å–tokenå¤±è´¥
 //                logger.error(e);
             }
         }
@@ -63,10 +63,10 @@ public class WeChatApiUtil {
 
     */
 /**
-     * Î¢ĞÅ·şÎñÆ÷ËØ²ÄÉÏ´«
-     * @param file  ±íµ¥Ãû³Æmedia
+     * å¾®ä¿¡æœåŠ¡å™¨ç´ æä¸Šä¼ 
+     * @param file  è¡¨å•åç§°media
      * @param token access_token
-     * @param type  typeÖ»Ö§³ÖËÄÖÖÀàĞÍËØ²Ä(video/image/voice/thumb)
+     * @param type  typeåªæ”¯æŒå››ç§ç±»å‹ç´ æ(video/image/voice/thumb)
      *//*
 
     public static JSONObject uploadMedia(File file, String token, String type) {
@@ -75,7 +75,7 @@ public class WeChatApiUtil {
         }
 
         if(!file.exists()){
-            logger.info("ÉÏ´«ÎÄ¼ş²»´æÔÚ,Çë¼ì²é!");
+            logger.info("ä¸Šä¼ æ–‡ä»¶ä¸å­˜åœ¨,è¯·æ£€æŸ¥!");
             return null;
         }
 
@@ -86,7 +86,7 @@ public class WeChatApiUtil {
         post.setRequestHeader("Cache-Control", "no-cache");
         FilePart media = null;
         HttpClient httpClient = new HttpClient();
-        //ĞÅÈÎÈÎºÎÀàĞÍµÄÖ¤Êé
+        //ä¿¡ä»»ä»»ä½•ç±»å‹çš„è¯ä¹¦
         Protocol myhttps = new Protocol("https", new MySSLProtocolSocketFactory(), 443);
         Protocol.registerProtocol("https", myhttps);
 
@@ -119,12 +119,12 @@ public class WeChatApiUtil {
 
     */
 /**
-     * ¶àÃ½ÌåÏÂÔØ½Ó¿Ú
-     * @comment ²»Ö§³ÖÊÓÆµÎÄ¼şµÄÏÂÔØ
-     * @param fileName  ËØ²Ä´æ´¢ÎÄ¼şÂ·¾¶
-     * @param token     ÈÏÖ¤token
-     * @param mediaId   ËØ²ÄID£¨¶ÔÓ¦ÉÏ´«ºó»ñÈ¡µ½µÄID£©
-     * @return ËØ²ÄÎÄ¼ş
+     * å¤šåª’ä½“ä¸‹è½½æ¥å£
+     * @comment ä¸æ”¯æŒè§†é¢‘æ–‡ä»¶çš„ä¸‹è½½
+     * @param fileName  ç´ æå­˜å‚¨æ–‡ä»¶è·¯å¾„
+     * @param token     è®¤è¯token
+     * @param mediaId   ç´ æIDï¼ˆå¯¹åº”ä¸Šä¼ åè·å–åˆ°çš„IDï¼‰
+     * @return ç´ ææ–‡ä»¶
      *//*
 
     public static File downloadMedia(String fileName, String token,
@@ -135,11 +135,11 @@ public class WeChatApiUtil {
 
     */
 /**
-     * ÒÔhttp·½Ê½·¢ËÍÇëÇó,²¢½«ÇëÇóÏìÓ¦ÄÚÈİÊä³öµ½ÎÄ¼ş
-     * @param path    ÇëÇóÂ·¾¶
-     * @param method  ÇëÇó·½·¨
-     * @param body    ÇëÇóÊı¾İ
-     * @return ·µ»ØÏìÓ¦µÄ´æ´¢µ½ÎÄ¼ş
+     * ä»¥httpæ–¹å¼å‘é€è¯·æ±‚,å¹¶å°†è¯·æ±‚å“åº”å†…å®¹è¾“å‡ºåˆ°æ–‡ä»¶
+     * @param path    è¯·æ±‚è·¯å¾„
+     * @param method  è¯·æ±‚æ–¹æ³•
+     * @param body    è¯·æ±‚æ•°æ®
+     * @return è¿”å›å“åº”çš„å­˜å‚¨åˆ°æ–‡ä»¶
      *//*
 
     public static File httpRequestToFile(String fileName,String path, String method, String body) {
@@ -171,7 +171,7 @@ public class WeChatApiUtil {
                 return file;
             }
 
-            //Ğ´Èëµ½ÎÄ¼ş
+            //å†™å…¥åˆ°æ–‡ä»¶
             fileOut = new FileOutputStream(file);
             if(fileOut!=null){
                 int c = inputStream.read();
@@ -190,8 +190,8 @@ public class WeChatApiUtil {
 
             */
 /*
-             * ±ØĞë¹Ø±ÕÎÄ¼şÁ÷
-             * ·ñÔòJDKÔËĞĞÊ±£¬ÎÄ¼ş±»Õ¼ÓÃÆäËû½ø³ÌÎŞ·¨·ÃÎÊ
+             * å¿…é¡»å…³é—­æ–‡ä»¶æµ
+             * å¦åˆ™JDKè¿è¡Œæ—¶ï¼Œæ–‡ä»¶è¢«å ç”¨å…¶ä»–è¿›ç¨‹æ— æ³•è®¿é—®
              *//*
 
             try {
@@ -212,7 +212,7 @@ public class WeChatApiUtil {
         JSONObject o = WeChatApiUtil.uploadMedia(f, token, "image");
         System.out.println(o.toString());
 
-        //ÏÂÔØ¸Õ¸ÕÉÏ´«µÄÍ¼Æ¬ÒÔidÃüÃû
+        //ä¸‹è½½åˆšåˆšä¸Šä¼ çš„å›¾ç‰‡ä»¥idå‘½å
         String media_id = o.getString("media_id");
         File t = WeChatApiUtil.downloadMedia("D:/"+media_id+".png", token, media_id);
 
@@ -220,11 +220,11 @@ public class WeChatApiUtil {
 
     */
 /**
-     * ·¢ËÍÇëÇóÒÔhttps·½Ê½·¢ËÍÇëÇó²¢½«ÇëÇóÏìÓ¦ÄÚÈİÒÔString·½Ê½·µ»Ø
-     * @param path   ÇëÇóÂ·¾¶
-     * @param method ÇëÇó·½·¨
-     * @param body   ÇëÇóÊı¾İÌå
-     * @return ÇëÇóÏìÓ¦ÄÚÈİ×ª»»³É×Ö·û´®ĞÅÏ¢
+     * å‘é€è¯·æ±‚ä»¥httpsæ–¹å¼å‘é€è¯·æ±‚å¹¶å°†è¯·æ±‚å“åº”å†…å®¹ä»¥Stringæ–¹å¼è¿”å›
+     * @param path   è¯·æ±‚è·¯å¾„
+     * @param method è¯·æ±‚æ–¹æ³•
+     * @param body   è¯·æ±‚æ•°æ®ä½“
+     * @return è¯·æ±‚å“åº”å†…å®¹è½¬æ¢æˆå­—ç¬¦ä¸²ä¿¡æ¯
      *//*
 
     public static String httpsRequestToString(String path, String method, String body) {
@@ -297,4 +297,4 @@ public class WeChatApiUtil {
             return null;
         }
     }
-£ı*/
+ï½*/

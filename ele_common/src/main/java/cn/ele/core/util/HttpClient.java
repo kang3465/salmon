@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * httpÇëÇó¿Í»§¶Ë
+ * httpè¯·æ±‚å®¢æˆ·ç«¯
  * 
  * @author Administrator
  * 
@@ -110,8 +110,8 @@ public class HttpClient {
 		if (param != null) {
 			List<NameValuePair> nvps = new LinkedList<NameValuePair>();
 			for (String key : param.keySet())
-				nvps.add(new BasicNameValuePair(key, param.get(key))); // ²ÎÊı
-			http.setEntity(new UrlEncodedFormEntity(nvps, Consts.UTF_8)); // ÉèÖÃ²ÎÊı
+				nvps.add(new BasicNameValuePair(key, param.get(key))); // å‚æ•°
+			http.setEntity(new UrlEncodedFormEntity(nvps, Consts.UTF_8)); // è®¾ç½®å‚æ•°
 		}
 		if (xmlParam != null) {
 			http.setEntity(new StringEntity(xmlParam, Consts.UTF_8));
@@ -125,7 +125,7 @@ public class HttpClient {
 			if (isHttps) {
 				SSLContext sslContext = new SSLContextBuilder()
 						.loadTrustMaterial(null, new TrustStrategy() {
-							// ĞÅÈÎËùÓĞ
+							// ä¿¡ä»»æ‰€æœ‰
 							public boolean isTrusted(X509Certificate[] chain,
 									String authType)
 									throws CertificateException {
@@ -145,7 +145,7 @@ public class HttpClient {
 					if (response.getStatusLine() != null)
 						statusCode = response.getStatusLine().getStatusCode();
 					HttpEntity entity = response.getEntity();
-					// ÏìÓ¦ÄÚÈİ
+					// å“åº”å†…å®¹
 					content = EntityUtils.toString(entity, Consts.UTF_8);
 				}
 			} finally {

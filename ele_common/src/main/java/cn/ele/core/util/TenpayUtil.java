@@ -7,10 +7,10 @@ public class TenpayUtil {
 	//private static Object Server;
 
 	/**
-	 * °Ñ¶ÔÏó×ª»»³É×Ö·û´®
+	 * æŠŠå¯¹è±¡è½¬æ¢æˆå­—ç¬¦ä¸²
 	 * 
 	 * @param obj
-	 * @return String ×ª»»³É×Ö·û´®,Èô¶ÔÏóÎªnull,Ôò·µ»Ø¿Õ×Ö·û´®.
+	 * @return String è½¬æ¢æˆå­—ç¬¦ä¸²,è‹¥å¯¹è±¡ä¸ºnull,åˆ™è¿”å›ç©ºå­—ç¬¦ä¸².
 	 */
 	
 	/*
@@ -22,11 +22,11 @@ public class TenpayUtil {
 	}*/
 
 	/**
-	 * °Ñ¶ÔÏó×ª»»ÎªintÊıÖµ.
+	 * æŠŠå¯¹è±¡è½¬æ¢ä¸ºintæ•°å€¼.
 	 * 
 	 * @param obj
-	 *            °üº¬Êı×ÖµÄ¶ÔÏó.
-	 * @return int ×ª»»ºóµÄÊıÖµ,¶Ô²»ÄÜ×ª»»µÄ¶ÔÏó·µ»Ø0¡£
+	 *            åŒ…å«æ•°å­—çš„å¯¹è±¡.
+	 * @return int è½¬æ¢åçš„æ•°å€¼,å¯¹ä¸èƒ½è½¬æ¢çš„å¯¹è±¡è¿”å›0ã€‚
 	 */
 	/*
 	public static int toInt(Object obj) {
@@ -41,7 +41,7 @@ public class TenpayUtil {
 	}*/
 
 	/**
-	 * »ñÈ¡µ±Ç°Ê±¼ä yyyyMMddHHmmss
+	 * è·å–å½“å‰æ—¶é—´ yyyyMMddHHmmss
 	 * 
 	 * @return String
 	 */
@@ -54,7 +54,7 @@ public class TenpayUtil {
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°ÈÕÆÚ yyyyMMdd
+	 * è·å–å½“å‰æ—¥æœŸ yyyyMMdd
 	 * 
 	 * @param date
 	 * @return String
@@ -66,11 +66,11 @@ public class TenpayUtil {
 	}
 
 	/**
-	 * È¡³öÒ»¸öÖ¸¶¨³¤¶È´óĞ¡µÄËæ»úÕıÕûÊı.
+	 * å–å‡ºä¸€ä¸ªæŒ‡å®šé•¿åº¦å¤§å°çš„éšæœºæ­£æ•´æ•°.
 	 * 
 	 * @param length
-	 *            int Éè¶¨ËùÈ¡³öËæ»úÊıµÄ³¤¶È¡£lengthĞ¡ÓÚ11
-	 * @return int ·µ»ØÉú³ÉµÄËæ»úÊı¡£
+	 *            int è®¾å®šæ‰€å–å‡ºéšæœºæ•°çš„é•¿åº¦ã€‚lengthå°äº11
+	 * @return int è¿”å›ç”Ÿæˆçš„éšæœºæ•°ã€‚
 	 */
 	public static int buildRandom(int length) {
 		int num = 1;
@@ -85,7 +85,7 @@ public class TenpayUtil {
 	}
 
 	/**
-	 * »ñÈ¡±àÂë×Ö·û¼¯
+	 * è·å–ç¼–ç å­—ç¬¦é›†
 	 * 
 	 * @param request
 	 * @param response
@@ -123,7 +123,7 @@ public class TenpayUtil {
 	}
 */
 	/**
-	 * »ñÈ¡unixÊ±¼ä£¬´Ó1970-01-01 00:00:00¿ªÊ¼µÄÃëÊı
+	 * è·å–unixæ—¶é—´ï¼Œä»1970-01-01 00:00:00å¼€å§‹çš„ç§’æ•°
 	 * 
 	 * @param date
 	 * @return long
@@ -137,12 +137,12 @@ public class TenpayUtil {
 	}
 
 	/**
-	 * Ê±¼ä×ª»»³É×Ö·û´®
+	 * æ—¶é—´è½¬æ¢æˆå­—ç¬¦ä¸²
 	 * 
 	 * @param date
-	 *            Ê±¼ä
+	 *            æ—¶é—´
 	 * @param formatType
-	 *            ¸ñÊ½»¯ÀàĞÍ
+	 *            æ ¼å¼åŒ–ç±»å‹
 	 * @return String
 	 */
 	/*
@@ -152,23 +152,23 @@ public class TenpayUtil {
 	}*/
 
 	/**
-	 * »ñÈ¡Ëæ»ú×Ö·û´®
+	 * è·å–éšæœºå­—ç¬¦ä¸²
 	 * 
 	 * @return
 	 */
 	public static String getRandomStr() {
-		// Ëæ»úÊı
+		// éšæœºæ•°
 		String currTime = TenpayUtil.getCurrTime();
-		// 8Î»ÈÕÆÚ
+		// 8ä½æ—¥æœŸ
 		String strTime = currTime.substring(8, currTime.length());
-		// ËÄÎ»Ëæ»úÊı
+		// å››ä½éšæœºæ•°
 		String strRandom = TenpayUtil.buildRandom(4) + "";
-		// 10Î»ĞòÁĞºÅ,¿ÉÒÔ×ÔĞĞµ÷Õû¡£
+		// 10ä½åºåˆ—å·,å¯ä»¥è‡ªè¡Œè°ƒæ•´ã€‚
 		return strTime + strRandom;
 	}
 
 	/**
-	 * Ôª×ª»»³É·Ö
+	 * å…ƒè½¬æ¢æˆåˆ†
 	 * 
 	 * @param amount
 	 * @return
@@ -177,9 +177,9 @@ public class TenpayUtil {
 		if (amount == null) {
 			return "";
 		}
-		// ½ğ¶î×ª»¯Îª·ÖÎªµ¥Î»
-		String currency = amount.replaceAll("\\$|\\£¤|\\,", ""); // ´¦Àí°üº¬, £¤
-																// »òÕß$µÄ½ğ¶î
+		// é‡‘é¢è½¬åŒ–ä¸ºåˆ†ä¸ºå•ä½
+		String currency = amount.replaceAll("\\$|\\ï¿¥|\\,", ""); // å¤„ç†åŒ…å«, ï¿¥
+																// æˆ–è€…$çš„é‡‘é¢
 		int index = currency.indexOf(".");
 		int length = currency.length();
 		Long amLong = 0l;
@@ -203,7 +203,7 @@ public class TenpayUtil {
 	//}
 
 	/**
-	 * description: ½âÎöÎ¢ĞÅÍ¨Öªxml
+	 * description: è§£æå¾®ä¿¡é€šçŸ¥xml
 	 * 
 	 * @param xml
 	 * @return
@@ -215,13 +215,13 @@ public class TenpayUtil {
 		Map retMap = new HashMap();
 		try {
 			StringReader read = new StringReader(xml);
-			// ´´½¨ĞÂµÄÊäÈëÔ´SAX ½âÎöÆ÷½«Ê¹ÓÃ InputSource ¶ÔÏóÀ´È·¶¨ÈçºÎ¶ÁÈ¡ XML ÊäÈë
+			// åˆ›å»ºæ–°çš„è¾“å…¥æºSAX è§£æå™¨å°†ä½¿ç”¨ InputSource å¯¹è±¡æ¥ç¡®å®šå¦‚ä½•è¯»å– XML è¾“å…¥
 			InputSource source = new InputSource(read);
-			// ´´½¨Ò»¸öĞÂµÄSAXBuilder
+			// åˆ›å»ºä¸€ä¸ªæ–°çš„SAXBuilder
 			SAXBuilder sb = new SAXBuilder();
-			// Í¨¹ıÊäÈëÔ´¹¹ÔìÒ»¸öDocument
+			// é€šè¿‡è¾“å…¥æºæ„é€ ä¸€ä¸ªDocument
 			Document doc = (Document) sb.build(source);
-			Element root = doc.getRootElement();// Ö¸Ïò¸ù½Úµã
+			Element root = doc.getRootElement();// æŒ‡å‘æ ¹èŠ‚ç‚¹
 			List<Element> es = root.getChildren();
 			if (es != null && es.size() != 0) {
 				for (Element element : es) {
@@ -241,7 +241,7 @@ public class TenpayUtil {
 	}*/
 
 	/**
-	 * ½âÎöxml,·µ»ØµÚÒ»¼¶ÔªËØ¼üÖµ¶Ô¡£Èç¹ûµÚÒ»¼¶ÔªËØÓĞ×Ó½Úµã£¬Ôò´Ë½ÚµãµÄÖµÊÇ×Ó½ÚµãµÄxmlÊı¾İ¡£
+	 * è§£æxml,è¿”å›ç¬¬ä¸€çº§å…ƒç´ é”®å€¼å¯¹ã€‚å¦‚æœç¬¬ä¸€çº§å…ƒç´ æœ‰å­èŠ‚ç‚¹ï¼Œåˆ™æ­¤èŠ‚ç‚¹çš„å€¼æ˜¯å­èŠ‚ç‚¹çš„xmlæ•°æ®ã€‚
 	 * 
 	 * @param strxml
 	 * @return
@@ -275,7 +275,7 @@ public class TenpayUtil {
 			m.put(k, v);
 		}
 
-		// ¹Ø±ÕÁ÷
+		// å…³é—­æµ
 		in.close();
 		return m;
 	}
@@ -283,7 +283,7 @@ public class TenpayUtil {
 	
 	
 	/**
-	 * »ñÈ¡×Ó½áµãµÄxml
+	 * è·å–å­ç»“ç‚¹çš„xml
 	 * 
 	 * @param children
 	 * @return String

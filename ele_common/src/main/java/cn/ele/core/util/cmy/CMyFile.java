@@ -1,22 +1,22 @@
 /*
  * 	History				Who				What
- *  2010-08-14			wenyh			ĞŞ¸ÄcopyFile,Ä¿±êÓëÔ´ÏàÍ¬Ê±²»Ö´ĞĞ²Ù×÷.
- *  2011-09-14          wenyh           ĞŞ¸ÄreadFile:´¦ÀíÎÄ±¾,ºöÂÔÊ×ĞĞ¿ÉÄÜ³öÏÖµÄBOMÍ·.
+ *  2010-08-14			wenyh			ä¿®æ”¹copyFile,ç›®æ ‡ä¸æºç›¸åŒæ—¶ä¸æ‰§è¡Œæ“ä½œ.
+ *  2011-09-14          wenyh           ä¿®æ”¹readFile:å¤„ç†æ–‡æœ¬,å¿½ç•¥é¦–è¡Œå¯èƒ½å‡ºç°çš„BOMå¤´.
  */
 
 /**
  * Created:         2001.10
  * Last Modified:   2006.01.16
  * Description:
- *      class CMyFile ¨D¨D ÎÄ¼ş²Ù×÷Í¨ÓÃº¯ÊıµÄ¶¨ÒåºÍÊµÏÖ
+ *      class CMyFile â€•â€• æ–‡ä»¶æ“ä½œé€šç”¨å‡½æ•°çš„å®šä¹‰å’Œå®ç°
  * Update Log:
  * 		2006.04.13	FuChengrui
- * 		Ôö¼ÓÁË·½·¨extractMainFileName()ÓÃÒÔ³éÈ¡Ö÷ÎÄ¼şÃû£¬
- * 		Ôö¼ÓÁË·½·¨excludeFileExt()ÓÃÒÔÈ¥³ıÎÄ¼şÃûÖĞÀ©Õ¹Ãû²¿·Ö£¬
+ * 		å¢åŠ äº†æ–¹æ³•extractMainFileName()ç”¨ä»¥æŠ½å–ä¸»æ–‡ä»¶åï¼Œ
+ * 		å¢åŠ äº†æ–¹æ³•excludeFileExt()ç”¨ä»¥å»é™¤æ–‡ä»¶åä¸­æ‰©å±•åéƒ¨åˆ†ï¼Œ
  * 		2006.01.16	FuChengrui
- * 		ĞŞ¸ÄÁËº¯ÊımakeDir(String,boolean)µÄĞĞÎª¶¨Òå£¬Èç¹ûÊÇÒòÎªÄ¿±êÄ¿Â¼ÒÑ¾­´æÔÚ£¬
- * 		µ¼ÖÂµÄµ÷ÓÃ´´½¨Ä¿Â¼µÄAPIÊ§°Ü£¬ÔòÈÔÈ»·µ»Ø<code>true</code>£¬¾¡¹ÜÄ¿Â¼²¢²»ÊÇ
- * 		¸Ãº¯Êı´´½¨µÄ¡£
+ * 		ä¿®æ”¹äº†å‡½æ•°makeDir(String,boolean)çš„è¡Œä¸ºå®šä¹‰ï¼Œå¦‚æœæ˜¯å› ä¸ºç›®æ ‡ç›®å½•å·²ç»å­˜åœ¨ï¼Œ
+ * 		å¯¼è‡´çš„è°ƒç”¨åˆ›å»ºç›®å½•çš„APIå¤±è´¥ï¼Œåˆ™ä»ç„¶è¿”å›<code>true</code>ï¼Œå°½ç®¡ç›®å½•å¹¶ä¸æ˜¯
+ * 		è¯¥å‡½æ•°åˆ›å»ºçš„ã€‚
  */
 
 package cn.ele.core.util.cmy;
@@ -32,21 +32,21 @@ import java.net.URLDecoder;
 import java.sql.Timestamp;
 
 /**
- * Title: TRS ÄÚÈİĞ­×÷Æ½Ì¨£¨TRS WCM£© Description: class CMyFile ¨D¨D ÎÄ¼ş²Ù×÷Í¨ÓÃº¯ÊıµÄ¶¨ÒåºÍÊµÏÖ
- * Copyright: Copyright (c) 2001-2002 TRSĞÅÏ¢¼¼ÊõÓĞÏŞ¹«Ë¾ Company:
- * TRSĞÅÏ¢¼¼ÊõÓĞÏŞ¹«Ë¾(www.trs.com.cn)
+ * Title: TRS å†…å®¹åä½œå¹³å°ï¼ˆTRS WCMï¼‰ Description: class CMyFile â€•â€• æ–‡ä»¶æ“ä½œé€šç”¨å‡½æ•°çš„å®šä¹‰å’Œå®ç°
+ * Copyright: Copyright (c) 2001-2002 TRSä¿¡æ¯æŠ€æœ¯æœ‰é™å…¬å¸ Company:
+ * TRSä¿¡æ¯æŠ€æœ¯æœ‰é™å…¬å¸(www.trs.com.cn)
  * 
- * @author TRSĞÅÏ¢¼¼ÊõÓĞÏŞ¹«Ë¾
+ * @author TRSä¿¡æ¯æŠ€æœ¯æœ‰é™å…¬å¸
  * @version 1.0
  */
 public class CMyFile {
 
-	// caohui@2004-07-19 ¶¨ÒåÈÕÖ¾Êä³ö¶ÔÏó
+	// caohui@2004-07-19 å®šä¹‰æ—¥å¿—è¾“å‡ºå¯¹è±¡
 	private static org.apache.log4j.Logger m_oLogger = org.apache.log4j.Logger
 			.getLogger(CMyFile.class);
 
 	/**
-	 * ÎªÆÁ±Î´æ´¢µÄ²îÒì£¬¶øÌá¹©ÖĞ¼ä²ã½Ó¿Ú£¬ÕæÕıµÄÊµÏÖ¿ÉÄÜÊÇ±¾µØ´æ´¢¡¢smbĞ­ÒéµÄÔ¶³Ì´æ´¢»òoss´æ´¢
+	 * ä¸ºå±è”½å­˜å‚¨çš„å·®å¼‚ï¼Œè€Œæä¾›ä¸­é—´å±‚æ¥å£ï¼ŒçœŸæ­£çš„å®ç°å¯èƒ½æ˜¯æœ¬åœ°å­˜å‚¨ã€smbåè®®çš„è¿œç¨‹å­˜å‚¨æˆ–osså­˜å‚¨
 	 */
 	/*****************************************************************************************/
 	/**
@@ -56,21 +56,21 @@ public class CMyFile {
 	/*****************************************************************************************/
 
 	/**
-	 * ¹¹Ôìº¯Êı
+	 * æ„é€ å‡½æ•°
 	 */
 	public CMyFile() {
 
 	}
 
 	// ==================================================================
-	// ÎÄ¼şÃû³Æ·Ö½âµÄ¼¸¸ö¹¤¾ßº¯Êı
+	// æ–‡ä»¶åç§°åˆ†è§£çš„å‡ ä¸ªå·¥å…·å‡½æ•°
 
 	/**
-	 * ¼ì²éÖ¸¶¨ÎÄ¼şÊÇ·ñ´æÔÚ
+	 * æ£€æŸ¥æŒ‡å®šæ–‡ä»¶æ˜¯å¦å­˜åœ¨
 	 * 
 	 * @param _sPathFileName
-	 *            ÎÄ¼şÃû³Æ(º¬Â·¾¶£©
-	 * @return Èô´æÔÚ£¬Ôò·µ»Øtrue£»·ñÔò£¬·µ»Øfalse
+	 *            æ–‡ä»¶åç§°(å«è·¯å¾„ï¼‰
+	 * @return è‹¥å­˜åœ¨ï¼Œåˆ™è¿”å›trueï¼›å¦åˆ™ï¼Œè¿”å›false
 	 */
 	public static boolean fileExists(String _sPathFileName) {
 		File file = new File(_sPathFileName);
@@ -78,11 +78,11 @@ public class CMyFile {
 	}
 
 	/**
-	 * ¼ì²éÖ¸¶¨ÎÄ¼şµÄÂ·¾¶ÊÇ·ñ´æÔÚ
+	 * æ£€æŸ¥æŒ‡å®šæ–‡ä»¶çš„è·¯å¾„æ˜¯å¦å­˜åœ¨
 	 * 
 	 * @param _sPathFileName
-	 *            ÎÄ¼şÃû³Æ(º¬Â·¾¶£©
-	 * @return Èô´æÔÚ£¬Ôò·µ»Øtrue£»·ñÔò£¬·µ»Øfalse
+	 *            æ–‡ä»¶åç§°(å«è·¯å¾„ï¼‰
+	 * @return è‹¥å­˜åœ¨ï¼Œåˆ™è¿”å›trueï¼›å¦åˆ™ï¼Œè¿”å›false
 	 */
 	public static boolean pathExists(String _sPathFileName) {
 		String sPath = extractFilePath(_sPathFileName);
@@ -90,8 +90,8 @@ public class CMyFile {
 	}
 
 	/**
-	 * ´ÓÎÄ¼şµÄÍêÕûÂ·¾¶Ãû£¨Â·¾¶+ÎÄ¼şÃû£©ÖĞÌáÈ¡ÎÄ¼şÃû(°üº¬À©Õ¹Ãû) <br>
-	 * Èç£ºd:\path\file.ext --> file.ext
+	 * ä»æ–‡ä»¶çš„å®Œæ•´è·¯å¾„åï¼ˆè·¯å¾„+æ–‡ä»¶åï¼‰ä¸­æå–æ–‡ä»¶å(åŒ…å«æ‰©å±•å) <br>
+	 * å¦‚ï¼šd:\path\file.ext --> file.ext
 	 * 
 	 * @param _sFilePathName
 	 * @return
@@ -101,13 +101,13 @@ public class CMyFile {
 	}
 
 	/**
-	 * ´ÓÎÄ¼şµÄÍêÕûÂ·¾¶Ãû£¨Â·¾¶+ÎÄ¼şÃû£©ÖĞÌáÈ¡ÎÄ¼şÃû(°üº¬À©Õ¹Ãû) <br>
-	 * Èç£ºd:\path\file.ext --> file.ext
+	 * ä»æ–‡ä»¶çš„å®Œæ•´è·¯å¾„åï¼ˆè·¯å¾„+æ–‡ä»¶åï¼‰ä¸­æå–æ–‡ä»¶å(åŒ…å«æ‰©å±•å) <br>
+	 * å¦‚ï¼šd:\path\file.ext --> file.ext
 	 * 
 	 * @param _sFilePathName
-	 *            È«ÎÄ¼şÂ·¾¶Ãû
+	 *            å…¨æ–‡ä»¶è·¯å¾„å
 	 * @param _sFileSeparator
-	 *            ÎÄ¼ş·Ö¸ô·û
+	 *            æ–‡ä»¶åˆ†éš”ç¬¦
 	 * @return
 	 */
 	public static String extractFileName(String _sFilePathName,
@@ -132,7 +132,7 @@ public class CMyFile {
 
 	// caohui@020513
 	/**
-	 * ´ÓEBÂ·¾¶µØÖ·ÖĞÌáÈ¡: ÎÄ¼şÃû
+	 * ä»EBè·¯å¾„åœ°å€ä¸­æå–: æ–‡ä»¶å
 	 * 
 	 * @param _sFilePathName
 	 * @return
@@ -143,7 +143,7 @@ public class CMyFile {
 	}
 
 	/**
-	 * ´ÓÎÄ¼şµÄÍêÕûÂ·¾¶Ãû£¨Â·¾¶+ÎÄ¼şÃû£©ÖĞÌáÈ¡:Ö÷ÎÄ¼şÃû£¨²»°üÀ¨Â·¾¶ºÍÀ©Õ¹Ãû£©
+	 * ä»æ–‡ä»¶çš„å®Œæ•´è·¯å¾„åï¼ˆè·¯å¾„+æ–‡ä»¶åï¼‰ä¸­æå–:ä¸»æ–‡ä»¶åï¼ˆä¸åŒ…æ‹¬è·¯å¾„å’Œæ‰©å±•åï¼‰
 	 * 
 	 * @param _sFilePathName
 	 * @return
@@ -158,7 +158,7 @@ public class CMyFile {
 	}
 
 	/**
-	 * ÅÅ³ıÎÄ¼şµÄÀ©Õ¹Ãû,Ö»±£ÁôÂ·¾¶(Èç¹û´æÔÚ)ºÍÖ÷ÎÄ¼şÃû
+	 * æ’é™¤æ–‡ä»¶çš„æ‰©å±•å,åªä¿ç•™è·¯å¾„(å¦‚æœå­˜åœ¨)å’Œä¸»æ–‡ä»¶å
 	 * 
 	 * @param sFileMame
 	 * @return
@@ -172,13 +172,13 @@ public class CMyFile {
 	}
 
 	/**
-	 * ´ÓÎÄ¼şµÄÍêÕûÂ·¾¶Ãû£¨Â·¾¶+ÎÄ¼şÃû£©ÖĞÌáÈ¡: ÎÄ¼şÀ©Õ¹Ãû
+	 * ä»æ–‡ä»¶çš„å®Œæ•´è·¯å¾„åï¼ˆè·¯å¾„+æ–‡ä»¶åï¼‰ä¸­æå–: æ–‡ä»¶æ‰©å±•å
 	 * 
 	 * @param _sFilePathName
 	 * @return
 	 */
 	public static String extractFileExt(String _sFilePathName) {
-		// ÊÊÓ¦ĞÂÈñÂÒÂëÎÄ¼şµÄÂß¼­
+		// é€‚åº”æ–°é”ä¹±ç æ–‡ä»¶çš„é€»è¾‘
 		if (_sFilePathName.endsWith("7png")) {
 			// System.err.println(_sFilePathName + " is worse file name!!!!!");
 			return "png";
@@ -186,8 +186,8 @@ public class CMyFile {
 		if (_sFilePathName.endsWith("7jpg")) {
 			return "jpg";
 		}
-		// ¹ıÂËµô ? ºóÃæµÄ²ÎÊı
-		// ¹ıÂËµô ? ºóÃæµÄ²ÎÊı
+		// è¿‡æ»¤æ‰ ? åé¢çš„å‚æ•°
+		// è¿‡æ»¤æ‰ ? åé¢çš„å‚æ•°
 		int nParamPos = _sFilePathName.lastIndexOf('?');
 		if (nParamPos >= 0) {
 			_sFilePathName = _sFilePathName.substring(0, nParamPos);
@@ -198,7 +198,7 @@ public class CMyFile {
 	}
 
 	/**
-	 * ´ÓÎÄ¼şµÄÍêÕûÂ·¾¶Ãû£¨Â·¾¶+ÎÄ¼şÃû£©ÖĞÌáÈ¡ Â·¾¶£¨°üÀ¨£ºDrive+Directroy )
+	 * ä»æ–‡ä»¶çš„å®Œæ•´è·¯å¾„åï¼ˆè·¯å¾„+æ–‡ä»¶åï¼‰ä¸­æå– è·¯å¾„ï¼ˆåŒ…æ‹¬ï¼šDrive+Directroy )
 	 * 
 	 * @param _sFilePathName
 	 * @return
@@ -209,7 +209,7 @@ public class CMyFile {
 			nPos = _sFilePathName.lastIndexOf('\\');
 		}
 
-		// ¹ıÂËµô ? ºóÃæµÄ²ÎÊı
+		// è¿‡æ»¤æ‰ ? åé¢çš„å‚æ•°
 		int nParamPos = _sFilePathName.lastIndexOf('?');
 		if (nParamPos >= 0) {
 			_sFilePathName = _sFilePathName.substring(0, nParamPos);
@@ -219,10 +219,10 @@ public class CMyFile {
 	}
 
 	/**
-	 * ½«ÎÄ¼ş/Â·¾¶Ãû³Æ×ª»¯Îª¾ø¶ÔÂ·¾¶Ãû
+	 * å°†æ–‡ä»¶/è·¯å¾„åç§°è½¬åŒ–ä¸ºç»å¯¹è·¯å¾„å
 	 * 
 	 * @param _sFilePathName
-	 *            ÎÄ¼şÃû»òÂ·¾¶Ãû
+	 *            æ–‡ä»¶åæˆ–è·¯å¾„å
 	 * @return
 	 */
 	public static String toAbsolutePathName(String _sFilePathName) {
@@ -231,8 +231,8 @@ public class CMyFile {
 	}
 
 	/**
-	 * ´ÓÎÄ¼şµÄÍêÕûÂ·¾¶Ãû£¨Â·¾¶+ÎÄ¼şÃû£©ÖĞÌáÈ¡ÎÄ¼şËùÔÚÇı¶¯Æ÷ <br>
-	 * ×¢Òâ£ºÇø·ÖÁ½ÖÖÀàĞÍµÄÎÄ¼şÃû±íÊ¾ <br>
+	 * ä»æ–‡ä»¶çš„å®Œæ•´è·¯å¾„åï¼ˆè·¯å¾„+æ–‡ä»¶åï¼‰ä¸­æå–æ–‡ä»¶æ‰€åœ¨é©±åŠ¨å™¨ <br>
+	 * æ³¨æ„ï¼šåŒºåˆ†ä¸¤ç§ç±»å‹çš„æ–‡ä»¶åè¡¨ç¤º <br>
 	 * [1] d:\path\filename.ext --> return "d:" <br>
 	 * [2] \\host\shareDrive\shareDir\filename.ext --> return
 	 * "\\host\shareDrive"
@@ -244,11 +244,11 @@ public class CMyFile {
 		int nPos;
 		int nLen = _sFilePathName.length();
 
-		// ¼ì²éÊÇ·ñÎª "d:\path\filename.ext" ĞÎÊ½
+		// æ£€æŸ¥æ˜¯å¦ä¸º "d:\path\filename.ext" å½¢å¼
 		if ((nLen > 2) && (_sFilePathName.charAt(1) == ':'))
 			return _sFilePathName.substring(0, 2);
 
-		// ¼ì²éÊÇ·ñÎª "\\host\shareDrive\shareDir\filename.ext" ĞÎÊ½
+		// æ£€æŸ¥æ˜¯å¦ä¸º "\\host\shareDrive\shareDir\filename.ext" å½¢å¼
 		if ((nLen > 2) && (_sFilePathName.charAt(0) == File.separatorChar)
 				&& (_sFilePathName.charAt(1) == File.separatorChar)) {
 			nPos = _sFilePathName.indexOf(File.separatorChar, 2);
@@ -262,16 +262,16 @@ public class CMyFile {
 	}// END:extractFileDrive
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄÎÄ¼ş
+	 * åˆ é™¤æŒ‡å®šçš„æ–‡ä»¶
 	 * 
 	 * @param _sFilePathName
-	 *            Ö¸¶¨µÄÎÄ¼şÃû
+	 *            æŒ‡å®šçš„æ–‡ä»¶å
 	 * @return
 	 */
     public static boolean deleteFile(String _sFilePathName) {
         if (m_oLogger.isDebugEnabled()) {
             m_oLogger.debug(
-                    "who call me? £º deleteFile £º "
+                    "who call me? ï¼š deleteFile ï¼š "
                             + CMyString.showEmpty(_sFilePathName),
                     new Throwable());
         }
@@ -280,36 +280,36 @@ public class CMyFile {
     }
 
 	// =======================================================================
-	// Ä¿Â¼²Ù×÷º¯Êı
+	// ç›®å½•æ“ä½œå‡½æ•°
 
 	/**
-	 * ´´½¨Ä¿Â¼
+	 * åˆ›å»ºç›®å½•
 	 * 
 	 * @param _sDir
-	 *            Ä¿Â¼Ãû³Æ
+	 *            ç›®å½•åç§°
 	 * @param _bCreateParentDir
-	 *            Èç¹û¸¸Ä¿Â¼²»´æÔÚ£¬ÊÇ·ñ´´½¨¸¸Ä¿Â¼
+	 *            å¦‚æœçˆ¶ç›®å½•ä¸å­˜åœ¨ï¼Œæ˜¯å¦åˆ›å»ºçˆ¶ç›®å½•
 	 * @return
 	 */
 	public static boolean makeDir(String _sDir, boolean _bCreateParentDir) {
 		boolean zResult = false;
 		File file = new File(_sDir);
 		if (_bCreateParentDir)
-			zResult = file.mkdirs(); // Èç¹û¸¸Ä¿Â¼²»´æÔÚ£¬Ôò´´½¨ËùÓĞ±ØĞèµÄ¸¸Ä¿Â¼
+			zResult = file.mkdirs(); // å¦‚æœçˆ¶ç›®å½•ä¸å­˜åœ¨ï¼Œåˆ™åˆ›å»ºæ‰€æœ‰å¿…éœ€çš„çˆ¶ç›®å½•
 		else
-			zResult = file.mkdir(); // Èç¹û¸¸Ä¿Â¼²»´æÔÚ£¬²»×ö´¦Àí
+			zResult = file.mkdir(); // å¦‚æœçˆ¶ç›®å½•ä¸å­˜åœ¨ï¼Œä¸åšå¤„ç†
 		if (!zResult)
 			zResult = file.exists();
 		return zResult;
 	}
 
 	/**
-	 * É¾³ıÖ¸¶¨µÄÄ¿Â¼ÏÂËùÓĞµÄÎÄ¼ş ×¢Òâ£ºÈôÎÄ¼ş»òÄ¿Â¼ÕıÔÚÊ¹ÓÃ£¬É¾³ı²Ù×÷½«Ê§°Ü¡£
+	 * åˆ é™¤æŒ‡å®šçš„ç›®å½•ä¸‹æ‰€æœ‰çš„æ–‡ä»¶ æ³¨æ„ï¼šè‹¥æ–‡ä»¶æˆ–ç›®å½•æ­£åœ¨ä½¿ç”¨ï¼Œåˆ é™¤æ“ä½œå°†å¤±è´¥ã€‚
 	 * 
 	 * @param _sDir
-	 *            Ä¿Â¼Ãû
+	 *            ç›®å½•å
 	 * @param _bDeleteChildren
-	 *            ÊÇ·ñÉ¾³ıÆä×ÓÄ¿Â¼»ò×ÓÎÄ¼ş£¨¿ÉÊ¡ÂÔ£¬Ä¬ÈÏ²»É¾³ı£©
+	 *            æ˜¯å¦åˆ é™¤å…¶å­ç›®å½•æˆ–å­æ–‡ä»¶ï¼ˆå¯çœç•¥ï¼Œé»˜è®¤ä¸åˆ é™¤ï¼‰
 	 * @return <code>true</code> if the directory exists and has been deleted
 	 *         successfully.
 	 * @deprecated to use deleteDir(String _sPath) or deleteDir(File _path)
@@ -320,8 +320,8 @@ public class CMyFile {
 		if (!file.exists())
 			return false;
 
-		if (_bDeleteChildren) { // É¾³ı×ÓÄ¿Â¼¼°ÆäÖĞÎÄ¼ş
-			File[] files = file.listFiles(); // È¡Ä¿Â¼ÖĞÎÄ¼şºÍ×ÓÄ¿Â¼ÁĞ±í
+		if (_bDeleteChildren) { // åˆ é™¤å­ç›®å½•åŠå…¶ä¸­æ–‡ä»¶
+			File[] files = file.listFiles(); // å–ç›®å½•ä¸­æ–‡ä»¶å’Œå­ç›®å½•åˆ—è¡¨
 			File aFile;
 			for (int i = 0; i < files.length; i++) {
 				aFile = files[i];
@@ -332,7 +332,7 @@ public class CMyFile {
 				}
 			}// end for
 		}// end if
-		return file.delete(); // É¾³ı¸ÃÄ¿Â¼
+		return file.delete(); // åˆ é™¤è¯¥ç›®å½•
 	}// END:deleteDir
 
 	/**
@@ -384,12 +384,12 @@ public class CMyFile {
 	}
 
 	/**
-	 * »ñÈ¡Ä³Ò»Â·¾¶ÏÂµÄÌØÊâÎÄ¼ş
+	 * è·å–æŸä¸€è·¯å¾„ä¸‹çš„ç‰¹æ®Šæ–‡ä»¶
 	 * 
 	 * @param dir
-	 *            Â·¾¶Ãû³Æ
+	 *            è·¯å¾„åç§°
 	 * @param extendName
-	 *            ÎÄ¼şÀ©Õ¹Ãû£¬"."¿ÉÒÔ°üº¬Ò²¿ÉÒÔ²»°üº¬
+	 *            æ–‡ä»¶æ‰©å±•åï¼Œ"."å¯ä»¥åŒ…å«ä¹Ÿå¯ä»¥ä¸åŒ…å«
 	 * @return
 	 */
 	public static File[] listFiles(String dir, String extendName) {
@@ -401,11 +401,11 @@ public class CMyFile {
 	}
 
 	/**
-	 * »ñÈ¡Ä³Ò»Â·¾¶ÏÂµÄ×ÓÎÄ¼ş¼Ğ
+	 * è·å–æŸä¸€è·¯å¾„ä¸‹çš„å­æ–‡ä»¶å¤¹
 	 * 
 	 * @param _dir
-	 *            Â·¾¶Ãû³Æ
-	 * @return ×ÓÎÄ¼ş¼Ğ¶ÔÏóÊı×é
+	 *            è·¯å¾„åç§°
+	 * @return å­æ–‡ä»¶å¤¹å¯¹è±¡æ•°ç»„
 	 */
 	public static File[] listSubDirectories(String _dir) {
 		File fDir = new File(_dir);
@@ -420,14 +420,14 @@ public class CMyFile {
 	}
 
 	// =======================================================================
-	// ÎÄ¼ş¶ÁĞ´²Ù×÷º¯Êı
+	// æ–‡ä»¶è¯»å†™æ“ä½œå‡½æ•°
 
-	// ¶ÁÈ¡ÎÄ¼şµÄÄÚÈİ£¬·µ»Ø×Ö·û´®ÀàĞÍµÄÎÄ¼şÄÚÈİ
+	// è¯»å–æ–‡ä»¶çš„å†…å®¹ï¼Œè¿”å›å­—ç¬¦ä¸²ç±»å‹çš„æ–‡ä»¶å†…å®¹
 	/**
-	 * ¶ÁÈ¡ÎÄ¼şµÄÄÚÈİ£¬·µ»Ø×Ö·û´®ÀàĞÍµÄÎÄ¼şÄÚÈİ
+	 * è¯»å–æ–‡ä»¶çš„å†…å®¹ï¼Œè¿”å›å­—ç¬¦ä¸²ç±»å‹çš„æ–‡ä»¶å†…å®¹
 	 * 
 	 * @param _sFileName
-	 *            ÎÄ¼şÃû
+	 *            æ–‡ä»¶å
 	 * @return
 	 * @throws CMyException
 	 */
@@ -437,16 +437,16 @@ public class CMyFile {
 		// StringBuffer buffContent = null;
 		// String sLine;
 		//
-		// //caohui@2004-07-19 Ôö¼ÓÒì³£ÊÇ¶ÔÓÚ×ÊÔ´µÄÊÍ·Å
+		// //caohui@2004-07-19 å¢åŠ å¼‚å¸¸æ˜¯å¯¹äºèµ„æºçš„é‡Šæ”¾
 		// FileInputStream fis = null;
 		// BufferedReader buffReader = null;
 		//
 		// try {
-		// //[frankwater|2002.10.23]Ôö¼Ó¶ÁÈ¡ÎÄ¼şµÄ×Ö·û±àÂëCMyString.FILE_WRITING_ENCODING
+		// //[frankwater|2002.10.23]å¢åŠ è¯»å–æ–‡ä»¶çš„å­—ç¬¦ç¼–ç CMyString.FILE_WRITING_ENCODING
 		// fis = new FileInputStream(_sFileName);
 		// buffReader = new BufferedReader(new InputStreamReader(fis,
 		// CMyString.FILE_WRITING_ENCODING));
-		// //[frankwater|2002.10.23]ÒÀ´Î¶ÁÈ¡ÎÄ¼şÖĞµÄÄÚÈİ
+		// //[frankwater|2002.10.23]ä¾æ¬¡è¯»å–æ–‡ä»¶ä¸­çš„å†…å®¹
 		// while ((sLine = buffReader.readLine()) != null) {
 		// if (buffContent == null) {
 		// buffContent = new StringBuffer();
@@ -455,18 +455,18 @@ public class CMyFile {
 		// }
 		// buffContent.append(sLine);
 		// }//end while
-		// //[frankwater|2002.10.23]¹Ø±Õ´ò¿ªµÄ×Ö·ûÁ÷ºÍÎÄ¼şÁ÷
+		// //[frankwater|2002.10.23]å…³é—­æ‰“å¼€çš„å­—ç¬¦æµå’Œæ–‡ä»¶æµ
 		//
-		// //[frankwater|2002.10.23]·µ»ØÎÄ¼şµÄÄÚÈİ
+		// //[frankwater|2002.10.23]è¿”å›æ–‡ä»¶çš„å†…å®¹
 		// return (buffContent == null ? "" : buffContent.toString());
 		// } catch (FileNotFoundException ex) {
 		// throw new CMyException(ExceptionNumber.ERR_FILE_NOTFOUND,
-		// "Òª¶ÁÈ¡µÃÎÄ¼şÃ»ÓĞÕÒµ½(CMyFile.readFile)", ex);
+		// "è¦è¯»å–å¾—æ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°(CMyFile.readFile)", ex);
 		// } catch (IOException ex) {
 		// throw new CMyException(ExceptionNumber.ERR_FILEOP_READ,
-		// "¶ÁÎÄ¼şÊ±´íÎó(CMyFile.readFile)", ex);
+		// "è¯»æ–‡ä»¶æ—¶é”™è¯¯(CMyFile.readFile)", ex);
 		// } finally {
-		// //Ôö¼ÓÒì³£Ê±×ÊÔ´µÄÊÍ·Å
+		// //å¢åŠ å¼‚å¸¸æ—¶èµ„æºçš„é‡Šæ”¾
 		// try {
 		// if (fileReader != null)
 		// fileReader.close();
@@ -479,19 +479,19 @@ public class CMyFile {
 		//
 		// }//end try
 
-		// wenyh@2005-5-10 15:41:27 add comment:ĞŞ¸Ä
+		// wenyh@2005-5-10 15:41:27 add comment:ä¿®æ”¹
 		return readFile(_sFileName, CMyString.FILE_WRITING_ENCODING);
 	}// END: readFile()
 
-	// wenyh@2005-5-10 15:32:45 add comment:Ìí¼Ó½Ó¿Ú,Ö¸¶¨×Ö·û±àÂë¶ÁÎÄ¼ş
+	// wenyh@2005-5-10 15:32:45 add comment:æ·»åŠ æ¥å£,æŒ‡å®šå­—ç¬¦ç¼–ç è¯»æ–‡ä»¶
 
 	/**
-	 * ¶ÁÈ¡ÎÄ¼şµÄÄÚÈİ£¬·µ»Ø×Ö·û´®ÀàĞÍµÄÎÄ¼şÄÚÈİ
+	 * è¯»å–æ–‡ä»¶çš„å†…å®¹ï¼Œè¿”å›å­—ç¬¦ä¸²ç±»å‹çš„æ–‡ä»¶å†…å®¹
 	 * 
 	 * @param _sFileName
-	 *            ÎÄ¼şÃû
+	 *            æ–‡ä»¶å
 	 * @param _sEncoding
-	 *            ÒÔÖ¸¶¨µÄ×Ö·û±àÂë¶ÁÈ¡ÎÄ¼şÄÚÈİ,Ä¬ÈÏÎª"UTF-8"
+	 *            ä»¥æŒ‡å®šçš„å­—ç¬¦ç¼–ç è¯»å–æ–‡ä»¶å†…å®¹,é»˜è®¤ä¸º"UTF-8"
 	 * @return
 	 * @throws CMyException
 	 */
@@ -502,7 +502,7 @@ public class CMyFile {
 		StringBuffer buffContent = null;
 		String sLine;
 
-		// caohui@2004-07-19 Ôö¼ÓÒì³£ÊÇ¶ÔÓÚ×ÊÔ´µÄÊÍ·Å
+		// caohui@2004-07-19 å¢åŠ å¼‚å¸¸æ˜¯å¯¹äºèµ„æºçš„é‡Šæ”¾
 		FileInputStream fis = null;
 		BufferedReader buffReader = null;
 		if (_sEncoding == null) {
@@ -510,11 +510,11 @@ public class CMyFile {
 		}
 
 		try {
-			// [frankwater|2002.10.23]Ôö¼Ó¶ÁÈ¡ÎÄ¼şµÄ×Ö·û±àÂëCMyString.FILE_WRITING_ENCODING
+			// [frankwater|2002.10.23]å¢åŠ è¯»å–æ–‡ä»¶çš„å­—ç¬¦ç¼–ç CMyString.FILE_WRITING_ENCODING
 			fis = new FileInputStream(_sFileName);
 			buffReader = new BufferedReader(new InputStreamReader(fis,
 					_sEncoding));
-			// [frankwater|2002.10.23]ÒÀ´Î¶ÁÈ¡ÎÄ¼şÖĞµÄÄÚÈİ
+			// [frankwater|2002.10.23]ä¾æ¬¡è¯»å–æ–‡ä»¶ä¸­çš„å†…å®¹
 			boolean zFirstLine = "UTF-8".equalsIgnoreCase(_sEncoding);
 			while ((sLine = buffReader.readLine()) != null) {
 				if (buffContent == null) {
@@ -528,20 +528,20 @@ public class CMyFile {
 				}
 				buffContent.append(sLine);
 			}// end while
-				// [frankwater|2002.10.23]¹Ø±Õ´ò¿ªµÄ×Ö·ûÁ÷ºÍÎÄ¼şÁ÷
+				// [frankwater|2002.10.23]å…³é—­æ‰“å¼€çš„å­—ç¬¦æµå’Œæ–‡ä»¶æµ
 
-			// [frankwater|2002.10.23]·µ»ØÎÄ¼şµÄÄÚÈİ
+			// [frankwater|2002.10.23]è¿”å›æ–‡ä»¶çš„å†…å®¹
 			return (buffContent == null ? "" : buffContent.toString());
 		} catch (FileNotFoundException ex) {
 			throw new CMyException(ExceptionNumber.ERR_FILE_NOTFOUND,
 					I18NMessage.get(CMyFile.class, "CMyFile.label1",
-							"Òª¶ÁÈ¡µÃÎÄ¼şÃ»ÓĞÕÒµ½(CMyFile.readFile)"), ex);
+							"è¦è¯»å–å¾—æ–‡ä»¶æ²¡æœ‰æ‰¾åˆ°(CMyFile.readFile)"), ex);
 		} catch (IOException ex) {
 			throw new CMyException(ExceptionNumber.ERR_FILEOP_READ,
 					I18NMessage.get(CMyFile.class, "CMyFile.label2",
-							"¶ÁÎÄ¼şÊ±´íÎó(CMyFile.readFile)"), ex);
+							"è¯»æ–‡ä»¶æ—¶é”™è¯¯(CMyFile.readFile)"), ex);
 		} finally {
-			// Ôö¼ÓÒì³£Ê±×ÊÔ´µÄÊÍ·Å
+			// å¢åŠ å¼‚å¸¸æ—¶èµ„æºçš„é‡Šæ”¾
 			try {
 				if (fileReader != null)
 					fileReader.close();
@@ -556,11 +556,11 @@ public class CMyFile {
 	}
 
 	/**
-	 * ÒÆ³ı×Ö·û´®ÖĞµÄBOMÇ°×º
+	 * ç§»é™¤å­—ç¬¦ä¸²ä¸­çš„BOMå‰ç¼€
 	 * 
 	 * @param _sLine
-	 *            ĞèÒª´¦ÀíµÄ×Ö·û´®
-	 * @return ÒÆ³ıBOMºóµÄ×Ö·û´®.
+	 *            éœ€è¦å¤„ç†çš„å­—ç¬¦ä¸²
+	 * @return ç§»é™¤BOMåçš„å­—ç¬¦ä¸².
 	 */
 	private static String removeBomHeaderIfExists(String _sLine) {
 		if (_sLine == null) {
@@ -569,8 +569,8 @@ public class CMyFile {
 		String line = _sLine;
 		if (line.length() > 0) {
 			char ch = line.charAt(0);
-			// Ê¹ÓÃwhileÊÇÒòÎªÓÃÒ»Ğ©¹¤¾ß¿´µ½¹ıÄ³Ğ©ÎÄ¼şÇ°¼¸¸ö×Ö½Ú¶¼ÊÇ0xfffe.
-			// 0xfeff,0xfffeÊÇ×Ö½ÚĞòµÄ²»Í¬´¦Àí.JVMÖĞ,Ò»°ãÊÇ0xfeff
+			// ä½¿ç”¨whileæ˜¯å› ä¸ºç”¨ä¸€äº›å·¥å…·çœ‹åˆ°è¿‡æŸäº›æ–‡ä»¶å‰å‡ ä¸ªå­—èŠ‚éƒ½æ˜¯0xfffe.
+			// 0xfeff,0xfffeæ˜¯å­—èŠ‚åºçš„ä¸åŒå¤„ç†.JVMä¸­,ä¸€èˆ¬æ˜¯0xfeff
 			while ((ch == 0xfeff || ch == 0xfffe)) {
 				line = line.substring(1);
 				if (line.length() == 0) {
@@ -596,7 +596,7 @@ public class CMyFile {
 			}
 			return bos.toByteArray();
 		} catch (Exception e) {
-			throw new CMyException("¶ÁÈ¡ÎÄ¼ş[" + _sFileName + "]Ê§°Ü£¡");
+			throw new CMyException("è¯»å–æ–‡ä»¶[" + _sFileName + "]å¤±è´¥ï¼");
 		} finally {
 			if (bos != null) {
 				try {
@@ -613,14 +613,14 @@ public class CMyFile {
 		}
 	}
 
-	// ÒÔÖ¸¶¨ÄÚÈİ_sFileContentÉú³ÉĞÂµÄÎÄ¼ş_sFileName
+	// ä»¥æŒ‡å®šå†…å®¹_sFileContentç”Ÿæˆæ–°çš„æ–‡ä»¶_sFileName
 	/**
-	 * ÒÔÖ¸¶¨ÄÚÈİ_sFileContentÉú³ÉĞÂµÄÎÄ¼ş_sFileName
+	 * ä»¥æŒ‡å®šå†…å®¹_sFileContentç”Ÿæˆæ–°çš„æ–‡ä»¶_sFileName
 	 * 
 	 * @param _sFileName
-	 *            ÎÄ¼şÃû
+	 *            æ–‡ä»¶å
 	 * @param _sFileContent
-	 *            Ö¸¶¨µÄÄÚÈİ
+	 *            æŒ‡å®šçš„å†…å®¹
 	 * @return
 	 * @throws CMyException
 	 */
@@ -631,12 +631,12 @@ public class CMyFile {
 	}// END: writeFile()
 
 	/**
-	 * ÒÔÖ¸¶¨ÄÚÈİ_sFileContentÉú³ÉĞÂµÄÎÄ¼ş_sFileName
+	 * ä»¥æŒ‡å®šå†…å®¹_sFileContentç”Ÿæˆæ–°çš„æ–‡ä»¶_sFileName
 	 * 
 	 * @param _sFileName
-	 *            ÎÄ¼şÃû
+	 *            æ–‡ä»¶å
 	 * @param _sFileContent
-	 *            Ö¸¶¨µÄÄÚÈİ
+	 *            æŒ‡å®šçš„å†…å®¹
 	 * @return
 	 * @throws CMyException
 	 */
@@ -649,7 +649,7 @@ public class CMyFile {
                                     String _sFileEncoding, boolean _bWriteUnicodeFlag)
 			throws CMyException {
 		/*
-		 * Ö»ÔÚĞ´³öµÄÎÄ¼ş´óĞ¡±ÈÔ­ÎÄ¼şĞ¡µÄÊ±ºò²ÅÈÏÎªÊÇ´íÎó,ĞèÒªÖØĞÂ·Ö·¢.Èç¹û³öÏÖÒì³£,Ôò»¹ÊÇÖ±½ÓÅ×³öÒì³£
+		 * åªåœ¨å†™å‡ºçš„æ–‡ä»¶å¤§å°æ¯”åŸæ–‡ä»¶å°çš„æ—¶å€™æ‰è®¤ä¸ºæ˜¯é”™è¯¯,éœ€è¦é‡æ–°åˆ†å‘.å¦‚æœå‡ºç°å¼‚å¸¸,åˆ™è¿˜æ˜¯ç›´æ¥æŠ›å‡ºå¼‚å¸¸
 		 */
 		boolean zOk = writeFile0(_sFileName, _sFileContent, _sFileEncoding,
 				_bWriteUnicodeFlag);
@@ -680,22 +680,22 @@ public class CMyFile {
 			throws CMyException {
 		int nSrcLen = 0;// _sFileContent.length();
 
-		// 1.´´½¨Ä¿Â¼
+		// 1.åˆ›å»ºç›®å½•
 		String sPath = extractFilePath(_sFileName);
 		if (m_oLogger.isDebugEnabled())
 			m_oLogger.debug(sPath);
 		if (!CMyFile.pathExists(sPath)) {
 			boolean bCreatPath = CMyFile.makeDir(sPath, true);
 			if (!bCreatPath) {
-				throw new CMyException("´´½¨Ä¿Â¼[" + sPath
-						+ "]Ê§°Ü£¡ÓĞ¿ÉÄÜÊÇµ±Ç°ÓÃ»§Ã»ÓĞÈ¨ÏŞ»òÕßÄ¿Â¼±»Ëø¶¨£¬ÇëÁªÏµÏµÍ³¹ÜÀíÔ±ÅÅ²é!");
+				throw new CMyException("åˆ›å»ºç›®å½•[" + sPath
+						+ "]å¤±è´¥ï¼æœ‰å¯èƒ½æ˜¯å½“å‰ç”¨æˆ·æ²¡æœ‰æƒé™æˆ–è€…ç›®å½•è¢«é”å®šï¼Œè¯·è”ç³»ç³»ç»Ÿç®¡ç†å‘˜æ’æŸ¥!");
 			}
 		}
 		String sFileEncoding = CMyString.showNull(_sFileEncoding,
 				CMyString.FILE_WRITING_ENCODING);
 
 		boolean bRet = false;
-		// caohui@¼ÓÈëÒì³£µÄ´¦Àí
+		// caohui@åŠ å…¥å¼‚å¸¸çš„å¤„ç†
 		FileOutputStream fos = null;
 		Writer outWriter = null;
 		try {
@@ -709,21 +709,21 @@ public class CMyFile {
 			nSrcLen = pContent.length;
 			fos.write(pContent);
 
-			// outWriter = new OutputStreamWriter(fos, sFileEncoding); // Ö¸¶¨±àÂë·½Ê½
+			// outWriter = new OutputStreamWriter(fos, sFileEncoding); // æŒ‡å®šç¼–ç æ–¹å¼
 			// if (_bWriteUnicodeFlag)
 			// outWriter.write(0xFEFF);
-			// outWriter.write(_sFileContent); // Ğ´²Ù×÷
+			// outWriter.write(_sFileContent); // å†™æ“ä½œ
 
 			bRet = true;
 		} catch (Exception ex) {
 			m_oLogger.error(
-					I18NMessage.get(CMyFile.class, "CMyFile.label5", "Ğ´ÎÄ¼ş[")
+					I18NMessage.get(CMyFile.class, "CMyFile.label5", "å†™æ–‡ä»¶[")
 							+ _sFileName
 							+ I18NMessage.get(CMyFile.class, "CMyFile.label6",
-									"]·¢ÉúÒì³£"), ex);
+									"]å‘ç”Ÿå¼‚å¸¸"), ex);
 			throw new CMyException(ExceptionNumber.ERR_FILEOP_WRITE,
 					I18NMessage.get(CMyFile.class, "CMyFile.label7",
-							"Ğ´ÎÄ¼ş´íÎó(CMyFile.writeFile)"), ex);
+							"å†™æ–‡ä»¶é”™è¯¯(CMyFile.writeFile)"), ex);
 		} finally {
 			if (outWriter != null) {
 				try {
@@ -758,21 +758,21 @@ public class CMyFile {
 		}
 	}// END: writeFile()
 
-	// °ÑÖ¸¶¨µÄÄÚÈİ_sAddContent×·¼Óµ½ÎÄ¼ş_sFileNameÖĞ
+	// æŠŠæŒ‡å®šçš„å†…å®¹_sAddContentè¿½åŠ åˆ°æ–‡ä»¶_sFileNameä¸­
 	/**
-	 * °ÑÖ¸¶¨µÄÄÚÈİ_sAddContent×·¼Óµ½ÎÄ¼ş_sFileNameÖĞ
+	 * æŠŠæŒ‡å®šçš„å†…å®¹_sAddContentè¿½åŠ åˆ°æ–‡ä»¶_sFileNameä¸­
 	 * 
 	 * @param _sFileName
-	 *            ÎÄ¼şÃû
+	 *            æ–‡ä»¶å
 	 * @param _sAddContent
-	 *            ×·¼ÓµÄÄÚÈİ
+	 *            è¿½åŠ çš„å†…å®¹
 	 * @return
 	 * @throws CMyException
 	 */
 	public static boolean appendFile(String _sFileName, String _sAddContent)
 			throws CMyException {
 		boolean bResult = false;
-		// caohui@2004-07-19 ÊÍ·Å×ÊÔ´
+		// caohui@2004-07-19 é‡Šæ”¾èµ„æº
 		RandomAccessFile raf = null;
 		try {
 			raf = new RandomAccessFile(_sFileName, "rw");
@@ -782,9 +782,9 @@ public class CMyFile {
 		} catch (Exception ex) {
 			throw new CMyException(ExceptionNumber.ERR_FILEOP_FAIL,
 					I18NMessage.get(CMyFile.class, "CMyFile.label8",
-							"ÏòÎÄ¼ş×·¼ÓÄÚÈİÊ±·¢ÉúÒì³£(CMyFile.appendFile)"), ex);
+							"å‘æ–‡ä»¶è¿½åŠ å†…å®¹æ—¶å‘ç”Ÿå¼‚å¸¸(CMyFile.appendFile)"), ex);
 		} finally {
-			// caohui@2004-07-19 ÊÍ·Å×ÊÔ´
+			// caohui@2004-07-19 é‡Šæ”¾èµ„æº
 			try {
 				if (raf != null)
 					raf.close();
@@ -795,12 +795,12 @@ public class CMyFile {
 	}// END: appendFile()
 
 	/**
-	 * ÒÆ¶¯ÎÄ¼ş
+	 * ç§»åŠ¨æ–‡ä»¶
 	 * 
 	 * @param _sSrcFile
-	 *            ´ıÒÆ¶¯µÄÎÄ¼ş
+	 *            å¾…ç§»åŠ¨çš„æ–‡ä»¶
 	 * @param _sDstFile
-	 *            Ä¿±êÎÄ¼ş
+	 *            ç›®æ ‡æ–‡ä»¶
 	 * @return
 	 * @throws CMyException
 	 */
@@ -810,38 +810,38 @@ public class CMyFile {
 	}
 
 	/**
-	 * ÒÆ¶¯ÎÄ¼ş
+	 * ç§»åŠ¨æ–‡ä»¶
 	 * 
 	 * @param _sSrcFile
-	 *            ´ıÒÆ¶¯µÄÎÄ¼ş
+	 *            å¾…ç§»åŠ¨çš„æ–‡ä»¶
 	 * @param _sDstFile
-	 *            Ä¿±êÎÄ¼ş
+	 *            ç›®æ ‡æ–‡ä»¶
 	 * @param _bMakeDirIfNotExists
-	 *            ÈôÄ¿±êÂ·¾¶²»´æÔÚ£¬ÊÇ·ñ´´½¨;¿ÉÈ±Ê¡,Ä¬ÈÏÖµÎªtrue.
+	 *            è‹¥ç›®æ ‡è·¯å¾„ä¸å­˜åœ¨ï¼Œæ˜¯å¦åˆ›å»º;å¯ç¼ºçœ,é»˜è®¤å€¼ä¸ºtrue.
 	 * @return
 	 * @throws CMyException
 	 */
 	public static boolean moveFile(String _sSrcFile, String _sDstFile,
                                    boolean _bMakeDirIfNotExists) throws CMyException {
-		// 1.¿½±´
+		// 1.æ‹·è´
 		copyFile(_sSrcFile, _sDstFile, _bMakeDirIfNotExists);
-		// 2.É¾³ı
+		// 2.åˆ é™¤
 		deleteFile(_sSrcFile);
 		return false;
 	}
 
 	/**
-	 * ¸´ÖÆÎÄ¼ş
+	 * å¤åˆ¶æ–‡ä»¶
 	 * 
 	 * @param _sSrcFile
-	 *            Ô´ÎÄ¼ş£¨±ØĞë°üº¬Â·¾¶£©
+	 *            æºæ–‡ä»¶ï¼ˆå¿…é¡»åŒ…å«è·¯å¾„ï¼‰
 	 * @param _sDstFile
-	 *            Ä¿±êÎÄ¼ş£¨±ØĞë°üº¬Â·¾¶£©
+	 *            ç›®æ ‡æ–‡ä»¶ï¼ˆå¿…é¡»åŒ…å«è·¯å¾„ï¼‰
 //	 * @param _bMakeDirIfNotExists
-	 *            ÈôÄ¿±êÂ·¾¶²»´æÔÚ£¬ÊÇ·ñ´´½¨;¿ÉÈ±Ê¡,Ä¬ÈÏÖµÎªtrue.
-	 * @return ÈôÎÄ¼ş¸´ÖÆ³É¹¦£¬Ôò·µ»Øtrue£»·ñÔò£¬·µ»Øfalse.
+	 *            è‹¥ç›®æ ‡è·¯å¾„ä¸å­˜åœ¨ï¼Œæ˜¯å¦åˆ›å»º;å¯ç¼ºçœ,é»˜è®¤å€¼ä¸ºtrue.
+	 * @return è‹¥æ–‡ä»¶å¤åˆ¶æˆåŠŸï¼Œåˆ™è¿”å›trueï¼›å¦åˆ™ï¼Œè¿”å›false.
 	 * @throws CMyException
-	 *             Ô´ÎÄ¼ş²»´æÔÚ,»òÄ¿±êÎÄ¼şËùÔÚÄ¿Â¼²»´æÔÚ,»òÎÄ¼ş¸´ÖÆÊ§°Ü,»áÅ×³öÒì³£.
+	 *             æºæ–‡ä»¶ä¸å­˜åœ¨,æˆ–ç›®æ ‡æ–‡ä»¶æ‰€åœ¨ç›®å½•ä¸å­˜åœ¨,æˆ–æ–‡ä»¶å¤åˆ¶å¤±è´¥,ä¼šæŠ›å‡ºå¼‚å¸¸.
 	 */
 	public static boolean copyFile(String _sSrcFile, String _sDstFile)
 			throws CMyException {
@@ -857,7 +857,7 @@ public class CMyFile {
                                    boolean _bMakeDirIfNotExists, boolean preserveFileDate)
 			throws CMyException {
 		/*
-		 * Ö»ÔÚĞ´³öµÄÎÄ¼ş´óĞ¡±ÈÔ­ÎÄ¼şĞ¡µÄÊ±ºò²ÅÈÏÎªÊÇ´íÎó,ĞèÒªÖØĞÂ·Ö·¢.Èç¹û³öÏÖÒì³£,Ôò»¹ÊÇÖ±½ÓÅ×³öÒì³£
+		 * åªåœ¨å†™å‡ºçš„æ–‡ä»¶å¤§å°æ¯”åŸæ–‡ä»¶å°çš„æ—¶å€™æ‰è®¤ä¸ºæ˜¯é”™è¯¯,éœ€è¦é‡æ–°åˆ†å‘.å¦‚æœå‡ºç°å¼‚å¸¸,åˆ™è¿˜æ˜¯ç›´æ¥æŠ›å‡ºå¼‚å¸¸
 		 */
 		boolean zOk = copyFile0(_sSrcFile, _sDstFile, _bMakeDirIfNotExists,
 				preserveFileDate);
@@ -886,11 +886,11 @@ public class CMyFile {
 			throws CMyException {
 		File srcFile = new File(_sSrcFile);
 		if (srcFile.isDirectory() || !srcFile.exists()) {
-			throw new CMyException("ÎŞĞ§µÄÎÄ¼ş[" + _sSrcFile + "]£¡");
+			throw new CMyException("æ— æ•ˆçš„æ–‡ä»¶[" + _sSrcFile + "]ï¼");
 		}
 		long lSrcStart = srcFile.length();
 
-		// ĞèÒª¼æÈİÍ¼Æ¬ÔÚ×ªÂëÊ±³öÏÖ0KBµÄÇé¿ö
+		// éœ€è¦å…¼å®¹å›¾ç‰‡åœ¨è½¬ç æ—¶å‡ºç°0KBçš„æƒ…å†µ
 		int nPos = _sSrcFile.lastIndexOf('.');
 		String sFileExt = null;
 		if (nPos > 0 && nPos < (_sSrcFile.length() - 1)) {
@@ -906,35 +906,35 @@ public class CMyFile {
 		FileInputStream fis = null;
 		FileOutputStream fos = null;
 		try {
-			// wenyh@2010-8-14 : Ä¿±êÓëÔ´ÊÇÍ¬Ò»¸öÎÄ¼şµÄ»°,²»ÔÙÖ´ĞĞ¿½±´.·ñÔò¿ÉÄÜ»á½«ÎÄ¼şÆÆ»µ.
+			// wenyh@2010-8-14 : ç›®æ ‡ä¸æºæ˜¯åŒä¸€ä¸ªæ–‡ä»¶çš„è¯,ä¸å†æ‰§è¡Œæ‹·è´.å¦åˆ™å¯èƒ½ä¼šå°†æ–‡ä»¶ç ´å.
 			File dstFile = new File(_sDstFile);
 			if (srcFile.equals(dstFile)) {
-				return true;// Ä¿±êÓëÔ´ÊÇÍ¬Ò»¸öÎÄ¼ş,Ö±½Ó·µ»Ø.
+				return true;// ç›®æ ‡ä¸æºæ˜¯åŒä¸€ä¸ªæ–‡ä»¶,ç›´æ¥è¿”å›.
 			}
-			fis = new FileInputStream(srcFile); // ÈôÎÄ¼ş²»´æÔÚ,»áÅ×³öÒì³£
+			fis = new FileInputStream(srcFile); // è‹¥æ–‡ä»¶ä¸å­˜åœ¨,ä¼šæŠ›å‡ºå¼‚å¸¸
 
-			// why@2003-09-27 Èç¹ûÄ¿Â¼²»´æÔÚ£¬Ôò´´½¨Ä¿Â¼
+			// why@2003-09-27 å¦‚æœç›®å½•ä¸å­˜åœ¨ï¼Œåˆ™åˆ›å»ºç›®å½•
 			try {
 				fos = new FileOutputStream(dstFile);
 			} catch (FileNotFoundException ex) {
-				if (_bMakeDirIfNotExists) { // ×Ô¶¯´´½¨Ä¿Â¼
+				if (_bMakeDirIfNotExists) { // è‡ªåŠ¨åˆ›å»ºç›®å½•
 					if (!CMyFile.makeDir(CMyFile.extractFilePath(_sDstFile),
 							true)) {
 						throw new CMyException(ExceptionNumber.ERR_FILEOP_FAIL,
 								I18NMessage.get(CMyFile.class,
-										"CMyFile.label9", "ÎªÄ¿±êÎÄ¼ş[")
+										"CMyFile.label9", "ä¸ºç›®æ ‡æ–‡ä»¶[")
 										+ _sDstFile
 										+ I18NMessage.get(CMyFile.class,
-												"CMyFile.label10", "]´´½¨Ä¿Â¼Ê§°Ü£¡"));
+												"CMyFile.label10", "]åˆ›å»ºç›®å½•å¤±è´¥ï¼"));
 					}
 					fos = new FileOutputStream(_sDstFile);
 				} else {
 					throw new CMyException(ExceptionNumber.ERR_FILEOP_FAIL,
 							I18NMessage.get(CMyFile.class, "CMyFile.label11",
-									"Ö¸¶¨Ä¿±êÎÄ¼ş[")
+									"æŒ‡å®šç›®æ ‡æ–‡ä»¶[")
 									+ _sDstFile
 									+ I18NMessage.get(CMyFile.class,
-											"CMyFile.label12", "]ËùÔÚÄ¿Â¼²»´æÔÚ£¡"), ex);
+											"CMyFile.label12", "]æ‰€åœ¨ç›®å½•ä¸å­˜åœ¨ï¼"), ex);
 				}
 			}// end try
 
@@ -948,11 +948,11 @@ public class CMyFile {
 		} catch (FileNotFoundException ex) {
 			throw new CMyException(ExceptionNumber.ERR_FILE_NOTFOUND,
 					I18NMessage.get(CMyFile.class, "CMyFile.label13",
-							"Òª¸´ÖÆµÄÔ­ÎÄ¼şÃ»ÓĞ·¢ÏÖ(CMyFile.copyFile)"), ex);
+							"è¦å¤åˆ¶çš„åŸæ–‡ä»¶æ²¡æœ‰å‘ç°(CMyFile.copyFile)"), ex);
 		} catch (IOException ex) {
 			throw new CMyException(ExceptionNumber.ERR_FILEOP_FAIL,
 					I18NMessage.get(CMyFile.class, "CMyFile.label14",
-							"¸´ÖÆÎÄ¼şÊ±·¢ÉúÒì³£(CMyFile.copyFile)"), ex);
+							"å¤åˆ¶æ–‡ä»¶æ—¶å‘ç”Ÿå¼‚å¸¸(CMyFile.copyFile)"), ex);
 		} finally {
 			if (fos != null) {
 				try {
@@ -1001,20 +1001,20 @@ public class CMyFile {
 	}// END: copyFile()
 
 	/**
-	 * ¿½±´ÎÄ¼ş¼Ğµ½Ö¸¶¨µÄÎÄ¼ş¼Ğ
+	 * æ‹·è´æ–‡ä»¶å¤¹åˆ°æŒ‡å®šçš„æ–‡ä»¶å¤¹
 	 * 
 	 * @param _fromFileDir
-	 *            Ô´Ä¿Â¼
+	 *            æºç›®å½•
 	 * @param _toFileDir
-	 *            Ä¿±êÄ¿Â¼
+	 *            ç›®æ ‡ç›®å½•
 	 * @param _bIncludeCurrDir
-	 *            ÊÇ·ñ°üº¬Ô´Ä¿Â¼µÄ×ÔÉíÄ¿Â¼
+	 *            æ˜¯å¦åŒ…å«æºç›®å½•çš„è‡ªèº«ç›®å½•
 	 * @throws CMyException
 	 */
 	public static void copyFileDir(String _fromFileDir, String _toFileDir,
                                    boolean _bIncludeCurrDir) throws CMyException {
 
-		// 1.²ÎÊıµÄĞ£Ñé
+		// 1.å‚æ•°çš„æ ¡éªŒ
 		if (CMyString.isEmpty(_fromFileDir) || CMyString.isEmpty(_toFileDir)) {
 			return;
 		}
@@ -1022,19 +1022,19 @@ public class CMyFile {
 		File fToFile = new File(_toFileDir);
 
 		if (fFromFile.isFile() || fToFile.isFile()) {
-			throw new CMyException("Ô´Ä¿Â¼ºÍÄ¿±êÄ¿Â¼¶¼²»ÄÜÊÇÎÄ¼ş£¡");
+			throw new CMyException("æºç›®å½•å’Œç›®æ ‡ç›®å½•éƒ½ä¸èƒ½æ˜¯æ–‡ä»¶ï¼");
 		}
 
 		File[] files = fFromFile.listFiles();
 		if (files == null || files.length == 0)
 			return;
 
-		// 2.Â·¾¶µÄÌáÇ°´¦Àí
+		// 2.è·¯å¾„çš„æå‰å¤„ç†
 		_fromFileDir = CMyString
 				.setStrEndWith(_fromFileDir, File.separatorChar);
 		_toFileDir = CMyString.setStrEndWith(_toFileDir, File.separatorChar);
 
-		// 3.ÅĞ¶ÏÄ¿±êÎÄ¼şÄ¿Â¼ÊÇ·ñ´æÔÚ
+		// 3.åˆ¤æ–­ç›®æ ‡æ–‡ä»¶ç›®å½•æ˜¯å¦å­˜åœ¨
 		if (_bIncludeCurrDir) {
 			File parentFile = new File(_toFileDir + fFromFile.getName());
 			if (!parentFile.exists()) {
@@ -1044,7 +1044,7 @@ public class CMyFile {
 			_toFileDir = _toFileDir + File.separatorChar;
 		}
 
-		// 4.¿½±´ÎÄ¼ş
+		// 4.æ‹·è´æ–‡ä»¶
 		for (int i = 0; i < files.length; i++) {
 			File aFile = files[i];
 			if (aFile == null)
@@ -1065,7 +1065,7 @@ public class CMyFile {
 					copyFile(_fromFileDir + aFile.getName(),
 							_toFileDir + aFile.getName(), true);
 				} catch (Exception e) {
-					// TODO Ä³¸öÎÄ¼şÃ»¸´ÖÆ³É¹¦£¬ÊÇ·ñÅ×³öÒì³£ĞèÒª½øÒ»²½¿¼ÂÇ,ÔÚ´ËÏÈ½«ĞÅÏ¢Êä³öµ½ºóÌ¨
+					// TODO æŸä¸ªæ–‡ä»¶æ²¡å¤åˆ¶æˆåŠŸï¼Œæ˜¯å¦æŠ›å‡ºå¼‚å¸¸éœ€è¦è¿›ä¸€æ­¥è€ƒè™‘,åœ¨æ­¤å…ˆå°†ä¿¡æ¯è¾“å‡ºåˆ°åå°
 					System.out.println(e.getStackTrace());
 				}
 			}
@@ -1088,10 +1088,10 @@ public class CMyFile {
 				.getResource(_resource);
 		if (url == null) {
 			throw new WCMException(ExceptionNumber.ERR_FILE_NOTFOUND,
-					I18NMessage.get(CMyFile.class, "CMyFile.label15", "ÎÄ¼ş[")
+					I18NMessage.get(CMyFile.class, "CMyFile.label15", "æ–‡ä»¶[")
 							+ _resource
 							+ I18NMessage.get(CMyFile.class, "CMyFile.label16",
-									"]Ã»ÓĞÕÒµ½£¡"));
+									"]æ²¡æœ‰æ‰¾åˆ°ï¼"));
 		}
 
 		// else
@@ -1099,7 +1099,7 @@ public class CMyFile {
 		try {
 			sPath = url.getFile();
 			if (sPath.indexOf('%') >= 0) {
-				// ge modify by gfc @2007-8-23 13:19:30 ¼ÓÉÏenc²ÎÊı£¬ÒÔÃâµ÷ÓÃÊ±Å×¿ÕÖ¸ÕëÒì³£
+				// ge modify by gfc @2007-8-23 13:19:30 åŠ ä¸Šencå‚æ•°ï¼Œä»¥å…è°ƒç”¨æ—¶æŠ›ç©ºæŒ‡é’ˆå¼‚å¸¸
 				// sPath = URLDecoder.decode(url.getFile(), null);
 				String enc = System.getProperty("file.encoding", "GBK");
 				sPath = URLDecoder.decode(url.getFile(), enc);
@@ -1107,10 +1107,10 @@ public class CMyFile {
 			}
 		} catch (Exception ex) {
 			throw new WCMException(ExceptionNumber.ERR_FILE_NOTFOUND,
-					I18NMessage.get(CMyFile.class, "CMyFile.label15", "ÎÄ¼ş[")
+					I18NMessage.get(CMyFile.class, "CMyFile.label15", "æ–‡ä»¶[")
 							+ url.getFile()
 							+ I18NMessage.get(CMyFile.class, "CMyFile.label17",
-									"]×ª»»Ê§°Ü£¡"), ex);
+									"]è½¬æ¢å¤±è´¥ï¼"), ex);
 		}
 		return sPath;
 	}
@@ -1120,17 +1120,17 @@ public class CMyFile {
 		URL url = _currClass.getResource(_resource);
 		if (url == null) {
 			throw new WCMException(ExceptionNumber.ERR_FILE_NOTFOUND,
-					I18NMessage.get(CMyFile.class, "CMyFile.label15", "ÎÄ¼ş[")
+					I18NMessage.get(CMyFile.class, "CMyFile.label15", "æ–‡ä»¶[")
 							+ _resource
 							+ I18NMessage.get(CMyFile.class, "CMyFile.label16",
-									"]Ã»ÓĞÕÒµ½£¡"));
+									"]æ²¡æœ‰æ‰¾åˆ°ï¼"));
 		}
 
 		String sPath = null;
 		try {
 			sPath = url.getFile();
 			if (sPath.indexOf('%') >= 0) {
-				// ge modify by gfc @2007-8-23 13:19:30 ¼ÓÉÏenc²ÎÊı£¬ÒÔÃâµ÷ÓÃÊ±Å×¿ÕÖ¸ÕëÒì³£
+				// ge modify by gfc @2007-8-23 13:19:30 åŠ ä¸Šencå‚æ•°ï¼Œä»¥å…è°ƒç”¨æ—¶æŠ›ç©ºæŒ‡é’ˆå¼‚å¸¸
 				// sPath = URLDecoder.decode(url.getFile(), null);
 				String enc = System.getProperty("file.encoding", "GBK");
 				sPath = URLDecoder.decode(url.getFile(), enc);
@@ -1138,23 +1138,23 @@ public class CMyFile {
 			}
 		} catch (Exception ex) {
 			throw new WCMException(ExceptionNumber.ERR_FILE_NOTFOUND,
-					I18NMessage.get(CMyFile.class, "CMyFile.label15", "ÎÄ¼ş[")
+					I18NMessage.get(CMyFile.class, "CMyFile.label15", "æ–‡ä»¶[")
 							+ url.getFile()
 							+ I18NMessage.get(CMyFile.class, "CMyFile.label17",
-									"]×ª»»Ê§°Ü£¡"), ex);
+									"]è½¬æ¢å¤±è´¥ï¼"), ex);
 		}
 		return sPath;
 	}
 
 	/**
-	 * ÅĞ¶ÏÍ¼Æ¬´óĞ¡µÄÓĞĞ§ĞÔ
+	 * åˆ¤æ–­å›¾ç‰‡å¤§å°çš„æœ‰æ•ˆæ€§
 	 * 
 	 * @param sFileAbsPath
-	 *            Í¼Æ¬¾ø¶ÔÂ·¾¶
+	 *            å›¾ç‰‡ç»å¯¹è·¯å¾„
 	 * @param _minWidth
-	 *            Í¼Æ¬µÄ×îĞ¡¿í¶È
+	 *            å›¾ç‰‡çš„æœ€å°å®½åº¦
 	 * @param _minHeight
-	 *            Í¼Æ¬µÄ×îĞ¡¸ß¶È
+	 *            å›¾ç‰‡çš„æœ€å°é«˜åº¦
 	 * @return
 	 */
 	public static boolean validImageFile(String sFileAbsPath, int _minWidth,
@@ -1163,13 +1163,13 @@ public class CMyFile {
 			return false;
 		}
 
-		// TODO ÎÄ¼ş´óĞ¡³ß´çµÄÏŞÖÆ
+		// TODO æ–‡ä»¶å¤§å°å°ºå¯¸çš„é™åˆ¶
 		/*ImageObj originalImage = new ImageObj();
 
 		try {
 			originalImage.setFilename(sFileAbsPath);
 		} catch (Exception e) {
-			m_oLogger.error("¶ÁÈ¡ÎÄ¼ş[" + sFileAbsPath + "]³öÏÖÒì³££¡", e);
+			m_oLogger.error("è¯»å–æ–‡ä»¶[" + sFileAbsPath + "]å‡ºç°å¼‚å¸¸ï¼", e);
 			return false;
 		}
 		if (originalImage.width < _minWidth) {
@@ -1180,14 +1180,14 @@ public class CMyFile {
 		}*/
 		return true;
 
-		// ÎÄ¼ş´óĞ¡³ß´çµÄÏŞÖÆ
+		// æ–‡ä»¶å¤§å°å°ºå¯¸çš„é™åˆ¶
 		// File imageFile = new File(sFileAbsPath);
 		// BufferedImage srcFile;
 		// try {
 		// srcFile = ImageIO.read(imageFile);
 		// } catch (IOException e) {
 		// if (m_oLogger.isDebugEnabled()) {
-		// m_oLogger.error("¶ÁÈ¡ÎÄ¼ş[" + sFileAbsPath + "]³öÏÖÒì³££¡", e);
+		// m_oLogger.error("è¯»å–æ–‡ä»¶[" + sFileAbsPath + "]å‡ºç°å¼‚å¸¸ï¼", e);
 		// }
 		// return false;
 		// }
@@ -1208,24 +1208,24 @@ public class CMyFile {
 	}
 
 	// ==============================================================
-	// ²âÊÔ
+	// æµ‹è¯•
 
 	// public static void main(String args[]) {
 	// try {
 	// CMyFile.writeFile("c:\\test.txt", I18NMessage.get(CMyFile.class,
-	// "CMyFile.label18", "ÖĞ¹úÈËtest"), "UTF-16LE", true);
+	// "CMyFile.label18", "ä¸­å›½äººtest"), "UTF-16LE", true);
 	//
 	// String sSrcFile = "";
 	// // String sDstFile = "";
 	// long lStartTime, lEndTime;
-	// // ²âÊÔÎÄ¼şµÄ¸´ÖÆ£º
+	// // æµ‹è¯•æ–‡ä»¶çš„å¤åˆ¶ï¼š
 	// sSrcFile = "d:\\temp\\InfoRadar.pdf";
 	// // sDstFile = "d:\\temp\\sub\\InfoRadar_old.pdf";
 	// lStartTime = System.currentTimeMillis();
 	// // CMyFile.copyFile(sSrcFile, sDstFile);
 	// lEndTime = System.currentTimeMillis();
 	// System.out.println(I18NMessage.get(CMyFile.class,
-	// "CMyFile.label19", "==============ËùÓÃÊ±¼ä£º")
+	// "CMyFile.label19", "==============æ‰€ç”¨æ—¶é—´ï¼š")
 	// + (lEndTime - lStartTime) + "ms ==============");
 	//
 	// sSrcFile = "d:\\write_test.html";
@@ -1234,7 +1234,7 @@ public class CMyFile {
 	// CMyFile.writeFile(sSrcFile + ".new", sContent);
 	// lEndTime = System.currentTimeMillis();
 	// System.out.println(I18NMessage.get(CMyFile.class,
-	// "CMyFile.label19", "==============ËùÓÃÊ±¼ä£º")
+	// "CMyFile.label19", "==============æ‰€ç”¨æ—¶é—´ï¼š")
 	// + (lEndTime - lStartTime) + "ms ==============");
 	//
 	// /*
@@ -1244,7 +1244,7 @@ public class CMyFile {
 	// * ,"d:\\test\\CMyFileOut","\\\\wanghaiyang\\share\\test.txt"}; int
 	// * i;
 	// *
-	// * //²âÊÔÓĞ¹ØÎÄ¼ş¡¢Ä¿Â¼¼ì²é¡¢´´½¨¡¢É¾³ıµÈ²Ù×÷ String sPath = "d:\\test2\\test21\\";
+	// * //æµ‹è¯•æœ‰å…³æ–‡ä»¶ã€ç›®å½•æ£€æŸ¥ã€åˆ›å»ºã€åˆ é™¤ç­‰æ“ä½œ String sPath = "d:\\test2\\test21\\";
 	// * String sSubPath = sPath + "test211\\"; boolean bRet;
 	// * System.out.println( sPath + "=" + CMyFile.fileExists(sPath) );
 	// *
@@ -1260,7 +1260,7 @@ public class CMyFile {
 	// * System.out.println("Delete dir=" + bRet ); System.out.println(
 	// * sPath + CMyFile.fileExists(sPath) );
 	// *
-	// * //²âÊÔÓĞ¹ØÎÄ¼şÃûÌáÈ¡µÈº¯Êı for( i=0; i <sFilePathName.length; i++ ){
+	// * //æµ‹è¯•æœ‰å…³æ–‡ä»¶åæå–ç­‰å‡½æ•° for( i=0; i <sFilePathName.length; i++ ){
 	// * System.out.println("FilePathName=["+sFilePathName[i]+"]");
 	// * System.out.println(" File
 	// * found="+CMyFile.fileExists(sFilePathName[i]) );
@@ -1276,9 +1276,9 @@ public class CMyFile {
 	// * CMyFile.extractFileDrive(sFilePathName[i]) + "]"); }//end for
 	// *
 	// *
-	// * //°ÑstrContentĞ´Èëµ½ÎÄ¼şstrFilenameÖĞ String strContent = "This is a
+	// * //æŠŠstrContentå†™å…¥åˆ°æ–‡ä»¶strFilenameä¸­ String strContent = "This is a
 	// * test file."; wf.writeFile("d:\\CMyFileOut.txt", strContent);
-	// * //Òª´ò¿ªÎÄ¼ş£¬µ±Ç°Ä¿Â¼ÏÂ±ØĞëÓĞ´ËÎÄ¼ş£¬ ÀıÈç£ºtemplate.html System.out.println(
+	// * //è¦æ‰“å¼€æ–‡ä»¶ï¼Œå½“å‰ç›®å½•ä¸‹å¿…é¡»æœ‰æ­¤æ–‡ä»¶ï¼Œ ä¾‹å¦‚ï¼štemplate.html System.out.println(
 	// * wf.readFile("template.html") );
 	// */
 	// } catch (CMyException ex) {
@@ -1287,9 +1287,9 @@ public class CMyFile {
 	// }
 
 	/**
-	 * ·µ»ØÒ»¸öÁÙÊ±µÄÎÄ¼şÃû(Í¨³£ÓÃ×÷Ä¿Â¼)
+	 * è¿”å›ä¸€ä¸ªä¸´æ—¶çš„æ–‡ä»¶å(é€šå¸¸ç”¨ä½œç›®å½•)
 	 * 
-	 * @return ÁÙÊ±ÎÄ¼şÃû
+	 * @return ä¸´æ—¶æ–‡ä»¶å
 	 */
 	public static String getTempFileName() {
 		String sTime = new Timestamp(System.currentTimeMillis()).toString();
@@ -1307,9 +1307,9 @@ public class CMyFile {
 
 	public static void main(String[] args) {
 		try {
-			CMyFile.writeFile("/Users/caohui/tmp/ÖĞÎÄ-Â·¾¶/t1.txt", "ÖĞÎÄ",
+			CMyFile.writeFile("/Users/caohui/tmp/ä¸­æ–‡-è·¯å¾„/t1.txt", "ä¸­æ–‡",
 					"UTF-8");
-			// CMyFile.writeFile("d:\\t2.txt", "ÖĞÎÄ", "GBK");
+			// CMyFile.writeFile("d:\\t2.txt", "ä¸­æ–‡", "GBK");
 		} catch (Exception e) {
 			e.printStackTrace(System.err);
 		}
