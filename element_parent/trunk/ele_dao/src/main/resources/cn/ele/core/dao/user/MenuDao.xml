@@ -8,6 +8,7 @@
     <result column="PAGE" property="page" jdbcType="VARCHAR" />
     <result column="PRIORITY" property="priority" jdbcType="INTEGER" />
     <result column="PID" property="pid" jdbcType="INTEGER" />
+    <result column="CLASS" property="hclass" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +70,7 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      ID, DESCRIPTION, NAME, PAGE, PRIORITY, PID
+      ID, DESCRIPTION, NAME, PAGE, PRIORITY, PID ,CLASS
     </if>
     <if test="fields != null" >
       ${fields}
