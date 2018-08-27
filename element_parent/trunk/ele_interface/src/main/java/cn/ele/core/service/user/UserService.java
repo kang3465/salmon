@@ -1,10 +1,12 @@
 package cn.ele.core.service.user;
 
+import cn.ele.core.pojo.entity.PageResult;
 import cn.ele.core.pojo.user.Permission;
 import cn.ele.core.pojo.user.Role;
 import cn.ele.core.pojo.user.User;
 
 import java.util.List;
+
 
 public interface UserService {
     /**
@@ -25,7 +27,7 @@ public interface UserService {
 
     /**
      *  通过 UserID 查找用户的角色
-     * @param userId
+     * @param userIdA:\Resource\workspace\element_parent\out\artifacts\ele_service_main_war_exploded
      * @return
      * @throws Exception
      */
@@ -60,4 +62,16 @@ public interface UserService {
      * @return
      */
     User findOneByEmail(String email);
+
+    /**
+     * 查询出所有的用户列表所有信息
+     * @return
+     */
+    PageResult queryAllUserListIncludeAllMessageByPage(Integer pageNum, Integer pageSize);
+
+    /**
+     * 查询出所有的用户列表可显示的信息（不泄露用户信息）
+     * @return
+     */
+    PageResult queryAllUserListSafeByPage(Integer pageNum, Integer pageSize);
 }
