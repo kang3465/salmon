@@ -1,5 +1,6 @@
 package cn.ele.core.controller.user;
 
+import cn.ele.core.pojo.entity.Result;
 import cn.ele.core.pojo.user.User;
 import cn.ele.core.service.user.UserService;
 import com.alibaba.dubbo.config.annotation.Reference;
@@ -22,19 +23,19 @@ public class UserContraller {
 
     @RequestMapping("Regist")
     @ResponseBody
-    public String regist(String userName, String email, String password, String phoneNumber) {
+    public Result regist(String userName, String email, String password, String phoneNumber) {
         User user = new User();
         user.setUsername(userName);
         user.setEmail(email);
         user.setPassword(new BCryptPasswordEncoder().encode(password));
         user.setPhone(phoneNumber);
         try {
-            userService.addUser(user);
+            if (userService.addUser(user)==-1) throw new Exception("用户已存在");
         } catch (Exception e) {
             e.printStackTrace();
-            return "error";
+            return new Result(false,"注册失败："+e.getMessage());
         }
-        return "success";
+        return  new Result(true,"注册成功！");
     }
 
     /**
