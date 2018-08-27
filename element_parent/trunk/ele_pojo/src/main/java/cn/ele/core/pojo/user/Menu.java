@@ -1,6 +1,7 @@
 package cn.ele.core.pojo.user;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Menu implements Serializable {
     private Integer id;
@@ -14,6 +15,26 @@ public class Menu implements Serializable {
     private Integer priority;
 
     private Integer pid;
+
+    private String  hclass;
+
+    public String getHclass() {
+        return hclass;
+    }
+
+    public void setHclass(String hclass) {
+        this.hclass = hclass;
+    }
+
+    public List<Menu> getMenuList() {
+        return menuList;
+    }
+
+    public void setMenuList(List<Menu> menuList) {
+        this.menuList = menuList;
+    }
+
+    private List<Menu> menuList;
 
     private static final long serialVersionUID = 1L;
 
