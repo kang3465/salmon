@@ -244,6 +244,7 @@ public class WeChatUtil {
 
     /**
      * 上传图文消息内的图片获取URL
+     * Error:svn: E155013: Can't add 'exploded.xml' to a parent directory scheduled for deletion
      * @param file 表单名称media
      * @param token access_token
      */
