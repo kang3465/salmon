@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,17 +19,32 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/templatemo-style.css">
     <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-    <script type="text/javascript" >
+
+    <script src="js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/vendor/modernizr-2.6.2.min.js"><\/script>')</script>
+    <script src="js/min/plugins.min.js"></script>
+    <script src="js/min/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            }
+        })
+    </script>
+    <!--<script type="text/javascript" >
         $(document).ready(function() {
                 $.ajax("/user/login");
 
             }
         );
-    </script>
+    </script>-->
 </head>
 <body>
 <!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <div id="loader-wrapper">
@@ -34,7 +53,9 @@
 
 <div class="content-bg"></div>
 <div class="bg-overlay"></div>
-
+<div id="app">
+    {{ message }}
+</div>
 <!-- SITE TOP -->
 <div class="site-top">
     <div class="site-header clearfix">
@@ -42,7 +63,7 @@
             <a href="#" class="site-brand pull-left"><strong>猫耳</strong>素材分享</a>
             <div class="social-icons pull-right">
                 <ul>
-                    <li><a href="#" class="fa fa-facebook"></a></li>
+                    <li><a href="app.vue" class="fa fa-facebook"></a></li>
                     <li><a href="#" class="fa fa-twitter"></a></li>
                     <li><a href="#" class="fa fa-behance"></a></li>
                     <li><a href="#" class="fa fa-dribbble"></a></li>
@@ -56,7 +77,9 @@
             <div class="row">
                 <div class="col-md-offset-2 col-md-8 text-center">
                     <h2>欢迎来到猫耳世界<span class="blue">素材</span><span class="green">分享</span></h2>
-                    <p>Masonry is free responsive template that can be used for any website. You may download, modify and use this layout for your personal or commercial websites. Please tell your friends about our website. Thank you for visiting us.</p>
+                    <p>Masonry is free responsive template that can be used for any website. You may download, modify
+                        and use this layout for your personal or commercial websites. Please tell your friends about our
+                        website. Thank you for visiting us.</p>
                 </div>
             </div>
             <div class="row">
@@ -72,7 +95,7 @@
         </div>
     </div> <!-- .site-banner -->
 </div> <!-- .site-top -->
-<div class="copyrights">Collect from <a href="http://www.cssmoban.com/"  title="网站模板">网站模板</a></div>
+<div class="copyrights">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
 <!-- MAIN POSTS -->
 <div class="main-posts">
     <div class="container">
@@ -246,24 +269,21 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <p class="copyright-text">Copyright &copy; 2084 Company Name
-                    | More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+                    | More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect
+                    from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
             </div>
         </div>
     </div>
 </footer>
 
-<script src="js/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-<script src="js/min/plugins.min.js"></script>
-<script src="js/min/main.min.js"></script>
 
 <!-- Preloader -->
 <script type="text/javascript">
     //<![CDATA[
-    $(window).load(function() { // makes sure the whole site is loaded
+    $(window).load(function () { // makes sure the whole site is loaded
         $('#loader').fadeOut(); // will first fade out the loading animation
         $('#loader-wrapper').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-        $('body').delay(350).css({'overflow-y':'visible'});
+        $('body').delay(350).css({'overflow-y': 'visible'});
     })
     //]]>
 </script>
