@@ -47,7 +47,7 @@ public class WeChatUtilTest {
 
     }
 
-    @Test
+   /* @Test
     public void send() {
         List<WechatInfo> wechatInfoList = new ArrayList<>();
         WechatInfo wechatInfo = new WechatInfo();
@@ -61,5 +61,5 @@ public class WeChatUtilTest {
         wechatInfoList.add(wechatInfo);
         String send = WeChatUtil.send(wechatInfoList, new WechatAccount());
         System.out.println(send);
-    }
+    }*/
 }
