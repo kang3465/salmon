@@ -1,9 +1,11 @@
-package cn.ele.core.service.entity.user;
+package cn.ele.core.service.user;
 
 import cn.ele.core.dao.user.*;
+import cn.ele.core.pojo.entity.PageResult;
 import cn.ele.core.pojo.user.*;
-import cn.ele.core.service.user.UserService;
 import com.alibaba.dubbo.config.annotation.Service;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +14,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-@Transactional(rollbackFor = {})
+@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -31,7 +33,7 @@ public class UserServiceImpl implements UserService {
         UserQuery userQuery = new UserQuery();
         UserQuery.Criteria criteria = userQuery.createCriteria();
         criteria.andUsernameEqualTo(userName);
-//        userQuery.or(criteria);
+        userQuery.or(criteria);
         List<User> users = userDao.selectByExample(userQuery);
         if (users.size() <= 0) return null;
         else if (users.size()>1) throw new Exception("请联系数据库管理员：数据出错，用户数据重复需要管理员维护数据");
@@ -43,7 +45,7 @@ public class UserServiceImpl implements UserService {
         UserRoleLinkQuery userRoleLinkQuery = new UserRoleLinkQuery();
         UserRoleLinkQuery.Criteria userRoleLinkQueryCriteria = userRoleLinkQuery.createCriteria();
         userRoleLinkQueryCriteria.andUserIdEqualTo(Math.toIntExact(userId));
-//        userRoleLinkQuery.or(userRoleLinkQueryCriteria);
+        userRoleLinkQuery.or(userRoleLinkQueryCriteria);
         List<UserRoleLinkKey> userRoleLinkKeys = userRoleLinkDao.selectByExample(userRoleLinkQuery);
 
         RoleQuery roleQuery = new RoleQuery();
@@ -61,7 +63,7 @@ public class UserServiceImpl implements UserService {
         UserRoleLinkQuery userRoleLinkQuery = new UserRoleLinkQuery();
         UserRoleLinkQuery.Criteria userRoleLinkQueryCriteria = userRoleLinkQuery.createCriteria();
         userRoleLinkQueryCriteria.andUserIdEqualTo(Math.toIntExact(userId));
-//        userRoleLinkQuery.or(userRoleLinkQueryCriteria);
+        userRoleLinkQuery.or(userRoleLinkQueryCriteria);
         List<UserRoleLinkKey> userRoleLinkKeys = userRoleLinkDao.selectByExample(userRoleLinkQuery);
         return roleDao.selectByPrimaryKey(userRoleLinkKeys.get(0).getRoleId());
     }
@@ -72,7 +74,7 @@ public class UserServiceImpl implements UserService {
         RolePermissionLinkQuery rolePermissionLinkQuery = new RolePermissionLinkQuery();
         RolePermissionLinkQuery.Criteria rolePermissionLinkQueryCriteria = rolePermissionLinkQuery.createCriteria();
         rolePermissionLinkQueryCriteria.andRoleIdEqualTo(roleByUserId.getId());
-//        rolePermissionLinkQuery.or(rolePermissionLinkQueryCriteria);
+        rolePermissionLinkQuery.or(rolePermissionLinkQueryCriteria);
         List<RolePermissionLink> rolePermissionLinks = rolePermissionLinkDao.selectByExample(rolePermissionLinkQuery);
 
         PermissionQuery permissionQuery = new PermissionQuery();
@@ -114,6 +116,23 @@ public class UserServiceImpl implements UserService {
         criteria.andEmailEqualTo(email);
         List<User> users = userDao.selectByExample(userQuery);
         return users.get(0);
+    }
+
+    @Override
+    public PageResult queryAllUserListIncludeAllMessageByPage( Integer pageNum, Integer pageSize) {
+        /*调用mybatis的分页插件*/
+        PageHelper.startPage(pageNum, pageSize);
+        Page<User> page = (Page<User>) userDao.selectByExample(null);
+        /*自己创建一个实例存放分页的结果并返回*/
+        return new PageResult(page.getTotal(), page.getResult());
+    }
+
+    @Override
+    public PageResult queryAllUserListSafeByPage(Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        Page<User> page = (Page<User>) userDao.selectByExample(null);
+        /*自己创建一个实例存放分页的结果并返回*/
+        return new PageResult(page.getTotal(), page.getResult());
     }
 
 }
