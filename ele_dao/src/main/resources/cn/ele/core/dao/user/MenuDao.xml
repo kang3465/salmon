@@ -8,7 +8,8 @@
     <result column="PAGE" property="page" jdbcType="VARCHAR" />
     <result column="PRIORITY" property="priority" jdbcType="INTEGER" />
     <result column="PID" property="pid" jdbcType="INTEGER" />
-    <result column="CLASS" property="hclass" jdbcType="VARCHAR" />
+    <result column="ICON" property="icon" jdbcType="VARCHAR" />
+    <result column="hclass" property="hclass" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,7 +71,7 @@
   </sql>
   <sql id="Base_Column_List" >
     <if test="fields == null" >
-      ID, DESCRIPTION, NAME, PAGE, PRIORITY, PID ,CLASS
+      ID, DESCRIPTION, NAME, PAGE, PRIORITY, PID, ICON, hclass
     </if>
     <if test="fields != null" >
       ${fields}
@@ -92,7 +93,7 @@
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
-    ID,DESCRIPTION,NAME,PAGE,PRIORITY,PID
+    ID,DESCRIPTION,NAME,PAGE,PRIORITY,PID,ICON,hclass
     from ele_menu
     where ID = #{id,jdbcType=INTEGER}
   </select>
@@ -108,11 +109,11 @@
   </delete>
   <insert id="insert" parameterType="cn.ele.core.pojo.user.Menu" >
     insert into ele_menu (ID, DESCRIPTION, NAME, 
-      PAGE, PRIORITY, PID
-      )
+      PAGE, PRIORITY, PID, 
+      ICON, hclass)
     values (#{id,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
-      #{page,jdbcType=VARCHAR}, #{priority,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}
-      )
+      #{page,jdbcType=VARCHAR}, #{priority,jdbcType=INTEGER}, #{pid,jdbcType=INTEGER}, 
+      #{icon,jdbcType=VARCHAR}, #{hclass,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.ele.core.pojo.user.Menu" >
     insert into ele_menu
@@ -135,6 +136,12 @@
       <if test="pid != null" >
         PID,
       </if>
+      <if test="icon != null" >
+        ICON,
+      </if>
+      <if test="hclass != null" >
+        hclass,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -154,6 +161,12 @@
       </if>
       <if test="pid != null" >
         #{pid,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null" >
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="hclass != null" >
+        #{hclass,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -184,6 +197,12 @@
       <if test="record.pid != null" >
         PID = #{record.pid,jdbcType=INTEGER},
       </if>
+      <if test="record.icon != null" >
+        ICON = #{record.icon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hclass != null" >
+        hclass = #{record.hclass,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -196,7 +215,9 @@
       NAME = #{record.name,jdbcType=VARCHAR},
       PAGE = #{record.page,jdbcType=VARCHAR},
       PRIORITY = #{record.priority,jdbcType=INTEGER},
-      PID = #{record.pid,jdbcType=INTEGER}
+      PID = #{record.pid,jdbcType=INTEGER},
+      ICON = #{record.icon,jdbcType=VARCHAR},
+      hclass = #{record.hclass,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -219,6 +240,12 @@
       <if test="pid != null" >
         PID = #{pid,jdbcType=INTEGER},
       </if>
+      <if test="icon != null" >
+        ICON = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="hclass != null" >
+        hclass = #{hclass,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
@@ -228,7 +255,9 @@
       NAME = #{name,jdbcType=VARCHAR},
       PAGE = #{page,jdbcType=VARCHAR},
       PRIORITY = #{priority,jdbcType=INTEGER},
-      PID = #{pid,jdbcType=INTEGER}
+      PID = #{pid,jdbcType=INTEGER},
+      ICON = #{icon,jdbcType=VARCHAR},
+      hclass = #{hclass,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

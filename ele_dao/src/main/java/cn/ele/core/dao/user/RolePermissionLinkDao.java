@@ -3,9 +3,8 @@ package cn.ele.core.dao.user;
 import cn.ele.core.pojo.user.RolePermissionLink;
 import cn.ele.core.pojo.user.RolePermissionLinkKey;
 import cn.ele.core.pojo.user.RolePermissionLinkQuery;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface RolePermissionLinkDao {
     int countByExample(RolePermissionLinkQuery example);

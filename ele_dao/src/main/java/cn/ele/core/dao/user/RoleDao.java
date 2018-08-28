@@ -2,9 +2,8 @@ package cn.ele.core.dao.user;
 
 import cn.ele.core.pojo.user.Role;
 import cn.ele.core.pojo.user.RoleQuery;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface RoleDao {
     int countByExample(RoleQuery example);
