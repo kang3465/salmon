@@ -1,4 +1,4 @@
-package cn.ele.core.controller;
+package cn.ele.core.controller.user;
 
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
