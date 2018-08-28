@@ -2,10 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Home</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>Charts</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -21,10 +18,11 @@
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
 </head>
 
-<body id="main">
-
+<body>
 	<!-- WRAPPER -->
 	<div id="wrapper">
 		<!-- NAVBAR -->
@@ -92,87 +90,149 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-			<!--"-->
-						<li  v-for="value in leftMenu"    >
-
-							<a href="{{value.page}}" @click="opentable($event)" data-toggle="collapse"  class="active"><i class="{{value.hclass}}"></i> <span>{{value.name}}</span></a>
-							<div v-if="value.menuList.length!=0" class="{{value.class}}" >
+						<li><a href="index.html" class=""><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="elements.html" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
+						<li><a href="charts.html" class="active"><i class="lnr lnr-chart-bars"></i> <span>Charts</span></a></li>
+						<li><a href="panels.html" class=""><i class="lnr lnr-cog"></i> <span>Panels</span></a></li>
+						<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
+						<li>
+							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>Pages</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li v-for="values in value.menuList" ><a href="{{values.page}}" class="{{values.hclass}}">{{values.name}}</a></li>
+									<li><a href="page-profile.html" class="">Profile</a></li>
+									<li><a href="page-login.html" class="">Login</a></li>
+									<li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
 								</ul>
 							</div>
 						</li>
-
+						<li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
+						<li><a href="typography.html" class=""><i class="lnr lnr-text-format"></i> <span>Typography</span></a></li>
+						<li><a href="icons.html" class=""><i class="lnr lnr-linearicons"></i> <span>Icons</span></a></li>
 					</ul>
 				</nav>
 			</div>
 		</div>
 		<!-- END LEFT SIDEBAR -->
 		<!-- MAIN -->
-		<!--id="iframe" name="iframe"	onload="SetIFrameHeight()"-->
 		<div class="main">
 			<!-- MAIN CONTENT -->
 			<div class="main-content">
-			<iframe width="100%" height="100%" id="iframe" name="iframe" @load="SetIFrameHeight()"
-					frameborder="0" :src="mainpage"></iframe>
+				<div class="container-fluid">
+					<h3 class="page-title">Charts</h3>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Line Chart</h3>
+								</div>
+								<div class="panel-body">
+									<div id="demo-line-chart" class="ct-chart"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Bar Chart</h3>
+								</div>
+								<div class="panel-body">
+									<div id="demo-bar-chart" class="ct-chart"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Area Chart</h3>
+								</div>
+								<div class="panel-body">
+									<div id="demo-area-chart" class="ct-chart"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="panel">
+								<div class="panel-heading">
+									<h3 class="panel-title">Multiple Chart</h3>
+								</div>
+								<div class="panel-body">
+									<div id="multiple-chart" class="ct-chart"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		<!-- END MAIN -->
+			<!-- END MAIN CONTENT -->
 		</div>
-		<hr />
+		<!-- END MAIN -->
 		<div class="clearfix"></div>
 		<footer>
 			<div class="container-fluid">
 				<p class="copyright">Copyright &copy; 2017.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-				
 			</div>
 		</footer>
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
-	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
 	<script src="assets/vendor/jquery/jquery.min.js"></script>
 	<script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-	<script src="assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
 	<script src="assets/vendor/chartist/js/chartist.min.js"></script>
 	<script src="assets/scripts/klorofil-common.js"></script>
-	<script src="assets/vendor/vue/vue.js"></script>
-	<script src="assets/vendor/vue/vue-resource.js"></script>
-	<script src="js/index.js"></script>
 	<script>
-
 	$(function() {
-	    a.loadMenu();
+		var options;
 
-		/*var data, options;
-
-		// headline charts
-		data = {
-			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+		var data = {
+			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 			series: [
-				[23, 29, 24, 40, 25, 24, 35],
-				[14, 25, 18, 34, 29, 38, 44],
+				[200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
 			]
 		};
 
+		// line chart
 		options = {
-			height: 300,
-			showArea: true,
-			showLine: false,
-			showPoint: false,
-			fullWidth: true,
+			height: "300px",
+			showPoint: true,
 			axisX: {
 				showGrid: false
 			},
 			lineSmooth: false,
 		};
 
-		new Chartist.Line('#headline-chart', data, options);
+		new Chartist.Line('#demo-line-chart', data, options);
+
+		// bar chart
+		options = {
+			height: "300px",
+			axisX: {
+				showGrid: false
+			},
+		};
+
+		new Chartist.Bar('#demo-bar-chart', data, options);
 
 
-		// visits trend charts
-		data = {
+		// area chart
+		options = {
+			height: "270px",
+			showArea: true,
+			showLine: false,
+			showPoint: false,
+			axisX: {
+				showGrid: false
+			},
+			lineSmooth: false,
+		};
+
+		new Chartist.Line('#demo-area-chart', data, options);
+
+
+		// multiple chart
+		var data = {
 			labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 			series: [{
 				name: 'series-real',
@@ -183,7 +243,7 @@
 			}]
 		};
 
-		options = {
+		var options = {
 			fullWidth: true,
 			lineSmooth: false,
 			height: "270px",
@@ -211,53 +271,7 @@
 			}
 		};
 
-		new Chartist.Line('#visits-trends-chart', data, options);
-
-
-		// visits chart
-		data = {
-			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-			series: [
-				[6384, 6342, 5437, 2764, 3958, 5068, 7654]
-			]
-		};
-
-		options = {
-			height: 300,
-			axisX: {
-				showGrid: false
-			},
-		};
-
-		new Chartist.Bar('#visits-chart', data, options);
-
-
-		// real-time pie chart
-		var sysLoad = $('#system-load').easyPieChart({
-			size: 130,
-			barColor: function(percent) {
-				return "rgb(" + Math.round(200 * percent / 100) + ", " + Math.round(200 * (1.1 - percent / 100)) + ", 0)";
-			},
-			trackColor: 'rgba(245, 245, 245, 0.8)',
-			scaleColor: false,
-			lineWidth: 5,
-			lineCap: "square",
-			animate: 800
-		});
-
-		var updateInterval = 3000; // in milliseconds
-
-		setInterval(function() {
-			var randomVal;
-			randomVal = getRandomInt(0, 100);
-
-			sysLoad.data('easyPieChart').update(randomVal);
-			sysLoad.find('.percent').text(randomVal);
-		}, updateInterval);
-
-		function getRandomInt(min, max) {
-			return Math.floor(Math.random() * (max - min + 1)) + min;
-		}*/
+		new Chartist.Line('#multiple-chart', data, options);
 
 	});
 	</script>
