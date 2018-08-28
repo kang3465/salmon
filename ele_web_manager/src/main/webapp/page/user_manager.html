@@ -23,9 +23,8 @@
 
 <body>
 <!-- WRAPPER -->
-<div id="wrapper">
 	<div class="container-fluid">
-		<h3 class="page-title">Tables</h3>
+		<h3 class="page-title">User Manager</h3>
 
 		<div class="row">
 			<div class="col-md-12">
@@ -61,7 +60,7 @@
 							</tr>
 							</thead>
 							<tbody>
-							<tr v-for="v in userList">
+							<tr v-for="v in userList.rows">
 								<th>{{v.id}}</th>
 								<th><img :src="v.head_pic"></th>
 								<th>{{v.username}}</th>
@@ -94,7 +93,6 @@
 
 	<div class="clearfix"></div>
 
-</div>
 <!-- END WRAPPER -->
 <!-- Javascript -->
 <script src="../assets/vendor/jquery/jquery.min.js"></script>
