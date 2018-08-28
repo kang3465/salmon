@@ -2,9 +2,8 @@ package cn.ele.core.dao.user;
 
 import cn.ele.core.pojo.user.UserRoleLinkKey;
 import cn.ele.core.pojo.user.UserRoleLinkQuery;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserRoleLinkDao {
     int countByExample(UserRoleLinkQuery example);

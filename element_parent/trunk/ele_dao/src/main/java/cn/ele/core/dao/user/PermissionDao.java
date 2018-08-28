@@ -2,9 +2,8 @@ package cn.ele.core.dao.user;
 
 import cn.ele.core.pojo.user.Permission;
 import cn.ele.core.pojo.user.PermissionQuery;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface PermissionDao {
     int countByExample(PermissionQuery example);
