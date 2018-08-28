@@ -1,37 +1,27 @@
-var a = new Vue({
+var userManager = new Vue({
     el: 'body',
     data: {
-        leftMenu: [],
-        mainpage: "page/home.html",
-        uploadFile: "",
-        fileData: [],
-        filename: "",
-        class0: "collapse",
-        class1: "collapse in"
+        userList: {},
 
+        pageNum:1,
+        pageSize:10
     },
     methods: {
-        SetIFrameHeight: function () {
-            var iframeid = document.getElementById("iframe"); //iframe id
-            if (document.getElementById) {
-                iframeid.height = document.documentElement.clientHeight-50;
-            }
 
-        },
-        loadMenu: function () {
-            this.$http.get({
-                url: "./menu/queryMenu.do"
+        loadUserList: function () {
+            this.$http.post({
+                url: "../user/queryUserListSafeByPage.do?pageNum="+this.pageNum+"&pageSize="+this.pageSize
             }).then(function (result) {
-                this.leftMenu = result.data;
+                this.userList = result.data;
             });
-            for (var i = 0; i < this.leftMenu.length; i++) {
-                if (this.leftMenu[i].menuList.length == 0) {
-                    this.leftMenu[i].class = "collapse";
+           /* for (var i = 0; i < this.userList.length; i++) {
+                if (this.userList[i].menuList.length == 0) {
+                    this.userList[i].zclass = "collapse";
                 } else {
-                    this.leftMenu[i].class = "";
+                    this.userList[i].zclass = "";
                 }
 
-            }
+            }*/
         },
         uploadSectionFile: function (param) {
             var formData = new FormData();
@@ -47,13 +37,11 @@ var a = new Vue({
             });
         },
         opentable: function (even) {
-            this.mainpage=even.currentTarget;
-            /*if(this.leftMenu[index].class=="collapse"){
-                this.leftMenu[index].class="collapse in"
-            }else if (this.leftMenu[index].class=="collapse in") {
-                this.leftMenu[index].class="collapse"
-            }else{
-
+            this.mainpage=even.currentTarget.toString();
+            /*if ($("a[target='_blank']") == "collapse") {
+                this.class0 = "collapse in";
+            } else {
+                this.class0 = "collapse";
             }*/
         },
         upload: function () {
