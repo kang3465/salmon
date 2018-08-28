@@ -14,7 +14,7 @@ public interface CategoryService {
 
     /**
      * 根据父级目录ID查找分类
-     * @param parentID
+     * @param  parentID 父级目录的ID
      * @return
      * @throws Exception
      */
@@ -22,7 +22,7 @@ public interface CategoryService {
 
     /**
      * 添加分类
-     * @param category
+     * @param category 需要添加的分类实体类型（没有主键）
      * @return
      * @throws Exception
      */
