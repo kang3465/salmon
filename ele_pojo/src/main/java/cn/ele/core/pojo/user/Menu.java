@@ -16,15 +16,11 @@ public class Menu implements Serializable {
 
     private Integer pid;
 
-    private String  hclass;
+    private String icon;
 
-    public String getHclass() {
-        return hclass;
-    }
+    private String hclass;
 
-    public void setHclass(String hclass) {
-        this.hclass = hclass;
-    }
+    private List<Menu> menuList;
 
     public List<Menu> getMenuList() {
         return menuList;
@@ -33,8 +29,6 @@ public class Menu implements Serializable {
     public void setMenuList(List<Menu> menuList) {
         this.menuList = menuList;
     }
-
-    private List<Menu> menuList;
 
     private static final long serialVersionUID = 1L;
 
@@ -86,6 +80,22 @@ public class Menu implements Serializable {
         this.pid = pid;
     }
 
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon == null ? null : icon.trim();
+    }
+
+    public String getHclass() {
+        return hclass;
+    }
+
+    public void setHclass(String hclass) {
+        this.hclass = hclass == null ? null : hclass.trim();
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -98,6 +108,8 @@ public class Menu implements Serializable {
         sb.append(", page=").append(page);
         sb.append(", priority=").append(priority);
         sb.append(", pid=").append(pid);
+        sb.append(", icon=").append(icon);
+        sb.append(", hclass=").append(hclass);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -120,7 +132,9 @@ public class Menu implements Serializable {
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getPage() == null ? other.getPage() == null : this.getPage().equals(other.getPage()))
             && (this.getPriority() == null ? other.getPriority() == null : this.getPriority().equals(other.getPriority()))
-            && (this.getPid() == null ? other.getPid() == null : this.getPid().equals(other.getPid()));
+            && (this.getPid() == null ? other.getPid() == null : this.getPid().equals(other.getPid()))
+            && (this.getIcon() == null ? other.getIcon() == null : this.getIcon().equals(other.getIcon()))
+            && (this.getHclass() == null ? other.getHclass() == null : this.getHclass().equals(other.getHclass()));
     }
 
     @Override
@@ -133,6 +147,8 @@ public class Menu implements Serializable {
         result = prime * result + ((getPage() == null) ? 0 : getPage().hashCode());
         result = prime * result + ((getPriority() == null) ? 0 : getPriority().hashCode());
         result = prime * result + ((getPid() == null) ? 0 : getPid().hashCode());
+        result = prime * result + ((getIcon() == null) ? 0 : getIcon().hashCode());
+        result = prime * result + ((getHclass() == null) ? 0 : getHclass().hashCode());
         return result;
     }
 }
