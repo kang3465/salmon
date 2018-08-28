@@ -503,6 +503,146 @@ public class MenuQuery {
             addCriterion("PID not between", value1, value2, "pid");
             return (Criteria) this;
         }
+
+        public Criteria andIconIsNull() {
+            addCriterion("ICON is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconIsNotNull() {
+            addCriterion("ICON is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconEqualTo(String value) {
+            addCriterion("ICON =", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconNotEqualTo(String value) {
+            addCriterion("ICON <>", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconGreaterThan(String value) {
+            addCriterion("ICON >", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconGreaterThanOrEqualTo(String value) {
+            addCriterion("ICON >=", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconLessThan(String value) {
+            addCriterion("ICON <", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconLessThanOrEqualTo(String value) {
+            addCriterion("ICON <=", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconLike(String value) {
+            addCriterion("ICON like", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconNotLike(String value) {
+            addCriterion("ICON not like", value, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconIn(List<String> values) {
+            addCriterion("ICON in", values, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconNotIn(List<String> values) {
+            addCriterion("ICON not in", values, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconBetween(String value1, String value2) {
+            addCriterion("ICON between", value1, value2, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andIconNotBetween(String value1, String value2) {
+            addCriterion("ICON not between", value1, value2, "icon");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassIsNull() {
+            addCriterion("hclass is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassIsNotNull() {
+            addCriterion("hclass is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassEqualTo(String value) {
+            addCriterion("hclass =", value, "hclass");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassNotEqualTo(String value) {
+            addCriterion("hclass <>", value, "hclass");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassGreaterThan(String value) {
+            addCriterion("hclass >", value, "hclass");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassGreaterThanOrEqualTo(String value) {
+            addCriterion("hclass >=", value, "hclass");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassLessThan(String value) {
+            addCriterion("hclass <", value, "hclass");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassLessThanOrEqualTo(String value) {
+            addCriterion("hclass <=", value, "hclass");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassLike(String value) {
+            addCriterion("hclass like", value, "hclass");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassNotLike(String value) {
+            addCriterion("hclass not like", value, "hclass");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassIn(List<String> values) {
+            addCriterion("hclass in", values, "hclass");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassNotIn(List<String> values) {
+            addCriterion("hclass not in", values, "hclass");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassBetween(String value1, String value2) {
+            addCriterion("hclass between", value1, value2, "hclass");
+            return (Criteria) this;
+        }
+
+        public Criteria andHclassNotBetween(String value1, String value2) {
+            addCriterion("hclass not between", value1, value2, "hclass");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
