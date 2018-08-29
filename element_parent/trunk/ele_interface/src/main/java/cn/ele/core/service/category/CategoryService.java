@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CategoryService {
     /**
-     * 查找一级目录
+     * 根据ID查找父集目录
      * @return
      * @throws Exception
      */
