@@ -27,6 +27,7 @@ public class JmsUtil {
 	public void send(Destination destination, final Map<String ,String> map){
 		System.out.println("---------------生产者发送消息-----------------");   
 		jmsTemplate.send(destination, new MessageCreator() {			
+			@Override
 			public Message createMessage(Session session) throws JMSException {
 				
 				MapMessage mapMessage = session.createMapMessage();
@@ -49,6 +50,7 @@ public class JmsUtil {
 	public void send(Destination destination, final String text){
 		System.out.println("---------------生产者发送消息(Text)-----------------");   
 		jmsTemplate.send(destination, new MessageCreator() {			
+			@Override
 			public Message createMessage(Session session) throws JMSException {
 				return session.createTextMessage(text);
 			}			
