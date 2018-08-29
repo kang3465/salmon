@@ -3,8 +3,11 @@ package cn.ele.core.controller.user;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
 
-public class enhancedTokenRememberMeServices extends TokenBasedRememberMeServices {
-    public enhancedTokenRememberMeServices(String key, UserDetailsService userDetailsService) {
+/**
+ * @author kang
+ */
+public class EnhancedTokenRememberMeServices extends TokenBasedRememberMeServices {
+    public EnhancedTokenRememberMeServices(String key, UserDetailsService userDetailsService) {
         super(key, userDetailsService);
     }
 }
