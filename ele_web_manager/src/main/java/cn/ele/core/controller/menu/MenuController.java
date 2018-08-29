@@ -17,6 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 import java.util.List;
 
+/**
+ * @author kang
+ */
 @RestController
 @RequestMapping("menu")
 public class MenuController {
@@ -26,9 +29,6 @@ public class MenuController {
     UserService userService;
     @RequestMapping("queryMenu")
     public List<Menu> queryMenu(HttpServletRequest request, HttpServletResponse response) {
-//        SecurityContextImpl securityContextImpl = (SecurityContextImpl) getSession().getAttribute("SPRING_SECURITY_CONTEXT");
-//        HttpSession servletContext = (HttpSession) ContextLoader.getCurrentWebApplicationContext().getServletContext();
-
         JSONArray objects =null;
                 SecurityContextImpl securityContextImpl = (SecurityContextImpl) request
                 .getSession().getAttribute("SPRING_SECURITY_CONTEXT");

@@ -13,6 +13,9 @@ import java.util.Date;
 import java.util.List;
 
 
+/**
+ * @author kang
+ */
 public class UserDetailServiceImpl implements UserDetailsService {
 
     private UserService userService;
@@ -36,7 +39,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 ///        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
         if (user == null) {
             return null;
-        } else if (user.getStatus().equals("0")) {
+        } else if ("0".equals(user.getStatus())) {
             throw new UsernameNotFoundException("用户处于非正常状态");
         } else {
             ///创建权限集合
