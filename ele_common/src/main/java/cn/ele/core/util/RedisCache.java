@@ -51,7 +51,8 @@ public class RedisCache implements Cache{
 	   
 	   
 	   object = redisTemplate.execute(new RedisCallback<Object>() { 
-	   public Object doInRedis(RedisConnection connection)  
+	   @Override
+	   public Object doInRedis(RedisConnection connection)
 	         throws DataAccessException { 
 	     byte[] key = keyf.getBytes(); 
 	     byte[] value = connection.get(key); 
@@ -72,7 +73,8 @@ public class RedisCache implements Cache{
 	    final Object valuef = value;  
 	    final long liveTime = 86400;  
 	    redisTemplate.execute(new RedisCallback<Long>() {  
-	      public Long doInRedis(RedisConnection connection)  
+	      @Override
+		  public Long doInRedis(RedisConnection connection)
 	          throws DataAccessException {  
 	        byte[] keyb = keyf.getBytes();  
 	        byte[] valueb = toByteArray(valuef);  
@@ -123,7 +125,8 @@ public class RedisCache implements Cache{
 	     System.out.println("del key"); 
 	     final String keyf = key.toString();  
 	     redisTemplate.execute(new RedisCallback<Long>() {  
-	     public Long doInRedis(RedisConnection connection)  
+	     @Override
+		 public Long doInRedis(RedisConnection connection)
 	          throws DataAccessException {  
 	    	 
 	    	 
@@ -139,7 +142,8 @@ public class RedisCache implements Cache{
 	      // TODO Auto-generated method stub  
 	      System.out.println("clear key"); 
 	      redisTemplate.execute(new RedisCallback<String>() {  
-	        public String doInRedis(RedisConnection connection)  
+	        @Override
+			public String doInRedis(RedisConnection connection)
 	            throws DataAccessException {  
 	         connection.flushDb();  
 	          return "ok";  
