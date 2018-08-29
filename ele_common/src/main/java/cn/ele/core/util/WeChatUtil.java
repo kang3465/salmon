@@ -4,6 +4,7 @@ package cn.ele.core.util;
 import cn.ele.core.util.wechat.MyX509TrustManager;
 import cn.ele.core.util.wechat.WechatAccount;
 import cn.ele.core.util.wechat.WechatInfo;
+import com.google.gson.Gson;
 import net.sf.json.JSONObject;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
@@ -23,7 +24,9 @@ import java.io.*;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -324,13 +327,14 @@ public class WeChatUtil {
         JSONObject tt = httpRequest("https://api.weixin.qq.com/cgi-bin/material/add_news?access_token="+getAccessToken(wx.getAppid(), wx.getAppkey()), "POST", sb.toString());
         System.out.println(sb.toString());
         System.out.println(tt);
-        /*JSONObject jo = getUserOpenIDs(getAccessToken(wx.getAppid(), wx.getAppkey()));
+        JSONObject jo = getUserOpenIDs(getAccessToken(wx.getAppid(), wx.getAppkey()));
         System.out.println(jo);
         String outputStr = "{\"touser\":"+jo.getJSONObject("data").getJSONArray("openid")+",\"msgtype\": \"mpnews\",\"mpnews\":{\"media_id\":\""+tt.getString("media_id")+"\"}}";
         Map<String, Object> template = new HashMap<>();
         Map<String, Object> filter = new HashMap<>();
         Map<String, Object> mpnews = new HashMap<>();
-        filter.put("is_to_all",true);
+        filter.put("is_to_all",false);
+        filter.put("tag_id",100);
         template.put("filter",filter);
         mpnews.put("media_id",tt.getString("media_id"));
         template.put("mpnews",mpnews);
@@ -338,7 +342,7 @@ public class WeChatUtil {
         outputStr = new Gson().toJson(template);
         System.out.println(outputStr);
         JSONObject post = httpRequest("https://api.weixin.qq.com/cgi-bin/message/mass/sendall?access_token=" + getAccessToken(wx.getAppid(), wx.getAppkey()), "POST", outputStr);
-        System.out.println(post);*/
+        System.out.println(post);
         return tt.getString("media_id");
     }
 }
