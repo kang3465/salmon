@@ -16,7 +16,6 @@ public class AppTest
     public void shouldAnswerWithTrue()
     {
 
-        assertTrue( true );
     }
     @Test
     public void md5()
