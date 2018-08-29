@@ -15,7 +15,12 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("user")
 public class UserContraller {
     @Reference
+    private
     UserService userService;
+
+    public UserContraller(UserService userService) {
+        this.userService = userService;
+    }
 
     @RequestMapping("Login")
     public String login() {
@@ -47,7 +52,7 @@ public class UserContraller {
     /**
      * 检查用户名是否被注册过
      * @param username 需要检查的username字符串（需要已经校验过格式的username）
-     * @return
+     * @return 返回boolean类型
      */
     @RequestMapping("checkRepeat")
     public boolean checkRepeat(String username) {
@@ -66,28 +71,24 @@ public class UserContraller {
     /**
      * 检查email是否注册过
      * @param email 需要检查的email字符串（需要已经校验过格式的email）
-     * @return
+     * @return 返回boolean类型
      */
     @RequestMapping("checkEmailRepeat")
     public boolean checkEmailRepeat(String email){
 
         User user = userService.findOneByEmail(email);
-        if (user!=null) {
-            return false;
-        }
-        return true;
+        return user == null;
     }
 
     /**
      * 分页查询用户列表并返回分页结果
      * @param pageNum 展示第pageNum页结果
      * @param pageSize 每页展示pageSize条数据
-     * @return
+     * @return 返回分页数据
      */
     @RequestMapping(value = "queryUserListSafeByPage", method= RequestMethod.GET)
     public PageResult queryUserListSafeByPage(Integer pageNum, Integer pageSize){
-        PageResult pageResult = userService.queryAllUserListSafeByPage(pageNum, pageSize);
-        return pageResult;
+        return userService.queryAllUserListSafeByPage(pageNum, pageSize);
     }
 
 }
