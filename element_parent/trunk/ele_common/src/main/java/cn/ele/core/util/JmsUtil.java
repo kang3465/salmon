@@ -21,8 +21,8 @@ public class JmsUtil {
 	
 	/**
 	 * 发送消息
-	 * @param destination
-	 * @param map
+	 * @param destination 发送到哪一个队列或者广播中
+	 * @param map 需要发送的消息(Map集合)
 	 */
 	public void send(Destination destination, final Map<String ,String> map){
 		System.out.println("---------------生产者发送消息-----------------");   
