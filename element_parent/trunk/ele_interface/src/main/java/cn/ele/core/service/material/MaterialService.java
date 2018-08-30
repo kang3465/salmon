@@ -3,6 +3,9 @@ package cn.ele.core.service.material;
 import cn.ele.core.pojo.entity.PageResult;
 import cn.ele.core.pojo.material.MaterialEntity;
 
+/**
+ * @author kang
+ */
 public interface MaterialService {
     /**
      * 新增一条素材
