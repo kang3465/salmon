@@ -17,7 +17,7 @@ public interface MaterialService {
 
     /**
      * 更新一条素材（ID不为空）
-     * @param materialEntity
+     * @param materialEntity 要更新的素材（ID不为空）
      * @return
      * @throws Exception
      */
@@ -25,24 +25,24 @@ public interface MaterialService {
 
     /**
      * 根据ID删除一条素材信息(逻辑删除)
-     * @param id
-     * @return
+     * @param id 需要删除的素材ID
+     * @return 返回影响的数量
      * @throws Exception
      */
     int deleteByID(Integer id) throws Exception;
 
     /**
      * 根据ID查询商品详情
-     * @param id
-     * @return
+     * @param id 素材ID
+     * @return 返回MaterialEntity对象（关于素材的所有信息）
      * @throws Exception
      */
     MaterialEntity queryOneByID(Integer id) throws Exception;
 
     /**
      * 分页查询素材
-     * @param pageNum
-     * @param pageSize
+     * @param pageNum 第几页
+     * @param pageSize 每页显示几条数据
      * @return PageResult分页结果
      * @throws Exception
      */
