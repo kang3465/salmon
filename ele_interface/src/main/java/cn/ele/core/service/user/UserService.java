@@ -27,7 +27,7 @@ public interface UserService {
 
     /**
      *  通过 UserID 查找用户的角色
-     * @param userIdA:\Resource\workspace\element_parent\out\artifacts\ele_service_main_war_exploded
+     * @param userId 用户ID
      * @return
      * @throws Exception
      */
