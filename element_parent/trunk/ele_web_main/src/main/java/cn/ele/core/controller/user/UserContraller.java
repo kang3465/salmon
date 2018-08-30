@@ -30,7 +30,9 @@ public class UserContraller {
         user.setPassword(new BCryptPasswordEncoder().encode(password));
         user.setPhone(phoneNumber);
         try {
-            if (userService.addUser(user)==-1) throw new Exception("用户已存在");
+            if (userService.addUser(user)==-1) {
+                throw new Exception("用户已存在");
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return new Result(false,"注册失败："+e.getMessage());
@@ -47,7 +49,9 @@ public class UserContraller {
     public boolean checkRepeat(String username) {
         try {
             User user = userService.findOneByUserName(username);
-            if (user != null) return false;
+            if (user != null) {
+                return false;
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -58,7 +62,9 @@ public class UserContraller {
     public boolean checkEmailRepeat(String email){
 
         User user = userService.findOneByEmail(email);
-        if (user!=null)return false;
+        if (user!=null) {
+            return false;
+        }
         return true;
     }
 

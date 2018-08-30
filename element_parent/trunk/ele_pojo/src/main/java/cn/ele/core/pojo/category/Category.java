@@ -1,13 +1,27 @@
 package cn.ele.core.pojo.category;
 
 import java.io.Serializable;
+import java.util.List;
 
+/**
+ * @author kang
+ */
 public class Category implements Serializable {
     private Long id;
 
     private Long parentId;
 
     private String name;
+
+    private List<Category> categoryList;
+
+    public List<Category> getCategoryList() {
+        return categoryList;
+    }
+
+    public void setCategoryList(List<Category> categoryList) {
+        this.categoryList = categoryList;
+    }
 
     /**
      * 模板id

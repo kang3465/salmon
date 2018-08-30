@@ -19,6 +19,8 @@
 	<dubbo:protocol name="dubbo" port="30881"/>
 	<dubbo:application name="ele_service_main"/>
     <dubbo:annotation package="cn.ele.core.service" />
-   
+	<!--<bean id="userService" class="cn.ele.core.service.user.UserServiceImpl" />
+	<dubbo:service interface="cn.ele.core.service.user.UserService" ref="userService" />-->
+
    
 </beans>
