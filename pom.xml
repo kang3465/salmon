@@ -15,6 +15,7 @@
     <module>ele_service_main</module>
     <module>ele_web_main</module>
       <module>ele_common</module>
+      <module>ele_web_manager</module>
   </modules>
 
   <name>Maven</name>
@@ -163,7 +164,7 @@
       <dependency>
         <groupId>org.csource.fastdfs</groupId>
         <artifactId>fastdfs</artifactId>
-        <version>1.2.5</version>
+        <version>1.2</version>
       </dependency>
       <!-- 文件上传组件 -->
       <dependency>

@@ -49,4 +49,33 @@ public class CategoryController {
         return new Result(true,"删除成功");
     }
 
+    @RequestMapping("addCategroy")
+    public Result addCategroy(Category entity){
+
+        try {
+            if (categoryService.addCategory(entity)==0){
+                return new Result(false,"添加分类失败:没有数据变化");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,"添加分类错误："+e.getMessage());
+        }
+        return new Result(true,"添加成功");
+    }
+
+    @RequestMapping("saveCategroy")
+    public Result saveCategroy(Category entity){
+
+        try {
+            if (categoryService.saveCategory(entity)==0) {
+                return new Result(false,"更新分类失败:没有数据变化");
+            };
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Result(false,"更新分类失败："+e.getMessage());
+        }
+
+        return new Result(true,"更新分类成功");
+    }
+
 }

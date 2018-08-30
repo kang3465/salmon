@@ -35,8 +35,11 @@ public class UserServiceImpl implements UserService {
         criteria.andUsernameEqualTo(userName);
         userQuery.or(criteria);
         List<User> users = userDao.selectByExample(userQuery);
-        if (users.size() <= 0) return null;
-        else if (users.size()>1) throw new Exception("请联系数据库管理员：数据出错，用户数据重复需要管理员维护数据");
+        if (users.size() <= 0) {
+            return null;
+        } else if (users.size()>1) {
+            throw new Exception("请联系数据库管理员：数据出错，用户数据重复需要管理员维护数据");
+        }
         return users.get(0);
     }
 
@@ -97,9 +100,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int addUser(User user) throws Exception {
-        user.setUpdated(new Timestamp(new Date().getTime()));
-        user.setBirthday(new Timestamp(new Date().getTime()));
-        user.setLastLoginTime(new Timestamp(new Date().getTime()));
+        user.setUpdated(new Timestamp(System.currentTimeMillis()));
+        user.setBirthday(new Timestamp(System.currentTimeMillis()));
+        user.setLastLoginTime(new Timestamp(System.currentTimeMillis()));
         userDao.insertSelective(user);
         String username = user.getUsername();
         user = findOneByUserName(username);
