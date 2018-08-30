@@ -4,6 +4,9 @@ import cn.ele.core.pojo.category.Category;
 
 import java.util.List;
 
+/**
+ * @author kang
+ */
 public interface CategoryService {
     /**
      * 根据ID查找父集目录
@@ -43,5 +46,13 @@ public interface CategoryService {
      * @throws Exception
      */
     int saveCategory(Category category) throws Exception;
+
+    /**
+     * 根据ID删除分类，并且删除子级分类
+     * @param id 需要删除的分类ID
+     * @return
+     * @throws Exception
+     */
+    int deleteCategoryByID(Integer id) throws Exception;
 
 }
