@@ -181,10 +181,10 @@ public final class URLCoder {
     public static void main(String[] var0) {
         for(int var1 = 0; var1 < var0.length; ++var1) {
             String var2 = var0[var1];
-            if (var2.equals("-e")) {
+            if ("-e".equals(var2)) {
                 ++var1;
                 encoding = var0[var1];
-            } else if (var2.equals("-d")) {
+            } else if ("-d".equals(var2)) {
                 ++var1;
                 System.out.println(decode(var0[var1]));
             } else {

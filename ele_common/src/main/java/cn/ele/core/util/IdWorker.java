@@ -28,11 +28,11 @@ public class IdWorker {
     // 机器标识位数
     private final static long workerIdBits = 5L;
     // 数据中心标识位数
-    private final static long datacenterIdBits = 5L;
+    private final static long DATACENTER_ID_BITS = 5L;
     // 机器ID最大值
-    private final static long maxWorkerId = -1L ^ (-1L << workerIdBits);
+    private final static long MAX_WORKER_ID = -1L ^ (-1L << workerIdBits);
     // 数据中心ID最大值
-    private final static long maxDatacenterId = -1L ^ (-1L << datacenterIdBits);
+    private final static long maxDatacenterId = -1L ^ (-1L << DATACENTER_ID_BITS);
     // 毫秒内自增位
     private final static long sequenceBits = 12L;
     // 机器ID偏左移12位
@@ -40,7 +40,7 @@ public class IdWorker {
     // 数据中心ID左移17位
     private final static long datacenterIdShift = sequenceBits + workerIdBits;
     // 时间毫秒左移22位
-    private final static long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
+    private final static long timestampLeftShift = sequenceBits + workerIdBits + DATACENTER_ID_BITS;
 
     private final static long sequenceMask = -1L ^ (-1L << sequenceBits);
     /* 上次生产id时间戳 */
@@ -54,7 +54,7 @@ public class IdWorker {
 
     public IdWorker(){
         this.datacenterId = getDatacenterId(maxDatacenterId);
-        this.workerId = getMaxWorkerId(datacenterId, maxWorkerId);
+        this.workerId = getMaxWorkerId(datacenterId, MAX_WORKER_ID);
     }
     /**
      * @param workerId
@@ -63,8 +63,8 @@ public class IdWorker {
      *            序列号
      */
     public IdWorker(long workerId, long datacenterId) {
-        if (workerId > maxWorkerId || workerId < 0) {
-            throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));
+        if (workerId > MAX_WORKER_ID || workerId < 0) {
+            throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", MAX_WORKER_ID));
         }
         if (datacenterId > maxDatacenterId || datacenterId < 0) {
             throw new IllegalArgumentException(String.format("datacenter Id can't be greater than %d or less than 0", maxDatacenterId));
@@ -116,10 +116,10 @@ public class IdWorker {
 
     /**
      * <p>
-     * 获取 maxWorkerId
+     * 获取 MAX_WORKER_ID
      * </p>
      */
-    protected static long getMaxWorkerId(long datacenterId, long maxWorkerId) {
+    protected static long getMaxWorkerId(long datacenterId, long MAX_WORKER_ID) {
         StringBuffer mpid = new StringBuffer();
         mpid.append(datacenterId);
         String name = ManagementFactory.getRuntimeMXBean().getName();
@@ -132,7 +132,7 @@ public class IdWorker {
       /*
        * MAC + PID 的 hashcode 获取16个低位
        */
-        return (mpid.toString().hashCode() & 0xffff) % (maxWorkerId + 1);
+        return (mpid.toString().hashCode() & 0xffff) % (MAX_WORKER_ID + 1);
     }
 
     /**
