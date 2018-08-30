@@ -98,8 +98,9 @@ public class WeiboLogin {
         Pattern p = Pattern.compile("sinaSSOController.preloginCallBack\\((.*?)\\)");
         Matcher m = p.matcher(res);
         String str = "";
-        if (m.find())
+        if (m.find()) {
             str = (m.group(1));
+        }
 
         JSONObject json = JSONObject.fromObject(str);
         return json;
@@ -169,8 +170,9 @@ public class WeiboLogin {
         Pattern p = Pattern.compile("location.replace\\(\"(.*?)\"\\)");
         Matcher m = p.matcher(response);
         String redirect_uri = "";
-        if (m.find())
+        if (m.find()) {
             redirect_uri = m.group(1);
+        }
 
         // retcode=0 说明正常，继续访问重定向url
         if (!CMyString.isEmpty(redirect_uri)

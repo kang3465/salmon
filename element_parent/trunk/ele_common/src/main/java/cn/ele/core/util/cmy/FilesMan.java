@@ -434,11 +434,13 @@ public class FilesMan extends Object {
     private static String getLocalFormatPath(String sPath) {
         // add by caohui@2012-11-26 下午3:01:42
         // 不兼容错误写法，会引发不支持网络路径
-        if (true)
+        if (true) {
             return sPath;
+        }
 
-        if (CMyString.isEmpty(sPath))
+        if (CMyString.isEmpty(sPath)) {
             return "";
+        }
         String source;
         String dest;
         if (File.separatorChar == '/') {
@@ -846,8 +848,9 @@ public class FilesMan extends Object {
                     _bReturnPath);
             // add by caohui@2016年3月20日 下午1:20:20
             // 规避前端多次请求，导致文件被删除
-            if (DELETE_FILE_ON_MOVE)
+            if (DELETE_FILE_ON_MOVE) {
                 CMyFile.deleteFile(_srcFilePathName);
+            }
             return sSaveFile;
         } catch (Exception ex) {
             throw new WCMException(ExceptionNumber.ERR_WCMEXCEPTION,
@@ -976,35 +979,44 @@ public class FilesMan extends Object {
         String sFileHeader = "";
 
         // 校验参数
-        if (sFileName == null)
+        if (sFileName == null) {
             sFlag = "";
+        }
 
         // 根据头返回类型
         sFileHeader = sFileName.substring(0, 2);
 
-        if (sFileHeader.equals(FLAG_PROTECTED))
+        if (sFileHeader.equals(FLAG_PROTECTED)) {
             sFlag = FLAG_PROTECTED;
+        }
 
-        if (sFileHeader.equals(FLAG_NORMAL))
+        if (sFileHeader.equals(FLAG_NORMAL)) {
             sFlag = FLAG_NORMAL;
+        }
 
-        if (sFileHeader.equals(FLAG_UPLOAD))
+        if (sFileHeader.equals(FLAG_UPLOAD)) {
             sFlag = FLAG_UPLOAD;
+        }
 
-        if (sFileHeader.equals(FLAG_SYSTEMTEMP))
+        if (sFileHeader.equals(FLAG_SYSTEMTEMP)) {
             sFlag = FLAG_SYSTEMTEMP;
+        }
 
-        if (sFileHeader.equals(FLAG_USERTEMP))
+        if (sFileHeader.equals(FLAG_USERTEMP)) {
             sFlag = FLAG_USERTEMP;
+        }
 
-        if (sFileHeader.equals(FLAG_TEMPLATE))
+        if (sFileHeader.equals(FLAG_TEMPLATE)) {
             sFlag = FLAG_TEMPLATE;
+        }
 
-        if (sFileHeader.equals(FLAG_LOCALPUB))
+        if (sFileHeader.equals(FLAG_LOCALPUB)) {
             sFlag = FLAG_LOCALPUB;
+        }
 
-        if (sFileHeader.equals(FLAG_WEBFILE))
+        if (sFileHeader.equals(FLAG_WEBFILE)) {
             sFlag = FLAG_WEBFILE;
+        }
 
         return sFlag;
     }
@@ -1132,8 +1144,9 @@ public class FilesMan extends Object {
 
             // 2.Validate File Name
             boolean bValidFile = isValidFile(sFileName, _sPathFlag);
-            if (!bValidFile)
+            if (!bValidFile) {
                 return false;
+            }
 
             // 3.Validate HttpPath
             try {
@@ -1146,10 +1159,12 @@ public class FilesMan extends Object {
         }
 
         if (_sFileName == null
-                || _sFileName.length() < FilesMan.FILENAME_MIN_LENGTH)
+                || _sFileName.length() < FilesMan.FILENAME_MIN_LENGTH) {
             return false;
-        if (_sFileName.indexOf(_sPathFlag) != 0)
+        }
+        if (_sFileName.indexOf(_sPathFlag) != 0) {
             return false;
+        }
         return true;
     }
 
@@ -1171,8 +1186,9 @@ public class FilesMan extends Object {
         try {
             String sFullName = mapFilePath(_sFileName, FilesMan.PATH_LOCAL)
                     + _sFileName;
-            if (CMyFile.fileExists(sFullName))
+            if (CMyFile.fileExists(sFullName)) {
                 return true;
+            }
         } catch (WCMException ex) {
             s_logger.warn(I18NMessage.get(FilesMan.class, "FilesMan.label31",
                     "无法映射文件的本地路径，可能是正常逻辑，程序继续运行。"));

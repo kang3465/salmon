@@ -202,6 +202,7 @@ public class ZipOutputStream extends DeflaterOutputStream implements ZipConstant
         }
     }
 
+    @Override
     public void write(byte[] var1, int var2, int var3) throws IOException {
         if (this.curEntry == null) {
             throw new IllegalStateException("No open entry.");

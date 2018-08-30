@@ -92,8 +92,9 @@ public class WeChatUtil {
             httpUrlConn.setUseCaches(false);
             // 设置请求方式（GET/POST）
             httpUrlConn.setRequestMethod(requestMethod);
-            if ("GET".equalsIgnoreCase(requestMethod))
+            if ("GET".equalsIgnoreCase(requestMethod)) {
                 httpUrlConn.connect();
+            }
             // 当有数据需要提交时
             if (null != outputStr) {
                 OutputStream outputStream = httpUrlConn.getOutputStream();
@@ -297,7 +298,9 @@ public class WeChatUtil {
         sb.append("{\"articles\":[");
         boolean t=false;
         for(WechatInfo info:list){
-            if(t)sb.append(",");
+            if(t) {
+                sb.append(",");
+            }
             Pattern p = Pattern.compile("src\\s*=\\s*'(.*?)'", Pattern.CASE_INSENSITIVE);
             String content = info.getWechatcontent().replace("\"", "'");
             Matcher m = p.matcher(content);

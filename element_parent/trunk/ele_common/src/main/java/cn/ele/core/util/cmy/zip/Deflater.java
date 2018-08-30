@@ -5,6 +5,9 @@
 
 package cn.ele.core.util.cmy.zip;
 
+/**
+ * @author kang
+ */
 public class Deflater {
     public static final int BEST_COMPRESSION = 9;
     public static final int BEST_SPEED = 1;
@@ -81,9 +84,6 @@ public class Deflater {
 
     public int getTotalOut() {
         return this.totalOut;
-    }
-
-    protected void finalize() {
     }
 
     void flush() {

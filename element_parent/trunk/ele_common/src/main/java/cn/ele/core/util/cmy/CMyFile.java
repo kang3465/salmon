@@ -68,24 +68,24 @@ public class CMyFile {
 	/**
 	 * 检查指定文件是否存在
 	 * 
-	 * @param _sPathFileName
+	 * @param pathfilename
 	 *            文件名称(含路径）
 	 * @return 若存在，则返回true；否则，返回false
 	 */
-	public static boolean fileExists(String _sPathFileName) {
-		File file = new File(_sPathFileName);
+	public static boolean fileExists(String pathfilename) {
+		File file = new File(pathfilename);
 		return file.exists();
 	}
 
 	/**
 	 * 检查指定文件的路径是否存在
 	 * 
-	 * @param _sPathFileName
+	 * @param pathfilename
 	 *            文件名称(含路径）
 	 * @return 若存在，则返回true；否则，返回false
 	 */
-	public static boolean pathExists(String _sPathFileName) {
-		String sPath = extractFilePath(_sPathFileName);
+	public static boolean pathExists(String pathfilename) {
+		String sPath = extractFilePath(pathfilename);
 		return fileExists(sPath);
 	}
 
@@ -93,63 +93,63 @@ public class CMyFile {
 	 * 从文件的完整路径名（路径+文件名）中提取文件名(包含扩展名) <br>
 	 * 如：d:\path\file.ext --> file.ext
 	 * 
-	 * @param _sFilePathName
+	 * @param filePathName
 	 * @return
 	 */
-	public static String extractFileName(String _sFilePathName) {
-		return extractFileName(_sFilePathName, File.separator);
+	public static String extractFileName(String filePathName) {
+		return extractFileName(filePathName, File.separator);
 	}
 
 	/**
 	 * 从文件的完整路径名（路径+文件名）中提取文件名(包含扩展名) <br>
 	 * 如：d:\path\file.ext --> file.ext
 	 * 
-	 * @param _sFilePathName
+	 * @param filePathName
 	 *            全文件路径名
-	 * @param _sFileSeparator
+	 * @param fileSeparator
 	 *            文件分隔符
 	 * @return
 	 */
-	public static String extractFileName(String _sFilePathName,
-                                         String _sFileSeparator) {
+	public static String extractFileName(String filePathName,
+                                         String fileSeparator) {
 		int nPos = -1;
-		if (_sFileSeparator == null) {
-			nPos = _sFilePathName.lastIndexOf(File.separatorChar);
+		if (fileSeparator == null) {
+			nPos = filePathName.lastIndexOf(File.separatorChar);
 			if (nPos < 0) {
-				nPos = _sFilePathName
+				nPos = filePathName
 						.lastIndexOf(File.separatorChar == '/' ? '\\' : '/');
 			}
 		} else {
-			nPos = _sFilePathName.lastIndexOf(_sFileSeparator);
+			nPos = filePathName.lastIndexOf(fileSeparator);
 		}
 
 		if (nPos < 0) {
-			return _sFilePathName;
+			return filePathName;
 		}
 
-		return _sFilePathName.substring(nPos + 1);
+		return filePathName.substring(nPos + 1);
 	}
 
 	// caohui@020513
 	/**
 	 * 从EB路径地址中提取: 文件名
 	 * 
-	 * @param _sFilePathName
+	 * @param filePathName
 	 * @return
 	 */
-	public static String extractHttpFileName(String _sFilePathName) {
-		int nPos = _sFilePathName.lastIndexOf("/");
-		return _sFilePathName.substring(nPos + 1);
+	public static String extractHttpFileName(String filePathName) {
+		int nPos = filePathName.lastIndexOf("/");
+		return filePathName.substring(nPos + 1);
 	}
 
 	/**
 	 * 从文件的完整路径名（路径+文件名）中提取:主文件名（不包括路径和扩展名）
 	 * 
-	 * @param _sFilePathName
+	 * @param filePathName
 	 * @return
 	 */
-	public static String extractMainFileName(String _sFilePathName) {
-		String sFileMame = extractFileName(_sFilePathName);
+	public static String extractMainFileName(String filePathName) {
+		String sFileMame = extractFileName(filePathName);
 		int nPos = sFileMame.lastIndexOf('.');
 		if (nPos > 0) {
 			return sFileMame.substring(0, nPos);
@@ -174,59 +174,59 @@ public class CMyFile {
 	/**
 	 * 从文件的完整路径名（路径+文件名）中提取: 文件扩展名
 	 * 
-	 * @param _sFilePathName
+	 * @param filePathName
 	 * @return
 	 */
-	public static String extractFileExt(String _sFilePathName) {
+	public static String extractFileExt(String filePathName) {
 		// 适应新锐乱码文件的逻辑
-		if (_sFilePathName.endsWith("7png")) {
-			// System.err.println(_sFilePathName + " is worse file name!!!!!");
+		if (filePathName.endsWith("7png")) {
+			// System.err.println(filePathName + " is worse file name!!!!!");
 			return "png";
 		}
-		if (_sFilePathName.endsWith("7jpg")) {
+		if (filePathName.endsWith("7jpg")) {
 			return "jpg";
 		}
 		// 过滤掉 ? 后面的参数
 		// 过滤掉 ? 后面的参数
-		int nParamPos = _sFilePathName.lastIndexOf('?');
+		int nParamPos = filePathName.lastIndexOf('?');
 		if (nParamPos >= 0) {
-			_sFilePathName = _sFilePathName.substring(0, nParamPos);
+			filePathName = filePathName.substring(0, nParamPos);
 		}
 
-		int nPos = _sFilePathName.lastIndexOf('.');
-		return (nPos >= 0 ? _sFilePathName.substring(nPos + 1) : "");
+		int nPos = filePathName.lastIndexOf('.');
+		return (nPos >= 0 ? filePathName.substring(nPos + 1) : "");
 	}
 
 	/**
 	 * 从文件的完整路径名（路径+文件名）中提取 路径（包括：Drive+Directroy )
 	 * 
-	 * @param _sFilePathName
+	 * @param filePathName
 	 * @return
 	 */
-	public static String extractFilePath(String _sFilePathName) {
-		int nPos = _sFilePathName.lastIndexOf('/');
+	public static String extractFilePath(String filePathName) {
+		int nPos = filePathName.lastIndexOf('/');
 		if (nPos < 0) {
-			nPos = _sFilePathName.lastIndexOf('\\');
+			nPos = filePathName.lastIndexOf('\\');
 		}
 
 		// 过滤掉 ? 后面的参数
-		int nParamPos = _sFilePathName.lastIndexOf('?');
+		int nParamPos = filePathName.lastIndexOf('?');
 		if (nParamPos >= 0) {
-			_sFilePathName = _sFilePathName.substring(0, nParamPos);
+			filePathName = filePathName.substring(0, nParamPos);
 		}
 
-		return (nPos >= 0 ? _sFilePathName.substring(0, nPos + 1) : "");
+		return (nPos >= 0 ? filePathName.substring(0, nPos + 1) : "");
 	}
 
 	/**
 	 * 将文件/路径名称转化为绝对路径名
 	 * 
-	 * @param _sFilePathName
+	 * @param filePathName
 	 *            文件名或路径名
 	 * @return
 	 */
-	public static String toAbsolutePathName(String _sFilePathName) {
-		File file = new File(_sFilePathName);
+	public static String toAbsolutePathName(String filePathName) {
+		File file = new File(filePathName);
 		return file.getAbsolutePath();
 	}
 
@@ -237,45 +237,46 @@ public class CMyFile {
 	 * [2] \\host\shareDrive\shareDir\filename.ext --> return
 	 * "\\host\shareDrive"
 	 * 
-	 * @param _sFilePathName
+	 * @param filePathName
 	 * @return
 	 */
-	public static String extractFileDrive(String _sFilePathName) {
+	public static String extractFileDrive(String filePathName) {
 		int nPos;
-		int nLen = _sFilePathName.length();
+		int nLen = filePathName.length();
 
 		// 检查是否为 "d:\path\filename.ext" 形式
-		if ((nLen > 2) && (_sFilePathName.charAt(1) == ':'))
-			return _sFilePathName.substring(0, 2);
-
-		// 检查是否为 "\\host\shareDrive\shareDir\filename.ext" 形式
-		if ((nLen > 2) && (_sFilePathName.charAt(0) == File.separatorChar)
-				&& (_sFilePathName.charAt(1) == File.separatorChar)) {
-			nPos = _sFilePathName.indexOf(File.separatorChar, 2);
-			if (nPos >= 0)
-				nPos = _sFilePathName.indexOf(File.separatorChar, nPos + 1);
-			return (nPos >= 0 ? _sFilePathName.substring(0, nPos)
-					: _sFilePathName);
+		if ((nLen > 2) && (filePathName.charAt(1) == ':')) {
+			return filePathName.substring(0, 2);
 		}
 
-		return "";
+		// 检查是否为 "\\host\shareDrive\shareDir\filename.ext" 形式
+		if ((nLen <= 2) || (filePathName.charAt(0) != File.separatorChar)
+				|| (filePathName.charAt(1) != File.separatorChar)) {
+			return "";
+		}
+		nPos = filePathName.indexOf(File.separatorChar, 2);
+		if (nPos >= 0)
+			nPos = filePathName.indexOf(File.separatorChar, nPos + 1);
+		return (nPos >= 0 ? filePathName.substring(0, nPos)
+				: filePathName);
+
 	}// END:extractFileDrive
 
 	/**
 	 * 删除指定的文件
 	 * 
-	 * @param _sFilePathName
+	 * @param filePathName
 	 *            指定的文件名
 	 * @return
 	 */
-    public static boolean deleteFile(String _sFilePathName) {
+    public static boolean deleteFile(String filePathName) {
         if (m_oLogger.isDebugEnabled()) {
             m_oLogger.debug(
                     "who call me? ： deleteFile ： "
-                            + CMyString.showEmpty(_sFilePathName),
+                            + CMyString.showEmpty(filePathName),
                     new Throwable());
         }
-        File file = new File(_sFilePathName);
+        File file = new File(filePathName);
         return file.exists() ? file.delete() : false;
     }
 
@@ -294,12 +295,14 @@ public class CMyFile {
 	public static boolean makeDir(String _sDir, boolean _bCreateParentDir) {
 		boolean zResult = false;
 		File file = new File(_sDir);
-		if (_bCreateParentDir)
+		if (_bCreateParentDir) {
 			zResult = file.mkdirs(); // 如果父目录不存在，则创建所有必需的父目录
-		else
+		} else {
 			zResult = file.mkdir(); // 如果父目录不存在，不做处理
-		if (!zResult)
+		}
+		if (!zResult) {
 			zResult = file.exists();
+		}
 		return zResult;
 	}
 
@@ -317,8 +320,9 @@ public class CMyFile {
 	 */
 	public static boolean deleteDir(String _sDir, boolean _bDeleteChildren) {
 		File file = new File(_sDir);
-		if (!file.exists())
+		if (!file.exists()) {
 			return false;
+		}
 
 		if (_bDeleteChildren) { // 删除子目录及其中文件
 			File[] files = file.listFiles(); // 取目录中文件和子目录列表
@@ -394,8 +398,9 @@ public class CMyFile {
 	 */
 	public static File[] listFiles(String dir, String extendName) {
 		File fDir = new File(dir);
-		if (extendName.charAt(0) != '.')
+		if (extendName.charAt(0) != '.') {
 			extendName = "." + extendName;
+		}
 		File[] Files = fDir.listFiles(new CMyFilenameFilter(extendName));
 		return Files;
 	}
@@ -543,12 +548,15 @@ public class CMyFile {
 		} finally {
 			// 增加异常时资源的释放
 			try {
-				if (fileReader != null)
+				if (fileReader != null) {
 					fileReader.close();
-				if (buffReader != null)
+				}
+				if (buffReader != null) {
 					buffReader.close();
-				if (fis != null)
+				}
+				if (fis != null) {
 					fis.close();
+				}
 			} catch (Exception ex) {
 			}
 
@@ -668,8 +676,9 @@ public class CMyFile {
 			zOk = writeFile0(_sFileName, _sFileContent, _sFileEncoding,
 					_bWriteUnicodeFlag);
 			nCount++;
-			if (nCount > nMaxCount)
+			if (nCount > nMaxCount) {
 				break;
+			}
 		}
 
 		return zOk;
@@ -682,8 +691,9 @@ public class CMyFile {
 
 		// 1.创建目录
 		String sPath = extractFilePath(_sFileName);
-		if (m_oLogger.isDebugEnabled())
+		if (m_oLogger.isDebugEnabled()) {
 			m_oLogger.debug(sPath);
+		}
 		if (!CMyFile.pathExists(sPath)) {
 			boolean bCreatPath = CMyFile.makeDir(sPath, true);
 			if (!bCreatPath) {
@@ -701,8 +711,9 @@ public class CMyFile {
 		try {
 			fos = new FileOutputStream(_sFileName);
 
-			if (_bWriteUnicodeFlag)
+			if (_bWriteUnicodeFlag) {
 				fos.write(0xFEFF);
+			}
 			byte[] pContent = _sFileContent.getBytes(_sFileEncoding);// new
 																		// String(_sFileContent.getBytes(),
 																		// sFileEncoding).getBytes();
@@ -786,8 +797,9 @@ public class CMyFile {
 		} finally {
 			// caohui@2004-07-19 释放资源
 			try {
-				if (raf != null)
+				if (raf != null) {
 					raf.close();
+				}
 			} catch (Exception ex) {
 			}
 		}
@@ -874,8 +886,9 @@ public class CMyFile {
 			zOk = copyFile0(_sSrcFile, _sDstFile, _bMakeDirIfNotExists,
 					preserveFileDate);
 			nCount++;
-			if (nCount > nMaxCount)
+			if (nCount > nMaxCount) {
 				break;
+			}
 		}
 
 		return zOk;
@@ -965,11 +978,12 @@ public class CMyFile {
 				} catch (Exception ex) {
 				}
 			}
-			if (fis != null)
+			if (fis != null) {
 				try {
 					fis.close();
 				} catch (Exception ex) {
 				}
+			}
 		}// end try
 		if (preserveFileDate) {
 			new File(_sDstFile).setLastModified(new File(_sSrcFile)
@@ -990,9 +1004,10 @@ public class CMyFile {
 			}
 
 			boolean bResult = (lDst >= lSrc);
-			if (!bResult)
+			if (!bResult) {
 				m_oLogger.warn("Copy File[" + _sSrcFile + "][" + lSrc + "]["
 						+ lSrcStart + "] to [" + _sDstFile + "][" + lDst + "]");
+			}
 
 			return bResult;
 		} else {
@@ -1026,8 +1041,9 @@ public class CMyFile {
 		}
 
 		File[] files = fFromFile.listFiles();
-		if (files == null || files.length == 0)
+		if (files == null || files.length == 0) {
 			return;
+		}
 
 		// 2.路径的提前处理
 		_fromFileDir = CMyString
@@ -1047,8 +1063,9 @@ public class CMyFile {
 		// 4.拷贝文件
 		for (int i = 0; i < files.length; i++) {
 			File aFile = files[i];
-			if (aFile == null)
+			if (aFile == null) {
 				continue;
+			}
 			if ("Thumbs.db".equals(aFile.getName())) {
 				continue;
 			}

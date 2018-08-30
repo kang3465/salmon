@@ -86,7 +86,7 @@ public class CMyZip {
             }
 
             try {
-                if (!var5.equals("") && !var5.equals(".") && !var5.equals(this.m_sPath)) {
+                if (!"".equals(var5) && !".".equals(var5) && !var5.equals(this.m_sPath)) {
                     long var6 = var3.length();
                     ZipEntry var8 = new ZipEntry(this.m_sEntryPath + var5);
                     var8.setMethod(8);
@@ -177,7 +177,7 @@ public class CMyZip {
         }
 
         try {
-            if (!var3.equals("") && !var3.equals(".") && !var3.equals(this.m_sPath)) {
+            if (!"".equals(var3) && !".".equals(var3) && !var3.equals(this.m_sPath)) {
                 long var5 = var4 ? 0L : var1.length();
                 ZipEntry var7 = new ZipEntry((var2 ? this.m_sEntryPath : "") + var3);
                 var7.setMethod(8);

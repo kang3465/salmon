@@ -130,10 +130,10 @@ public final class ImageMagickCmd {
 		// 支持自定义水印位置
 		ImageMagickCmd.ImageObj img = new ImageObj(filename);
 		img.setFilename(filename);
-		Float temp = new Float(((float) gravity[2] / (float) gravity[3])
-				* img.width);
+		Float temp = ((float) gravity[2] / (float) gravity[3])
+				* img.width;
 		int opX = temp.intValue();
-		temp = new Float(((float) gravity[1] / (float) gravity[4]) * img.height);
+		temp = ((float) gravity[1] / (float) gravity[4]) * img.height;
 		int opY = temp.intValue();
 
 		String[] cmd = new String[8];
@@ -174,11 +174,13 @@ public final class ImageMagickCmd {
 	}
 
 	private static boolean isSelfDefinePosition(int[] _pPosition, int _nPosition) {
-		if (_pPosition == null || _pPosition.length < 5)
-			return false;
+		if (_pPosition == null || _pPosition.length < 5) {
+            return false;
+        }
 
-		if (_pPosition[0] == _nPosition)
-			return true;
+		if (_pPosition[0] == _nPosition) {
+            return true;
+        }
 
 		return false;
 	}
