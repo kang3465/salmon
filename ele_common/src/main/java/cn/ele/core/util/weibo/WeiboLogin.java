@@ -237,7 +237,8 @@ public class WeiboLogin {
         wl.setPassword(password);
         try {
             wl.login();
-            wl.getCookie();
+            String cookie = wl.getCookie();
+            System.out.println(cookie);
         } catch (Exception e) {
             e.printStackTrace();
         }

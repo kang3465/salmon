@@ -1029,11 +1029,11 @@
     <column id="274" parent="209" name="accounttype">
       <Position>12</Position>
       <Comment>0:local
-1:qq
-2:wx
-3:wb
-4:zfb
-5:github</Comment>
+        1:qq
+        2:wx
+        3:wb
+        4:zfb
+        5:github</Comment>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1548,8 +1548,8 @@
     <column id="374" parent="222" name="TYPE">
       <Position>6</Position>
       <Comment>标签的类型
-1:用户标签
-2:素材标签</Comment>
+        1:用户标签
+        2:素材标签</Comment>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
@@ -2022,7 +2022,7 @@
     <key id="464" parent="231" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ROLE_ID
-MENU_ID</ColNames>
+        MENU_ID</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="465" parent="231" name="ROLE_ID">
@@ -2070,7 +2070,7 @@ MENU_ID</ColNames>
     <key id="472" parent="232" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ROLE_ID
-PERMISSION_ID</ColNames>
+        PERMISSION_ID</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="473" parent="233" name="id">
@@ -2333,7 +2333,7 @@ PERMISSION_ID</ColNames>
     <key id="520" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>USER_ID
-ROLE_ID</ColNames>
+        ROLE_ID</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="521" parent="240" name="id">

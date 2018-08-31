@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="assets/vendor/diff/diff_match_patch.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+    var dmp = new diff_match_patch();
+
+    function launch() {
+        var text1 = document.getElementById('text1').value;
+        var text2 = document.getElementById('text2').value;
+        // dmp.Diff_Timeout = parseFloat(document.getElementById('timeout').value);
+        // dmp.Diff_EditCost = parseFloat(document.getElementById('editcost').value);
+
+        var ms_start = (new Date()).getTime();
+        var d = dmp.diff_main(text1, text2);
+        var ms_end = (new Date()).getTime();
+
+        // if (document.getElementById('semantic').checked) {
+        dmp.diff_cleanupSemantic(d);
+        // }
+        // if (document.getElementById('efficiency').checked) {
+        //     dmp.diff_cleanupEfficiency(d);
+        // }
+        var ds = dmp.diff_prettyHtml(d);
+        document.getElementById('outputdiv').innerHTML = ds + '<BR>Time: ' + (ms_end - ms_start) / 1000 + 's';
+    }
+</script>
+<table width="100%"><tbody><tr>
+    <td width="50%">
+        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&#25991;&#23383;&#29256;&#26412;1&#65306;</font></font></h3>
+        <textarea id="text1" style="width: 100%" rows="10">I am the very model of a modern Major-General,
+I've information vegetable, animal, and mineral,
+I know the kings of England, and I quote the fights historical,
+From Marathon to Waterloo, in order categorical.</textarea></td>
+    <td width="50%">
+        <h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">&#25991;&#23383;&#29256;&#26412;2&#65306;</font></font></h3>
+        <textarea id="text2" style="width: 100%" rows="10">I am the very model of a cartoon individual,
+My animation's comical, unusual, and whimsical,
+I'm quite adept at funny gags, comedic theory I have read,
+From wicked puns and stupid jokes to anvils that drop on your head.</textarea></td>
+</tr></tbody></table>
+
+<input type="button" onclick="launch()" value="&#35745;&#31639;&#24046;&#24322;">
+
+    <div id="outputdiv"></div>
+</body>
+
+</html>
