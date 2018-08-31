@@ -1,5 +1,8 @@
 package cn.ele.core.service.content;
 
+import com.alibaba.dubbo.config.annotation.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  * @package :cn.ele.core.service.category
  * @Author        :fjnet
@@ -8,5 +11,7 @@ package cn.ele.core.service.content;
  * @Modified By :
  * @Version :&Version&
  **/
+@Service
+@Transactional
 public class ContentSreviceImpl implements ContentSrevice {
 }
