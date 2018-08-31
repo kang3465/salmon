@@ -4,6 +4,9 @@ import cn.ele.core.pojo.category.Category;
 
 import java.util.List;
 
+/**
+ * @author kang
+ */
 public class CategoryServiceImpl implements CategoryService{
     /**
      * 根据ID查找父集目录
@@ -22,6 +25,7 @@ public class CategoryServiceImpl implements CategoryService{
      * @return
      * @throws Exception
      */
+    @Override
     public List<Category> queryCategoryByParentID(Integer parentID) throws Exception{return null;}
 
     /**
@@ -30,6 +34,7 @@ public class CategoryServiceImpl implements CategoryService{
      * @return
      * @throws Exception
      */
+    @Override
     public int addCategory(Category category) throws Exception{return 0;}
 
     /**
@@ -38,6 +43,7 @@ public class CategoryServiceImpl implements CategoryService{
      * @return
      * @throws Exception
      */
+    @Override
     public int addCategoryTogether(Category category) throws Exception{return 0;}
 
     /**
@@ -46,6 +52,12 @@ public class CategoryServiceImpl implements CategoryService{
      * @return
      * @throws Exception
      */
+    @Override
     public int saveCategory(Category category) throws Exception{return 0;}
+
+    @Override
+    public int deleteCategoryByID(Integer id) throws Exception {
+        return 0;
+    }
 
 }
