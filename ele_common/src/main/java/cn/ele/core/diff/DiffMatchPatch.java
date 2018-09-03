@@ -37,10 +37,10 @@ import java.util.regex.Pattern;
  * Class containing the diff, match and patch methods.
  * Also contains the behaviour settings.
  */
-public class diff_match_patch {
+public class DiffMatchPatch {
 
   // Defaults.
-  // Set these on your diff_match_patch instance to override the defaults.
+  // Set these on your DiffMatchPatch instance to override the defaults.
 
   /**
    * Number of seconds to map a diff before giving up (0 for infinity).
