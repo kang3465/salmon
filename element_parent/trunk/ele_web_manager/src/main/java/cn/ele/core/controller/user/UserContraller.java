@@ -15,12 +15,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("user")
 public class UserContraller {
     @Reference
-    private
     UserService userService;
-
-    public UserContraller(UserService userService) {
-        this.userService = userService;
-    }
 
     @RequestMapping("Login")
     public String login() {

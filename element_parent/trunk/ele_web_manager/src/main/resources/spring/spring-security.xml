@@ -16,6 +16,7 @@
 	<!--<http pattern="/login" security="none"/>-->
 	<http pattern="/js/**" security="none"/>
 	<http pattern="/page/**" security="none"/>
+	<http pattern="/plugins/**" security="none"/>
 
 	<http pattern="/assets/**" security="none"/>
 	<http pattern="/favicon.ico" security="none"/>
