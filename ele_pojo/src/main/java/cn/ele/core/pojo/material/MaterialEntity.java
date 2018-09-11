@@ -1,6 +1,8 @@
 package cn.ele.core.pojo.material;
 
-public class MaterialEntity {
+import java.io.Serializable;
+
+public class MaterialEntity implements Serializable {
     private Material material;
     private MaterialDesc materialDesc;
 
