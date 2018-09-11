@@ -99,7 +99,7 @@
     values (#{id,jdbcType=BIGINT}, #{optionName,jdbcType=VARCHAR}, #{specId,jdbcType=BIGINT}, 
       #{orders,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="cn.ele.core.pojo.category.SpecificationOption" >
+  <insert id="insertSelective" parameterType="cn.ele.core.pojo.category.SpecificationOption" useGeneratedKeys="true" keyProperty="id" >
     insert into ele_specification_option
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

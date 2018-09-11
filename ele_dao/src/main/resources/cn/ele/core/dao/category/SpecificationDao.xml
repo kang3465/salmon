@@ -98,7 +98,7 @@
     values (#{id,jdbcType=BIGINT}, #{specName,jdbcType=VARCHAR}, #{specType,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.ele.core.pojo.category.Specification" >
+  <insert id="insertSelective" parameterType="cn.ele.core.pojo.category.Specification" useGeneratedKeys="true" keyProperty="id" >
     insert into ele_specification
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
