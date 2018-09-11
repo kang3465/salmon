@@ -2,7 +2,7 @@ var a = new Vue({
     el: 'body',
     data: {
         leftMenu: [],
-        mainpage: "page/home.html",
+        mainpage: "page/type_template.html",
         uploadFile: "",
         fileData: [],
         filename: "",

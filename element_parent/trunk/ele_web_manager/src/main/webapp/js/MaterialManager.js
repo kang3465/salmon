@@ -2,15 +2,35 @@ var materialManager = new Vue({
     el: 'body',
     data: {
         entity:{},
+        materialEntity:{},
+        materialList:[],
+        selectIds:[],
         userList: {},
         pageNum:1,
         pageSize:10
     },
     methods: {
-
-        loadUserList: function () {
+        save:function(){
+            this.materialEntity.goodsDesc.introduction=editor.html();/*将富文本编辑器的内容放入实体中*/
             this.$http.post({
-                url: "../user/queryUserListSafeByPage.do?pageNum="+this.pageNum+"&pageSize="+this.pageSize
+                url:"../material/save.do",materialEntity
+            })
+
+        },
+        updateSelection:function($event,id){
+                // 复选框选中
+                if($event.target.checked){
+                    // 向数组中添加元素
+                    this.selectIds.push(id);
+                }else{
+                    // 从数组中移除
+                    var idx = this.selectIds.indexOf(id);
+                    this.selectIds.splice(idx,1);
+                }
+        },
+        loadMaterialList: function () {
+            this.$http.post({
+                url: "../material/queryByPage.do?pageNum="+this.pageNum+"&pageSize="+this.pageSize
             }).then(function (result) {
                 this.userList = result.data;
             });
@@ -36,5 +56,27 @@ var materialManager = new Vue({
 
             });
         }
+    },
+    watch:{
+        'materialEntity.material.category1Id':function () {
+            $http({
+                method: 'post',
+                url: '../category/queryCategoryByParentID.do',
+                data: this.materialEntity.material.category1Id,
+            }).then(function (res) {
+                this.materialEntity.material.category2Id=res.data
+            });
+        },
+        'materialEntity.material.category2Id':function () {
+            $http({
+                method: 'post',
+                url: '../category/queryCategoryByParentID.do',
+                data: this.materialEntity.material.category2Id,
+            }).then(function (res) {
+
+            });
+        }
+        
+        
     }
 });
