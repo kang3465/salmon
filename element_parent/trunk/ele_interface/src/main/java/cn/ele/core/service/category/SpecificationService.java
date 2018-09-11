@@ -1,6 +1,7 @@
 package cn.ele.core.service.category;
 
 import cn.ele.core.pojo.category.Specification;
+import cn.ele.core.pojo.category.SpecificationEntity;
 import cn.ele.core.pojo.entity.PageResult;
 
 import java.util.List;
@@ -10,14 +11,21 @@ import java.util.List;
  */
 public interface SpecificationService {
     /**
-     * 查询所有的分类
+     * 查询所有的规格
      * @return
      * @throws Exception
      */
-    List<Specification> querySpecificationAll() throws Exception;
+    List<SpecificationEntity> querySpecificationAll() throws Exception;
+    /**
+     * 根据ID查询规格
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    SpecificationEntity queryOne(Long id) throws Exception;
 
     /**
-     * 查询出所有分类并分页
+     * 查询出所有规格并分页
      * @param pageNum 第几页
      * @param pageSize 每页的数量
      * @return
@@ -39,20 +47,26 @@ public interface SpecificationService {
      * @return
      * @throws Exception
      */
-    int addSpecification(Specification specification)throws Exception;
+    int addSpecification(SpecificationEntity specification)throws Exception;
     /**
      * 保存现有的规格信息
      * @param specification 保存的规格对象
      * @return
      * @throws Exception
      */
-    int saveSpecification(Specification specification)throws Exception;
+    int saveSpecification(SpecificationEntity specification)throws Exception;
     /**
      * 根据ID删除规格信息
-     * @param specificationID 保存的规格对象
+     * @param id 保存的规格对象
      * @return
      * @throws Exception
      */
-    int deleteSpecificationByID(Integer specificationID)throws Exception;
+    int deleteSpecificationByID(Long id)throws Exception;
 
+    /**
+     * 根据Ids删除多个规格
+     * @param ids
+     * @return
+     */
+    int deleteSpecificationByIDs(String ids);
 }
