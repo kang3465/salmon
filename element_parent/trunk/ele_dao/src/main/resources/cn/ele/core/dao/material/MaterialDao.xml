@@ -122,7 +122,7 @@
       #{price,jdbcType=DECIMAL}, #{typeTemplateId,jdbcType=BIGINT}, #{isEnableSpec,jdbcType=VARCHAR}, 
       #{isDelete,jdbcType=VARCHAR}, #{iconurl,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.ele.core.pojo.material.Material" >
+  <insert id="insertSelective" parameterType="cn.ele.core.pojo.material.Material" useGeneratedKeys="true" keyProperty="id">
     insert into ele_material
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
