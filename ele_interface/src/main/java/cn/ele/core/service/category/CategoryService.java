@@ -21,7 +21,7 @@ public interface CategoryService {
      * @return
      * @throws Exception
      */
-    List<Category> queryCategoryByParentID(Integer parentID) throws Exception;
+    List<Category> queryCategoryByParentID(Long parentID) throws Exception;
 
     /**
      * 添加分类

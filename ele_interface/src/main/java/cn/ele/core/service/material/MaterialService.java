@@ -26,10 +26,18 @@ public interface MaterialService {
     /**
      * 根据ID删除一条素材信息(逻辑删除)
      * @param id 需要删除的素材ID
-     * @return 返回影响的数量
+     * @return 返回删除的数量
      * @throws Exception
      */
     int deleteByID(Integer id) throws Exception;
+
+    /**
+     * 根据IDS字符串删除素材 （英文逗号隔开）
+     * @param ids  英文逗号隔开
+     * @return 返回删除的数量
+     * @throws Exception
+     */
+    int deleteByIDs(String ids) throws Exception;
 
     /**
      * 根据ID查询商品详情

@@ -28,7 +28,7 @@ public interface MaterialTypeTemplateSrevice {
      * @return 查询到的模板对象，未查找到返回null
      * @throws Exception
      */
-    MaterialTypeTemplate queryByID(Integer id) throws Exception;
+    MaterialTypeTemplate queryByID(Long id) throws Exception;
 
     /**
      * 新增一条素材模板数据
