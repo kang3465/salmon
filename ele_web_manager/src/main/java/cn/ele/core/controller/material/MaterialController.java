@@ -1,5 +1,6 @@
 package cn.ele.core.controller.material;
 
+import cn.ele.core.pojo.entity.PageResult;
 import cn.ele.core.pojo.entity.Result;
 import cn.ele.core.pojo.material.MaterialEntity;
 import cn.ele.core.service.material.MaterialService;
@@ -68,6 +69,15 @@ public class MaterialController {
         }
 
         return new Result(true, "删除素材成功");
+    }
+    @RequestMapping("queryByPage")
+    public PageResult queryByPage(Integer pageNum, Integer pageSize){
+        try {
+            return materialService.queryAllByPage(pageNum,pageNum);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

@@ -21,8 +21,8 @@ public class CategoryController {
      * 返回分类
      * @return
      */
-    @RequestMapping("queryCategory")
-    public List<Category> queryCategoryByParentID(Integer parentID){
+    @RequestMapping("queryCategoryByParentID")
+    public List<Category> queryCategoryByParentID(Long parentID){
         List<Category> categories=null;
 
         try {
