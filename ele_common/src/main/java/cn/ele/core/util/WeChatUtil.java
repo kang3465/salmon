@@ -119,6 +119,7 @@ public class WeChatUtil {
             jsonObject = JSONObject.fromObject(buffer.toString());
         } catch (ConnectException ce) {
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return jsonObject;
     }

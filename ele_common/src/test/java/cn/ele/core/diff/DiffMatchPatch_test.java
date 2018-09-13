@@ -18,26 +18,26 @@
 
 /**
  * Compile from diff-match-patch/java with:
- * javac -d classes src/name/fraser/neil/plaintext/diff_match_patch.java tests/name/fraser/neil/plaintext/diff_match_patch_test.java
+ * javac -d classes src/name/fraser/neil/plaintext/DiffMatchPatch.java tests/name/fraser/neil/plaintext/DiffMatchPatch_test.java
  * Execute with:
- * java -classpath classes name/fraser/neil/plaintext/diff_match_patch_test
+ * java -classpath classes name/fraser/neil/plaintext/DiffMatchPatch_test
  */
 
 package cn.ele.core.diff;
 
-import cn.ele.core.diff.diff_match_patch.Diff;
-import cn.ele.core.diff.diff_match_patch.LinesToCharsResult;
-import cn.ele.core.diff.diff_match_patch.Patch;
+import cn.ele.core.diff.DiffMatchPatch.Diff;
+import cn.ele.core.diff.DiffMatchPatch.LinesToCharsResult;
+import cn.ele.core.diff.DiffMatchPatch.Patch;
 import org.junit.Test;
 
 import java.util.*;
 
-public class diff_match_patch_test {
+public class DiffMatchPatch_test {
 
-  private static diff_match_patch dmp;
-  private static diff_match_patch.Operation DELETE = diff_match_patch.Operation.DELETE;
-  private static diff_match_patch.Operation EQUAL = diff_match_patch.Operation.EQUAL;
-  private static diff_match_patch.Operation INSERT = diff_match_patch.Operation.INSERT;
+  private static DiffMatchPatch dmp;
+  private static DiffMatchPatch.Operation DELETE = DiffMatchPatch.Operation.DELETE;
+  private static DiffMatchPatch.Operation EQUAL = DiffMatchPatch.Operation.EQUAL;
+  private static DiffMatchPatch.Operation INSERT = DiffMatchPatch.Operation.INSERT;
 
 
   //  DIFF TEST FUNCTIONS
@@ -939,10 +939,10 @@ public class diff_match_patch_test {
   private static String[] diff_rebuildtexts(LinkedList<Diff> diffs) {
     String[] text = {"", ""};
     for (Diff myDiff : diffs) {
-      if (myDiff.operation != diff_match_patch.Operation.INSERT) {
+      if (myDiff.operation != DiffMatchPatch.Operation.INSERT) {
         text[0] += myDiff.text;
       }
-      if (myDiff.operation != diff_match_patch.Operation.DELETE) {
+      if (myDiff.operation != DiffMatchPatch.Operation.DELETE) {
         text[1] += myDiff.text;
       }
     }
@@ -955,7 +955,7 @@ public class diff_match_patch_test {
   }
 
   public static void main(String args[]) {
-    dmp = new diff_match_patch();
+    dmp = new DiffMatchPatch();
 
     testDiffCommonPrefix();
     testDiffCommonSuffix();

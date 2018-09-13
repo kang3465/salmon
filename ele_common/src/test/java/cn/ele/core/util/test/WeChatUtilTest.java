@@ -1,12 +1,17 @@
 package cn.ele.core.util.test;
 
+import cn.ele.core.util.HttpClient;
 import cn.ele.core.util.WeChatUtil;
 import cn.ele.core.util.wechat.WechatAccount;
 import cn.ele.core.util.wechat.WechatInfo;
 import net.sf.json.JSONObject;
 import org.junit.Test;
+import weibo4j.util.WeiboConfig;
 
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class WeChatUtilTest {
@@ -22,6 +27,12 @@ public class WeChatUtilTest {
         System.out.println(accessToken);
     }
 
+    @Test
+    public void tes111() {
+        String pids = "11,";
+        pids = pids.substring(0,pids.length()-1);
+        System.out.println(pids);
+    }
     @Test
     public void httpRequest() {
         List<WechatInfo> wechatInfoList = new ArrayList<>();
@@ -46,7 +57,24 @@ public class WeChatUtilTest {
     }
 
     @Test
-    public void readInputStream() {
+    public void readInputStream() throws IOException, ParseException {//218.246.5.130
+        HttpClient httpClient = new HttpClient("http://101.200.56.109:8088/wbtt");
+        HashMap<String, String > contextmap = new HashMap<>();
+        contextmap.put("access_token", "2.00gM6KUD0H7OeJ07d2831e6f0EC6v1");
+        contextmap.put("source", WeiboConfig.getValue("client_ID"));
+        contextmap.put("rip", "218.246.5.130");
+        contextmap.put("title", "标题");
+        contextmap.put("content", "正文内容");
+        contextmap.put("cover","http://tva2.sinaimg.cn/crop.0.0.200.200.50/be6325a6jw1f06ykb8i44j205k05kglf.jpg");
+        contextmap.put("summary", "daodao=导语");
+        contextmap.put("text", "短微博内容");//text	string	是	与其绑定短微博内容，限制1900个中英文字符内VERIFIERverifier
+
+
+        httpClient.setParameter(contextmap);
+        httpClient.post();
+
+        String content = httpClient.getContent();
+        System.out.println(content);
     }
 
     @Test
