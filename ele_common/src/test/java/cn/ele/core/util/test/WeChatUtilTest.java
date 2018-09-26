@@ -57,8 +57,8 @@ public class WeChatUtilTest {
     }
 
     @Test
-    public void readInputStream() throws IOException, ParseException {//218.246.5.130
-        HttpClient httpClient = new HttpClient("http://101.200.56.109:8088/wbtt");
+    public void readInputStream() throws IOException, ParseException {//218.246.5.130  101.200.56.109:8088
+        HttpClient httpClient = new HttpClient("http://218.246.5.130/wbtt");
         HashMap<String, String > contextmap = new HashMap<>();
         contextmap.put("access_token", "2.00gM6KUD0H7OeJ07d2831e6f0EC6v1");
         contextmap.put("source", WeiboConfig.getValue("client_ID"));
