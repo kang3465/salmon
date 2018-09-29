@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Properties;
 
 public class WeChatUtilTest {
 
@@ -52,7 +53,7 @@ public class WeChatUtilTest {
     @Test
     public void getUserOpenIDs() {
         String url = "https://api.weixin.qq.com/cgi-bin/tags/get?access_token="+access_token;
-        JSONObject get = WeChatUtil.httpRequest(url, "get", null);
+        JSONObject get = WeChatUtil.httpsRequest(url, "get", null);
         System.out.println(get);
     }
 
@@ -78,7 +79,15 @@ public class WeChatUtilTest {
     }
 
     @Test
-    public void urlToFile() {
+    public void urlToFile() throws IOException {
+        Properties props = new Properties();
+        props.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("WeChatConfig.properties"));
+        String property = props.getProperty("nameList");
+        property=new String(property.getBytes("ISO-8859-1"),"gbk");
+        System.out.println(property);
+
+        String gbk = props.getProperty(new String(property.getBytes("gbk"),"ISO-8859-1"));
+        System.out.println(gbk);
 
     }
 
