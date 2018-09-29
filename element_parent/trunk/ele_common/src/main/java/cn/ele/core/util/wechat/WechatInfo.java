@@ -1,10 +1,25 @@
 package cn.ele.core.util.wechat;
 
 public class WechatInfo {
+    /**
+     * 微信图文消息正文
+     */
     private String content;
+    /**
+     * 封面图
+     */
     private String cover;
+    /**
+     * 作者
+     */
     private String author;
+    /**
+     * 标题
+     */
     private String title;
+    /**
+     * 原文连接（点击阅读原文跳转的界面）
+     */
     private String originallink;
     private String wechatabstract;
 
