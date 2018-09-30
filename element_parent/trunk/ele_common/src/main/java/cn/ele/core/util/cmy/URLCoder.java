@@ -178,22 +178,6 @@ public final class URLCoder {
         dontNeed[42] = true;
     }
 
-    public static void main(String[] var0) {
-        for(int var1 = 0; var1 < var0.length; ++var1) {
-            String var2 = var0[var1];
-            if ("-e".equals(var2)) {
-                ++var1;
-                encoding = var0[var1];
-            } else if ("-d".equals(var2)) {
-                ++var1;
-                System.out.println(decode(var0[var1]));
-            } else {
-                System.out.println(encode(var2));
-            }
-        }
-
-    }
-
     private static final boolean testEncoding(String var0) {
         if (var0 != null) {
             try {

@@ -231,27 +231,4 @@ public class CMyUnzip {
         }
     }
 
-    public static void main(String[] var0) {
-        CMyUnzip var1 = new CMyUnzip();
-
-        try {
-            var1.setZipFile(I18NMessage.get(CMyUnzip.class, "CMyUnzip.label13", "d:\\test\\zip\\测试.zip"));
-            var1.setEncoding("UTF8");
-            Enumeration var2 = var1.getItems();
-            int var3 = 0;
-
-            while(var2.hasMoreElements()) {
-                ZipEntry var4 = (ZipEntry)var2.nextElement();
-                if (var4 != null) {
-                    ++var3;
-                    System.out.println("[Item " + var3 + "] name=" + var4.getName() + " size=" + var4.getSize() + " compressed size=" + var4.getCompressedSize());
-                }
-            }
-
-            var1.unzip("d:\\test\\zip\\test\\", true);
-        } catch (Exception var5) {
-            System.out.println(var5);
-        }
-
-    }
 }

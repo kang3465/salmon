@@ -1321,15 +1321,4 @@ public class CMyFile {
 
 		return sb.toString();
 	}
-
-	public static void main(String[] args) {
-		try {
-			CMyFile.writeFile("/Users/caohui/tmp/中文-路径/t1.txt", "中文",
-					"UTF-8");
-			// CMyFile.writeFile("d:\\t2.txt", "中文", "GBK");
-		} catch (Exception e) {
-			e.printStackTrace(System.err);
-		}
-	}
-
 }

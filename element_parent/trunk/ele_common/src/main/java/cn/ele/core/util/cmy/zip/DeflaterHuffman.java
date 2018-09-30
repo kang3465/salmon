@@ -17,9 +17,9 @@ class DeflaterHuffman {
     private static final int[] BL_ORDER = new int[]{16, 17, 18, 0, 8, 7, 9, 6, 10, 5, 11, 4, 12, 3, 13, 2, 14, 1, 15};
     private static final String bit4Reverse = "\u0000\b\u0004\f\u0002\n\u0006\u000e\u0001\t\u0005\r\u0003\u000b\u0007\u000f";
     DeflaterPending pending;
-    private DeflaterHuffman.Tree literalTree;
-    private DeflaterHuffman.Tree distTree;
-    private DeflaterHuffman.Tree blTree;
+    private Tree literalTree;
+    private Tree distTree;
+    private Tree blTree;
     private short[] d_buf;
     private byte[] l_buf;
     private int last_lit;
@@ -35,9 +35,9 @@ class DeflaterHuffman {
 
     public DeflaterHuffman(DeflaterPending var1) {
         this.pending = var1;
-        this.literalTree = new DeflaterHuffman.Tree(286, 257, 15);
-        this.distTree = new DeflaterHuffman.Tree(30, 1, 15);
-        this.blTree = new DeflaterHuffman.Tree(19, 4, 7);
+        this.literalTree = new Tree(286, 257, 15);
+        this.distTree = new Tree(30, 1, 15);
+        this.blTree = new Tree(19, 4, 7);
         this.d_buf = new short[16384];
         this.l_buf = new byte[16384];
     }
@@ -492,7 +492,7 @@ class DeflaterHuffman {
             return var1;
         }
 
-        void calcBLFreq(DeflaterHuffman.Tree var1) {
+        void calcBLFreq(Tree var1) {
             byte var5 = -1;
             int var6 = 0;
 
@@ -537,7 +537,7 @@ class DeflaterHuffman {
 
         }
 
-        void writeTree(DeflaterHuffman.Tree var1) {
+        void writeTree(Tree var1) {
             byte var5 = -1;
             int var6 = 0;
 
