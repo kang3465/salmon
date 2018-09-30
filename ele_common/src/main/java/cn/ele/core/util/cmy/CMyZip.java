@@ -241,19 +241,6 @@ public class CMyZip {
         }
     }
 
-    public static void main(String[] var0) {
-        try {
-            CMyZip var2 = new CMyZip();
-            var2.setEncoding("gbk");
-            var2.setZipFileName("d:\\test\\zip\\测试.zip");
-            var2.addToZip("d:\\test\\zip\\edit.htm", true);
-            var2.addToZip("d:\\test\\zip\\" + I18NMessage.get(CMyZip.class, "CMyZip.label6", "中文.txt"));
-            var2.done();
-        } catch (Exception var3) {
-            var3.printStackTrace();
-        }
-
-    }
 
     public void setZipWithChildDirPath(boolean var1) {
         this.m_bZipWithChildDirPath = var1;

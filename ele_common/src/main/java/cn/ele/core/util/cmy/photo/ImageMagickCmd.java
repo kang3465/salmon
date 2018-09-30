@@ -128,7 +128,7 @@ public final class ImageMagickCmd {
 	private static void addWaterMarkInDefindePosition(String watermarkfile,
                                                       String filename, int[] gravity) throws Exception {
 		// 支持自定义水印位置
-		ImageMagickCmd.ImageObj img = new ImageObj(filename);
+		ImageObj img = new ImageObj(filename);
 		img.setFilename(filename);
 		Float temp = ((float) gravity[2] / (float) gravity[3])
 				* img.width;

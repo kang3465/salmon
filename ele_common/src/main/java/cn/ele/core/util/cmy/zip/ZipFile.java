@@ -148,7 +148,7 @@ public class ZipFile implements ZipConstants {
         if (this.entries == null) {
             throw new IllegalStateException("ZipFile has closed");
         } else {
-            return new ZipFile.ZipEntryEnumeration(this.entries);
+            return new ZipEntryEnumeration(this.entries);
         }
     }
 
@@ -209,7 +209,7 @@ public class ZipFile implements ZipConstants {
 
             long var3 = this.checkLocalHeader(this.entries[var2]);
             int var5 = this.entries[var2].getMethod();
-            ZipFile.PartialInputStream var6 = new ZipFile.PartialInputStream(this.raf, var3, this.entries[var2].getCompressedSize());
+            PartialInputStream var6 = new PartialInputStream(this.raf, var3, this.entries[var2].getCompressedSize());
             switch(var5) {
                 case 0:
                     return var6;

@@ -1686,16 +1686,4 @@ public class CMyString {
             return false;
         }
     }
-
-    public static void main(String[] var0) {
-        String var1 = I18NMessage.get(CMyString.class, "CMyString.label5", " \na aa \n bbb\n中 国\n\r大工业 ac bd \n \r全部bcc ");
-        var1 = replaceParasStartEndSpaces(var1);
-        System.out.println(var1);
-        String var2 = "action=post.do target = \"_bla nk\" onclick='alert(\"abc\"); return false;'";
-        System.out.println(split2AttrMap(var2));
-        String var3 = "~!@#$%^&*()_+|}{:?><,./;'[]\\=-`";
-        System.out.println("~!@#$%^&*()_+|}{:?><,./;'[]\\=-`".matches(encodeForRegExp(var3)));
-        String var4 = "&lt;div align='center'&gt;&nbsp;2010 北京拓尔思信息技术股份有限公司&lt;/div&gt;&lt;div align='center'&gt;版权所有.保留所有权&lt;/div&gt;";
-        System.out.println(unfilterForHTMLValue(var4));
-    }
 }
