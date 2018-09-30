@@ -26,6 +26,39 @@
     <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
     <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
   </resultMap>
+  <resultMap id="UserAndRolesResultMap" type="cn.ele.core.pojo.user.User">
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="updated" property="updated" jdbcType="TIMESTAMP" />
+    <result column="source_type" property="sourceType" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="head_pic" property="headPic" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="wechat" property="wechat" jdbcType="VARCHAR" />
+    <result column="account_balance" property="accountBalance" jdbcType="DECIMAL" />
+    <result column="is_mobile_check" property="isMobileCheck" jdbcType="VARCHAR" />
+    <result column="is_email_check" property="isEmailCheck" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="user_level" property="userLevel" jdbcType="INTEGER" />
+    <result column="points" property="points" jdbcType="INTEGER" />
+    <result column="experience_value" property="experienceValue" jdbcType="INTEGER" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="last_login_time" property="lastLoginTime" jdbcType="TIMESTAMP" />
+    <collection property="roles" ofType="cn.ele.core.pojo.user.Role">
+      <id column="ID" property="id" jdbcType="INTEGER" />
+      <result column="DESCRIPTION" property="description" jdbcType="VARCHAR" />
+      <result column="KEYWORD" property="keyword" jdbcType="VARCHAR" />
+      <result column="NAME" property="name" jdbcType="VARCHAR" />
+      <result column="CRTIME" property="crtime" jdbcType="TIMESTAMP" />
+      <result column="UPTIME" property="uptime" jdbcType="TIMESTAMP" />
+    </collection>
+  </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -292,6 +325,16 @@
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
+  </select>
+  <select id="selectUserAndRolesByExample" resultMap="UserAndRolesResultMap">
+    select
+    *
+    from
+    more.ele_role r,
+    more.ele_user u,
+    more.ele_user_role ur
+    where u.id = ur.USER_ID
+    and ur.ROLE_ID = r.ID;
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
     update ele_user

@@ -2,8 +2,9 @@ package cn.ele.core.dao.user;
 
 import cn.ele.core.pojo.user.User;
 import cn.ele.core.pojo.user.UserQuery;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UserDao {
     int countByExample(UserQuery example);
@@ -17,6 +18,7 @@ public interface UserDao {
     int insertSelective(User record);
 
     List<User> selectByExample(UserQuery example);
+    List<User> selectUserAndRolesByExample(UserQuery example);
 
     User selectByPrimaryKey(Long id);
 
