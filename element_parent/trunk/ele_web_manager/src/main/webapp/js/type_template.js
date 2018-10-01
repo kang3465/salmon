@@ -48,6 +48,8 @@ var typetemplateManager = new Vue({
             customAttributeItems:[],
 
         },
+        brandList:[],
+        specList:[],
             list: [],
         selectIds: [],
         grade: 1,
@@ -86,7 +88,7 @@ var typetemplateManager = new Vue({
             }).then(function (result) {
                 this.entity.id= result.data.id;
                 this.entity.name=result.data.name;
-                console.log(this.entity);
+                // console.log(this.entity);
                 var parse = JSON.parse(result.data.specIds);
                 for(var i=0;i<parse.length;i++){
                     this.entity.specIds.push(parse[i])
