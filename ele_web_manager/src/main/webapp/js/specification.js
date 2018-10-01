@@ -29,6 +29,9 @@ var a = new Vue({
             }]
 
         },
+        searchEntity:{
+            specName:""
+        },
         list: [],
         selectIds: [],
         grade: 1,

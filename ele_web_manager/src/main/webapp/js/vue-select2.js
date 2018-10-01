@@ -1,4 +1,13 @@
 Vue.directive('select2',{
+    bind: function (el, binding, vnode) {
+        // 初始化
+        debugger;
+        console.log(el);
+        console.log(binding);
+        console.log(vnode);
+        // var tagName = binding.value[0].tagName;
+        // console.log(tagName);
+    },
     inserted: function (el, binding, vnode) {
         var options = binding.value || {};
 
@@ -25,18 +34,17 @@ Vue.directive('select2',{
                 target: e.target
             })); //双向绑定不生效
         });
-        console.log($(el));
+        // console.log($(el));
 
         //绑定select2 dom渲染完毕时触发的事件
         options && options.onInit && options.onInit();
     },
     update: function (el, binding, vnode) {
         $(el).trigger("change");
-    },
-    bind:function () {
-    console.log(this.el);
-        this.el.select2({
-            placeholder: 'Select an option'
-        })
+    },componentUpdated:function (el, binding, vnode) {
+
+    },unbind:function (el, binding, vnode) {
+
     }
+
 });
