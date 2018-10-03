@@ -2,8 +2,9 @@ package cn.ele.core.dao.content;
 
 import cn.ele.core.pojo.content.Content;
 import cn.ele.core.pojo.content.ContentQuery;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ContentDao {
     int countByExample(ContentQuery example);

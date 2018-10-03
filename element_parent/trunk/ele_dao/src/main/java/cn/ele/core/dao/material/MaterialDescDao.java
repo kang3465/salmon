@@ -2,8 +2,9 @@ package cn.ele.core.dao.material;
 
 import cn.ele.core.pojo.material.MaterialDesc;
 import cn.ele.core.pojo.material.MaterialDescQuery;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface MaterialDescDao {
     int countByExample(MaterialDescQuery example);

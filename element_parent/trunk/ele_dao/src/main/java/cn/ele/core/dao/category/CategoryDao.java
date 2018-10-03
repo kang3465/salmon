@@ -2,8 +2,9 @@ package cn.ele.core.dao.category;
 
 import cn.ele.core.pojo.category.Category;
 import cn.ele.core.pojo.category.CategoryQuery;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface CategoryDao {
     int countByExample(CategoryQuery example);

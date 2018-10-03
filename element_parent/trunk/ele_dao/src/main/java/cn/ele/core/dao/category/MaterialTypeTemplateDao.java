@@ -2,8 +2,9 @@ package cn.ele.core.dao.category;
 
 import cn.ele.core.pojo.category.MaterialTypeTemplate;
 import cn.ele.core.pojo.category.MaterialTypeTemplateQuery;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface MaterialTypeTemplateDao {
     int countByExample(MaterialTypeTemplateQuery example);
