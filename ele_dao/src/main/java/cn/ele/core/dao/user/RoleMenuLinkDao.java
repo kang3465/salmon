@@ -3,8 +3,9 @@ package cn.ele.core.dao.user;
 import cn.ele.core.pojo.user.RoleMenuLink;
 import cn.ele.core.pojo.user.RoleMenuLinkKey;
 import cn.ele.core.pojo.user.RoleMenuLinkQuery;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface RoleMenuLinkDao {
     int countByExample(RoleMenuLinkQuery example);

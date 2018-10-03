@@ -2,8 +2,9 @@ package cn.ele.core.dao.subscription;
 
 import cn.ele.core.pojo.subscription.SubscriptionEmail;
 import cn.ele.core.pojo.subscription.SubscriptionEmailQuery;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SubscriptionEmailDao {
     int countByExample(SubscriptionEmailQuery example);

@@ -18,7 +18,6 @@ public interface UserDao {
     int insertSelective(User record);
 
     List<User> selectByExample(UserQuery example);
-    List<User> selectUserAndRolesByExample(UserQuery example);
 
     User selectByPrimaryKey(Long id);
 
