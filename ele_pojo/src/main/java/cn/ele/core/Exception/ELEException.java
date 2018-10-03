@@ -1,4 +1,4 @@
-package cn.ele.core.pojo.Exception;
+package cn.ele.core.Exception;
 
 public class ELEException extends Exception {
 
