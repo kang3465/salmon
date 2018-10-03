@@ -1,4 +1,4 @@
-package cn.ele.core.pojo.entity;
+package cn.ele.core.entity;
 
 import java.io.Serializable;
 import java.util.List;

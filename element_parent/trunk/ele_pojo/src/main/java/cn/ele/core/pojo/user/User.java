@@ -2,7 +2,6 @@ package cn.ele.core.pojo.user;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 public class User implements Serializable {
     private Long id;
@@ -50,16 +49,6 @@ public class User implements Serializable {
     private Date birthday;
 
     private Date lastLoginTime;
-
-    private List<Role> roles;
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
 
     private static final long serialVersionUID = 1L;
 

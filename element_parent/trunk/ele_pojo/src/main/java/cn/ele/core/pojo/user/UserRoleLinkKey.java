@@ -3,25 +3,25 @@ package cn.ele.core.pojo.user;
 import java.io.Serializable;
 
 public class UserRoleLinkKey implements Serializable {
-    private Integer userId;
+    private Long userId;
 
-    private Integer roleId;
+    private Long roleId;
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
-    public Integer getRoleId() {
+    public Long getRoleId() {
         return roleId;
     }
 
-    public void setRoleId(Integer roleId) {
+    public void setRoleId(Long roleId) {
         this.roleId = roleId;
     }
 

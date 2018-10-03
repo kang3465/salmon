@@ -1,18 +1,13 @@
-package cn.ele.core.pojo.category;
+package cn.ele.core.pojo.material;
 
 import java.io.Serializable;
 
-public class Category implements Serializable {
+public class Brand implements Serializable {
     private Long id;
-
-    private Long parentId;
 
     private String name;
 
-    /**
-     * 模板id
-     */
-    private Long typeId;
+    private String firstChar;
 
     private static final long serialVersionUID = 1L;
 
@@ -24,14 +19,6 @@ public class Category implements Serializable {
         this.id = id;
     }
 
-    public Long getParentId() {
-        return parentId;
-    }
-
-    public void setParentId(Long parentId) {
-        this.parentId = parentId;
-    }
-
     public String getName() {
         return name;
     }
@@ -40,12 +27,12 @@ public class Category implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
-    public Long getTypeId() {
-        return typeId;
+    public String getFirstChar() {
+        return firstChar;
     }
 
-    public void setTypeId(Long typeId) {
-        this.typeId = typeId;
+    public void setFirstChar(String firstChar) {
+        this.firstChar = firstChar == null ? null : firstChar.trim();
     }
 
     @Override
@@ -55,9 +42,8 @@ public class Category implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", parentId=").append(parentId);
         sb.append(", name=").append(name);
-        sb.append(", typeId=").append(typeId);
+        sb.append(", firstChar=").append(firstChar);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
@@ -74,11 +60,10 @@ public class Category implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Category other = (Category) that;
+        Brand other = (Brand) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
-            && (this.getParentId() == null ? other.getParentId() == null : this.getParentId().equals(other.getParentId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
-            && (this.getTypeId() == null ? other.getTypeId() == null : this.getTypeId().equals(other.getTypeId()));
+            && (this.getFirstChar() == null ? other.getFirstChar() == null : this.getFirstChar().equals(other.getFirstChar()));
     }
 
     @Override
@@ -86,9 +71,8 @@ public class Category implements Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
-        result = prime * result + ((getParentId() == null) ? 0 : getParentId().hashCode());
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
-        result = prime * result + ((getTypeId() == null) ? 0 : getTypeId().hashCode());
+        result = prime * result + ((getFirstChar() == null) ? 0 : getFirstChar().hashCode());
         return result;
     }
 }
