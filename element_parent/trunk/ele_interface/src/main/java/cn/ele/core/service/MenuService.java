@@ -20,5 +20,5 @@ public interface MenuService {
      * @return
      * @throws Exception
      */
-    List<Menu> queryMenuByPid(Integer Pid) throws Exception;
+    List<Menu> queryMenuByPid(Long Pid) throws Exception;
 }
