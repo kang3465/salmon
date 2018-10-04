@@ -1,9 +1,9 @@
 package cn.ele.core.service.category;
 
 import cn.ele.core.dao.category.MaterialTypeTemplateDao;
+import cn.ele.core.entity.PageResult;
 import cn.ele.core.pojo.category.MaterialTypeTemplate;
 import cn.ele.core.pojo.category.MaterialTypeTemplateQuery;
-import cn.ele.core.pojo.entity.PageResult;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
