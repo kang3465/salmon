@@ -1,6 +1,6 @@
 package cn.ele.core.service.material;
 
-import cn.ele.core.pojo.entity.PageResult;
+import cn.ele.core.entity.PageResult;
 import cn.ele.core.pojo.material.MaterialEntity;
 
 /**

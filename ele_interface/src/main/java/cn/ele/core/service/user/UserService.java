@@ -1,6 +1,6 @@
 package cn.ele.core.service.user;
 
-import cn.ele.core.pojo.entity.PageResult;
+import cn.ele.core.entity.PageResult;
 import cn.ele.core.pojo.user.Permission;
 import cn.ele.core.pojo.user.Role;
 import cn.ele.core.pojo.user.User;

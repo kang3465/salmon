@@ -1,8 +1,8 @@
 package cn.ele.core.service.category;
 
+import cn.ele.core.entity.PageResult;
 import cn.ele.core.pojo.category.Specification;
 import cn.ele.core.pojo.category.SpecificationEntity;
-import cn.ele.core.pojo.entity.PageResult;
 
 import java.util.List;
 
