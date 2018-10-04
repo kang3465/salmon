@@ -2,10 +2,10 @@ package cn.ele.core.util;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Component;
 
-import javax.jms.Destination;
-import javax.jms.MapMessage;
+import javax.jms.*;
 import java.util.Map;
 
 /**
@@ -26,15 +26,18 @@ public class JmsUtil {
 	 */
 	public void send(Destination destination, final Map<String ,String> map){
 		System.out.println("---------------生产者发送消息-----------------");   
-		jmsTemplate.send(destination, session -> {
+		jmsTemplate.send(destination, new MessageCreator() {
+			@Override
+			public Message createMessage(Session session) throws JMSException {
 
-			MapMessage mapMessage = session.createMapMessage();
+				MapMessage mapMessage = session.createMapMessage();
 
-			for(String key:map.keySet()){
-				mapMessage.setString(key, map.get(key));
+				for (String key : map.keySet()) {
+					mapMessage.setString(key, map.get(key));
+				}
+
+				return mapMessage;
 			}
-
-			return mapMessage;
 		});
 	}
 	
@@ -46,7 +49,12 @@ public class JmsUtil {
 	 */
 	public void send(Destination destination, final String text){
 		System.out.println("---------------生产者发送消息(Text)-----------------");   
-		jmsTemplate.send(destination, session -> session.createTextMessage(text));
+		jmsTemplate.send(destination, new MessageCreator() {
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				return session.createTextMessage(text);
+			}
+		});
 	}
 	
 }

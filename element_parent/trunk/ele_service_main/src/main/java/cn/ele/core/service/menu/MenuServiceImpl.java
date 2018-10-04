@@ -5,11 +5,12 @@ import cn.ele.core.pojo.user.*;
 import cn.ele.core.service.MenuService;
 import cn.ele.core.service.user.UserService;
 import com.alibaba.dubbo.config.annotation.Service;
-import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 @Service
 @Transactional
@@ -44,7 +45,7 @@ public class MenuServiceImpl implements MenuService {
         roleMenuLinkQueryCriteria.andRoleIdEqualTo(role.getId());
         List<RoleMenuLink> roleMenuLinks = roleMenuLinkDao.selectByExample(roleMenuLinkQuery);
         /*创建存放第一级Menu的ID集合对象*/
-        List<Menu> menuList = queryMenuByPid(0);
+        List<Menu> menuList = queryMenuByPid((long) 0);
 
         /*循环第一级菜单I的集合，获取第二级菜单目录*/
         for(Menu menu:menuList){
@@ -54,7 +55,7 @@ public class MenuServiceImpl implements MenuService {
     }
 
     @Override
-    public List<Menu> queryMenuByPid(Integer pid) throws Exception {
+    public List<Menu> queryMenuByPid(Long pid) throws Exception {
         MenuQuery menuQuery = new MenuQuery();
         MenuQuery.Criteria criteria = menuQuery.createCriteria().andPidEqualTo(pid);menuQuery.setOrderByClause("priority");
         return menuDao.selectByExample(menuQuery);

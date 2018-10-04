@@ -8,6 +8,7 @@ import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
+import sun.misc.BASE64Encoder;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
@@ -15,12 +16,12 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.Arrays;
-import java.util.Base64;
-import java.util.Base64.Encoder;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+//import java.util.Base64;
+//import java.util.Base64.Encoder;
 
 
 /**
@@ -67,16 +68,31 @@ public class WeiboLogin {
     @SuppressWarnings("restriction")
     public static String Base64Encode(String account) {
         String userName = "";
-       Encoder encoder = Base64.getUrlEncoder();
+        BASE64Encoder encoder = new BASE64Encoder();
         //
         try {
-            userName = Arrays.toString(encoder.encode(URLEncoder.encode(account, "UTF-8").getBytes()));
+            userName = Arrays.toString(new String[]{encoder.encode(account.getBytes("UTF-8"))});
         } catch (UnsupportedEncodingException e) {
             logger.error("用户名加密失败！");
         }
         return userName;
     }
+/**
 
+ public static String Base64Encode(String account) {
+ String userName = "";
+ Base64Encoder encoder = Base64Encoder.getUrlEncoder();
+ //
+ try {
+ userName = Arrays.toString(encoder.encode(URLEncoder.encode(account, "UTF-8").getBytes()));
+ } catch (UnsupportedEncodingException e) {
+ logger.error("用户名加密失败！");
+ }
+ return userName;
+ }
+
+
+ */
     /**
      * 获取JSON对象
      *

@@ -454,7 +454,7 @@ public class MenuQuery {
             return (Criteria) this;
         }
 
-        public Criteria andPidEqualTo(Integer value) {
+        public Criteria andPidEqualTo(Long value) {
             addCriterion("PID =", value, "pid");
             return (Criteria) this;
         }

@@ -1,7 +1,7 @@
 package cn.ele.core.service.user;
 
 import cn.ele.core.dao.user.*;
-import cn.ele.core.pojo.entity.PageResult;
+import cn.ele.core.entity.PageResult;
 import cn.ele.core.pojo.user.*;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;
@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -33,7 +32,6 @@ public class UserServiceImpl implements UserService {
         UserQuery userQuery = new UserQuery();
         UserQuery.Criteria criteria = userQuery.createCriteria();
         criteria.andUsernameEqualTo(userName);
-        userQuery.or(criteria);
         List<User> users = userDao.selectByExample(userQuery);
         if (users.size() <= 0) {
             return null;
@@ -47,7 +45,7 @@ public class UserServiceImpl implements UserService {
     public List<Role> findRolesByUserId(Long userId) {
         UserRoleLinkQuery userRoleLinkQuery = new UserRoleLinkQuery();
         UserRoleLinkQuery.Criteria userRoleLinkQueryCriteria = userRoleLinkQuery.createCriteria();
-        userRoleLinkQueryCriteria.andUserIdEqualTo(Math.toIntExact(userId));
+        userRoleLinkQueryCriteria.andUserIdEqualTo((long) userId.intValue());
         userRoleLinkQuery.or(userRoleLinkQueryCriteria);
         List<UserRoleLinkKey> userRoleLinkKeys = userRoleLinkDao.selectByExample(userRoleLinkQuery);
 
@@ -65,7 +63,7 @@ public class UserServiceImpl implements UserService {
     public Role findRoleByUserId(Long userId) {
         UserRoleLinkQuery userRoleLinkQuery = new UserRoleLinkQuery();
         UserRoleLinkQuery.Criteria userRoleLinkQueryCriteria = userRoleLinkQuery.createCriteria();
-        userRoleLinkQueryCriteria.andUserIdEqualTo(Math.toIntExact(userId));
+        userRoleLinkQueryCriteria.andUserIdEqualTo((long) userId.intValue());
         userRoleLinkQuery.or(userRoleLinkQueryCriteria);
         List<UserRoleLinkKey> userRoleLinkKeys = userRoleLinkDao.selectByExample(userRoleLinkQuery);
         return roleDao.selectByPrimaryKey(userRoleLinkKeys.get(0).getRoleId());
@@ -107,8 +105,8 @@ public class UserServiceImpl implements UserService {
         String username = user.getUsername();
         user = findOneByUserName(username);
         UserRoleLinkKey userRoleLinkKey = new UserRoleLinkKey();
-        userRoleLinkKey.setRoleId(1);
-        userRoleLinkKey.setUserId(Math.toIntExact(user.getId()));
+        userRoleLinkKey.setRoleId((long) 1);
+        userRoleLinkKey.setUserId((long) user.getId().intValue());
         return userRoleLinkDao.insertSelective(userRoleLinkKey);
     }
 

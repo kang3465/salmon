@@ -38,7 +38,7 @@ public final class I18NMessage {
         if (var4.exists() && var4.isDirectory()) {
             String var5 = "i18nmessage.properties";
             final HashSet var7 = new HashSet(500, 0.2F);
-            String finalVar = var5;
+            final String finalVar = var5;
             var4.listFiles(new FileFilter() {
                 public boolean accept(File var1) {
                     if (var1.isDirectory()) {

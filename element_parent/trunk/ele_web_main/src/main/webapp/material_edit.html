@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- 页面meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>素材编辑</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+
+	<link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.css">
+	<script src="../assets/vendor/jquery/jquery.js"></script>
+	<script src="../assets/vendor/bootstrap/js/bootstrap.js"></script>
+    
+    <!-- 富文本编辑器 -->
+	<link rel="stylesheet" href="../plugins/kindeditor/themes/default/default.css" />
+	<script charset="utf-8" src="../plugins/kindeditor/kindeditor-min.js"></script>
+	<script charset="utf-8" src="../plugins/kindeditor/lang/zh_CN.js"></script>
+
+	<!-- 引入vue的js -->
+	<script src="../assets/vendor/vue/vue.js"></script>
+	<script src="../assets/vendor/vue/vue-resource.js"></script>
+    
+</head>
+
+<body class="hold-transition skin-red sidebar-mini" >
+
+            <!-- 正文区域 -->
+            <section class="content">
+
+                <div class="box-body">
+
+                    <!--tab页-->
+                    <div class="nav-tabs-custom">
+
+                        <!--tab头-->
+                        <ul class="nav nav-tabs">                       		
+                            <li class="active">
+                                <a href="#home" data-toggle="tab">素材基本信息</a>
+                            </li>   
+                            <li >
+                                <a href="#pic_upload" data-toggle="tab">素材附件</a>
+                            </li>    
+                            <li >
+                                <a href="#customAttribute" data-toggle="tab">扩展属性</a>                                                        
+                            </li>     
+                            <li >
+                                <a href="#spec" data-toggle="tab" >规格</a>                                                        
+                            </li>                       
+                        </ul>
+                        <!--tab头/-->
+						
+                        <!--tab内容-->
+                        <div class="tab-content">
+
+                            <!--表单内容-->
+                            <div class="tab-pane active" id="home">
+                                <div class="row data-type">                                  
+								   <div class="col-md-2 title">素材分类</div>
+		                          
+		                           	  <div class="col-md-10 data">
+		                           	  	<table>
+		                           	  		<tr>
+		                           	  			<td>
+		                           	  				<select class="form-control" v-model="materialEntity.material.category1Id" >
+														<option v-for="value in itemCat1List" :value ="value.id">{{value.name}}</option>
+													</select>
+		                              			</td>
+		                              			<td>
+		                           	  				<select class="form-control select-sm"  v-model="materialEntity.material.category2Id" v-options="item.id as item.name for item in itemCat2List">
+
+													</select>
+		                              			</td>
+		                              			<td>
+		                           	  				<select class="form-control select-sm" v-model="materialEntity.material.category3Id" v-options="item.id as item.name for item in itemCat3List"></select>
+		                              			</td>
+		                              			<td>
+		                           	  				模板ID:{{materialEntity.material.typeTemplateId}}
+		                              			</td>
+		                           	  		</tr>
+		                           	  	</table>
+		                              	
+		                              </div>	                              
+		                          	  
+									
+		                           <div class="col-md-2 title">素材名称</div>
+		                           <div class="col-md-10 data">
+		                               <input type="text" v-model="materialEntity.material.materialName" class="form-control" placeholder="素材名称" value="">
+		                           </div>
+		                           
+		                           <div class="col-md-2 title">品牌</div>
+		                           <div class="col-md-10 data">
+		                              <select class="form-control" v-model="materialEntity.material.brandId" v-options="item.id as item.text for item in typeTemplate.brandIds" ></select>
+		                           </div>
+		
+								   <div class="col-md-2 title">副标题</div>
+		                           <div class="col-md-10 data">
+		                               <input type="text" v-model="materialEntity.material.caption"  class="form-control"   placeholder="副标题" value="">
+		                           </div>
+		                           
+		                           <div class="col-md-2 title">价格</div>
+		                           <div class="col-md-10 data">
+		                           	   <div class="input-group">
+			                          	   <span class="input-group-addon">¥</span>
+			                               <input type="text"v-model="materialEntity.material.price"   class="form-control"  placeholder="价格" value="">
+		                           	   </div>
+		                           </div>
+		                           
+		                           <div class="col-md-2 title editer">素材介绍</div>
+                                   <div class="col-md-10 data editer">
+                                       <textarea name="content" style="width:800px;height:400px;visibility:hidden;" ></textarea>
+                                   </div>
+		                           
+		                           <div class="col-md-2 title rowHeight2x">包装列表</div>
+		                           <div class="col-md-10 data rowHeight2x">
+		                               
+		                           	<textarea rows="4"  class="form-control"  v-model="materialEntity.materialDesc.packageList" placeholder="包装列表"></textarea>
+		                           </div>
+		                           
+		                           <div class="col-md-2 title rowHeight2x">售后服务</div>
+		                           <div class="col-md-10 data rowHeight2x">
+		                               <textarea rows="4"  class="form-control"   v-model="materialEntity.materialDesc.saleService"  placeholder="售后服务"></textarea>
+		                           </div>                        
+                                  
+                                    
+                                </div>
+                            </div>
+                            
+                            <!--图片上传-->
+                            <div class="tab-pane" id="pic_upload">
+                                <div class="row data-type">                                  
+								 <!-- 颜色图片 -->
+								 <div class="btn-group">
+					                 <button type="button" @click="image_entity={}" class="btn btn-default" title="新建" data-target="#uploadModal"  data-toggle="modal"  ><i class="fa fa-file-o"></i> 新建</button>
+                             		                 
+					             </div>
+								 
+								 <table class="table table-bordered table-striped table-hover dataTable">
+					                    <thead>
+					                        <tr>
+					                            
+											    <th class="sorting">颜色</th>
+											    <th class="sorting">图片</th>
+												<th class="sorting">操作</th>
+							            </thead>
+					                    <tbody>
+					                      <tr v-for="pojo in materialEntity.materialDesc.itemImages">
+									            <td>
+									            	{{pojo.color}}
+									            </td>
+									            <td>
+									           		<img alt="" src="{{pojo.url}}" width="100px" height="100px">	            	 
+									            </td>
+												 <td> <button type="button" @click="remove_iamge_entity($index)" class="btn btn-default" title="删除" ><i class="fa fa-trash-o"></i> 删除</button></td>
+					                      </tr>
+					                    </tbody>
+								 </table> 
+								  {{materialEntity.materialDesc.itemImages}}
+                                </div>
+                            </div>
+                           
+                           
+                            <!--扩展属性-->
+                            <div class="tab-pane" id="customAttribute">
+                                <div class="row data-type">                                
+	                                <div v-for="pojo in materialEntity.materialDesc.customAttributeItems">
+		                                <div class="col-md-2 title">{{pojo.text}}</div>
+				                        <div class="col-md-10 data">
+				                              <input class="form-control" v-model="pojo.value" placeholder="{{pojo.text}}">
+				                        </div>
+	                                </div>       
+                                </div>
+                            </div>
+                      
+                            <!--规格-->
+                            <div class="tab-pane" id="spec">
+                            	<div class="row data-type">
+	                            	<div class="col-md-2 title">是否启用规格</div>
+			                        <div class="col-md-10 data">
+			                        	<input type="checkbox" v-model="materialEntity.material.isEnableSpec" v-true-value="1" v-false-value="0">
+			                        </div>
+                            	</div>
+                            	<p>
+                            	
+                            	<div v-if="materialEntity.material.isEnableSpec == 1">
+                            	
+	                                <div class="row data-type">
+	                                
+		                                <div v-for="pojo in specList">
+			                                <div class="col-md-2 title">{{pojo.text}}</div>
+					                        <div class="col-md-10 data">
+					                               
+					                            <span v-for="option in pojo.options">
+					                            	<input v-checked="checkAttributeValue(pojo.text,option.optionName)" @click="updateSpecAttribute($event,pojo.text,option.optionName);createItemList()" type="checkbox" >{{option.optionName}}
+					                            </span>  	
+					                            	
+					                        </div>
+		                                </div>   
+		                                                                                  
+	                                </div>
+	                                <div class="row data-type">
+	                                	 <table class="table table-bordered table-striped table-hover dataTable">
+						                    <thead>
+						                        <tr>					                          
+												    <th class="sorting" v-for="pojo in materialEntity.materialDesc.specificationItems">{{pojo.attributeName}}</th>
+												    <th class="sorting">价格</th>
+												    <th class="sorting">库存</th>
+												    <th class="sorting">是否启用</th>
+												    <th class="sorting">是否默认</th>
+											    </tr>
+								            </thead>
+						                    <tbody>
+						                      <tr v-for="pojo in materialEntity.itemList">
+										            <td v-for="item in materialEntity.materialDesc.specificationItems">
+										            	{{pojo.spec[item.attributeName]}}
+										            </td>
+										            <td>
+										           		<input class="form-control" v-model="pojo.price" placeholder="价格">
+										            </td>
+										            <td>
+										            	<input class="form-control" v-model="pojo.num"  placeholder="库存数量">
+										            </td>
+										            <td>
+										             	<input type="checkbox"  v-model="pojo.status" v-true-value="1" v-false-value="0">
+										            </td>
+										            <td>
+										                <input type="checkbox"  v-model="pojo.isDefault"  v-true-value="1" v-false-value="0">
+										            </td>
+						                      </tr>
+											  
+						                    </tbody>
+									 	</table>
+								
+	                                </div>
+	                                
+	                            </div>
+                            </div>
+                            
+                        </div>
+                        <!--tab内容/-->
+						<!--表单内容/-->
+							 
+                    </div>
+                 	
+                 	
+                 	
+                 	
+                   </div>
+                  <div class="btn-toolbar list-toolbar">
+				      <button class="btn btn-primary" @click="save()"><i class="fa fa-save"></i>保存素材</button>
+				      <button class="btn btn-default" >返回列表</button>
+				  </div>
+			
+            </section>
+            
+            
+<!-- 上传窗口 -->
+<div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">上传素材附件</h3>
+		</div>
+		<div class="modal-body">							
+			
+			<table class="table table-bordered table-striped">
+		      	<tr>
+		      		<td>颜色</td>
+		      		<td><input v-model="image_entity.color" class="form-control" placeholder="颜色" >  </td>
+		      	</tr>			    
+		      	<tr>
+		      		<td>素材附件</td>
+		      		<td>
+						<table>
+							<tr>
+								<td>
+								<input type="file" id="file" />				                
+					                <button class="btn btn-primary" type="button" @click="uploadFile()">
+				                   		上传
+					                </button>	
+					            </td>
+								<td>
+									<img  src="{{image_entity.url}}" width="200px" height="200px">
+								</td>
+							</tr>						
+						</table>
+		      		</td>
+		      	</tr>		      	
+			 </table>				
+			
+		</div>
+		<div class="modal-footer">						
+			<button class="btn btn-success"  data-dismiss="modal" @click="add_image_entity()" aria-hidden="true">保存</button>
+			<button class="btn btn-default" data-dismiss="modal" aria-hidden="true">关闭</button>
+		</div>
+		{{image_entity}}
+	  </div>
+	</div>
+</div>
+
+            
+            <!-- 正文区域 /-->
+<script type="text/javascript">
+
+	var editor;
+	KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="content"]', {
+			allowFileManager : true
+		});
+	});
+
+</script>
+       
+</body>
+
+<script src="../js/MaterialManager.js"></script>
+</html>
