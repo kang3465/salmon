@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User findOneByUserName(String userName) throws Exception {
         UserQuery userQuery = new UserQuery();
+
         UserQuery.Criteria criteria = userQuery.createCriteria();
         criteria.andUsernameEqualTo(userName);
         List<User> users = userDao.selectByExample(userQuery);

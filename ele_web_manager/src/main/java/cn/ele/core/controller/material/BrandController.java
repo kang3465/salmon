@@ -1,6 +1,5 @@
 package cn.ele.core.controller.material;
 
-import cn.ele.core.pojo.category.Specification;
 import cn.ele.core.pojo.category.SpecificationEntity;
 import cn.ele.core.entity.PageResult;
 import cn.ele.core.entity.Result;
@@ -12,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("specification")
-public class SpecificationController {
+@RequestMapping("brand")
+public class BrandController {
 
     @Reference
     SpecificationService specificationService;

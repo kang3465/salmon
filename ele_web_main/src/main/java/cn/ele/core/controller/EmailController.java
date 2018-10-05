@@ -1,6 +1,6 @@
 package cn.ele.core.controller;
 
-import cn.ele.core.pojo.entity.Result;
+import cn.ele.core.entity.Result;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

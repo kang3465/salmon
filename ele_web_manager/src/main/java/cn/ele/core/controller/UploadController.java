@@ -1,6 +1,6 @@
 package cn.ele.core.controller;
 
-import cn.ele.core.pojo.entity.Result;
+import cn.ele.core.entity.Result;
 import cn.ele.core.util.FastDFSClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
