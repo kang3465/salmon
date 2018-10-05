@@ -4,16 +4,15 @@ import cn.ele.core.util.HttpClient;
 import cn.ele.core.util.WeChatUtil;
 import cn.ele.core.util.wechat.WechatAccount;
 import cn.ele.core.util.wechat.WechatInfo;
+import cn.ele.core.util.weibo.AutoOAuth4Code;
 import net.sf.json.JSONObject;
 import org.junit.Test;
+import weibo4j.http.AccessToken;
 import weibo4j.util.WeiboConfig;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class WeChatUtilTest {
 
@@ -92,11 +91,40 @@ public class WeChatUtilTest {
     }
 
     @Test
-    public void uploadMedia() {
+    public void uploadMedia() throws IOException, ParseException {
+        String URL = "https://api.weibo.com/oauth2/authorize";
+        String client_id = WeiboConfig.getValue("client_ID");
+        String redirect_uri = WeiboConfig.getValue("redirect_URI");
+        String scope = "all";
+        Map<String ,String> parm = new HashMap<>();
+        parm.put("client_id",client_id);
+        parm.put("redirect_uri",redirect_uri);
+        parm.put("scope",scope);
+        HttpClient httpClient = new HttpClient(URL, parm);
+        httpClient.post();
+        String content1 = httpClient.getContent();
+
     }
 
     @Test
-    public void batchgetMaterial() {
+    public void batchgetMaterial() throws IOException, ParseException {
+        AccessToken accessToken = AutoOAuth4Code.AccessTokenRefresh("16619884445", "wb.123456");
+        Map<String ,String> parm = new HashMap<>();
+        String accessToken1 = accessToken.getAccessToken();
+        String title = "ceshi";
+        String content= "neitong";
+        String cover = "http://218.246.5.130//webpic/W0201809/W020180906/W020180906512588056443.jpg";
+        String summary = "daoyu";
+        String text = "短微博内容";
+        parm.put("title",title);
+        parm.put("content",content);
+        parm.put("cover",cover);
+        parm.put("summary",summary);
+        parm.put("text",text);
+        parm.put("accessToken",accessToken1);
+        HttpClient httpClient = new HttpClient("https://api.weibo.com/proxy/article/publish.json", parm);
+        httpClient.post();
+        String content1 = httpClient.getContent();
     }
 
     @Test

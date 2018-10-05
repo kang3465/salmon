@@ -1,8 +1,8 @@
 package cn.ele.core.controller.material;
 
 import cn.ele.core.pojo.category.MaterialTypeTemplate;
-import cn.ele.core.pojo.entity.PageResult;
-import cn.ele.core.pojo.entity.Result;
+import cn.ele.core.entity.PageResult;
+import cn.ele.core.entity.Result;
 import cn.ele.core.service.category.MaterialTypeTemplateSrevice;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.web.bind.annotation.RequestMapping;

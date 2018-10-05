@@ -1,7 +1,7 @@
 package cn.ele.core.controller.material;
 
-import cn.ele.core.pojo.entity.PageResult;
-import cn.ele.core.pojo.entity.Result;
+import cn.ele.core.entity.PageResult;
+import cn.ele.core.entity.Result;
 import cn.ele.core.pojo.material.MaterialEntity;
 import cn.ele.core.service.material.MaterialService;
 import com.alibaba.dubbo.config.annotation.Reference;

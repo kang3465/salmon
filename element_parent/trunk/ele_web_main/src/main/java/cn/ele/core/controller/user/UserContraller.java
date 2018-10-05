@@ -1,10 +1,9 @@
 package cn.ele.core.controller.user;
 
-import cn.ele.core.pojo.entity.Result;
+import cn.ele.core.entity.Result;
 import cn.ele.core.pojo.user.User;
 import cn.ele.core.service.user.UserService;
 import com.alibaba.dubbo.config.annotation.Reference;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

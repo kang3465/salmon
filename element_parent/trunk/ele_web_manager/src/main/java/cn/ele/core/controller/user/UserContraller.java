@@ -1,7 +1,7 @@
 package cn.ele.core.controller.user;
 
-import cn.ele.core.pojo.entity.PageResult;
-import cn.ele.core.pojo.entity.Result;
+import cn.ele.core.entity.PageResult;
+import cn.ele.core.entity.Result;
 import cn.ele.core.pojo.user.User;
 import cn.ele.core.service.user.UserService;
 import com.alibaba.dubbo.config.annotation.Reference;
