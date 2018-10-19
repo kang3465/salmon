@@ -6,7 +6,10 @@ import cn.ele.core.pojo.user.User;
 import cn.ele.core.service.user.UserService;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author kang
