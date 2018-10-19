@@ -1,9 +1,8 @@
 package cn.ele.core.controller.material;
 
-import cn.ele.core.pojo.category.Specification;
-import cn.ele.core.pojo.category.SpecificationEntity;
 import cn.ele.core.entity.PageResult;
 import cn.ele.core.entity.Result;
+import cn.ele.core.pojo.category.SpecificationEntity;
 import cn.ele.core.service.category.SpecificationService;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.security.access.annotation.Secured;
