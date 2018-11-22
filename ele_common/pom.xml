@@ -16,6 +16,10 @@
     <url>http://www.example.com</url>
 
     <dependencies>
+        <!--<dependency>-->
+            <!--<groupId>org.springframework.security.oauth</groupId>-->
+            <!--<artifactId>spring-security-oauth2</artifactId>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
@@ -268,6 +272,11 @@
         <dependency>
             <groupId>com.weibo4j</groupId>
             <artifactId>weibo4j-oauth2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-elasticsearch</artifactId>
+            <version>2.0.2.RELEASE</version>
         </dependency>
 
     </dependencies>

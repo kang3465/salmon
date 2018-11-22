@@ -60,9 +60,10 @@ public class WeChatUtil {
      */
 
     public static String getAccessToken(String appid, String secret) {
-        String url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=" + appid + "&secret=" + secret;
-        JSONObject jsonObject = httpsRequest(url, "GET", null);
+        String url = "http://218.246.5.130/wechat/cgi-bin/token?grant_type=client_credential&appid=" + appid + "&secret=" + secret;
+        JSONObject jsonObject = httpAndHttpsRequest(url, "GET", null);
         try {
+            System.out.println(jsonObject.toString());
             if (jsonObject.getString("errcode") != null) {
                 return "false";
             }

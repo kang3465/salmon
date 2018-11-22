@@ -5,10 +5,11 @@
 	   xmlns:context="http://www.springframework.org/schema/context"
 	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:elasticsearch="http://www.springframework.org/schema/data/elasticsearch"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
-        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/data/elasticsearch http://www.springframework.org/schema/data/elasticsearch/spring-elasticsearch.xsd">
 
 	<context:property-placeholder location="classpath:config/application.properties" ignore-unresolvable="true" />
 
@@ -26,6 +27,13 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
+	<elasticsearch:transport-client id="client"
+									cluster-nodes="${elasticsearch_cluster_nodes}" cluster-name="${elasticsearch_cluster_name}" />
+
+	<bean name="elasticsearchTemplate"
+		  class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
+		<constructor-arg ref="client" />
+	</bean>
 	<!-- 配置多媒体解析器 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="defaultEncoding" value="UTF-8"></property>
