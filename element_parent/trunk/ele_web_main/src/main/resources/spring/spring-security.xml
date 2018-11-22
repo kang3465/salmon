@@ -19,6 +19,7 @@
 	<http pattern="/favicon.ico" security="none"/>
 
 	<http pattern="/assets/**" security="none"/>
+	<http pattern="/openapi/**" security="none"/>
 	<!-- use-expressions:设置是否启动SpEL表达式，默认值是true。 -->
 	<http use-expressions="false">
 		<!--
