@@ -29,16 +29,16 @@
     <pagehelper.version>4.0.0</pagehelper.version>
     <servlet-api.version>2.5</servlet-api.version>
     <dubbo.version>2.8.4</dubbo.version>
-    <zookeeper.version>3.4.7</zookeeper.version>
+    <zookeeper.version>3.4.14</zookeeper.version>
     <zkclient.version>0.1</zkclient.version>
     <mybatis.version>3.2.8</mybatis.version>
     <mybatis.spring.version>1.2.2</mybatis.spring.version>
     <mybatis.paginator.version>1.2.15</mybatis.paginator.version>
     <mysql.version>5.1.32</mysql.version>
     <druid.version>1.0.9</druid.version>
-    <commons-fileupload.version>1.3.1</commons-fileupload.version>
+    <commons-fileupload.version>1.3.3</commons-fileupload.version>
     <freemarker.version>2.3.23</freemarker.version>
-    <activemq.version>5.11.2</activemq.version>
+    <activemq.version>5.15.9</activemq.version>
     <security.version>3.2.3.RELEASE</security.version>
     <solrj.version>4.10.3</solrj.version>
     <ik.version>2012_u6</ik.version>
@@ -46,7 +46,11 @@
   <dependencyManagement>
     <dependencies>
 
-
+      <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-core</artifactId>
+        <version>7.1.0</version>
+      </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2 -->
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
