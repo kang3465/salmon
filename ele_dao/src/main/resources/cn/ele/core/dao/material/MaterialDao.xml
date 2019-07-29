@@ -3,7 +3,7 @@
 <mapper namespace="cn.ele.core.dao.material.MaterialDao" >
   <resultMap id="BaseResultMap" type="cn.ele.core.pojo.material.Material" >
     <result column="id" property="id" jdbcType="BIGINT" />
-    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="BIGINT" />
     <result column="material_name" property="materialName" jdbcType="VARCHAR" />
     <result column="default_item_id" property="defaultItemId" jdbcType="BIGINT" />
     <result column="audit_status" property="auditStatus" jdbcType="VARCHAR" />
@@ -20,6 +20,21 @@
     <result column="is_delete" property="isDelete" jdbcType="VARCHAR" />
     <result column="iconurl" property="iconurl" jdbcType="VARCHAR" />
   </resultMap>
+
+  <resultMap id="DescResultMap" type="cn.ele.core.pojo.material.MaterialEntity" >
+    <collection property="material" ofType="cn.ele.core.pojo.material.Material">
+      <id property="id" column="id" />
+      <result property="materialName" column="materialName"/>
+      <result property="caption" column="caption"/>
+      <result property="iconurl" column="iconurl"/>
+    </collection>
+    <collection property="materialDesc" ofType="cn.ele.core.pojo.material.MaterialDesc">
+      <id property="materialId" column="materialId" />
+      <result property="introduction" column="introduction"/>
+      <result property="packageList" column="packageList"/>
+    </collection>
+  </resultMap>
+
   <sql id="Example_Where_Clause" >
     <where >
       <foreach collection="oredCriteria" item="criteria" separator="or" >
@@ -122,7 +137,7 @@
       #{price,jdbcType=DECIMAL}, #{typeTemplateId,jdbcType=BIGINT}, #{isEnableSpec,jdbcType=VARCHAR}, 
       #{isDelete,jdbcType=VARCHAR}, #{iconurl,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.ele.core.pojo.material.Material" >
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id"  keyColumn="id" parameterType="cn.ele.core.pojo.material.Material">
     insert into ele_material
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -236,6 +251,11 @@
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
+  </select>
+  <select id="selectDescByExample" resultMap="DescResultMap">
+
+    select m.id as id ,m.material_name as materialName,m.iconurl as iconurl ,m.caption as caption ,d.material_id as materialId , d.introduction as introduction ,d.package_list as packageList from more.ele_material m left join more.ele_material_desc d on m.id =d.material_id;
+
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
     update ele_material

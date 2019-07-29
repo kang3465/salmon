@@ -25,7 +25,7 @@ public class MaterialTypeTemplateSreviceImpl implements MaterialTypeTemplateSrev
      */
     @Override
     public List<MaterialTypeTemplate> queryAll() throws Exception {
-        return null;
+        return materialTypeTemplateDao.selectByExample(null);
     }
 
     /**

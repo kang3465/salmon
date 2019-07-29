@@ -69,4 +69,10 @@ public interface SpecificationService {
      * @return
      */
     int deleteSpecificationByIDs(String ids);
+
+    /**
+     * 不包括详细的选项
+     * @return
+     */
+    List<Specification> querySpecificationAllSimple();
 }

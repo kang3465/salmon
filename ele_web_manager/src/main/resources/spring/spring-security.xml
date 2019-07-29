@@ -36,7 +36,9 @@
 			default-target-url	:登录成功后跳转的页面
 			login-processing-url:提交的路径的设置 默认值"/login" 可以修改
 		-->
-		<form-login login-page="/page-login.html"
+		<form-login authentication-failure-handler-ref="WebAuthenticationFailureHandler"
+					authentication-success-handler-ref="WebAuthenticationSuccessHandler"
+				login-page="/page-login.html"
 					default-target-url="/index.html"
 					authentication-failure-url="/page-login.html"
 					login-processing-url="/login"
@@ -76,6 +78,8 @@
 	</beans:bean>
 
 	<beans:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+	<beans:bean id="WebAuthenticationSuccessHandler" class="cn.ele.core.config.WebAuthenticationSuccessHandler"/>
+	<beans:bean id="WebAuthenticationFailureHandler" class="cn.ele.core.config.WebAuthenticationFailureHandler"/>
 	<!-- 配置认证管理器 -->
 	<authentication-manager>
 		<!-- 认证的提供者 -->

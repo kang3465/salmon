@@ -1,5 +1,6 @@
 package cn.ele.core.service.category;
 
+import cn.ele.core.entity.PageResult;
 import cn.ele.core.pojo.category.Category;
 
 import java.util.List;
@@ -55,4 +56,30 @@ public interface CategoryService {
      */
     int deleteCategoryByID(Integer id) throws Exception;
 
+    /**
+     * 根据字符串reg将ids切分，之后批量删除
+     * @param ids
+     * @param reg
+     * @return
+     * @throws Exception
+     */
+    int deleteCategoryByIDs(String ids,String reg) throws Exception;
+/**
+     * 根据字符串ids直接批量删除
+     * @param ids
+     * @return
+     * @throws Exception
+     */
+    int deleteCategoryByIDs(String ids) throws Exception;
+
+    /**
+     *
+     * @param entity
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    PageResult queryCategoryByParentID(Category entity, Integer pageNum, Integer pageSize, String keywords);
+
+    Category findOneByID(Long id);
 }

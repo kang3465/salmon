@@ -1,7 +1,9 @@
 package cn.ele.core.controller.material;
 
 import cn.ele.core.entity.PageResult;
+import cn.ele.core.entity.RespBean;
 import cn.ele.core.entity.Result;
+import cn.ele.core.pojo.category.Specification;
 import cn.ele.core.pojo.category.SpecificationEntity;
 import cn.ele.core.service.category.SpecificationService;
 import com.alibaba.dubbo.config.annotation.Reference;
@@ -9,6 +11,8 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("specification")
@@ -22,7 +26,7 @@ public class SpecificationController {
      * @return
      */
     @RequestMapping("queryOne")
-    public SpecificationEntity queryOne(Long id){
+    public RespBean queryOne(Long id){
         SpecificationEntity entity=null;
 
         try {
@@ -30,7 +34,7 @@ public class SpecificationController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return entity;
+        return RespBean.success("",entity);
     }
 
     /**
@@ -39,7 +43,7 @@ public class SpecificationController {
      * @return
      */
     @RequestMapping("querySpecificationAllByPage")
-    public PageResult querySpecificationAllByPage(Integer pageNum, Integer pageSize) {
+    public RespBean querySpecificationAllByPage(Integer pageNum, Integer pageSize) {
         PageResult pageResult = null;
 
         try {
@@ -47,7 +51,37 @@ public class SpecificationController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return pageResult;
+        return RespBean.ok("查询成功",pageResult);
+    }/**
+     * 返回分类
+     *
+     * @return
+     */
+    @RequestMapping("querySpecificationAll")
+    public RespBean querySpecificationAll() {
+        List<SpecificationEntity> result = null;
+
+        try {
+            result = specificationService.querySpecificationAll();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return RespBean.ok("查询成功",result);
+    }/**
+     * 返回分类
+     *
+     * @return
+     */
+    @RequestMapping("querySpecificationAllSimple")
+    public RespBean querySpecificationAllSimple() {
+        List<Specification> result = null;
+
+        try {
+            result = specificationService.querySpecificationAllSimple();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return RespBean.ok("查询成功",result);
     }
 
     @RequestMapping("deleteSpecificationByID")

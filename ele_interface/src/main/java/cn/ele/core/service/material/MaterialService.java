@@ -56,4 +56,8 @@ public interface MaterialService {
      */
 
     PageResult queryAllByPage(Integer pageNum, Integer pageSize) throws Exception;
+
+    MaterialEntity findOneByID(Long id);
+
+    Object querySelfByPage(Integer pageNum, Integer pageSize,Long userId);
 }

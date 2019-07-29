@@ -65,7 +65,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return new User(username, user.getPassword(), grantedList);
+            user.setGrantedList(grantedList);
+            return user;
         }
     }
 

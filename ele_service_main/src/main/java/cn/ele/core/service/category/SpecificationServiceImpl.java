@@ -10,6 +10,7 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,7 +32,19 @@ public class SpecificationServiceImpl implements SpecificationService {
      */
     @Override
     public List<SpecificationEntity> querySpecificationAll() throws Exception {
-        return null;
+        List<Specification> specifications = specificationDao.selectByExample(null);
+        List<SpecificationEntity> specificationEntities = new ArrayList<>();
+        for (int i = 0; i < specifications.size(); i++) {
+            SpecificationEntity specificationEntity = new SpecificationEntity();
+            specificationEntity.setSpecification(specifications.get(i));
+            SpecificationOptionQuery specificationOptionQuery = new SpecificationOptionQuery();
+            specificationOptionQuery.createCriteria().andIdEqualTo(specifications.get(i).getId());
+            List<SpecificationOption> specificationOptions = specificationOptionDao.selectByExample(specificationOptionQuery);
+            specificationEntity.setSpecificationOptionList(specificationOptions);
+            specificationEntities.add(specificationEntity);
+
+        }
+        return specificationEntities;
     }
 
     @Override
@@ -152,6 +165,11 @@ public class SpecificationServiceImpl implements SpecificationService {
     @Override
     public int deleteSpecificationByIDs(String ids) {
         return 0;
+    }
+
+    @Override
+    public List<Specification> querySpecificationAllSimple() {
+        return specificationDao.selectByExample(null);
     }
 
 }

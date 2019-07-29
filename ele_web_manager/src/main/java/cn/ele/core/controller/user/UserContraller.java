@@ -1,6 +1,7 @@
 package cn.ele.core.controller.user;
 
 import cn.ele.core.entity.PageResult;
+import cn.ele.core.entity.RespBean;
 import cn.ele.core.entity.Result;
 import cn.ele.core.pojo.user.User;
 import cn.ele.core.service.user.UserService;
@@ -85,8 +86,9 @@ public class UserContraller {
      * @return 返回分页数据
      */
     @RequestMapping(value = "queryUserListSafeByPage", method= RequestMethod.GET)
-    public PageResult queryUserListSafeByPage(Integer pageNum, Integer pageSize){
-        return userService.queryAllUserListSafeByPage(pageNum, pageSize);
+    public RespBean queryUserListSafeByPage(Integer pageNum, Integer pageSize){
+
+        return RespBean.ok("success",userService.queryAllUserListSafeByPage(pageNum, pageSize));
     }
 
 }

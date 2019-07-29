@@ -1,9 +1,14 @@
 package cn.ele.core.pojo.user;
 
-import java.io.Serializable;
-import java.util.Date;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-public class User implements Serializable {
+import java.io.Serializable;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
+public class User implements Serializable, UserDetails {
     private Long id;
 
     private String username;
@@ -50,6 +55,8 @@ public class User implements Serializable {
 
     private Date lastLoginTime;
 
+    private List<GrantedAuthority> grantedList;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -64,8 +71,53 @@ public class User implements Serializable {
         return username;
     }
 
+    public List<GrantedAuthority> getGrantedList() {
+        return grantedList;
+    }
+
+    public void setGrantedList(List<GrantedAuthority> grantedList) {
+        this.grantedList = grantedList;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        if ("1".equals(this.status)){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        if ("1".equals(this.status)){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        if ("1".equals(this.status)){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        if ("1".equals(this.status)){
+            return true;
+        }
+        return false;
+    }
+
     public void setUsername(String username) {
         this.username = username == null ? null : username.trim();
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.getGrantedList();
     }
 
     public String getPassword() {

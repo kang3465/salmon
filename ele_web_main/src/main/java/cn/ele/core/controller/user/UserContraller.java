@@ -1,5 +1,6 @@
 package cn.ele.core.controller.user;
 
+import cn.ele.core.entity.RespBean;
 import cn.ele.core.entity.Result;
 import cn.ele.core.pojo.user.User;
 import cn.ele.core.service.user.UserService;
@@ -15,6 +16,10 @@ public class UserContraller {
     @Reference
     UserService userService;
 
+    @RequestMapping("/login_p")
+    public RespBean login() {
+        return RespBean.error("尚未登录，请登录！!");
+    }
     @RequestMapping("Login")
     public String Login() {
         return "success";
@@ -22,21 +27,24 @@ public class UserContraller {
 
     @RequestMapping("Regist")
     @ResponseBody
-    public Result regist(String userName, String email, String password, String phoneNumber) {
+    public RespBean regist(String userName, String email, String password, String phoneNumber) {
         User user = new User();
         user.setUsername(userName);
         user.setEmail(email);
         user.setPassword(new BCryptPasswordEncoder().encode(password));
         user.setPhone(phoneNumber);
         try {
+            if (userService.findOneByUserName(userName)!=null){
+                return RespBean.error("用户已存在");
+            }
             if (userService.addUser(user)==-1) {
                 throw new Exception("用户已存在");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return new Result(false,"注册失败："+e.getMessage());
+            return RespBean.error("注册失败：",e.getMessage());
         }
-        return  new Result(true,"注册成功！");
+        return  RespBean.ok("注册成功！");
     }
 
     /**

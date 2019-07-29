@@ -1,10 +1,8 @@
 package cn.ele.core.service;
-
 import cn.ele.core.pojo.user.Permission;
 import cn.ele.core.service.user.UserService;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,6 +11,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
+/**
+ * @author kang
+ */
 public class UserDetailServiceImpl implements UserDetailsService {
 
     private UserService userService;
@@ -28,21 +30,20 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         cn.ele.core.pojo.user.User user = null;
-        username = username.trim();
         try {
             user = userService.findOneByUserName(username);
         } catch (Exception e) {
             e.printStackTrace();
         }
-//        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
+///        System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
         if (user == null) {
             return null;
         } else if ("0".equals(user.getStatus())) {
             throw new UsernameNotFoundException("用户处于非正常状态");
         } else {
-            //创建权限集合
+            ///创建权限集合
             List<GrantedAuthority> grantedList = new ArrayList<>();
-            //向权限集合中添加权限
+            ///向权限集合中添加权限
             List<Permission> permissionByUserId = null;
             try {
                 permissionByUserId = userService.findPermissionByUserId(user.getId());
@@ -55,15 +56,16 @@ public class UserDetailServiceImpl implements UserDetailsService {
                     grantedList.add(new SimpleGrantedAuthority(aPermissionByUserId.getName()));
                 }
             }
-//            System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
-            //更新用户登录时间
+///            System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
+            ///更新用户登录时间
             try {
                 user.setLastLoginTime(new Date());
                 userService.saveUser(user);
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return new User(username, user.getPassword(), grantedList);
+            user.setGrantedList(grantedList);
+            return user;
         }
     }
 

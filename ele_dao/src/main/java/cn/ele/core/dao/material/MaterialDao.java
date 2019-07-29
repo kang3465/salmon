@@ -1,6 +1,7 @@
 package cn.ele.core.dao.material;
 
 import cn.ele.core.pojo.material.Material;
+import cn.ele.core.pojo.material.MaterialEntity;
 import cn.ele.core.pojo.material.MaterialQuery;
 import org.apache.ibatis.annotations.Param;
 
@@ -16,6 +17,8 @@ public interface MaterialDao {
     int insertSelective(Material record);
 
     List<Material> selectByExample(MaterialQuery example);
+
+    List<MaterialEntity> selectDescByExample(Material example);
 
     int updateByExampleSelective(@Param("record") Material record, @Param("example") MaterialQuery example);
 

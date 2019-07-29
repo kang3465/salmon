@@ -4,6 +4,7 @@ import cn.ele.core.pojo.user.Menu;
 import cn.ele.core.pojo.user.User;
 import cn.ele.core.service.MenuService;
 import cn.ele.core.service.user.UserService;
+import cn.ele.core.util.UserUtils;
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -30,21 +31,10 @@ public class MenuController {
     @Reference
     UserService userService;
     @RequestMapping("queryMenu")
-    public List<Menu> queryMenu(HttpServletRequest request, HttpServletResponse response) {
-        JSONArray objects =null;
-                SecurityContextImpl securityContextImpl = (SecurityContextImpl) request
-                .getSession().getAttribute("SPRING_SECURITY_CONTEXT");
-        org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) securityContextImpl.getAuthentication().getPrincipal();
-        String username = principal.getUsername();
-        /**
-         * 获取当前登录对象（用户名密码以及权限）
-         */
-        /*UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication() .getPrincipal();
-        String username = userDetails.getUsername();*/
+    public List<Menu> queryMenu() {
         List<Menu> menuList =null;
         try {
-            User user = userService.findOneByUserName(username);
-            menuList = menuService.queryMenuByUser(user);
+            menuList = menuService.queryMenuByUser(UserUtils.getCurrentUser());
         } catch (Exception e) {
             e.printStackTrace();
         }

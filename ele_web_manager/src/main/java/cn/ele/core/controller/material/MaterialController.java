@@ -73,7 +73,7 @@ public class MaterialController {
     @RequestMapping("queryByPage")
     public PageResult queryByPage(Integer pageNum, Integer pageSize){
         try {
-            return materialService.queryAllByPage(pageNum,pageNum);
+            return materialService.queryAllByPage(pageNum,pageSize);
         } catch (Exception e) {
             e.printStackTrace();
         }

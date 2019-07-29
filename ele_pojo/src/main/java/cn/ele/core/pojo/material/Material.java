@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 public class Material implements Serializable {
     private Long id;
 
-    private String userId;
+    private Long userId;
 
     private String materialName;
 
@@ -48,12 +48,12 @@ public class Material implements Serializable {
         this.id = id;
     }
 
-    public String getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     public String getMaterialName() {
